@@ -1,0 +1,37 @@
+PODS:
+  - Alamofire (4.9.1)
+  - HandyJSON (5.0.1)
+  - ReSwift (5.0.0)
+  - ReSwiftMonitor (0.0.8):
+    - HandyJSON (~> 5.0.0)
+    - ReSwift (~> 5.0.0)
+    - Starscream (~> 3.1.0)
+  - Starscream (3.1.1)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - ReSwift
+  - ReSwiftMonitor
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - HandyJSON
+    - ReSwift
+    - ReSwiftMonitor
+    - Starscream
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
+  ReSwiftMonitor: 218f5470e5d671689f3052ab0c22774eb7913799
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: 586044a8454d533a9d25ff50d610b2271257ee3b
+
+COCOAPODS: 1.5.2
