@@ -25,12 +25,6 @@ struct ContentView: View {
                 Text("success action")
             }
             
-            
-            
-//            (state.dispatch(bossActions.pendingGetBoss))
-            
-            Text(state.current.bossSubState.status)
-            
         }
     }
 }
