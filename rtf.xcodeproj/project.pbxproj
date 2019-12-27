@@ -51,6 +51,7 @@
 		EA9CF59723B626A500C883F4 /* usersInbox.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9CF59623B626A500C883F4 /* usersInbox.reducer.swift */; };
 		EA9CF59923B626C700C883F4 /* usersRequest.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9CF59823B626C700C883F4 /* usersRequest.reducer.swift */; };
 		EA9CF59B23B626DD00C883F4 /* usersTeam.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9CF59A23B626DD00C883F4 /* usersTeam.reducer.swift */; };
+		EA9CF59D23B62B0400C883F4 /* ObservableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9CF59C23B62B0400C883F4 /* ObservableState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		EA9CF59623B626A500C883F4 /* usersInbox.reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usersInbox.reducer.swift; sourceTree = "<group>"; };
 		EA9CF59823B626C700C883F4 /* usersRequest.reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usersRequest.reducer.swift; sourceTree = "<group>"; };
 		EA9CF59A23B626DD00C883F4 /* usersTeam.reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usersTeam.reducer.swift; sourceTree = "<group>"; };
+		EA9CF59C23B62B0400C883F4 /* ObservableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				EA9CF54F23B6210E00C883F4 /* actions */,
 				EA9CF54E23B6210800C883F4 /* reducers */,
 				EA9CF54C23B620E000C883F4 /* store.swift */,
+				EA9CF59C23B62B0400C883F4 /* ObservableState.swift */,
 			);
 			path = _store;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				EA9CF55A23B622B100C883F4 /* users.reducer.swift in Sources */,
 				EA9CF55823B6228400C883F4 /* users.actions.swift in Sources */,
 				EA9CF57923B624FA00C883F4 /* usersRequest.actions.swift in Sources */,
+				EA9CF59D23B62B0400C883F4 /* ObservableState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
+				DEVELOPMENT_TEAM = H9B99NLA3J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -570,6 +575,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
+				DEVELOPMENT_TEAM = H9B99NLA3J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

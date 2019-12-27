@@ -11,7 +11,7 @@ import ReSwift
 
 struct BossState: StateType {
     var collection = ""
-    var status = ""
+    var status = "reactiveStoreTest"
 }
 
 func bossReducer(action: Action, state: BossState?) -> BossState {
