@@ -312,3 +312,5 @@ $RECYCLE.BIN/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/linux,swift,xcode,macos,windows,appcode,cocoapods,objective-c,visualstudiocode
+
+Pods/
