@@ -17,6 +17,5 @@ pod 'ReSwift'
 pod 'Alamofire'
 # работа с JSON
 pod 'SwiftyJSON'
-# что то реактивное
-pod 'RxCombine'
+
 end
