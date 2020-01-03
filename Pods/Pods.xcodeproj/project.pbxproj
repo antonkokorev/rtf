@@ -1167,6 +1167,8 @@
 				0389D24C4E95127846B92BCF30FFF472 /* PBXTargetDependency */,
 			);
 			name = "Pods-rtf";
+			packageProductDependencies = (
+			);
 			productName = "Pods-rtf";
 			productReference = FB2B07AC789372C2F6767F966AD42C86 /* Pods_rtf.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1224,6 +1226,8 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			packageReferences = (
+			);
 			productRefGroup = 618B61AC65A8CE30869F966DDA8F3193 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
