@@ -1,6 +1,0 @@
-framework module Pods_rtf {
-  umbrella header "Pods-rtf-umbrella.h"
-
-  export *
-  module * { export * }
-}

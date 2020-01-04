@@ -9,14 +9,14 @@
 import Foundation
 import ReSwift
 import Alamofire
-import SwiftyJSON
+
 
      var userRecentEffect: Middleware<AppState> {
         return { dispatch, getState in { next in return { action in
             print(action)
             next(action)
 
-            Alamofire.request(Interceptor.serviceRequest(service: "relation/recent")).response { response in
+            AF.request(Interceptor.serviceRequest(service: "relation/recent")).response { response in
                 switch response.error {
                 case .none:
                     let data = try? JSONDecoder().decode([IUser].self, from: response.data!)

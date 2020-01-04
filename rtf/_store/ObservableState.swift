@@ -7,6 +7,8 @@
 //
 
 import ReSwift
+import Combine
+import UIKit
 
 public class ObservableState<T>: ObservableObject where T: StateType {
 
