@@ -14,6 +14,7 @@ struct StartView: View {
     @ObservedObject private var userModel = UserViewModel()
     var body: some View{
         
+
      
         VStack(alignment: .leading) {
 
@@ -21,6 +22,7 @@ struct StartView: View {
             }
        
         
+
          
     }
 }
