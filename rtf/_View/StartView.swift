@@ -17,7 +17,7 @@ struct StartView: View {
      
         VStack(alignment: .leading) {
 
-            Avatar()
+            Avatar(parameters: Parameters.init(imageUrl: "https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200", avatarLineColor: Color.red, avatarLineWidth: 5))
             }
        
         
