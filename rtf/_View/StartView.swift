@@ -14,13 +14,16 @@ struct StartView: View {
     @ObservedObject private var userModel = UserViewModel()
     var body: some View{
         
-     
-        VStack(alignment: .leading) {
-
-            Avatar()
-            }
-       
-        
+        NavigationView {
+         Like()
+        }
+//
+//        VStack(alignment: .leading) {
+//
+//            Avatar()
+//            }
+//
+//
          
     }
 }
