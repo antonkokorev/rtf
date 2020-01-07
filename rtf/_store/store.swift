@@ -7,63 +7,65 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
 
-/*
- state приложения
- описывает типы переменных и инициализирует их
- */
-struct AppState: StateType {
-    var usersSubState: UsersState = UsersState()
-    var bossSubState: BossState = BossState()
-    var comparisonSubState: ComparisonState = ComparisonState()
-    var feedbackPropsSubState: FeedbackPropsState = FeedbackPropsState()
-    var messageSubState: MessageState = MessageState()
-    var requestRatingSubState = requestRatingState()
-    var statisticsSubState = statisticsState()
-    var subordinatesSubState = subordinatesState()
-    var teamInfoSubState = teamInfoState()
-    var thanksSubState = thanksState()
-    var usersAllSubState = usersAllState()
-    var usersFavouriteSubState = usersFavouriteState()
-    var userHistorySubState = usersHistoryState()
-    var usersInboxSubState = usersInboxState()
-    var usersRecentSubState: UsersRecentState = UsersRecentState()
-    var usersRequestSubState = usersRequestState()
-    var usersTeamSubState = usersTeamState()
+protocol AppStateType {
+    var state: AppState { get }
 }
 
-/*
- главный reducer
- парсит Actions, на основе этого вызывает нужный reducer и пересоздает state приложения
- */
-func appReducer(action: Action, state: AppState?) -> AppState {
-    return AppState(
-        usersSubState: usersReducer(action: action, state: state?.usersSubState),
-        bossSubState: bossReducer(action: action, state: state?.bossSubState),
-        comparisonSubState: comparisonReducer(action: action, state: state?.comparisonSubState),
-        feedbackPropsSubState: feedbackPropsReducer(action: action, state: state?.feedbackPropsSubState),
-        messageSubState: messageReducer(action: action, state: state?.messageSubState),
-        requestRatingSubState: requestRatingReducer(action: action, state: state?.requestRatingSubState),
-        statisticsSubState: statisticsReducer(action: action, state: state?.statisticsSubState),
-        subordinatesSubState: subordinatesReducer(action: action, state: state?.subordinatesSubState),
-        teamInfoSubState: teamInfoReducer(action: action, state: state?.teamInfoSubState),
-        thanksSubState: thanksReducer(action: action, state: state?.thanksSubState),
-        usersAllSubState: usersAllReducer(action: action, state: state?.usersAllSubState),
-        usersFavouriteSubState: usersFavouriteReducer(action: action, state: state?.usersFavouriteSubState),
-        userHistorySubState: usersHistoryReducer(action: action, state: state?.userHistorySubState),
-        usersInboxSubState: usersInboxReducer(action: action, state: state?.usersInboxSubState),
-        usersRecentSubState: usersRecentReducer(action: action, state: state?.usersRecentSubState),
-        usersRequestSubState: usersRequestReducer(action: action, state: state?.usersRequestSubState),
-        usersTeamSubState: usersTeamReducer(action: action, state: state?.usersTeamSubState)
-    )
+typealias ActionCreatorables = RequestActionCreatorable
+typealias RequestActionCreator = (_ state: AppState,_ store: DispatchingStoreType) -> Action?
+protocol RequestActionCreatorable {
+    func dispatch(_ actionCreatorProvider: @escaping RequestActionCreator)
 }
 
-/*
- инициализация переменной store
- через эту переменную происходит взаимодействией со всех архитектурой redux
- */
-let store = Store(
-    reducer: appReducer,
-    state: AppState(),
-    middleware: [userRecentEffect]
-)
+class ReactiveStore: StoreSubscriber, DispatchingStoreType {
+    var state: AppState { return store.state }
+    var statePublisher: AnyPublisher<AppState, Never> {
+        return stateSubject.eraseToAnyPublisher()
+    }
+    
+    private let store: Store<AppState>
+    private lazy var stateSubject: CurrentValueSubject<AppState, Never> = .init(state)
+    
+    init(store: Store<AppState>) {
+        self.store = store
+        self.store.subscribe(self)
+    }
+    
+    deinit {
+        self.store.unsubscribe(self)
+    }
+    
+    func newState(state: AppState) {
+        stateSubject.send(state)
+    }
+    
+    func dispatch(_ action: Action) {
+        if Thread.isMainThread {
+            store.dispatch(action)
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.store.dispatch(action)
+            }
+        }
+    }
+}
+
+/* глобальный store приложения */
+final class GlobalStore: ReactiveStore, ActionCreatorables {
+    
+    override init(store: Store<AppState>) {
+        super.init(store: store)
+    }
+    
+    private func create( _ actionCreatorProvider: @escaping RequestActionCreator) -> Action? {
+        return actionCreatorProvider(state, self)
+    }
+    
+    func dispatch(_ actionCreatorProvider: @escaping RequestActionCreator) {
+        guard let action = create(actionCreatorProvider) else { return }
+        dispatch(action)
+    }
+}

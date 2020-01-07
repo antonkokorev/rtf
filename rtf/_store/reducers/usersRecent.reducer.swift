@@ -7,15 +7,16 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
 
-
-struct UsersRecentState: StateType {
-    var collection: [IUser] = []
-    var status = ""
+final class UsersRecentState: StateType, ObservableObject {
+    @Published var collection: [IUser] = []
+    @Published var status = ""
 }
 
 func usersRecentReducer(action: Action, state: UsersRecentState?) -> UsersRecentState {
-    var state = state ?? UsersRecentState()
+    let state = state ?? UsersRecentState()
 
     guard let action = action as? usersRecentActions else {
         return state

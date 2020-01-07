@@ -2,6 +2,37 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SBSansCondMono-Bold.otf</string>
+		<string>SBSansCondMono-Regular.otf</string>
+		<string>SBSansDisplay-Bold.otf</string>
+		<string>SBSansDisplay-Regular.otf</string>
+		<string>SBSansDisplay-SemiBold.otf</string>
+		<string>SBSansScreen.otf</string>
+		<string>SBSansText-Bold.otf</string>
+		<string>SBSansText-BoldItalic.otf</string>
+		<string>SBSansText-Heavy.otf</string>
+		<string>SBSansText-Italic.otf</string>
+		<string>SBSansText-Light.otf</string>
+		<string>SBSansText-LightItalic.otf</string>
+		<string>SBSansText-Medium.otf</string>
+		<string>SBSansText-Regular.otf</string>
+		<string>SBSansText-Semibold.otf</string>
+		<string>SBSansText-SemiBoldItalic.otf</string>
+		<string>SBSansText-Thin.otf</string>
+		<string>SBSansTextCaps-Bold.otf</string>
+		<string>SBSansTextCaps-Regular.otf</string>
+		<string>SBSansTextCond-Bold.otf</string>
+		<string>SBSansTextCond-Regular.otf</string>
+		<string>SBSansTextMono-Bold.otf</string>
+		<string>SBSansTextMono-Regular.otf</string>
+		<string>SBSansUI-Bold.otf</string>
+		<string>SBSansUI-Caps.otf</string>
+		<string>SBSansUI-Light.otf</string>
+		<string>SBSansUI-Regular.otf</string>
+		<string>SBSansUI-Semibold.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

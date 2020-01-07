@@ -33,7 +33,6 @@
 		3A506F0223C0D26700A498C8 /* usersFavourite.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506ED423C0D26600A498C8 /* usersFavourite.actions.swift */; };
 		3A506F0323C0D26700A498C8 /* comparison.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506ED523C0D26600A498C8 /* comparison.actions.swift */; };
 		3A506F0423C0D26700A498C8 /* store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506ED623C0D26600A498C8 /* store.swift */; };
-		3A506F0523C0D26700A498C8 /* ObservableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506ED723C0D26600A498C8 /* ObservableState.swift */; };
 		3A506F0623C0D26700A498C8 /* usersRecent.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506ED923C0D26600A498C8 /* usersRecent.effect.swift */; };
 		3A506F0723C0D26700A498C8 /* requestRating.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EDB23C0D26600A498C8 /* requestRating.reducer.swift */; };
 		3A506F0823C0D26700A498C8 /* usersRecent.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EDC23C0D26600A498C8 /* usersRecent.reducer.swift */; };
@@ -57,6 +56,40 @@
 		3A506F1C23C0D29200A498C8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1B23C0D29200A498C8 /* Alamofire */; };
 		3A506F1F23C0D2A300A498C8 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1E23C0D2A300A498C8 /* ReSwift */; };
 		3A506F2223C0D2B900A498C8 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F2123C0D2B900A498C8 /* URLImage */; };
+		EA9211C023C5140300A0CB5B /* Feedback.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211BF23C5140300A0CB5B /* Feedback.view.swift */; };
+		EA9211C423C517EB00A0CB5B /* state.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C323C517EB00A0CB5B /* state.swift */; };
+		EA9211C723C51BAB00A0CB5B /* User.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C623C51BAB00A0CB5B /* User.view.swift */; };
+		EA9211CA23C5241E00A0CB5B /* EmployeeSearchBar.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C923C5241E00A0CB5B /* EmployeeSearchBar.view.swift */; };
+		EA9211CD23C52F8D00A0CB5B /* EmployeeIconView.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211CC23C52F8D00A0CB5B /* EmployeeIconView.view.swift */; };
+		EA9211CF23C5381E00A0CB5B /* subordinates.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211CE23C5381E00A0CB5B /* subordinates.effect.swift */; };
+		EA9211EE23C5404300A0CB5B /* SBSansDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D223C5404000A0CB5B /* SBSansDisplay-Regular.otf */; };
+		EA9211EF23C5404300A0CB5B /* SBSansTextCond-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D323C5404100A0CB5B /* SBSansTextCond-Bold.otf */; };
+		EA9211F023C5404300A0CB5B /* SBSansText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D423C5404100A0CB5B /* SBSansText-Semibold.otf */; };
+		EA9211F123C5404300A0CB5B /* SBSansText-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D523C5404100A0CB5B /* SBSansText-SemiBoldItalic.otf */; };
+		EA9211F223C5404300A0CB5B /* SBSansTextMono-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D623C5404100A0CB5B /* SBSansTextMono-Bold.otf */; };
+		EA9211F323C5404300A0CB5B /* SBSansText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D723C5404100A0CB5B /* SBSansText-Bold.otf */; };
+		EA9211F423C5404300A0CB5B /* SBSansText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D823C5404100A0CB5B /* SBSansText-Medium.otf */; };
+		EA9211F523C5404300A0CB5B /* SBSansUI-Caps.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D923C5404100A0CB5B /* SBSansUI-Caps.otf */; };
+		EA9211F623C5404300A0CB5B /* SBSansText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DA23C5404100A0CB5B /* SBSansText-BoldItalic.otf */; };
+		EA9211F723C5404300A0CB5B /* SBSansUI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DB23C5404100A0CB5B /* SBSansUI-Regular.otf */; };
+		EA9211F823C5404300A0CB5B /* SBSansTextCaps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DC23C5404100A0CB5B /* SBSansTextCaps-Regular.otf */; };
+		EA9211F923C5404300A0CB5B /* SBSansTextMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DD23C5404100A0CB5B /* SBSansTextMono-Regular.otf */; };
+		EA9211FA23C5404300A0CB5B /* SBSansText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DE23C5404100A0CB5B /* SBSansText-Heavy.otf */; };
+		EA9211FB23C5404300A0CB5B /* SBSansCondMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DF23C5404100A0CB5B /* SBSansCondMono-Regular.otf */; };
+		EA9211FC23C5404300A0CB5B /* SBSansScreen.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E023C5404200A0CB5B /* SBSansScreen.otf */; };
+		EA9211FD23C5404300A0CB5B /* SBSansUI-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E123C5404200A0CB5B /* SBSansUI-Semibold.otf */; };
+		EA9211FE23C5404300A0CB5B /* SBSansText-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E223C5404200A0CB5B /* SBSansText-Italic.otf */; };
+		EA9211FF23C5404300A0CB5B /* SBSansTextCond-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E323C5404200A0CB5B /* SBSansTextCond-Regular.otf */; };
+		EA92120023C5404300A0CB5B /* SBSansText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E423C5404200A0CB5B /* SBSansText-LightItalic.otf */; };
+		EA92120123C5404300A0CB5B /* SBSansDisplay-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E523C5404200A0CB5B /* SBSansDisplay-SemiBold.otf */; };
+		EA92120223C5404300A0CB5B /* SBSansUI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E623C5404200A0CB5B /* SBSansUI-Bold.otf */; };
+		EA92120323C5404300A0CB5B /* SBSansUI-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E723C5404200A0CB5B /* SBSansUI-Light.otf */; };
+		EA92120423C5404300A0CB5B /* SBSansCondMono-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E823C5404200A0CB5B /* SBSansCondMono-Bold.otf */; };
+		EA92120523C5404300A0CB5B /* SBSansText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E923C5404200A0CB5B /* SBSansText-Light.otf */; };
+		EA92120623C5404300A0CB5B /* SBSansTextCaps-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211EA23C5404200A0CB5B /* SBSansTextCaps-Bold.otf */; };
+		EA92120723C5404300A0CB5B /* SBSansText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211EB23C5404200A0CB5B /* SBSansText-Regular.otf */; };
+		EA92120823C5404300A0CB5B /* SBSansText-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211EC23C5404300A0CB5B /* SBSansText-Thin.otf */; };
+		EA92120923C5404300A0CB5B /* SBSansDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211ED23C5404300A0CB5B /* SBSansDisplay-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,7 +121,6 @@
 		3A506ED423C0D26600A498C8 /* usersFavourite.actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = usersFavourite.actions.swift; sourceTree = "<group>"; };
 		3A506ED523C0D26600A498C8 /* comparison.actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = comparison.actions.swift; sourceTree = "<group>"; };
 		3A506ED623C0D26600A498C8 /* store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = store.swift; sourceTree = "<group>"; };
-		3A506ED723C0D26600A498C8 /* ObservableState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableState.swift; sourceTree = "<group>"; };
 		3A506ED923C0D26600A498C8 /* usersRecent.effect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = usersRecent.effect.swift; sourceTree = "<group>"; };
 		3A506EDB23C0D26600A498C8 /* requestRating.reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestRating.reducer.swift; sourceTree = "<group>"; };
 		3A506EDC23C0D26600A498C8 /* usersRecent.reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = usersRecent.reducer.swift; sourceTree = "<group>"; };
@@ -109,6 +141,40 @@
 		3A506EEB23C0D26600A498C8 /* message.reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = message.reducer.swift; sourceTree = "<group>"; };
 		3A506EEE23C0D26700A498C8 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		3A506EEF23C0D26700A498C8 /* imageAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageAvatar.swift; sourceTree = "<group>"; };
+		EA9211BF23C5140300A0CB5B /* Feedback.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.view.swift; sourceTree = "<group>"; };
+		EA9211C323C517EB00A0CB5B /* state.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = state.swift; sourceTree = "<group>"; };
+		EA9211C623C51BAB00A0CB5B /* User.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.view.swift; sourceTree = "<group>"; };
+		EA9211C923C5241E00A0CB5B /* EmployeeSearchBar.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSearchBar.view.swift; sourceTree = "<group>"; };
+		EA9211CC23C52F8D00A0CB5B /* EmployeeIconView.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeIconView.view.swift; sourceTree = "<group>"; };
+		EA9211CE23C5381E00A0CB5B /* subordinates.effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subordinates.effect.swift; sourceTree = "<group>"; };
+		EA9211D223C5404000A0CB5B /* SBSansDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansDisplay-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansDisplay-Regular.otf"; sourceTree = "<group>"; };
+		EA9211D323C5404100A0CB5B /* SBSansTextCond-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCond-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCond-Bold.otf"; sourceTree = "<group>"; };
+		EA9211D423C5404100A0CB5B /* SBSansText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Semibold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Semibold.otf"; sourceTree = "<group>"; };
+		EA9211D523C5404100A0CB5B /* SBSansText-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-SemiBoldItalic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		EA9211D623C5404100A0CB5B /* SBSansTextMono-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextMono-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextMono-Bold.otf"; sourceTree = "<group>"; };
+		EA9211D723C5404100A0CB5B /* SBSansText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Bold.otf"; sourceTree = "<group>"; };
+		EA9211D823C5404100A0CB5B /* SBSansText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Medium.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Medium.otf"; sourceTree = "<group>"; };
+		EA9211D923C5404100A0CB5B /* SBSansUI-Caps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Caps.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Caps.otf"; sourceTree = "<group>"; };
+		EA9211DA23C5404100A0CB5B /* SBSansText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-BoldItalic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-BoldItalic.otf"; sourceTree = "<group>"; };
+		EA9211DB23C5404100A0CB5B /* SBSansUI-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Regular.otf"; sourceTree = "<group>"; };
+		EA9211DC23C5404100A0CB5B /* SBSansTextCaps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCaps-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCaps-Regular.otf"; sourceTree = "<group>"; };
+		EA9211DD23C5404100A0CB5B /* SBSansTextMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextMono-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextMono-Regular.otf"; sourceTree = "<group>"; };
+		EA9211DE23C5404100A0CB5B /* SBSansText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Heavy.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Heavy.otf"; sourceTree = "<group>"; };
+		EA9211DF23C5404100A0CB5B /* SBSansCondMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansCondMono-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansCondMono-Regular.otf"; sourceTree = "<group>"; };
+		EA9211E023C5404200A0CB5B /* SBSansScreen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SBSansScreen.otf; path = ../../../../rtf/rtf/_assets/fonts/SBSansScreen.otf; sourceTree = "<group>"; };
+		EA9211E123C5404200A0CB5B /* SBSansUI-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Semibold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Semibold.otf"; sourceTree = "<group>"; };
+		EA9211E223C5404200A0CB5B /* SBSansText-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Italic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Italic.otf"; sourceTree = "<group>"; };
+		EA9211E323C5404200A0CB5B /* SBSansTextCond-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCond-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCond-Regular.otf"; sourceTree = "<group>"; };
+		EA9211E423C5404200A0CB5B /* SBSansText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-LightItalic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-LightItalic.otf"; sourceTree = "<group>"; };
+		EA9211E523C5404200A0CB5B /* SBSansDisplay-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansDisplay-SemiBold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansDisplay-SemiBold.otf"; sourceTree = "<group>"; };
+		EA9211E623C5404200A0CB5B /* SBSansUI-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Bold.otf"; sourceTree = "<group>"; };
+		EA9211E723C5404200A0CB5B /* SBSansUI-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Light.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Light.otf"; sourceTree = "<group>"; };
+		EA9211E823C5404200A0CB5B /* SBSansCondMono-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansCondMono-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansCondMono-Bold.otf"; sourceTree = "<group>"; };
+		EA9211E923C5404200A0CB5B /* SBSansText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Light.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Light.otf"; sourceTree = "<group>"; };
+		EA9211EA23C5404200A0CB5B /* SBSansTextCaps-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCaps-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCaps-Bold.otf"; sourceTree = "<group>"; };
+		EA9211EB23C5404200A0CB5B /* SBSansText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Regular.otf"; sourceTree = "<group>"; };
+		EA9211EC23C5404300A0CB5B /* SBSansText-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Thin.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Thin.otf"; sourceTree = "<group>"; };
+		EA9211ED23C5404300A0CB5B /* SBSansDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansDisplay-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansDisplay-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,11 +210,13 @@
 		3A506EA823C0D24E00A498C8 /* rtf */ = {
 			isa = PBXGroup;
 			children = (
+				EA9211D023C53FAD00A0CB5B /* _assets */,
 				3A506EC123C0D26600A498C8 /* _api */,
-				3A506EEC23C0D26700A498C8 /* _components */,
 				3A506EC323C0D26600A498C8 /* _store */,
 				3A506EBD23C0D26600A498C8 /* _View */,
 				3A506EBF23C0D26600A498C8 /* _ViewModels */,
+				EA9211BD23C513D600A0CB5B /* containers */,
+				3A506EEC23C0D26700A498C8 /* components */,
 				3A506EA923C0D24E00A498C8 /* AppDelegate.swift */,
 				3A506EAB23C0D24E00A498C8 /* SceneDelegate.swift */,
 				3A506EAF23C0D24E00A498C8 /* Assets.xcassets */,
@@ -190,8 +258,7 @@
 			children = (
 				3A506EC223C0D26600A498C8 /* Interceptor.swift */,
 			);
-			name = _api;
-			path = ../../rtfnew/rtf/_api;
+			path = _api;
 			sourceTree = "<group>";
 		};
 		3A506EC323C0D26600A498C8 /* _store */ = {
@@ -199,7 +266,7 @@
 			children = (
 				3A506EC423C0D26600A498C8 /* actions */,
 				3A506ED623C0D26600A498C8 /* store.swift */,
-				3A506ED723C0D26600A498C8 /* ObservableState.swift */,
+				EA9211C323C517EB00A0CB5B /* state.swift */,
 				3A506ED823C0D26600A498C8 /* effects */,
 				3A506EDA23C0D26600A498C8 /* reducers */,
 			);
@@ -235,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				3A506ED923C0D26600A498C8 /* usersRecent.effect.swift */,
+				EA9211CE23C5381E00A0CB5B /* subordinates.effect.swift */,
 			);
 			path = effects;
 			sourceTree = "<group>";
@@ -263,13 +331,15 @@
 			path = reducers;
 			sourceTree = "<group>";
 		};
-		3A506EEC23C0D26700A498C8 /* _components */ = {
+		3A506EEC23C0D26700A498C8 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				EA9211CB23C52F7500A0CB5B /* EmployeeIconView */,
+				EA9211C823C5240200A0CB5B /* EmployeeSearchBar */,
+				EA9211C523C51B8E00A0CB5B /* User */,
 				3A506EED23C0D26700A498C8 /* atoms */,
 			);
-			name = _components;
-			path = ../../rtfnew/rtf/_components;
+			path = components;
 			sourceTree = "<group>";
 		};
 		3A506EED23C0D26700A498C8 /* atoms */ = {
@@ -279,6 +349,89 @@
 				3A506EEF23C0D26700A498C8 /* imageAvatar.swift */,
 			);
 			path = atoms;
+			sourceTree = "<group>";
+		};
+		EA9211BD23C513D600A0CB5B /* containers */ = {
+			isa = PBXGroup;
+			children = (
+				EA9211BE23C513F400A0CB5B /* Feedback */,
+			);
+			path = containers;
+			sourceTree = "<group>";
+		};
+		EA9211BE23C513F400A0CB5B /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				EA9211BF23C5140300A0CB5B /* Feedback.view.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		EA9211C523C51B8E00A0CB5B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EA9211C623C51BAB00A0CB5B /* User.view.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EA9211C823C5240200A0CB5B /* EmployeeSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				EA9211C923C5241E00A0CB5B /* EmployeeSearchBar.view.swift */,
+			);
+			path = EmployeeSearchBar;
+			sourceTree = "<group>";
+		};
+		EA9211CB23C52F7500A0CB5B /* EmployeeIconView */ = {
+			isa = PBXGroup;
+			children = (
+				EA9211CC23C52F8D00A0CB5B /* EmployeeIconView.view.swift */,
+			);
+			path = EmployeeIconView;
+			sourceTree = "<group>";
+		};
+		EA9211D023C53FAD00A0CB5B /* _assets */ = {
+			isa = PBXGroup;
+			children = (
+				EA9211D123C5401800A0CB5B /* fonts */,
+			);
+			path = _assets;
+			sourceTree = "<group>";
+		};
+		EA9211D123C5401800A0CB5B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EA9211E823C5404200A0CB5B /* SBSansCondMono-Bold.otf */,
+				EA9211DF23C5404100A0CB5B /* SBSansCondMono-Regular.otf */,
+				EA9211ED23C5404300A0CB5B /* SBSansDisplay-Bold.otf */,
+				EA9211D223C5404000A0CB5B /* SBSansDisplay-Regular.otf */,
+				EA9211E523C5404200A0CB5B /* SBSansDisplay-SemiBold.otf */,
+				EA9211E023C5404200A0CB5B /* SBSansScreen.otf */,
+				EA9211D723C5404100A0CB5B /* SBSansText-Bold.otf */,
+				EA9211DA23C5404100A0CB5B /* SBSansText-BoldItalic.otf */,
+				EA9211DE23C5404100A0CB5B /* SBSansText-Heavy.otf */,
+				EA9211E223C5404200A0CB5B /* SBSansText-Italic.otf */,
+				EA9211E923C5404200A0CB5B /* SBSansText-Light.otf */,
+				EA9211E423C5404200A0CB5B /* SBSansText-LightItalic.otf */,
+				EA9211D823C5404100A0CB5B /* SBSansText-Medium.otf */,
+				EA9211EB23C5404200A0CB5B /* SBSansText-Regular.otf */,
+				EA9211D423C5404100A0CB5B /* SBSansText-Semibold.otf */,
+				EA9211D523C5404100A0CB5B /* SBSansText-SemiBoldItalic.otf */,
+				EA9211EC23C5404300A0CB5B /* SBSansText-Thin.otf */,
+				EA9211EA23C5404200A0CB5B /* SBSansTextCaps-Bold.otf */,
+				EA9211DC23C5404100A0CB5B /* SBSansTextCaps-Regular.otf */,
+				EA9211D323C5404100A0CB5B /* SBSansTextCond-Bold.otf */,
+				EA9211E323C5404200A0CB5B /* SBSansTextCond-Regular.otf */,
+				EA9211D623C5404100A0CB5B /* SBSansTextMono-Bold.otf */,
+				EA9211DD23C5404100A0CB5B /* SBSansTextMono-Regular.otf */,
+				EA9211E623C5404200A0CB5B /* SBSansUI-Bold.otf */,
+				EA9211D923C5404100A0CB5B /* SBSansUI-Caps.otf */,
+				EA9211E723C5404200A0CB5B /* SBSansUI-Light.otf */,
+				EA9211DB23C5404100A0CB5B /* SBSansUI-Regular.otf */,
+				EA9211E123C5404200A0CB5B /* SBSansUI-Semibold.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,9 +502,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA9211EF23C5404300A0CB5B /* SBSansTextCond-Bold.otf in Resources */,
+				EA9211F423C5404300A0CB5B /* SBSansText-Medium.otf in Resources */,
+				EA9211F523C5404300A0CB5B /* SBSansUI-Caps.otf in Resources */,
+				EA9211F923C5404300A0CB5B /* SBSansTextMono-Regular.otf in Resources */,
+				EA9211FA23C5404300A0CB5B /* SBSansText-Heavy.otf in Resources */,
+				EA9211F723C5404300A0CB5B /* SBSansUI-Regular.otf in Resources */,
+				EA92120623C5404300A0CB5B /* SBSansTextCaps-Bold.otf in Resources */,
+				EA92120223C5404300A0CB5B /* SBSansUI-Bold.otf in Resources */,
+				EA9211FE23C5404300A0CB5B /* SBSansText-Italic.otf in Resources */,
+				EA92120023C5404300A0CB5B /* SBSansText-LightItalic.otf in Resources */,
+				EA92120723C5404300A0CB5B /* SBSansText-Regular.otf in Resources */,
 				3A506EB623C0D24E00A498C8 /* LaunchScreen.storyboard in Resources */,
+				EA9211FB23C5404300A0CB5B /* SBSansCondMono-Regular.otf in Resources */,
 				3A506EB323C0D24E00A498C8 /* Preview Assets.xcassets in Resources */,
+				EA9211F323C5404300A0CB5B /* SBSansText-Bold.otf in Resources */,
 				3A506EB023C0D24E00A498C8 /* Assets.xcassets in Resources */,
+				EA9211FF23C5404300A0CB5B /* SBSansTextCond-Regular.otf in Resources */,
+				EA92120123C5404300A0CB5B /* SBSansDisplay-SemiBold.otf in Resources */,
+				EA9211F623C5404300A0CB5B /* SBSansText-BoldItalic.otf in Resources */,
+				EA9211F223C5404300A0CB5B /* SBSansTextMono-Bold.otf in Resources */,
+				EA92120523C5404300A0CB5B /* SBSansText-Light.otf in Resources */,
+				EA92120323C5404300A0CB5B /* SBSansUI-Light.otf in Resources */,
+				EA9211EE23C5404300A0CB5B /* SBSansDisplay-Regular.otf in Resources */,
+				EA9211F023C5404300A0CB5B /* SBSansText-Semibold.otf in Resources */,
+				EA92120423C5404300A0CB5B /* SBSansCondMono-Bold.otf in Resources */,
+				EA9211FC23C5404300A0CB5B /* SBSansScreen.otf in Resources */,
+				EA9211FD23C5404300A0CB5B /* SBSansUI-Semibold.otf in Resources */,
+				EA9211F823C5404300A0CB5B /* SBSansTextCaps-Regular.otf in Resources */,
+				EA92120923C5404300A0CB5B /* SBSansDisplay-Bold.otf in Resources */,
+				EA9211F123C5404300A0CB5B /* SBSansText-SemiBoldItalic.otf in Resources */,
+				EA92120823C5404300A0CB5B /* SBSansText-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,22 +545,25 @@
 			files = (
 				3A506EF123C0D26700A498C8 /* loginModel.swift in Sources */,
 				3A506F1523C0D26700A498C8 /* usersAll.reducer.swift in Sources */,
+				EA9211C023C5140300A0CB5B /* Feedback.view.swift in Sources */,
 				3A506EFA23C0D26700A498C8 /* usersRequest.actions.swift in Sources */,
 				3A506F0F23C0D26700A498C8 /* boss.reducer.swift in Sources */,
 				3A506F0B23C0D26700A498C8 /* feedbackProps.reducer.swift in Sources */,
 				3A506F0323C0D26700A498C8 /* comparison.actions.swift in Sources */,
 				3A506F1723C0D26700A498C8 /* message.reducer.swift in Sources */,
 				3A506F1123C0D26700A498C8 /* comparison.reducers.swift in Sources */,
-				3A506F0523C0D26700A498C8 /* ObservableState.swift in Sources */,
 				3A506F0423C0D26700A498C8 /* store.swift in Sources */,
 				3A506F0A23C0D26700A498C8 /* usersHistory.reducer.swift in Sources */,
 				3A506F0D23C0D26700A498C8 /* usersRequest.reducer.swift in Sources */,
 				3A506F1023C0D26700A498C8 /* usersInbox.reducer.swift in Sources */,
 				3A506EF923C0D26700A498C8 /* usersInbox.actions.swift in Sources */,
+				EA9211CA23C5241E00A0CB5B /* EmployeeSearchBar.view.swift in Sources */,
+				EA9211CF23C5381E00A0CB5B /* subordinates.effect.swift in Sources */,
 				3A506F0723C0D26700A498C8 /* requestRating.reducer.swift in Sources */,
 				3A506F1923C0D26700A498C8 /* imageAvatar.swift in Sources */,
 				3A506EFC23C0D26700A498C8 /* boss.actions.swift in Sources */,
 				3A506F1223C0D26700A498C8 /* subordinates.reducer.swift in Sources */,
+				EA9211C723C51BAB00A0CB5B /* User.view.swift in Sources */,
 				3A506EFD23C0D26700A498C8 /* statistics.actions.swift in Sources */,
 				3A506EF223C0D26700A498C8 /* Interceptor.swift in Sources */,
 				3A506EFE23C0D26700A498C8 /* feedbackProps.actions.swift in Sources */,
@@ -394,8 +578,10 @@
 				3A506EAC23C0D24E00A498C8 /* SceneDelegate.swift in Sources */,
 				3A506EFF23C0D26700A498C8 /* usersHistory.actions.swift in Sources */,
 				3A506F1823C0D26700A498C8 /* Avatar.swift in Sources */,
+				EA9211C423C517EB00A0CB5B /* state.swift in Sources */,
 				3A506F0023C0D26700A498C8 /* usersRecent.actions.swift in Sources */,
 				3A506F0823C0D26700A498C8 /* usersRecent.reducer.swift in Sources */,
+				EA9211CD23C52F8D00A0CB5B /* EmployeeIconView.view.swift in Sources */,
 				3A506F0223C0D26700A498C8 /* usersFavourite.actions.swift in Sources */,
 				3A506F0923C0D26700A498C8 /* usersFavourite.reducer.swift in Sources */,
 				3A506F0623C0D26700A498C8 /* usersRecent.effect.swift in Sources */,
