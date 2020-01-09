@@ -59,34 +59,34 @@
 		EA9211CA23C5241E00A0CB5B /* EmployeeSearchBar.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C923C5241E00A0CB5B /* EmployeeSearchBar.view.swift */; };
 		EA9211CD23C52F8D00A0CB5B /* EmployeeIconView.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211CC23C52F8D00A0CB5B /* EmployeeIconView.view.swift */; };
 		EA9211CF23C5381E00A0CB5B /* subordinates.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211CE23C5381E00A0CB5B /* subordinates.effect.swift */; };
-		EA9211EE23C5404300A0CB5B /* SBSansDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D223C5404000A0CB5B /* SBSansDisplay-Regular.otf */; };
-		EA9211EF23C5404300A0CB5B /* SBSansTextCond-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D323C5404100A0CB5B /* SBSansTextCond-Bold.otf */; };
-		EA9211F023C5404300A0CB5B /* SBSansText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D423C5404100A0CB5B /* SBSansText-Semibold.otf */; };
-		EA9211F123C5404300A0CB5B /* SBSansText-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D523C5404100A0CB5B /* SBSansText-SemiBoldItalic.otf */; };
-		EA9211F223C5404300A0CB5B /* SBSansTextMono-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D623C5404100A0CB5B /* SBSansTextMono-Bold.otf */; };
-		EA9211F323C5404300A0CB5B /* SBSansText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D723C5404100A0CB5B /* SBSansText-Bold.otf */; };
-		EA9211F423C5404300A0CB5B /* SBSansText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D823C5404100A0CB5B /* SBSansText-Medium.otf */; };
-		EA9211F523C5404300A0CB5B /* SBSansUI-Caps.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211D923C5404100A0CB5B /* SBSansUI-Caps.otf */; };
-		EA9211F623C5404300A0CB5B /* SBSansText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DA23C5404100A0CB5B /* SBSansText-BoldItalic.otf */; };
-		EA9211F723C5404300A0CB5B /* SBSansUI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DB23C5404100A0CB5B /* SBSansUI-Regular.otf */; };
-		EA9211F823C5404300A0CB5B /* SBSansTextCaps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DC23C5404100A0CB5B /* SBSansTextCaps-Regular.otf */; };
-		EA9211F923C5404300A0CB5B /* SBSansTextMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DD23C5404100A0CB5B /* SBSansTextMono-Regular.otf */; };
-		EA9211FA23C5404300A0CB5B /* SBSansText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DE23C5404100A0CB5B /* SBSansText-Heavy.otf */; };
-		EA9211FB23C5404300A0CB5B /* SBSansCondMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211DF23C5404100A0CB5B /* SBSansCondMono-Regular.otf */; };
-		EA9211FC23C5404300A0CB5B /* SBSansScreen.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E023C5404200A0CB5B /* SBSansScreen.otf */; };
-		EA9211FD23C5404300A0CB5B /* SBSansUI-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E123C5404200A0CB5B /* SBSansUI-Semibold.otf */; };
-		EA9211FE23C5404300A0CB5B /* SBSansText-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E223C5404200A0CB5B /* SBSansText-Italic.otf */; };
-		EA9211FF23C5404300A0CB5B /* SBSansTextCond-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E323C5404200A0CB5B /* SBSansTextCond-Regular.otf */; };
-		EA92120023C5404300A0CB5B /* SBSansText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E423C5404200A0CB5B /* SBSansText-LightItalic.otf */; };
-		EA92120123C5404300A0CB5B /* SBSansDisplay-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E523C5404200A0CB5B /* SBSansDisplay-SemiBold.otf */; };
-		EA92120223C5404300A0CB5B /* SBSansUI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E623C5404200A0CB5B /* SBSansUI-Bold.otf */; };
-		EA92120323C5404300A0CB5B /* SBSansUI-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E723C5404200A0CB5B /* SBSansUI-Light.otf */; };
-		EA92120423C5404300A0CB5B /* SBSansCondMono-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E823C5404200A0CB5B /* SBSansCondMono-Bold.otf */; };
-		EA92120523C5404300A0CB5B /* SBSansText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211E923C5404200A0CB5B /* SBSansText-Light.otf */; };
-		EA92120623C5404300A0CB5B /* SBSansTextCaps-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211EA23C5404200A0CB5B /* SBSansTextCaps-Bold.otf */; };
-		EA92120723C5404300A0CB5B /* SBSansText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211EB23C5404200A0CB5B /* SBSansText-Regular.otf */; };
-		EA92120823C5404300A0CB5B /* SBSansText-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211EC23C5404300A0CB5B /* SBSansText-Thin.otf */; };
-		EA92120923C5404300A0CB5B /* SBSansDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA9211ED23C5404300A0CB5B /* SBSansDisplay-Bold.otf */; };
+		EA92122823C72CA200A0CB5B /* SBSansUI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92120C23C72CA100A0CB5B /* SBSansUI-Regular.otf */; };
+		EA92122923C72CA200A0CB5B /* SBSansDisplay-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92120D23C72CA100A0CB5B /* SBSansDisplay-SemiBold.otf */; };
+		EA92122A23C72CA200A0CB5B /* SBSansText-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92120E23C72CA100A0CB5B /* SBSansText-Italic.otf */; };
+		EA92122B23C72CA200A0CB5B /* SBSansTextMono-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92120F23C72CA100A0CB5B /* SBSansTextMono-Bold.otf */; };
+		EA92122C23C72CA200A0CB5B /* SBSansCondMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121023C72CA100A0CB5B /* SBSansCondMono-Regular.otf */; };
+		EA92122D23C72CA200A0CB5B /* SBSansTextCaps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121123C72CA100A0CB5B /* SBSansTextCaps-Regular.otf */; };
+		EA92122E23C72CA200A0CB5B /* SBSansTextCond-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121223C72CA100A0CB5B /* SBSansTextCond-Bold.otf */; };
+		EA92122F23C72CA200A0CB5B /* SBSansUI-Caps.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121323C72CA100A0CB5B /* SBSansUI-Caps.otf */; };
+		EA92123023C72CA200A0CB5B /* SBSansUI-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121423C72CA100A0CB5B /* SBSansUI-Light.otf */; };
+		EA92123123C72CA200A0CB5B /* SBSansText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121523C72CA100A0CB5B /* SBSansText-Bold.otf */; };
+		EA92123223C72CA200A0CB5B /* SBSansText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121623C72CA100A0CB5B /* SBSansText-LightItalic.otf */; };
+		EA92123323C72CA200A0CB5B /* SBSansText-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121723C72CA100A0CB5B /* SBSansText-Thin.otf */; };
+		EA92123423C72CA200A0CB5B /* SBSansText-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121823C72CA100A0CB5B /* SBSansText-SemiBoldItalic.otf */; };
+		EA92123523C72CA200A0CB5B /* SBSansUI-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121923C72CA100A0CB5B /* SBSansUI-Semibold.otf */; };
+		EA92123623C72CA200A0CB5B /* SBSansText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121A23C72CA100A0CB5B /* SBSansText-Medium.otf */; };
+		EA92123723C72CA200A0CB5B /* SBSansTextCond-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121B23C72CA100A0CB5B /* SBSansTextCond-Regular.otf */; };
+		EA92123823C72CA200A0CB5B /* SBSansCondMono-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121C23C72CA100A0CB5B /* SBSansCondMono-Bold.otf */; };
+		EA92123923C72CA200A0CB5B /* SBSansText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121D23C72CA100A0CB5B /* SBSansText-Light.otf */; };
+		EA92123A23C72CA200A0CB5B /* SBSansText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121E23C72CA100A0CB5B /* SBSansText-Regular.otf */; };
+		EA92123B23C72CA200A0CB5B /* SBSansText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92121F23C72CA100A0CB5B /* SBSansText-BoldItalic.otf */; };
+		EA92123C23C72CA200A0CB5B /* SBSansTextCaps-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122023C72CA100A0CB5B /* SBSansTextCaps-Bold.otf */; };
+		EA92123D23C72CA200A0CB5B /* SBSansText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122123C72CA100A0CB5B /* SBSansText-Heavy.otf */; };
+		EA92123E23C72CA200A0CB5B /* SBSansTextMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122223C72CA100A0CB5B /* SBSansTextMono-Regular.otf */; };
+		EA92123F23C72CA200A0CB5B /* SBSansText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122323C72CA100A0CB5B /* SBSansText-Semibold.otf */; };
+		EA92124023C72CA200A0CB5B /* SBSansDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122423C72CA100A0CB5B /* SBSansDisplay-Bold.otf */; };
+		EA92124123C72CA200A0CB5B /* SBSansUI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */; };
+		EA92124223C72CA200A0CB5B /* SBSansScreen.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122623C72CA200A0CB5B /* SBSansScreen.otf */; };
+		EA92124323C72CA200A0CB5B /* SBSansDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,34 +144,34 @@
 		EA9211C923C5241E00A0CB5B /* EmployeeSearchBar.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSearchBar.view.swift; sourceTree = "<group>"; };
 		EA9211CC23C52F8D00A0CB5B /* EmployeeIconView.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeIconView.view.swift; sourceTree = "<group>"; };
 		EA9211CE23C5381E00A0CB5B /* subordinates.effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subordinates.effect.swift; sourceTree = "<group>"; };
-		EA9211D223C5404000A0CB5B /* SBSansDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansDisplay-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansDisplay-Regular.otf"; sourceTree = "<group>"; };
-		EA9211D323C5404100A0CB5B /* SBSansTextCond-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCond-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCond-Bold.otf"; sourceTree = "<group>"; };
-		EA9211D423C5404100A0CB5B /* SBSansText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Semibold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Semibold.otf"; sourceTree = "<group>"; };
-		EA9211D523C5404100A0CB5B /* SBSansText-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-SemiBoldItalic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-SemiBoldItalic.otf"; sourceTree = "<group>"; };
-		EA9211D623C5404100A0CB5B /* SBSansTextMono-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextMono-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextMono-Bold.otf"; sourceTree = "<group>"; };
-		EA9211D723C5404100A0CB5B /* SBSansText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Bold.otf"; sourceTree = "<group>"; };
-		EA9211D823C5404100A0CB5B /* SBSansText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Medium.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Medium.otf"; sourceTree = "<group>"; };
-		EA9211D923C5404100A0CB5B /* SBSansUI-Caps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Caps.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Caps.otf"; sourceTree = "<group>"; };
-		EA9211DA23C5404100A0CB5B /* SBSansText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-BoldItalic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-BoldItalic.otf"; sourceTree = "<group>"; };
-		EA9211DB23C5404100A0CB5B /* SBSansUI-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Regular.otf"; sourceTree = "<group>"; };
-		EA9211DC23C5404100A0CB5B /* SBSansTextCaps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCaps-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCaps-Regular.otf"; sourceTree = "<group>"; };
-		EA9211DD23C5404100A0CB5B /* SBSansTextMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextMono-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextMono-Regular.otf"; sourceTree = "<group>"; };
-		EA9211DE23C5404100A0CB5B /* SBSansText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Heavy.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Heavy.otf"; sourceTree = "<group>"; };
-		EA9211DF23C5404100A0CB5B /* SBSansCondMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansCondMono-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansCondMono-Regular.otf"; sourceTree = "<group>"; };
-		EA9211E023C5404200A0CB5B /* SBSansScreen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SBSansScreen.otf; path = ../../../../rtf/rtf/_assets/fonts/SBSansScreen.otf; sourceTree = "<group>"; };
-		EA9211E123C5404200A0CB5B /* SBSansUI-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Semibold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Semibold.otf"; sourceTree = "<group>"; };
-		EA9211E223C5404200A0CB5B /* SBSansText-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Italic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Italic.otf"; sourceTree = "<group>"; };
-		EA9211E323C5404200A0CB5B /* SBSansTextCond-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCond-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCond-Regular.otf"; sourceTree = "<group>"; };
-		EA9211E423C5404200A0CB5B /* SBSansText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-LightItalic.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-LightItalic.otf"; sourceTree = "<group>"; };
-		EA9211E523C5404200A0CB5B /* SBSansDisplay-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansDisplay-SemiBold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansDisplay-SemiBold.otf"; sourceTree = "<group>"; };
-		EA9211E623C5404200A0CB5B /* SBSansUI-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Bold.otf"; sourceTree = "<group>"; };
-		EA9211E723C5404200A0CB5B /* SBSansUI-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansUI-Light.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansUI-Light.otf"; sourceTree = "<group>"; };
-		EA9211E823C5404200A0CB5B /* SBSansCondMono-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansCondMono-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansCondMono-Bold.otf"; sourceTree = "<group>"; };
-		EA9211E923C5404200A0CB5B /* SBSansText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Light.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Light.otf"; sourceTree = "<group>"; };
-		EA9211EA23C5404200A0CB5B /* SBSansTextCaps-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansTextCaps-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansTextCaps-Bold.otf"; sourceTree = "<group>"; };
-		EA9211EB23C5404200A0CB5B /* SBSansText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Regular.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Regular.otf"; sourceTree = "<group>"; };
-		EA9211EC23C5404300A0CB5B /* SBSansText-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansText-Thin.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansText-Thin.otf"; sourceTree = "<group>"; };
-		EA9211ED23C5404300A0CB5B /* SBSansDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SBSansDisplay-Bold.otf"; path = "../../../../rtf/rtf/_assets/fonts/SBSansDisplay-Bold.otf"; sourceTree = "<group>"; };
+		EA92120C23C72CA100A0CB5B /* SBSansUI-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Regular.otf"; sourceTree = "<group>"; };
+		EA92120D23C72CA100A0CB5B /* SBSansDisplay-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansDisplay-SemiBold.otf"; sourceTree = "<group>"; };
+		EA92120E23C72CA100A0CB5B /* SBSansText-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Italic.otf"; sourceTree = "<group>"; };
+		EA92120F23C72CA100A0CB5B /* SBSansTextMono-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansTextMono-Bold.otf"; sourceTree = "<group>"; };
+		EA92121023C72CA100A0CB5B /* SBSansCondMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansCondMono-Regular.otf"; sourceTree = "<group>"; };
+		EA92121123C72CA100A0CB5B /* SBSansTextCaps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansTextCaps-Regular.otf"; sourceTree = "<group>"; };
+		EA92121223C72CA100A0CB5B /* SBSansTextCond-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansTextCond-Bold.otf"; sourceTree = "<group>"; };
+		EA92121323C72CA100A0CB5B /* SBSansUI-Caps.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Caps.otf"; sourceTree = "<group>"; };
+		EA92121423C72CA100A0CB5B /* SBSansUI-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Light.otf"; sourceTree = "<group>"; };
+		EA92121523C72CA100A0CB5B /* SBSansText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Bold.otf"; sourceTree = "<group>"; };
+		EA92121623C72CA100A0CB5B /* SBSansText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-LightItalic.otf"; sourceTree = "<group>"; };
+		EA92121723C72CA100A0CB5B /* SBSansText-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Thin.otf"; sourceTree = "<group>"; };
+		EA92121823C72CA100A0CB5B /* SBSansText-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		EA92121923C72CA100A0CB5B /* SBSansUI-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Semibold.otf"; sourceTree = "<group>"; };
+		EA92121A23C72CA100A0CB5B /* SBSansText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Medium.otf"; sourceTree = "<group>"; };
+		EA92121B23C72CA100A0CB5B /* SBSansTextCond-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansTextCond-Regular.otf"; sourceTree = "<group>"; };
+		EA92121C23C72CA100A0CB5B /* SBSansCondMono-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansCondMono-Bold.otf"; sourceTree = "<group>"; };
+		EA92121D23C72CA100A0CB5B /* SBSansText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Light.otf"; sourceTree = "<group>"; };
+		EA92121E23C72CA100A0CB5B /* SBSansText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Regular.otf"; sourceTree = "<group>"; };
+		EA92121F23C72CA100A0CB5B /* SBSansText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-BoldItalic.otf"; sourceTree = "<group>"; };
+		EA92122023C72CA100A0CB5B /* SBSansTextCaps-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansTextCaps-Bold.otf"; sourceTree = "<group>"; };
+		EA92122123C72CA100A0CB5B /* SBSansText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Heavy.otf"; sourceTree = "<group>"; };
+		EA92122223C72CA100A0CB5B /* SBSansTextMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansTextMono-Regular.otf"; sourceTree = "<group>"; };
+		EA92122323C72CA100A0CB5B /* SBSansText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansText-Semibold.otf"; sourceTree = "<group>"; };
+		EA92122423C72CA100A0CB5B /* SBSansDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansDisplay-Bold.otf"; sourceTree = "<group>"; };
+		EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Bold.otf"; sourceTree = "<group>"; };
+		EA92122623C72CA200A0CB5B /* SBSansScreen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SBSansScreen.otf; sourceTree = "<group>"; };
+		EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansDisplay-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,42 +388,42 @@
 		EA9211D023C53FAD00A0CB5B /* _assets */ = {
 			isa = PBXGroup;
 			children = (
-				EA9211D123C5401800A0CB5B /* fonts */,
+				EA92120B23C72C6E00A0CB5B /* fonts */,
 			);
 			path = _assets;
 			sourceTree = "<group>";
 		};
-		EA9211D123C5401800A0CB5B /* fonts */ = {
+		EA92120B23C72C6E00A0CB5B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				EA9211E823C5404200A0CB5B /* SBSansCondMono-Bold.otf */,
-				EA9211DF23C5404100A0CB5B /* SBSansCondMono-Regular.otf */,
-				EA9211ED23C5404300A0CB5B /* SBSansDisplay-Bold.otf */,
-				EA9211D223C5404000A0CB5B /* SBSansDisplay-Regular.otf */,
-				EA9211E523C5404200A0CB5B /* SBSansDisplay-SemiBold.otf */,
-				EA9211E023C5404200A0CB5B /* SBSansScreen.otf */,
-				EA9211D723C5404100A0CB5B /* SBSansText-Bold.otf */,
-				EA9211DA23C5404100A0CB5B /* SBSansText-BoldItalic.otf */,
-				EA9211DE23C5404100A0CB5B /* SBSansText-Heavy.otf */,
-				EA9211E223C5404200A0CB5B /* SBSansText-Italic.otf */,
-				EA9211E923C5404200A0CB5B /* SBSansText-Light.otf */,
-				EA9211E423C5404200A0CB5B /* SBSansText-LightItalic.otf */,
-				EA9211D823C5404100A0CB5B /* SBSansText-Medium.otf */,
-				EA9211EB23C5404200A0CB5B /* SBSansText-Regular.otf */,
-				EA9211D423C5404100A0CB5B /* SBSansText-Semibold.otf */,
-				EA9211D523C5404100A0CB5B /* SBSansText-SemiBoldItalic.otf */,
-				EA9211EC23C5404300A0CB5B /* SBSansText-Thin.otf */,
-				EA9211EA23C5404200A0CB5B /* SBSansTextCaps-Bold.otf */,
-				EA9211DC23C5404100A0CB5B /* SBSansTextCaps-Regular.otf */,
-				EA9211D323C5404100A0CB5B /* SBSansTextCond-Bold.otf */,
-				EA9211E323C5404200A0CB5B /* SBSansTextCond-Regular.otf */,
-				EA9211D623C5404100A0CB5B /* SBSansTextMono-Bold.otf */,
-				EA9211DD23C5404100A0CB5B /* SBSansTextMono-Regular.otf */,
-				EA9211E623C5404200A0CB5B /* SBSansUI-Bold.otf */,
-				EA9211D923C5404100A0CB5B /* SBSansUI-Caps.otf */,
-				EA9211E723C5404200A0CB5B /* SBSansUI-Light.otf */,
-				EA9211DB23C5404100A0CB5B /* SBSansUI-Regular.otf */,
-				EA9211E123C5404200A0CB5B /* SBSansUI-Semibold.otf */,
+				EA92121C23C72CA100A0CB5B /* SBSansCondMono-Bold.otf */,
+				EA92121023C72CA100A0CB5B /* SBSansCondMono-Regular.otf */,
+				EA92122423C72CA100A0CB5B /* SBSansDisplay-Bold.otf */,
+				EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */,
+				EA92120D23C72CA100A0CB5B /* SBSansDisplay-SemiBold.otf */,
+				EA92122623C72CA200A0CB5B /* SBSansScreen.otf */,
+				EA92121523C72CA100A0CB5B /* SBSansText-Bold.otf */,
+				EA92121F23C72CA100A0CB5B /* SBSansText-BoldItalic.otf */,
+				EA92122123C72CA100A0CB5B /* SBSansText-Heavy.otf */,
+				EA92120E23C72CA100A0CB5B /* SBSansText-Italic.otf */,
+				EA92121D23C72CA100A0CB5B /* SBSansText-Light.otf */,
+				EA92121623C72CA100A0CB5B /* SBSansText-LightItalic.otf */,
+				EA92121A23C72CA100A0CB5B /* SBSansText-Medium.otf */,
+				EA92121E23C72CA100A0CB5B /* SBSansText-Regular.otf */,
+				EA92122323C72CA100A0CB5B /* SBSansText-Semibold.otf */,
+				EA92121823C72CA100A0CB5B /* SBSansText-SemiBoldItalic.otf */,
+				EA92121723C72CA100A0CB5B /* SBSansText-Thin.otf */,
+				EA92122023C72CA100A0CB5B /* SBSansTextCaps-Bold.otf */,
+				EA92121123C72CA100A0CB5B /* SBSansTextCaps-Regular.otf */,
+				EA92121223C72CA100A0CB5B /* SBSansTextCond-Bold.otf */,
+				EA92121B23C72CA100A0CB5B /* SBSansTextCond-Regular.otf */,
+				EA92120F23C72CA100A0CB5B /* SBSansTextMono-Bold.otf */,
+				EA92122223C72CA100A0CB5B /* SBSansTextMono-Regular.otf */,
+				EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */,
+				EA92121323C72CA100A0CB5B /* SBSansUI-Caps.otf */,
+				EA92121423C72CA100A0CB5B /* SBSansUI-Light.otf */,
+				EA92120C23C72CA100A0CB5B /* SBSansUI-Regular.otf */,
+				EA92121923C72CA100A0CB5B /* SBSansUI-Semibold.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -496,37 +496,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA9211EF23C5404300A0CB5B /* SBSansTextCond-Bold.otf in Resources */,
-				EA9211F423C5404300A0CB5B /* SBSansText-Medium.otf in Resources */,
-				EA9211F523C5404300A0CB5B /* SBSansUI-Caps.otf in Resources */,
-				EA9211F923C5404300A0CB5B /* SBSansTextMono-Regular.otf in Resources */,
-				EA9211FA23C5404300A0CB5B /* SBSansText-Heavy.otf in Resources */,
-				EA9211F723C5404300A0CB5B /* SBSansUI-Regular.otf in Resources */,
-				EA92120623C5404300A0CB5B /* SBSansTextCaps-Bold.otf in Resources */,
-				EA92120223C5404300A0CB5B /* SBSansUI-Bold.otf in Resources */,
-				EA9211FE23C5404300A0CB5B /* SBSansText-Italic.otf in Resources */,
-				EA92120023C5404300A0CB5B /* SBSansText-LightItalic.otf in Resources */,
-				EA92120723C5404300A0CB5B /* SBSansText-Regular.otf in Resources */,
+				EA92122B23C72CA200A0CB5B /* SBSansTextMono-Bold.otf in Resources */,
+				EA92123D23C72CA200A0CB5B /* SBSansText-Heavy.otf in Resources */,
+				EA92122D23C72CA200A0CB5B /* SBSansTextCaps-Regular.otf in Resources */,
+				EA92122F23C72CA200A0CB5B /* SBSansUI-Caps.otf in Resources */,
+				EA92123623C72CA200A0CB5B /* SBSansText-Medium.otf in Resources */,
+				EA92124123C72CA200A0CB5B /* SBSansUI-Bold.otf in Resources */,
+				EA92123523C72CA200A0CB5B /* SBSansUI-Semibold.otf in Resources */,
+				EA92123E23C72CA200A0CB5B /* SBSansTextMono-Regular.otf in Resources */,
+				EA92122A23C72CA200A0CB5B /* SBSansText-Italic.otf in Resources */,
 				3A506EB623C0D24E00A498C8 /* LaunchScreen.storyboard in Resources */,
-				EA9211FB23C5404300A0CB5B /* SBSansCondMono-Regular.otf in Resources */,
+				EA92123A23C72CA200A0CB5B /* SBSansText-Regular.otf in Resources */,
+				EA92123423C72CA200A0CB5B /* SBSansText-SemiBoldItalic.otf in Resources */,
 				3A506EB323C0D24E00A498C8 /* Preview Assets.xcassets in Resources */,
-				EA9211F323C5404300A0CB5B /* SBSansText-Bold.otf in Resources */,
+				EA92124323C72CA200A0CB5B /* SBSansDisplay-Regular.otf in Resources */,
+				EA92123023C72CA200A0CB5B /* SBSansUI-Light.otf in Resources */,
+				EA92123723C72CA200A0CB5B /* SBSansTextCond-Regular.otf in Resources */,
+				EA92124223C72CA200A0CB5B /* SBSansScreen.otf in Resources */,
+				EA92123823C72CA200A0CB5B /* SBSansCondMono-Bold.otf in Resources */,
+				EA92122E23C72CA200A0CB5B /* SBSansTextCond-Bold.otf in Resources */,
+				EA92123123C72CA200A0CB5B /* SBSansText-Bold.otf in Resources */,
+				EA92122823C72CA200A0CB5B /* SBSansUI-Regular.otf in Resources */,
+				EA92122923C72CA200A0CB5B /* SBSansDisplay-SemiBold.otf in Resources */,
+				EA92123223C72CA200A0CB5B /* SBSansText-LightItalic.otf in Resources */,
+				EA92123C23C72CA200A0CB5B /* SBSansTextCaps-Bold.otf in Resources */,
+				EA92123B23C72CA200A0CB5B /* SBSansText-BoldItalic.otf in Resources */,
 				3A506EB023C0D24E00A498C8 /* Assets.xcassets in Resources */,
-				EA9211FF23C5404300A0CB5B /* SBSansTextCond-Regular.otf in Resources */,
-				EA92120123C5404300A0CB5B /* SBSansDisplay-SemiBold.otf in Resources */,
-				EA9211F623C5404300A0CB5B /* SBSansText-BoldItalic.otf in Resources */,
-				EA9211F223C5404300A0CB5B /* SBSansTextMono-Bold.otf in Resources */,
-				EA92120523C5404300A0CB5B /* SBSansText-Light.otf in Resources */,
-				EA92120323C5404300A0CB5B /* SBSansUI-Light.otf in Resources */,
-				EA9211EE23C5404300A0CB5B /* SBSansDisplay-Regular.otf in Resources */,
-				EA9211F023C5404300A0CB5B /* SBSansText-Semibold.otf in Resources */,
-				EA92120423C5404300A0CB5B /* SBSansCondMono-Bold.otf in Resources */,
-				EA9211FC23C5404300A0CB5B /* SBSansScreen.otf in Resources */,
-				EA9211FD23C5404300A0CB5B /* SBSansUI-Semibold.otf in Resources */,
-				EA9211F823C5404300A0CB5B /* SBSansTextCaps-Regular.otf in Resources */,
-				EA92120923C5404300A0CB5B /* SBSansDisplay-Bold.otf in Resources */,
-				EA9211F123C5404300A0CB5B /* SBSansText-SemiBoldItalic.otf in Resources */,
-				EA92120823C5404300A0CB5B /* SBSansText-Thin.otf in Resources */,
+				EA92124023C72CA200A0CB5B /* SBSansDisplay-Bold.otf in Resources */,
+				EA92123923C72CA200A0CB5B /* SBSansText-Light.otf in Resources */,
+				EA92122C23C72CA200A0CB5B /* SBSansCondMono-Regular.otf in Resources */,
+				EA92123323C72CA200A0CB5B /* SBSansText-Thin.otf in Resources */,
+				EA92123F23C72CA200A0CB5B /* SBSansText-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ struct FeedbackView : View {
 	
 	/* reactiveState */
 	@ObservedObject var state: UsersRecentState
-	let store: GlobalStore
+	let store: GlobalStore 
 	
 	/* инициализатор store + state перед рендером */
 	init(store: GlobalStore) {
@@ -38,14 +38,15 @@ struct FeedbackView : View {
 			
 			Text("Недавние")
 			
-			//				ScrollView (.horizontal) {
+			
+//							ScrollView (.horizontal) {
 			
 			HStack {
 				ForEach(state.collection) { user in
 					User(user: user)
 				}
 			}
-			//				}.frame(height: 150)
+//							}.frame(height: 150)
 			
 			
 			
