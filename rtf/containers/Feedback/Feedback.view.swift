@@ -48,6 +48,25 @@ struct FeedbackView : View {
 			}
 //							}.frame(height: 150)
 			
+			// NO BUG
+			ScrollView (.horizontal) {
+				HStack {
+					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+				}
+			}
+			// BUG
+			// не отрисовывается
+			ScrollView (.horizontal) {
+				HStack {
+					ForEach(state.collection) { user in
+						EmployeeIconView(firstName: user.sFirstName!, lastName: user.sLastName!)
+					}
+				}
+			}
 			
 			
 			HStack {
