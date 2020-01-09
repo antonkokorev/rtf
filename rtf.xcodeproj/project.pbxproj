@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25188B2823C7364800BC0B06 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1B23C0D29200A498C8 /* Alamofire */; };
+		25188B2923C7364800BC0B06 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1E23C0D2A300A498C8 /* ReSwift */; };
+		25188B2A23C7364800BC0B06 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F2123C0D2B900A498C8 /* URLImage */; };
+		25188B2C23C764AD00BC0B06 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25188B2B23C764AD00BC0B06 /* ColorPalette.swift */; };
+		25188B2F23C765E500BC0B06 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25188B2E23C765E500BC0B06 /* Colors.xcassets */; };
+		25B92A2923C10EB80063D4DE /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B92A2823C10EB80063D4DE /* Like.swift */; };
+		3A2A88BD23C769DA003F15FE /* ActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A88BC23C769DA003F15FE /* ActionCard.swift */; };
 		3A506EAA23C0D24E00A498C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EA923C0D24E00A498C8 /* AppDelegate.swift */; };
 		3A506EAC23C0D24E00A498C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EAB23C0D24E00A498C8 /* SceneDelegate.swift */; };
 		3A506EB023C0D24E00A498C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A506EAF23C0D24E00A498C8 /* Assets.xcassets */; };
@@ -52,10 +59,6 @@
 		3A506F1623C0D26700A498C8 /* thanks.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEA23C0D26600A498C8 /* thanks.reducer.swift */; };
 		3A506F1723C0D26700A498C8 /* message.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEB23C0D26600A498C8 /* message.reducer.swift */; };
 		3A506F1823C0D26700A498C8 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEE23C0D26700A498C8 /* Avatar.swift */; };
-		3A506F1923C0D26700A498C8 /* imageAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEF23C0D26700A498C8 /* imageAvatar.swift */; };
-		3A506F1C23C0D29200A498C8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1B23C0D29200A498C8 /* Alamofire */; };
-		3A506F1F23C0D2A300A498C8 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1E23C0D2A300A498C8 /* ReSwift */; };
-		3A506F2223C0D2B900A498C8 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F2123C0D2B900A498C8 /* URLImage */; };
 		EA9211C023C5140300A0CB5B /* Feedback.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211BF23C5140300A0CB5B /* Feedback.view.swift */; };
 		EA9211C423C517EB00A0CB5B /* state.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C323C517EB00A0CB5B /* state.swift */; };
 		EA9211C723C51BAB00A0CB5B /* User.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C623C51BAB00A0CB5B /* User.view.swift */; };
@@ -93,6 +96,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25188B2B23C764AD00BC0B06 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		25188B2E23C765E500BC0B06 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		25B92A2823C10EB80063D4DE /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		3A2A88BC23C769DA003F15FE /* ActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCard.swift; sourceTree = "<group>"; };
 		3A506EA623C0D24E00A498C8 /* rtf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rtf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A506EA923C0D24E00A498C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A506EAB23C0D24E00A498C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +147,6 @@
 		3A506EEA23C0D26600A498C8 /* thanks.reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thanks.reducer.swift; sourceTree = "<group>"; };
 		3A506EEB23C0D26600A498C8 /* message.reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = message.reducer.swift; sourceTree = "<group>"; };
 		3A506EEE23C0D26700A498C8 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
-		3A506EEF23C0D26700A498C8 /* imageAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageAvatar.swift; sourceTree = "<group>"; };
 		EA9211BF23C5140300A0CB5B /* Feedback.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.view.swift; sourceTree = "<group>"; };
 		EA9211C323C517EB00A0CB5B /* state.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = state.swift; sourceTree = "<group>"; };
 		EA9211C623C51BAB00A0CB5B /* User.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.view.swift; sourceTree = "<group>"; };
@@ -182,15 +188,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A506F1C23C0D29200A498C8 /* Alamofire in Frameworks */,
-				3A506F2223C0D2B900A498C8 /* URLImage in Frameworks */,
-				3A506F1F23C0D2A300A498C8 /* ReSwift in Frameworks */,
+				25188B2823C7364800BC0B06 /* Alamofire in Frameworks */,
+				25188B2A23C7364800BC0B06 /* URLImage in Frameworks */,
+				25188B2923C7364800BC0B06 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A2A88BE23C77E09003F15FE /* molecules */ = {
+			isa = PBXGroup;
+			children = (
+				3A2A88BC23C769DA003F15FE /* ActionCard.swift */,
+			);
+			path = molecules;
+			sourceTree = "<group>";
+		};
 		3A506E9D23C0D24D00A498C8 = {
 			isa = PBXGroup;
 			children = (
@@ -334,10 +348,11 @@
 		3A506EEC23C0D26700A498C8 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				3A506EED23C0D26700A498C8 /* atoms */,
+				3A2A88BE23C77E09003F15FE /* molecules */,
 				EA9211CB23C52F7500A0CB5B /* EmployeeIconView */,
 				EA9211C823C5240200A0CB5B /* EmployeeSearchBar */,
 				EA9211C523C51B8E00A0CB5B /* User */,
-				3A506EED23C0D26700A498C8 /* atoms */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -345,8 +360,8 @@
 		3A506EED23C0D26700A498C8 /* atoms */ = {
 			isa = PBXGroup;
 			children = (
+				25B92A2823C10EB80063D4DE /* Like.swift */,
 				3A506EEE23C0D26700A498C8 /* Avatar.swift */,
-				3A506EEF23C0D26700A498C8 /* imageAvatar.swift */,
 			);
 			path = atoms;
 			sourceTree = "<group>";
@@ -395,6 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				EA92120B23C72C6E00A0CB5B /* fonts */,
+				25188B2B23C764AD00BC0B06 /* ColorPalette.swift */,
+				25188B2E23C765E500BC0B06 /* Colors.xcassets */,
 			);
 			path = _assets;
 			sourceTree = "<group>";
@@ -531,6 +548,7 @@
 				EA92124023C72CA200A0CB5B /* SBSansDisplay-Bold.otf in Resources */,
 				EA92123923C72CA200A0CB5B /* SBSansText-Light.otf in Resources */,
 				EA92122C23C72CA200A0CB5B /* SBSansCondMono-Regular.otf in Resources */,
+				25188B2F23C765E500BC0B06 /* Colors.xcassets in Resources */,
 				EA92123323C72CA200A0CB5B /* SBSansText-Thin.otf in Resources */,
 				EA92123F23C72CA200A0CB5B /* SBSansText-Semibold.otf in Resources */,
 			);
@@ -550,6 +568,7 @@
 				3A506F0F23C0D26700A498C8 /* boss.reducer.swift in Sources */,
 				3A506F0B23C0D26700A498C8 /* feedbackProps.reducer.swift in Sources */,
 				3A506F0323C0D26700A498C8 /* comparison.actions.swift in Sources */,
+				3A2A88BD23C769DA003F15FE /* ActionCard.swift in Sources */,
 				3A506F1723C0D26700A498C8 /* message.reducer.swift in Sources */,
 				3A506F1123C0D26700A498C8 /* comparison.reducers.swift in Sources */,
 				3A506F0423C0D26700A498C8 /* store.swift in Sources */,
@@ -560,7 +579,6 @@
 				EA9211CA23C5241E00A0CB5B /* EmployeeSearchBar.view.swift in Sources */,
 				EA9211CF23C5381E00A0CB5B /* subordinates.effect.swift in Sources */,
 				3A506F0723C0D26700A498C8 /* requestRating.reducer.swift in Sources */,
-				3A506F1923C0D26700A498C8 /* imageAvatar.swift in Sources */,
 				3A506EFC23C0D26700A498C8 /* boss.actions.swift in Sources */,
 				3A506F1223C0D26700A498C8 /* subordinates.reducer.swift in Sources */,
 				EA9211C723C51BAB00A0CB5B /* User.view.swift in Sources */,
@@ -570,6 +588,7 @@
 				3A506F0E23C0D26700A498C8 /* statistics.reducer.swift in Sources */,
 				3A506F1623C0D26700A498C8 /* thanks.reducer.swift in Sources */,
 				3A506EF723C0D26700A498C8 /* usersAll.actions.swift in Sources */,
+				25B92A2923C10EB80063D4DE /* Like.swift in Sources */,
 				3A506EF623C0D26700A498C8 /* usersTeam.actions.swift in Sources */,
 				3A506EAA23C0D24E00A498C8 /* AppDelegate.swift in Sources */,
 				3A506EFB23C0D26700A498C8 /* teamInfo.actions.swift in Sources */,
@@ -578,6 +597,7 @@
 				3A506EAC23C0D24E00A498C8 /* SceneDelegate.swift in Sources */,
 				3A506EFF23C0D26700A498C8 /* usersHistory.actions.swift in Sources */,
 				3A506F1823C0D26700A498C8 /* Avatar.swift in Sources */,
+				25188B2C23C764AD00BC0B06 /* ColorPalette.swift in Sources */,
 				EA9211C423C517EB00A0CB5B /* state.swift in Sources */,
 				3A506F0023C0D26700A498C8 /* usersRecent.actions.swift in Sources */,
 				3A506F0823C0D26700A498C8 /* usersRecent.reducer.swift in Sources */,

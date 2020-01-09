@@ -9,39 +9,36 @@
 import SwiftUI
 
 struct Like: View {
-    var body: some View {
-        VStack (alignment: .trailing, spacing: -18.0){
-            
-            ZStack(){
-               Circle().fill(Color(red: 0.196, green: 0.322, blue: 1.0)).frame(width: 15.0, height: 15.0)
-                Text("1").font(.caption).foregroundColor(Color.white)
-            }.zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
-           
-            
-        Image("like")
-        .resizable()
-            .frame(width: 50.0, height: 50.0)
-        }
-        
-            
-        
-        
-            
-        
-            
-            
-            
-    }
-}
-struct BottomClipper: Shape {
-    let bottom: CGFloat
+    
+    @State var number: Int
 
-    func path(in rect: CGRect) -> Path {
-        Rectangle().path(in: CGRect(x: 0, y: rect.size.height - bottom, width: rect.size.width, height: bottom))
+    var body: some View {
+        ZStack (){
+            Circle()
+                .fill(Color.CustomPallete.buttonBlank)
+                .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                .frame(width: 40.0, height: 40.0)
+            ZStack(){
+                Circle()
+                    .fill(Color(red: 0.196, green: 0.322, blue: 1.0))
+                    .frame(width: 20.0, height: 20.0)
+                Text("\(number)")
+                    .font(.caption)
+                    .foregroundColor(Color.white)
+            }
+            .offset(x: 15, y: -15)
+            .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+            
+         
+            Image("like")
+                .resizable()
+                .frame(width: 20.0, height: 20.0)
+        }
     }
 }
+
 struct Like_Previews: PreviewProvider {
     static var previews: some View {
-        Like()
+        Like(number: 99)
     }
 }
