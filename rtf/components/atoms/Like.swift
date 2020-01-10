@@ -15,7 +15,7 @@ struct Like: View {
     var body: some View {
         ZStack (){
             Circle()
-                .fill(Color.CustomPallete.buttonBlank)
+                .fill(Color.RTFPallete.buttonBlank)
                 .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 .frame(width: 40.0, height: 40.0)
             ZStack(){

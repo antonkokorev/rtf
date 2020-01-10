@@ -21,16 +21,18 @@ struct ActionCard: View {
                 Button(action: {print(1234)}) {
                     HStack(){
                        //тут должна быть иконка
-                        Circle().frame(width:40 ,height:40).padding()
+                        Circle().frame(width:BasicIconSizes.max,height:BasicIconSizes.max).padding()
                         VStack(alignment: .leading){
                             Text("\(self.textTitle)")
-                                .fontWeight(.semibold)
-                            .padding(.top, 15.0)
-                                .foregroundColor(Color.CustomPallete.textDefault)
+                            .font(Font.Typography.sizingFont(font: .sub, size: .H1))
+                                .lineLimit(-1)
+                                .padding(.top, BasicPadding.p15)
+                                .foregroundColor(Color.RTFPallete.textDefault)
+                              
                             Text("\(self.textBody)")
-                                .padding(.top, 5.0)
+                                .padding(.top, BasicPadding.p5)
                                 .font(.footnote)
-                                .foregroundColor(Color.CustomPallete.textSecondary)
+                                .foregroundColor(Color.RTFPallete.textSecondary)
                              Spacer()
                         }
                          Spacer()
@@ -38,7 +40,7 @@ struct ActionCard: View {
                     }
                     
                 }.frame(width:geo.size.width-60,height:84).background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
-                .cornerRadius(15)
+                    .cornerRadius(BasicRadius.mini)
             }
             
         }
