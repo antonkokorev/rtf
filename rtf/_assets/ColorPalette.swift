@@ -59,8 +59,6 @@ struct ColorPallete {
 }
 
 // Создаем расширение-кастомную палитру
-// Вызов: Color.CustomPallete.выбора цвета
-extension Color {
-    static let CustomPallete = ColorPallete()
-}
+// Вызов: Color.RTFPallete.выбора цвета
+
 
