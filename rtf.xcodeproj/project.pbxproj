@@ -95,6 +95,7 @@
 		EA92124123C72CA200A0CB5B /* SBSansUI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */; };
 		EA92124223C72CA200A0CB5B /* SBSansScreen.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122623C72CA200A0CB5B /* SBSansScreen.otf */; };
 		EA92124323C72CA200A0CB5B /* SBSansDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */; };
+		EAA6FCA823C88AB900D1E765 /* Feedback.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA6FCA723C88AB900D1E765 /* Feedback.model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,6 +186,7 @@
 		EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Bold.otf"; sourceTree = "<group>"; };
 		EA92122623C72CA200A0CB5B /* SBSansScreen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SBSansScreen.otf; sourceTree = "<group>"; };
 		EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansDisplay-Regular.otf"; sourceTree = "<group>"; };
+		EAA6FCA723C88AB900D1E765 /* Feedback.model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				EA9211BF23C5140300A0CB5B /* Feedback.view.swift */,
+				EAA6FCA723C88AB900D1E765 /* Feedback.model.swift */,
 			);
 			path = Feedback;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				3A506EF223C0D26700A498C8 /* Interceptor.swift in Sources */,
 				3A506EFE23C0D26700A498C8 /* feedbackProps.actions.swift in Sources */,
 				3A506F0E23C0D26700A498C8 /* statistics.reducer.swift in Sources */,
+				EAA6FCA823C88AB900D1E765 /* Feedback.model.swift in Sources */,
 				3A506F1623C0D26700A498C8 /* thanks.reducer.swift in Sources */,
 				3A506EF723C0D26700A498C8 /* usersAll.actions.swift in Sources */,
 				25B92A2923C10EB80063D4DE /* Like.swift in Sources */,

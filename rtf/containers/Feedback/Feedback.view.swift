@@ -13,15 +13,8 @@ import Combine
 
 struct FeedbackView : View {
 	
-	/* reactiveState */
-	@ObservedObject var state: UsersRecentState
-	let store: GlobalStore 
-	
-	/* инициализатор store + state перед рендером */
-	init(store: GlobalStore) {
-		self.store = store
-		self.state = store.state.usersRecentSubState
-	}
+	@ObservedObject var viewModel: FeedbackModel
+
 	
 	var body: some View {
 		VStack{
@@ -36,33 +29,43 @@ struct FeedbackView : View {
 			
 			EmployeeSearchBar()
 			
+			Button(action: {
+				self.viewModel.testString = "another value"
+			}, label: {
+				Text("change it")
+			})
+			
+			Text(viewModel.testString)
+//			Text(String(viewModel.modfiedState))
+			
 			Text("Недавние")
 			
 			
 //							ScrollView (.horizontal) {
 			
 			HStack {
-				ForEach(state.collection) { user in
+				ForEach(viewModel.state.collection) { user in
 					User(user: user)
 				}
 			}
 //							}.frame(height: 150)
 			
 			// NO BUG
-			ScrollView (.horizontal) {
-				HStack {
-					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
-					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
-					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
-					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
-					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
-				}
-			}
+//			ScrollView (.horizontal) {
+//				HStack {
+//					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+//					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+//					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+//					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+//					EmployeeIconView(firstName: "Matvey", lastName: "Domozhakov")
+//				}
+//			}
+			
 			// BUG
 			// не отрисовывается
 			ScrollView (.horizontal) {
 				HStack {
-					ForEach(state.collection) { user in
+					ForEach(viewModel.state.collection) { user in
 						EmployeeIconView(firstName: user.sFirstName!, lastName: user.sLastName!)
 					}
 				}
@@ -77,25 +80,26 @@ struct FeedbackView : View {
 			
 			VStack(alignment: .leading) {
 				HStack {
-					ForEach(state.collection) { user in
+					ForEach(viewModel.state.collection) { user in
 						EmployeeIconView(firstName: user.sFirstName!, lastName: user.sLastName!)
 					}
 				}
 				HStack {
-					ForEach(state.collection) { user in
+					ForEach(viewModel.state.collection) { user in
 						EmployeeIconView(firstName: user.sFirstName!, lastName: user.sLastName!)
 					}
 				}
 			}
 		}
 		.onAppear(perform: {
-			self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+			self.viewModel.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+			self.viewModel.testString = "another value"
 		})
 	}
 }
 
-struct FeedbackView_Previews : PreviewProvider {
-	static var previews: some View {
-		FeedbackView(store: AppMain().store)
-	}
-}
+//struct FeedbackView_Previews : PreviewProvider {
+//	static var previews: some View {
+//		FeedbackView(store: AppMain().store)
+//	}
+//}
