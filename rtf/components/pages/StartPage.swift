@@ -21,15 +21,28 @@ struct StartPage: View {
     }
 
     @State private var showFeedBackPage = false
+    
+    
+    
     var body: some View {
-        VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: Alignment.top ){
+
             Button(action: {self.showFeedBackPage = true }, label: {
                 Text("Переход")
                 
-                }).sheet(isPresented: $showFeedBackPage, content: {
-                    FeedBackPage()
                 })
+            
+            if(self.showFeedBackPage ){
+                SlideOverCard (position:CardPosition.top ){
+                         VStack {
+                                           
+                                           Text("Maitland Bay")
+                                               .font(.headline)
+                                           Spacer()
+                                       }
+                     }
+            }
+     
         }
         
     }

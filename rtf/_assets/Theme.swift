@@ -23,7 +23,7 @@ extension Color {
     static let  mini:CGFloat = 10
 }
  struct BasicRadius {
-    static let  max:CGFloat = 50
+    static let  max:CGFloat = 40
     static let  middle:CGFloat = 30
     static let  mini:CGFloat = 15
 }
