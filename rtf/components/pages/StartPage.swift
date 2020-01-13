@@ -29,17 +29,12 @@ struct StartPage: View {
 
             Button(action: {self.showFeedBackPage = true }, label: {
                 Text("Переход")
-                
+		
                 })
             
             if(self.showFeedBackPage ){
                 SlideOverCard (position:CardPosition.top ){
-                         VStack {
-                                           
-                                           Text("Maitland Bay")
-                                               .font(.headline)
-                                           Spacer()
-                                       }
+                        FeedBackPage(store: self.store)
                      }
             }
      

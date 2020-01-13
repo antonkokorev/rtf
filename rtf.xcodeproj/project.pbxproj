@@ -99,6 +99,7 @@
 		EA92124123C72CA200A0CB5B /* SBSansUI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */; };
 		EA92124223C72CA200A0CB5B /* SBSansScreen.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122623C72CA200A0CB5B /* SBSansScreen.otf */; };
 		EA92124323C72CA200A0CB5B /* SBSansDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */; };
+		EACEF5A323CCA64800C8EFE7 /* SearchBar.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACEF5A223CCA64800C8EFE7 /* SearchBar.view.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +194,7 @@
 		EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Bold.otf"; sourceTree = "<group>"; };
 		EA92122623C72CA200A0CB5B /* SBSansScreen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SBSansScreen.otf; sourceTree = "<group>"; };
 		EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansDisplay-Regular.otf"; sourceTree = "<group>"; };
+		EACEF5A223CCA64800C8EFE7 /* SearchBar.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.view.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,7 +306,7 @@
 			name = _ViewModels;
 			path = ../../rtfnew/rtf/_ViewModels;
 			sourceTree = "<group>";
-		};
+};
 		3A506EC123C0D26600A498C8 /* _api */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,7 +401,7 @@
 		3A506EED23C0D26700A498C8 /* atoms */ = {
 			isa = PBXGroup;
 			children = (
-
+				EACEF5A123CCA55700C8EFE7 /* SearchBar */,
 				46BAC99A23CCA7F600037D36 /* Slider */,
 				25B92A2823C10EB80063D4DE /* Like.swift */,
 				25C7064323CC94D500F26698 /* CircleImage */,
@@ -509,6 +511,14 @@
 				EA92121923C72CA100A0CB5B /* SBSansUI-Semibold.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		EACEF5A123CCA55700C8EFE7 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				EACEF5A223CCA64800C8EFE7 /* SearchBar.view.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -643,6 +653,7 @@
 				3A506F1223C0D26700A498C8 /* subordinates.reducer.swift in Sources */,
 				EA9211C723C51BAB00A0CB5B /* User.view.swift in Sources */,
 				3A506EFD23C0D26700A498C8 /* statistics.actions.swift in Sources */,
+				EACEF5A323CCA64800C8EFE7 /* SearchBar.view.swift in Sources */,
 				3A506EF223C0D26700A498C8 /* Interceptor.swift in Sources */,
 				3A506EFE23C0D26700A498C8 /* feedbackProps.actions.swift in Sources */,
 				3A506F0E23C0D26700A498C8 /* statistics.reducer.swift in Sources */,
