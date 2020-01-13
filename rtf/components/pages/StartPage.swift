@@ -28,7 +28,7 @@ struct StartPage: View {
                 Text("Переход")
                 
                 }).sheet(isPresented: $showFeedBackPage, content: {
-                    FeedBackPage()
+					FeedBackPage(store: self.store)
                 })
         }
         

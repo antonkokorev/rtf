@@ -9,23 +9,45 @@
 import SwiftUI
 
 struct FeedBackPage: View {
-    @Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
-    var body: some View {
-        VStack{
-          Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Text("close")
-                
-            })
-        }
-        
-    }
+	@Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
+	
+	@State private var searchTerm: String = ""
+
+	
+	/* reactiveState */
+	@ObservedObject var state: UsersRecentState
+	let store: GlobalStore
+	
+	/* инициализатор store + state перед рендером */
+	init(store: GlobalStore) {
+		self.store = store
+		self.state = store.state.usersRecentSubState
+	}
+	
+	var body: some View {
+		
+		List{
+			SearchBar(text: $searchTerm)
+			
+			ForEach(state.collection.filter{
+				self.searchTerm.isEmpty ?
+					true :
+					$0.sFullName!.localizedCaseInsensitiveContains(self.searchTerm)},
+					id: \.self) { user in
+						User(user: user)
+			}
+		}
+			
+			
+			
+		.onAppear(perform: {
+			self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+		})
+	}
 }
 
-struct FeedBackPage_Previews: PreviewProvider {
+struct FeedBackPage_Preview: PreviewProvider {
     static var previews: some View {
-        FeedBackPage()
+		FeedBackPage(store: AppMain().store)
     }
 }

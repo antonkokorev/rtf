@@ -8,7 +8,7 @@
 
 import ReSwift
 
-struct IUser: Codable, Equatable, Identifiable {
+struct IUser: Codable, Equatable, Identifiable, Hashable {
 		/* Нужно для Identifiable */
 		var id: String {
 			return sUserId
