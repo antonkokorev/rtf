@@ -29,7 +29,7 @@ func subordinatesReducer(action: Action, state: SubordinatesState?) -> Subordina
 		return state
 	}
 	
-	print("red", action)
+
 	switch action {
 	case .pendingGetSubordinates:
 		state.status = "[Pending] pendingGetBoss"
