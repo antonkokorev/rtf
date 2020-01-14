@@ -13,7 +13,9 @@
 		25C7063E23CC4C4E00F26698 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1B23C0D29200A498C8 /* Alamofire */; };
 		25C7063F23CC4C4E00F26698 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1E23C0D2A300A498C8 /* ReSwift */; };
 		25C7064023CC4C4E00F26698 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F2123C0D2B900A498C8 /* URLImage */; };
-		25C7064223CC5AE200F26698 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C7064123CC5AE200F26698 /* CustomModifiers.swift */; };
+		25C7064223CC5AE200F26698 /* CircleImageModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C7064123CC5AE200F26698 /* CircleImageModifiers.swift */; };
+		25CAD78323CCB6860029E202 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CAD78223CCB6860029E202 /* Carousel.swift */; };
+		25CAD78623CD952F0029E202 /* CarouselUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CAD78523CD952F0029E202 /* CarouselUser.swift */; };
 		3A2A88BD23C769DA003F15FE /* ActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A88BC23C769DA003F15FE /* ActionCard.swift */; };
 		3A2A88C023C86576003F15FE /* Topography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A88BF23C86576003F15FE /* Topography.swift */; };
 		3A2A88C223C865D1003F15FE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A88C123C865D1003F15FE /* Theme.swift */; };
@@ -64,6 +66,7 @@
 		3A506F1823C0D26700A498C8 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEE23C0D26700A498C8 /* CircleImage.swift */; };
 		4635894523CC9B8100DBA092 /* StartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894423CC9B8100DBA092 /* StartPage.swift */; };
 		4635894723CC9CE600DBA092 /* FeedBackPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894623CC9CE600DBA092 /* FeedBackPage.swift */; };
+		4657BFE223CDA56E00604801 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 4657BFE123CDA56E00604801 /* PartialSheet */; };
 		46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAC99B23CCA80C00037D36 /* Slider.swift */; };
 		EA6D1C7223CDB8D500D5B34A /* usersRequest.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D1C7123CDB8D500D5B34A /* usersRequest.effect.swift */; };
 		EA6D1C7423CDDFFC00D5B34A /* thanks.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D1C7323CDDFFC00D5B34A /* thanks.effect.swift */; };
@@ -108,7 +111,9 @@
 		25188B2B23C764AD00BC0B06 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		25188B2E23C765E500BC0B06 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		25B92A2823C10EB80063D4DE /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
-		25C7064123CC5AE200F26698 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
+		25C7064123CC5AE200F26698 /* CircleImageModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageModifiers.swift; sourceTree = "<group>"; };
+		25CAD78223CCB6860029E202 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		25CAD78523CD952F0029E202 /* CarouselUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselUser.swift; sourceTree = "<group>"; };
 		3A2A88BC23C769DA003F15FE /* ActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCard.swift; sourceTree = "<group>"; };
 		3A2A88BF23C86576003F15FE /* Topography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topography.swift; sourceTree = "<group>"; };
 		3A2A88C123C865D1003F15FE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -208,6 +213,7 @@
 			files = (
 				25C7063E23CC4C4E00F26698 /* Alamofire in Frameworks */,
 				25C7064023CC4C4E00F26698 /* URLImage in Frameworks */,
+				4657BFE223CDA56E00604801 /* PartialSheet in Frameworks */,
 				25C7063F23CC4C4E00F26698 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,19 +221,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		259D9C3823CCAFAB00334C44 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				25B92A2823C10EB80063D4DE /* Like.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		259D9C3923CCAFBE00334C44 /* ActionCard */ = {
+			isa = PBXGroup;
+			children = (
+				3A2A88BC23C769DA003F15FE /* ActionCard.swift */,
+			);
+			path = ActionCard;
+			sourceTree = "<group>";
+		};
 		25C7064323CC94D500F26698 /* CircleImage */ = {
 			isa = PBXGroup;
 			children = (
 				3A506EEE23C0D26700A498C8 /* CircleImage.swift */,
-				25C7064123CC5AE200F26698 /* CustomModifiers.swift */,
+				25C7064123CC5AE200F26698 /* CircleImageModifiers.swift */,
 			);
 			path = CircleImage;
+			sourceTree = "<group>";
+		};
+		25CAD78123CCB6490029E202 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				25CAD78223CCB6860029E202 /* Carousel.swift */,
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
+		25CAD78423CD94DB0029E202 /* CarouselUser */ = {
+			isa = PBXGroup;
+			children = (
+				25CAD78523CD952F0029E202 /* CarouselUser.swift */,
+			);
+			path = CarouselUser;
 			sourceTree = "<group>";
 		};
 		3A2A88BE23C77E09003F15FE /* molecules */ = {
 			isa = PBXGroup;
 			children = (
-				3A2A88BC23C769DA003F15FE /* ActionCard.swift */,
+				25CAD78423CD94DB0029E202 /* CarouselUser */,
+				25CAD78123CCB6490029E202 /* Carousel */,
+				259D9C3823CCAFAB00334C44 /* Like */,
+				259D9C3923CCAFBE00334C44 /* ActionCard */,
 			);
 			path = molecules;
 			sourceTree = "<group>";
@@ -391,8 +432,9 @@
 			isa = PBXGroup;
 			children = (
 				EACEF5A123CCA55700C8EFE7 /* SearchBar */,
-				46BAC99A23CCA7F600037D36 /* Slider */,
+
 				25B92A2823C10EB80063D4DE /* Like.swift */,
+
 				25C7064323CC94D500F26698 /* CircleImage */,
 			);
 			path = atoms;
@@ -405,14 +447,6 @@
 				4635894623CC9CE600DBA092 /* FeedBackPage.swift */,
 			);
 			path = pages;
-			sourceTree = "<group>";
-		};
-		46BAC99A23CCA7F600037D36 /* Slider */ = {
-			isa = PBXGroup;
-			children = (
-				46BAC99B23CCA80C00037D36 /* Slider.swift */,
-			);
-			path = Slider;
 			sourceTree = "<group>";
 		};
 		EA9211BD23C513D600A0CB5B /* containers */ = {
@@ -505,6 +539,7 @@
 		EACEF5A123CCA55700C8EFE7 /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
+				46BAC99B23CCA80C00037D36 /* Slider.swift */,
 				EACEF5A223CCA64800C8EFE7 /* SearchBar.view.swift */,
 			);
 			path = SearchBar;
@@ -530,6 +565,7 @@
 				3A506F1B23C0D29200A498C8 /* Alamofire */,
 				3A506F1E23C0D2A300A498C8 /* ReSwift */,
 				3A506F2123C0D2B900A498C8 /* URLImage */,
+				4657BFE123CDA56E00604801 /* PartialSheet */,
 			);
 			productName = rtf;
 			productReference = 3A506EA623C0D24E00A498C8 /* rtf.app */;
@@ -563,6 +599,7 @@
 				3A506F1A23C0D29100A498C8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				3A506F1D23C0D2A300A498C8 /* XCRemoteSwiftPackageReference "ReSwift" */,
 				3A506F2023C0D2B900A498C8 /* XCRemoteSwiftPackageReference "url-image" */,
+				4657BFE023CDA56E00604801 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 3A506EA723C0D24E00A498C8 /* Products */;
 			projectDirPath = "";
@@ -634,6 +671,7 @@
 				3A506F0A23C0D26700A498C8 /* usersHistory.reducer.swift in Sources */,
 				3A506F0D23C0D26700A498C8 /* usersRequest.reducer.swift in Sources */,
 				3A506F1023C0D26700A498C8 /* usersInbox.reducer.swift in Sources */,
+				25CAD78623CD952F0029E202 /* CarouselUser.swift in Sources */,
 				3A506EF923C0D26700A498C8 /* usersInbox.actions.swift in Sources */,
 				EA9211CA23C5241E00A0CB5B /* EmployeeSearchBar.view.swift in Sources */,
 				EA9211CF23C5381E00A0CB5B /* subordinates.effect.swift in Sources */,
@@ -644,6 +682,7 @@
 				EA9211C723C51BAB00A0CB5B /* User.view.swift in Sources */,
 				3A506EFD23C0D26700A498C8 /* statistics.actions.swift in Sources */,
 				EACEF5A323CCA64800C8EFE7 /* SearchBar.view.swift in Sources */,
+				25CAD78323CCB6860029E202 /* Carousel.swift in Sources */,
 				3A506EF223C0D26700A498C8 /* Interceptor.swift in Sources */,
 				3A506EFE23C0D26700A498C8 /* feedbackProps.actions.swift in Sources */,
 				3A506F0E23C0D26700A498C8 /* statistics.reducer.swift in Sources */,
@@ -653,7 +692,7 @@
 				46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */,
 				3A506EF623C0D26700A498C8 /* usersTeam.actions.swift in Sources */,
 				3A506EAA23C0D24E00A498C8 /* AppDelegate.swift in Sources */,
-				25C7064223CC5AE200F26698 /* CustomModifiers.swift in Sources */,
+				25C7064223CC5AE200F26698 /* CircleImageModifiers.swift in Sources */,
 				4635894723CC9CE600DBA092 /* FeedBackPage.swift in Sources */,
 				4635894523CC9B8100DBA092 /* StartPage.swift in Sources */,
 				3A506EFB23C0D26700A498C8 /* teamInfo.actions.swift in Sources */,
@@ -899,6 +938,14 @@
 				minimumVersion = 0.9.9;
 			};
 		};
+		4657BFE023CDA56E00604801 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -916,6 +963,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A506F2023C0D2B900A498C8 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		4657BFE123CDA56E00604801 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4657BFE023CDA56E00604801 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

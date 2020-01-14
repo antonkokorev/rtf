@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 struct StartPage: View {
     
@@ -21,24 +22,22 @@ struct StartPage: View {
     }
 
     @State private var showFeedBackPage = false
-    
-    
-    
-    var body: some View {
-        ZStack(alignment: Alignment.top ){
+    @State private var longer: Bool = false
 
-            Button(action: {self.showFeedBackPage = true }, label: {
-                Text("Переход")
-		
+    
+    //background(Color.RTFPallete.backgroundDefault)
+    var body: some View {
+    
+            VStack(alignment: .leading){
+                Button(
+                action: {self.showFeedBackPage = true },
+                label: {Text("Переход")
                 })
-            
-            if(self.showFeedBackPage ){
-                SlideOverCard (position:CardPosition.top ){
-                        FeedBackPage(store: self.store)
-                     }
-            }
-     
-        }
+                Spacer()
+            }.background(Color.red)
+        .partialSheet(presented: $showFeedBackPage) {
+             FeedBackPage(store: self.store)
+         }
         
     }
 }

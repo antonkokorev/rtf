@@ -24,7 +24,7 @@ struct ActionCard: View {
                         Circle().frame(width:BasicIconSizes.max,height:BasicIconSizes.max).padding()
                         VStack(alignment: .leading){
                             Text("\(self.textTitle)")
-                            .font(Font.Typography.sizingFont(font: .sub, size: .H1))
+                            .font(Font.Typography.sizingFont(font: .semibold, size: .H1))
                                 .lineLimit(-1)
                                 .padding(.top, BasicPadding.p15)
                                 .foregroundColor(Color.RTFPallete.textDefault)

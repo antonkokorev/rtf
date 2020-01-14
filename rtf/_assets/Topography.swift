@@ -12,7 +12,7 @@ import SwiftUI
 // MARK: Base typography materials
 ///
 struct TokenTypography {
-
+    
     ///
     // 1. Prepare base materials
     ///
@@ -30,8 +30,10 @@ struct TokenTypography {
     /** здесь дописываем необходимые шрифты*/
     private enum FontFamily: String {
         case
-
-        SBSans = "SBSansText-Bold"
+        
+        SBSansDisplayBold = "SBSansDisplay-Bold",
+        SBSansDisplayRegular = "SBSansDisplay-Regular",
+        SBSansDisplaySemibold = "SBSansDisplay-Semibold"
     }
     
     /// b. Level 2 tokens
@@ -62,39 +64,44 @@ struct TokenTypography {
         }
     }
     
-        /** здесь дописываем необходимые свойства */
-    enum FontFamilyToken: String {
+    /** здесь дописываем необходимые свойства */
+    enum FontWeightToken: String {
         case
-        main,
-        sub
+        regular,
+        semibold,
+        bold
         
         func getValue() -> String {
             switch self {
                 
                 
-            case .main:
-                return FontFamily.SBSans.rawValue
-            case .sub:
-                return FontFamily.SBSans.rawValue
+            case .regular:
+                return FontFamily.SBSansDisplayRegular.rawValue
+            case .semibold:
+                return FontFamily.SBSansDisplaySemibold.rawValue
+            case .bold:
+                return FontFamily.SBSansDisplayBold.rawValue
             }
         }
     }
-
+    
     ///
     // 2. Expose data
     ///
-    let mainFont: Font!
-    let subFont: Font!
+    let regularFont: Font!
+    let semiboldFont: Font!
+    let boldFont: Font!
     
     init() {
-        self.mainFont = Font.custom(FontFamilyToken.main.getValue(), size: FontSizeToken.H2.getValue())
-        self.subFont = Font.custom(FontFamilyToken.sub.getValue(), size: FontSizeToken.H3.getValue())
+        self.regularFont = Font.custom(FontWeightToken.regular.getValue(), size: FontSizeToken.H2.getValue())
+        self.semiboldFont = Font.custom(FontWeightToken.semibold.getValue(), size: FontSizeToken.H3.getValue())
+        self.boldFont = Font.custom(FontWeightToken.bold.getValue(), size: FontSizeToken.H3.getValue())
     }
 }
 
 /// Helper functions
 extension TokenTypography {
-    public func sizingFont(font: FontFamilyToken, size: FontSizeToken) -> Font {
+    public func sizingFont(font: FontWeightToken, size: FontSizeToken) -> Font {
         return Font.custom(font.getValue(), size: size.getValue())
     }
 }

@@ -24,19 +24,27 @@ struct SlideOverCard<Content: View> : View {
             }
             .onEnded(onDragEnded)
         
-        return Group {
-            Handle()
-            self.content()
+        return
+            ZStack{
+//                Rectangle()
+                Button.init(action: {
+                    print("tap")
+                }, label: {Text("sfs")}).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading).background(Color.black).opacity(0.5)
+//                Group {
+//                           Handle()
+//                           self.content()
+//                       }
+//
+//                       .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+//                        .frame(height: UIScreen.main.bounds.height)
+//                       .background(Color.white)
+//                       .cornerRadius(BasicRadius.max)
+//                       .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
+//                       .offset(y: self.position.rawValue + self.dragState.translation.height)
+//                       .animation(self.dragState.isDragging ? nil : .interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
+//                       .gesture(drag)
         }
-       
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-         .frame(height: UIScreen.main.bounds.height)
-        .background(Color.white)
-        .cornerRadius(BasicRadius.max)
-        .shadow(color: Color(.sRGBLinear, white: 0, opacity: 0.13), radius: 10.0)
-        .offset(y: self.position.rawValue + self.dragState.translation.height)
-        .animation(self.dragState.isDragging ? nil : .interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
-        .gesture(drag)
+           
     }
     
     private func onDragEnded(drag: DragGesture.Value) {

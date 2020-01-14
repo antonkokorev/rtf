@@ -25,6 +25,7 @@ struct FeedBackPage: View {
 	}
 	
 	var body: some View {
+
 		NavigationView {
 			VStack {
 				SearchBar(text: $searchTerm)
@@ -80,6 +81,7 @@ struct FeedBackPage: View {
 	
 	func delete(at offsets : IndexSet){
 		state.collection.remove(atOffsets: offsets)
+
 	}
 }
 
