@@ -25,7 +25,7 @@ struct FeedBackPage: View {
 	}
 	
 	var body: some View {
-		
+        ZStack{
 		List{
 			SearchBar(text: $searchTerm)
 			
@@ -36,9 +36,8 @@ struct FeedBackPage: View {
 					id: \.self) { user in
 						User(user: user)
 			}
-		}
-			
-			
+        }
+            }
 			
 		.onAppear(perform: {
 			self.store.dispatch(usersRecentActions.pendingGetRecentUsers)

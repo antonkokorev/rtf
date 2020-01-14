@@ -66,6 +66,7 @@
 		3A506F1823C0D26700A498C8 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEE23C0D26700A498C8 /* CircleImage.swift */; };
 		4635894523CC9B8100DBA092 /* StartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894423CC9B8100DBA092 /* StartPage.swift */; };
 		4635894723CC9CE600DBA092 /* FeedBackPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894623CC9CE600DBA092 /* FeedBackPage.swift */; };
+		4657BFE223CDA56E00604801 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 4657BFE123CDA56E00604801 /* PartialSheet */; };
 		46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAC99B23CCA80C00037D36 /* Slider.swift */; };
 		EA9211C023C5140300A0CB5B /* Feedback.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211BF23C5140300A0CB5B /* Feedback.view.swift */; };
 		EA9211C423C517EB00A0CB5B /* state.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C323C517EB00A0CB5B /* state.swift */; };
@@ -208,6 +209,7 @@
 			files = (
 				25C7063E23CC4C4E00F26698 /* Alamofire in Frameworks */,
 				25C7064023CC4C4E00F26698 /* URLImage in Frameworks */,
+				4657BFE223CDA56E00604801 /* PartialSheet in Frameworks */,
 				25C7063F23CC4C4E00F26698 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,7 +426,9 @@
 			isa = PBXGroup;
 			children = (
 				EACEF5A123CCA55700C8EFE7 /* SearchBar */,
-				46BAC99A23CCA7F600037D36 /* Slider */,
+
+				25B92A2823C10EB80063D4DE /* Like.swift */,
+
 				25C7064323CC94D500F26698 /* CircleImage */,
 			);
 			path = atoms;
@@ -437,14 +441,6 @@
 				4635894623CC9CE600DBA092 /* FeedBackPage.swift */,
 			);
 			path = pages;
-			sourceTree = "<group>";
-		};
-		46BAC99A23CCA7F600037D36 /* Slider */ = {
-			isa = PBXGroup;
-			children = (
-				46BAC99B23CCA80C00037D36 /* Slider.swift */,
-			);
-			path = Slider;
 			sourceTree = "<group>";
 		};
 		EA9211BD23C513D600A0CB5B /* containers */ = {
@@ -537,6 +533,7 @@
 		EACEF5A123CCA55700C8EFE7 /* SearchBar */ = {
 			isa = PBXGroup;
 			children = (
+				46BAC99B23CCA80C00037D36 /* Slider.swift */,
 				EACEF5A223CCA64800C8EFE7 /* SearchBar.view.swift */,
 			);
 			path = SearchBar;
@@ -562,6 +559,7 @@
 				3A506F1B23C0D29200A498C8 /* Alamofire */,
 				3A506F1E23C0D2A300A498C8 /* ReSwift */,
 				3A506F2123C0D2B900A498C8 /* URLImage */,
+				4657BFE123CDA56E00604801 /* PartialSheet */,
 			);
 			productName = rtf;
 			productReference = 3A506EA623C0D24E00A498C8 /* rtf.app */;
@@ -595,6 +593,7 @@
 				3A506F1A23C0D29100A498C8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				3A506F1D23C0D2A300A498C8 /* XCRemoteSwiftPackageReference "ReSwift" */,
 				3A506F2023C0D2B900A498C8 /* XCRemoteSwiftPackageReference "url-image" */,
+				4657BFE023CDA56E00604801 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 3A506EA723C0D24E00A498C8 /* Products */;
 			projectDirPath = "";
@@ -931,6 +930,14 @@
 				minimumVersion = 0.9.9;
 			};
 		};
+		4657BFE023CDA56E00604801 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -948,6 +955,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A506F2023C0D2B900A498C8 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		4657BFE123CDA56E00604801 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4657BFE023CDA56E00604801 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
