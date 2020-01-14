@@ -22,7 +22,7 @@ var userRecentEffect: Middleware<AppState> = { dispatch, getState in
 			/* делает реквест только если pending вызвано */
 			switch userRecentInvokedAction {
 			case .pendingGetRecentUsers:
-				AF.request(Interceptor.serviceRequest(service: "relation/recent")).response { response in
+				AF.request(Interceptor.serviceRequest(service: "relation/recent", body: nil )).response { response in
 					/* обработка ошибок */
 					switch response.error {
 					case .none:

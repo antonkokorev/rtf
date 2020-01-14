@@ -7,11 +7,18 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
 
+struct IUsersRequest: Codable {
+    let iCountPage: Int?
+	let iTotalCount: Int?
+    let aObjects: [IUser]?
+}
 
-struct usersRequestState: StateType {
-    var collection = ""
-    var status = ""
+final class usersRequestState: StateType, ObservableObject {
+	@Published var collection: [IUser] = []
+    @Published var status = ""
 }
 
 func usersRequestReducer(action: Action, state: usersRequestState?) -> usersRequestState {
@@ -20,13 +27,13 @@ func usersRequestReducer(action: Action, state: usersRequestState?) -> usersRequ
     guard let action = action as? usersRequestActions else {
         return state
     }
-    
+    print("red", action)
     switch action {
     case .pendingGetUsersWithRequest:
         state.status = "[Pending] pendingGetUsersWithRequest"
         break;
-    case .successGetUsersWithRequest:
-        state.collection = "data blob, state change"
+    case .successGetUsersWithRequest(let data):
+		state.collection = data.aObjects!
         state.status = "[Success] successGetUsersWithRequest"
         break;
     }

@@ -10,6 +10,8 @@ import Foundation
 import ReSwift
 import Alamofire
 
+let subordinatesBody = "{\"iPage\":0, \"iSize\": 40}"
+
 var subordinatesEffect: Middleware<AppState> = { dispatch, getState in
 	return { next in
 		return { action in
@@ -22,11 +24,11 @@ var subordinatesEffect: Middleware<AppState> = { dispatch, getState in
 			/* делает реквест только если pending вызвано */
 			switch subordinatesInvokedAction {
 			case .pendingGetSubordinates:
-				AF.request(Interceptor.serviceRequest(service: "colleagues/subordinates")).response { response in
+				AF.request(Interceptor.serviceRequest(service: "colleagues/subordinates", body: subordinatesBody)).response { response in
 					/* обработка ошибок */
 					switch response.error {
 					case .none:
-						let data = try? JSONDecoder().decode(IPagination.self, from: response.data!)
+						let data = try? JSONDecoder().decode(ISubordinates.self, from: response.data!)
 						next(subordinatesActions.successGetSubordinates(data!))
 					case .some(let error):
 						print(error)

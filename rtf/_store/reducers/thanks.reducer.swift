@@ -7,27 +7,39 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
 
+struct IThanks: Codable {
+	let oInputThanks: IThanksDetails?
+	let oOutputThanks: IThanksDetails?
+}
 
-struct thanksState: StateType {
-    var collection = ""
-    var status = ""
+struct IThanksDetails: Codable {
+    let iCount: Int?
+    let aUsers: [IUser]?
+}
+
+final class thanksState: StateType, ObservableObject  {
+	@Published var collection: Int = 0
+    @Published var status = ""
 }
 
 func thanksReducer(action: Action, state: thanksState?) -> thanksState {
-    var state = state ?? thanksState()
+    let state = state ?? thanksState()
     
     guard let action = action as? thanksActions else {
         return state
     }
     
+	print("red", action)
     switch action {
     case .pendingGetThanksCount:
         state.status = "[Pending] pendingGetThanksCount"
         break;
-    case .successGetThanksCount:
-        state.collection = "data blob, state change"
-        state.status = "[Success] successGetThanksCount"
+    case .successGetThanksCount(let data):
+		state.collection = (data.oInputThanks?.iCount)!
+		state.status = "[Success] successGetThanksCount"
         break;
     case .pendingAddThank:
         state.status = "[Pending] pendingAddThank"

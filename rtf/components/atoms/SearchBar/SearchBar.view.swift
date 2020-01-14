@@ -30,7 +30,9 @@ struct SearchBar: UIViewRepresentable {
 	}
 	
 	func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-		let searchBar = UISearchBar(frame: .zero)
+		let searchBar = UISearchBar(
+			frame: .zero
+		)
 		
 		
 		

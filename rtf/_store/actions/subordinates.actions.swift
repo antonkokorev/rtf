@@ -11,7 +11,7 @@ import ReSwift
 /* создаем все actions в этом объекте */
 enum subordinatesActions: Action {
     case pendingGetSubordinates
-    case successGetSubordinates(IPagination)
+    case successGetSubordinates(ISubordinates)
     
     case setClearSubordinatesList
 }

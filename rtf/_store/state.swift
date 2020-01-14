@@ -52,7 +52,9 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 
 var AppEffects: Array = [
 	userRecentEffect,
-	subordinatesEffect
+	subordinatesEffect,
+	userRequestEffect,
+	thanksEffect
 ]
 
 struct IPagination: Codable, Equatable {
