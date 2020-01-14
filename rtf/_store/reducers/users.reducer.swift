@@ -7,6 +7,8 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
 
 struct IUser: Codable, Equatable, Identifiable, Hashable {
 		/* Нужно для Identifiable */
@@ -49,12 +51,36 @@ struct IUser: Codable, Equatable, Identifiable, Hashable {
     let bTypeEstimate: Bool?;
     /** Функциональный блок */
     let sExtidFblock: String?;
+
+}
+func initIUser()-> IUser{
+    return IUser(
+        sUserId: "",
+        sFirstName: nil,
+        sMiddleName: nil,
+        sLastName: nil,
+        sFullName: nil,
+        sTitle: nil,
+        sStructure: nil,
+        iRating: nil,
+        bIsMe: nil,
+        bIsPinned: nil,
+        bIsMyTeam: nil,
+        sPhoto: nil,
+        sIncomeComment: nil,
+        sStatus: nil,
+        iIncomeRates: nil,
+        IncomeRequests: nil,
+        bTypeEstimate: nil,
+        sExtidFblock: nil
+    )
 }
 
-struct UsersState: StateType {
-    var collection = ""
-    var status = ""
+final class UsersState: StateType, ObservableObject {
+    @Published var me: IUser = initIUser()
+    @Published var status = ""
 }
+
 
 func usersReducer(action: Action, state: UsersState?) -> UsersState {
     var state = state ?? UsersState()
@@ -67,8 +93,8 @@ func usersReducer(action: Action, state: UsersState?) -> UsersState {
     case .pendingGetMe:
         state.status = "[Pending] pendingGetMe"
         break;
-    case .successGetMe:
-        state.collection = "data blob, state change"
+    case .successGetMe(let me):
+        state.me=me
         state.status = "[Success] successGetMe"
         break;
     case .pendingGetUserById:

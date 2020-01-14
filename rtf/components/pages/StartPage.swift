@@ -13,12 +13,15 @@ struct StartPage: View {
     
     /* reactiveState */
     @ObservedObject var state: UsersRecentState
+    @ObservedObject var users: UsersState
     let store: GlobalStore
 
     /* инициализатор store + state перед рендером */
     init(store: GlobalStore) {
         self.store = store
         self.state = store.state.usersRecentSubState
+        self.users = store.state.usersSubState
+     
     }
 
     @State private var showFeedBackPage = false
@@ -31,13 +34,16 @@ struct StartPage: View {
             VStack(alignment: .leading){
                 Button(
                 action: {self.showFeedBackPage = true },
-                label: {Text("Переход")
+                label: {Text("\(users.me.sUserId)")
                 })
                 Spacer()
             }.background(Color.red)
         .partialSheet(presented: $showFeedBackPage) {
-             FeedBackPage(store: self.store)
-         }
+           //  FeedBackPage(store: self.store)
+            HistoryPage(store: self.store)
+         }.onAppear(perform: {
+            self.store.dispatch(usersActions.pendingGetMe)
+         })
         
     }
 }

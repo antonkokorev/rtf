@@ -11,7 +11,7 @@ import ReSwift
 /* создаем все actions в этом объекте */
 enum usersActions: Action {
     case pendingGetMe
-    case successGetMe
+    case successGetMe(IUser)
     
     case pendingGetUserById
     
