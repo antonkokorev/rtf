@@ -25,7 +25,7 @@ struct CarouselUser: View {
             Text(firstName + " " + lastName.prefix(1)+".")
                 .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
                 .frame(width: 60, height: 13, alignment: .center)
-        }.frame(width: 72, height: 96, alignment: .center)
+        }.frame(width: 60, height: 96, alignment: .center)
     }
 }
 
