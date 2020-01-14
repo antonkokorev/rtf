@@ -82,6 +82,7 @@ struct FeedBackPage: View {
 	func delete(at offsets : IndexSet){
 		state.collection.remove(atOffsets: offsets)
 
+
 	}
 }
 
