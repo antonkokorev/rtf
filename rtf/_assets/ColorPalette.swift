@@ -15,8 +15,9 @@ struct BaseColor {
     let paleBlue = Color("paleBlue")
     let blueGray = Color("blueGray")
     let textGray = Color("textGray")
-    let black = Color("black")
-    let white = Color("white")
+    let black = Color("mainBlack")
+    let white = Color("mainWhite")
+    let buttonGrayBackground = Color("buttonGrayBackground")
     
     /// Статичные цвета
     
@@ -43,6 +44,9 @@ struct ColorPallete {
     // Серая
     let buttonSecondary: Color!
     
+    // Серая
+    let buttonGrayBackground: Color!
+    
     // Белая
     let buttonBlank: Color!
     
@@ -55,6 +59,7 @@ struct ColorPallete {
         self.buttonDefault = baseColor.mainBlue
         self.buttonSecondary = baseColor.black
         self.buttonBlank = baseColor.white
+        self.buttonGrayBackground = baseColor.buttonGrayBackground
     }
 }
 

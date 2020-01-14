@@ -14,9 +14,7 @@ struct ActionCard: View {
     @State var icon: String
     
     var body: some View {
-        
-        
-        GeometryReader{geo in
+
             VStack(){
                 Button(action: {print(1234)}) {
                     HStack(){
@@ -24,7 +22,7 @@ struct ActionCard: View {
                         CircleImage(imageSize: 50,
                                     icon: self.icon,
                                     iconSize: 30,
-                                    shadowOn: true,
+
                                     backgroundColor: .white ).frame(width:BasicIconSizes.max,height:BasicIconSizes.max).padding()
                         VStack(alignment: .leading){
                             Text("\(self.textTitle)")
@@ -43,15 +41,14 @@ struct ActionCard: View {
                         
                     }
                     
-                }.frame(width:geo.size.width-60,height:84).background(/*@START_MENU_TOKEN@*/Color.white/*@END_MENU_TOKEN@*/)
+                }.background(Color.white)
                     .cornerRadius(BasicRadius.mini)
-            }
+            }.frame(height: 84)
             
         }
-        .background(/*@START_MENU_TOKEN@*/Color(red: 0.929, green: 0.941, blue: 0.969)/*@END_MENU_TOKEN@*/)
         
     }
-}
+
 
 struct ActionCard_Previews: PreviewProvider {
     static var previews: some View {

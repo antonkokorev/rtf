@@ -8,13 +8,6 @@
 
 import SwiftUI
 
-
-
-
-var userName = "userName"
-
-//var userList = []
-
 struct Carousel: View {
     
     @Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
@@ -38,9 +31,8 @@ struct Carousel: View {
     var body: some View {
         
         VStack(){
-            Spacer()
             ScrollView(.horizontal, showsIndicators: false){
-                HStack{
+                HStack(spacing: 25){
                     ForEach(state.collection) { item in
                         Button(action: {print(1234)}) {
                             CarouselUser(
@@ -49,11 +41,9 @@ struct Carousel: View {
                                 imageUrl: "https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200",
                                 borderColor: .green)
                             }.self.buttonStyle(PlainButtonStyle())
-                            .padding(.leading, 25)
                     }
-                    
-                }.padding(.horizontal, 30)
-                Spacer()
+                }
+            .frame(height: 87)
             }
             .onAppear(perform: {
                 self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
