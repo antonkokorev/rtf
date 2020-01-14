@@ -55,7 +55,7 @@ struct CircleImage:View {
             
             /**Текст*/
             Text("\(labelText ?? "")")
-                .font(Font.Typography.sizingFont(font: .sub, size: .H4))
+                .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
                 .lineLimit(-1)
                 .foregroundColor(labelColor)
         }
