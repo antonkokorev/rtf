@@ -11,7 +11,7 @@ import ReSwift
 /* создаем все actions в этом объекте */
 enum thanksActions: Action {
     case pendingGetThanksCount
-    case successGetThanksCount
+    case successGetThanksCount(IThanks)
     
     case pendingAddThank
     case successAddThank

@@ -21,7 +21,7 @@ func usersRecentReducer(action: Action, state: UsersRecentState?) -> UsersRecent
     guard let action = action as? usersRecentActions else {
         return state
     }
-    print("red", action)
+
     switch action {
     case .pendingGetRecentUsers:
         state.status = "[Pending] pendingGetRecentUsers"

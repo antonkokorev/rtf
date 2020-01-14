@@ -7,12 +7,25 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
 
-
-struct usersHistoryState: StateType {
-    var collection = ""
-    var status = ""
+struct IRequester: Codable, Equatable, Hashable{
+   let  oRequester:IUser?
 }
+
+struct IUserHistory: Codable, Equatable, Hashable {
+    /** хз что */
+   let  bHasNext: Bool?
+   let  aObjects: [IRequester]?
+}
+
+final class usersHistoryState: StateType, ObservableObject {
+    @Published var collection: IUserHistory = .init(bHasNext: false, aObjects: [])
+    @Published var status = ""
+  
+}
+
 
 func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHistoryState {
     var state = state ?? usersHistoryState()
@@ -26,7 +39,7 @@ func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHist
         state.status = "[Pending] pendingGetUserHistory"
         break;
     case .successGetUserHistory:
-        state.collection = "data blob, state change"
+        //state.collection = "data blob, state change"
         state.status = "[Success] successGetUserHistory"
         break;
     case .pendingGetHistory:
