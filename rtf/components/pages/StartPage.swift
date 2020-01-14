@@ -62,6 +62,7 @@ struct StartPage: View {
             
             
             Carousel(store: store)
+                .padding(.leading, -30)
                 .padding(.bottom, 30)
             
             ScrollView(.horizontal, showsIndicators: false){
@@ -94,6 +95,7 @@ struct StartPage: View {
                 Spacer()
             }.padding(.bottom, 10)
             }.padding(.bottom, 25)
+            .padding(.leading, -30)
             
             VStack(spacing: 15){
             ActionCard(
@@ -121,10 +123,10 @@ struct StartPage: View {
             
             
             
-            //            Button(
-            //                action: {self.showFeedBackPage = true },
-            //                label: {Text("Переход")
-            //            })
+                        Button(
+                            action: {self.showFeedBackPage = true },
+                            label: {Text("Переход")
+                        })
             Spacer()
         }.padding(.horizontal, 30)
             .partialSheet(presented: $showFeedBackPage) {

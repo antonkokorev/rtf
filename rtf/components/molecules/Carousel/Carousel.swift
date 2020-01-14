@@ -32,7 +32,7 @@ struct Carousel: View {
         
         VStack(){
             ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 25){
+                HStack(spacing: 20){
                     ForEach(state.collection) { item in
                         Button(action: {print(1234)}) {
                             CarouselUser(
@@ -41,7 +41,7 @@ struct Carousel: View {
                                 imageUrl: "https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200",
                                 borderColor: .green)
                             }.self.buttonStyle(PlainButtonStyle())
-                    }
+                    }.padding(5)
                 }
             .frame(height: 87)
             }
