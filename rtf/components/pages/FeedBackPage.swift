@@ -39,7 +39,7 @@ struct FeedBackPage: View {
 								HStack{
 									
 									CircleImage(
-										imageUrl: "https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200",
+										imageUrl: getPhoto(user.sUserId),
 										imageSize: 60,
 										backgroundColor: .black
 									)
