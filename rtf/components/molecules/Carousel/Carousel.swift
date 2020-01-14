@@ -55,9 +55,9 @@ struct Carousel: View {
                 }.padding(.horizontal, 30)
                 Spacer()
             }
-              .onAppear(perform: {
-                    self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-                })
+            .onAppear(perform: {
+                self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+            })
         }
     }
     struct Carousel_Previews: PreviewProvider {
