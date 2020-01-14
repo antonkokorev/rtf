@@ -38,7 +38,7 @@ struct Carousel: View {
                             CarouselUser(
                                 firstName: item.sFirstName!,
                                 lastName: item.sLastName!,
-                                imageUrl: "https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200",
+								imageUrl: getPhoto(item.sUserId),
                                 borderColor: .green)
                             }.self.buttonStyle(PlainButtonStyle())
                     }.padding(5)
