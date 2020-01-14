@@ -21,9 +21,9 @@ struct StartPage: View {
         self.store = store
         self.state = store.state.usersRecentSubState
         self.users = store.state.usersSubState
-     
+        
     }
-
+    
     
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
@@ -32,7 +32,8 @@ struct StartPage: View {
     //background(Color.RTFPallete.backgroundDefault)
     var body: some View {
         
-        VStack(alignment: .leading){
+        VStack(){
+            ScrollView(.vertical, showsIndicators: false){
             HStack{
                 CircleImage(imageSize: 40, icon: "like")
                 Spacer()
@@ -42,6 +43,12 @@ struct StartPage: View {
             Text("Привет," + "\n" + "userName!")
                 .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                 .padding(.bottom, 25)
+                
+            
+            
+            
+            
+            
             
             HStack(spacing: 15){
                 
@@ -66,76 +73,92 @@ struct StartPage: View {
                 .padding(.bottom, 30)
             
             ScrollView(.horizontal, showsIndicators: false){
-            HStack(spacing: 15){
-                
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Командный отчет")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                    .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                
-                Button(action: {}) {
-                Text("История")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Статиситка")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
+                HStack{
+                    Spacer(minLength: 30)
                     
-                
-
-                Spacer()
-            }.padding(.bottom, 10)
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("Командный отчет")
+                            .padding(10)
+                    }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
+                        .background(Color.RTFPallete.buttonGrayBackground)
+                        .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+                    
+                    Button(action: {}) {
+                        Text("История")
+                            .padding(10.0)
+                    }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
+                        .background(Color.RTFPallete.buttonGrayBackground)
+                        .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("Статиситка")
+                            .padding(10)
+                    }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
+                        .background(Color.RTFPallete.buttonGrayBackground)
+                        .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+                    
+                    
+                    
+                    Spacer()
+                }.padding(.bottom, 10)
             }.padding(.bottom, 25)
-            .padding(.leading, -30)
+                .padding(.leading, -30)
             
             VStack(spacing: 15){
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
-            )
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
-            )
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
+                ActionCard(
+                    textTitle: "TextTitle1",
+                    textBody: "TextBody1",
+                    icon: "like"
                 )
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
-            )
+                ActionCard(
+                    textTitle: "TextTitle1",
+                    textBody: "TextBody1",
+                    icon: "like"
+                )
+                ActionCard(
+                    textTitle: "TextTitle1",
+                    textBody: "TextBody1",
+                    icon: "like"
+                )
+                ActionCard(
+                     textTitle: "TextTitle1",
+                     textBody: "TextBody1",
+                     icon: "like"
+                 )
+                ActionCard(
+                     textTitle: "TextTitle1",
+                     textBody: "TextBody1",
+                     icon: "like"
+                 )
+                ActionCard(
+                     textTitle: "TextTitle1",
+                     textBody: "TextBody1",
+                     icon: "like"
+                 )
+                ActionCard(
+                     textTitle: "TextTitle1",
+                     textBody: "TextBody1",
+                     icon: "like"
+                 )
                 
-            }
+            }.padding(.bottom, 30)
             
             
             
-                        Button(
-                            action: {self.showFeedBackPage = true },
-                            label: {Text("Переход")
-                        })
+            Button(
+                action: {self.showFeedBackPage = true },
+                label: {Text("Сообщить об ошибке")
+                    .font(Font.Typography.sizingFont(font: .regular, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary)
+            })
             Spacer()
         }.padding(.horizontal, 30)
             .partialSheet(presented: $showFeedBackPage) {
                 FeedBackPage(store: self.store)
         }.padding(.top, 50)
-        .background(Color.RTFPallete.backgroundDefault).edgesIgnoringSafeArea(.all)
+            .background(Color.RTFPallete.backgroundDefault).edgesIgnoringSafeArea(.all)
         
-
         
+        }
     }
 }
 
