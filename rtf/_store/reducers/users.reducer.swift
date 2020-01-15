@@ -81,9 +81,9 @@ final class UsersState: StateType, ObservableObject {
     @Published var me: IUser = IUser(
         sUserId: "",
         sFirstName: "",
-        sMiddleName: nil,
-        sLastName: nil,
-        sFullName: nil,
+        sMiddleName: "",
+        sLastName: "",
+        sFullName: "",
         sTitle: nil,
         sStructure: nil,
         iRating: nil,
@@ -103,7 +103,7 @@ final class UsersState: StateType, ObservableObject {
 
 
 func usersReducer(action: Action, state: UsersState?) -> UsersState {
-    var state = state ?? UsersState()
+    let state = state ?? UsersState()
 
     guard let action = action as? usersActions else {
         return state

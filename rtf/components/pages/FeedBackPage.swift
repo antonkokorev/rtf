@@ -8,9 +8,11 @@
 
 import SwiftUI
 
+
 struct FeedBackPage: View {
 	@Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
-		@ObservedObject var state: usersFavouriteState
+	@ObservedObject var state: usersFavouriteState
+	@ObservedObject var users: UsersRecentState
 	@State var favCounter: Int = 0;
 	
 	let store: GlobalStore
@@ -20,6 +22,7 @@ struct FeedBackPage: View {
 	init(store: GlobalStore) {
 		self.store = store
 		self.state = store.state.usersFavouriteSubState
+		self.users = store.state.usersRecentSubState
 	}
 	
 	func showFavorites(_ users:[IUser], d: Int) -> [IUser] {
@@ -33,96 +36,96 @@ struct FeedBackPage: View {
 	}
 	
 	var body: some View {
-		
-		NavigationView {
-			//SearchBarPopup(store: store)
-			VStack(alignment: .leading, spacing: 5) {
+		GeometryReader{ g in
+			
+			
+			NavigationView {
 				
-				Text("Запросить или дать обратную связь у коллег для развития")
-					.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-					.font(.custom("SBSansDisplay-Regular", size: 16))
-					.padding()
-				
-				Text("Недавние")
-					.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
-					.font(.custom("SBSansDisplay-Regular", size: 18))
-					.padding()
-				
-//				Carousel(store: store)
-//					.padding()
-				
-				HStack{
-					Text("Избранное")
+				//SearchBarPopup(store: store)
+				VStack(alignment: .leading, spacing: 5) {
+					
+					Text("Запросить или дать обратную связь у коллег для развития")
+						.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
+						.font(.custom("SBSansDisplay-Regular", size: 16))
+						.padding()
+					
+					/** Заглушка поиска **/
+					EmployeeSearchBar()
+					
+					Text("Недавние")
 						.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
 						.font(.custom("SBSansDisplay-Regular", size: 18))
 						.padding()
 					
-					Spacer()
-					
-					Text("Сохранить")
-						.foregroundColor(Color(red:0.20, green:0.32, blue:1.00))
-						.font(.custom("SBSansDisplay-Regular", size: 18))
-						.padding()
-				}
+
 				
-//				HStack {
-//
-//					CircleImage(
-//						imageSize: 80,
-//						icon: "add",
-//						iconSize: BasicIconSizes.max,
-//						backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-//					)
-//
-//
-//
-//					ForEach(state.collection, id: \.self){ user in
-//
-//						CircleImage(
-//							imageSize: 80,
-//							backgroundColor: .blue
-//							)
-//					}
-//				}
-//				.padding()
-				
-				HStack(alignment: .center) {
-					CircleImage(
-						imageSize: 80,
-						backgroundColor: .blue
-					)
-					Spacer()
-					CircleImage(
-						imageSize: 80,
-						backgroundColor: .blue
-					)
-					Spacer()
-					CircleImage(
-						imageSize: 80,
-						backgroundColor: .blue
-					)
-					Spacer()
-					CircleImage(
-						imageSize: 80,
-						backgroundColor: .blue
-					)
-				}
-				.padding()
+                    /** Карусель с юзерами*/
+					Carousel(test:greetUser , state: self.users)
 					
 				
-				Spacer()
+					/** Разметка с избранными юзерами **/
+					HStack{
+						Text("Избранное")
+							.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
+							.font(.custom("SBSansDisplay-Regular", size: 18))
+							.padding()
+						
+						Spacer()
+						
+						Text("Сохранить")
+							.foregroundColor(Color(red:0.20, green:0.32, blue:1.00))
+							.font(.custom("SBSansDisplay-Regular", size: 18))
+							.padding()
+					}
+					
+					
+					ForEach(self.state.rowsWithUsers, id:\.self) { row in
+						HStack(spacing: 5) {
+														
+							ForEach(row) { user in
+								VStack(alignment: .center) {
+									
+									if(user.sFullName == "Добавить"){
+										CircleImage(
+											imageSize: 50,
+											icon: "add",
+											iconSize: BasicIconSizes.max,
+											backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
+										)
+									} else {
+										CircleImage(
+											imageUrl: getPhoto(user.sUserId!),
+											imageSize: 50,
+											backgroundColor: .blue
+										)
+									}
+									
+									Text(String(user.sFirstName!))
+									Text(String(user.sLastName!))
+								}.frame(width: (g.size.width - 30 ) / 4, height: 100)
+								
+							}
+							
+						}
+					}
+					
+					
+					Spacer()
+				}
+				.onAppear(perform: {
+					self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
+					
+					self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+				})
+					
+					
+					.navigationBarTitle("Обратная связь")
 			}
-			.onAppear(perform: {
-				self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
-			})
-				
-				
-			.navigationBarTitle("Обратная связь")
+			
+			
+			
+			
 		}
-		
-		
-		
-		
 	}
 	
 }
