@@ -38,69 +38,72 @@ struct StartPage: View {
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
                     /** Аватарка и лайк*/
-            HStack{
-                CircleImage(imageSize: 40, icon: "like")
-                Spacer()
-                CircleImage(imageSize: 40, icon: "like")
-            }.padding(.bottom, 20)
-            
-            Text("Привет," + "\n" + "userName!")
-                .font(Font.Typography.sizingFont(font: .bold, size: .H1))
-                .padding(.bottom, 25)
-            
-            HStack(spacing: 15){
-                
-                Button(
-                    action: {},
-                    label: {Text("Входящие")
-                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
-                Button(
-                    action: {},
-                    label: {Text("Запросы")
-                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
-                Button(
-                    action: {},
-                    label: {Text("Недавние")
-                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
-                Spacer()
-            }.padding(.bottom, 10)
-            
-        
+                    HStack{
+                        CircleImage(imageSize: 40, icon: "like")
+                        Spacer()
+                        CircleImage(imageSize: 40, icon: "like")
+                    }.padding(.bottom, 20)
+
+                    /** Привет userName*/
+                    HStack{
+                        Text("Привет," + "\n" + "userName!")
+                                .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                        Spacer()
+                    }
+                            .padding(.bottom, 25)
+
+                    /** Меню выбора списка юзеров*/
+                    HStack(spacing: 15){
+
+                        Button(
+                                action: {},
+                                label: {Text("Входящие")
+                                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textDefault);
+                        Button(
+                                action: {},
+                                label: {Text("Запросы")
+                                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
+                        Button(
+                                action: {},
+                                label: {Text("Недавние")
+                                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
+                        Spacer()
+                    }.padding(.bottom, 10)
+
+                    /** Карусель с юзерами*/
             Carousel(test:greetUser , state: store.state.usersRecentSubState)
-                .padding(.bottom, 30).onAppear(perform: {
+                .padding(.bottom, 30) .padding(.horizontal, -30).onAppear(perform: {
                           self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
                       })
-            
-            ScrollView(.horizontal, showsIndicators: false){
-            HStack(spacing: 12){
-                
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Командный отчет")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                    .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                
-                Button(action: {}) {
-                Text("История")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Статиситка")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                    
+                    /** Меню с кнопками Отчет-История-Статистика*/
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack{
+                            Spacer(minLength: 30)
 
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                                Text("Командный отчет")
+                                    .padding(10)
+                            }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
+                                .background(Color.RTFPallete.buttonGrayBackground)
+                                .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+
+                            Button(action: {}) {
+                                Text("История")
+                                    .padding(10.0)
+                            }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefaultPale)
+                                .background(Color.RTFPallete.buttonGrayBackground)
+                                .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                                Text("Статиситка")
+                                    .padding(10)
+                            }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefaultPale)
+                                .background(Color.RTFPallete.buttonGrayBackground)
+                                .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
                             Spacer()
                         }.padding(.bottom, 10)
                     }.padding(.bottom, 25)
-                        .padding(.leading, -30)
+                        .padding(.horizontal, -30)
                     
                     /** Меню с ссылками на приложения*/
                     VStack(spacing: 15){
