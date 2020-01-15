@@ -22,7 +22,7 @@ final class usersRequestState: StateType, ObservableObject {
 }
 
 func usersRequestReducer(action: Action, state: usersRequestState?) -> usersRequestState {
-    var state = state ?? usersRequestState()
+    let state = state ?? usersRequestState()
     
     guard let action = action as? usersRequestActions else {
         return state
