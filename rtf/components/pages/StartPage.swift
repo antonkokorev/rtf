@@ -9,6 +9,7 @@
 import SwiftUI
 import PartialSheet
 func greetUser(msg:String) {
+
     print(msg)
 }
 struct StartPage: View {
@@ -17,7 +18,11 @@ struct StartPage: View {
     @ObservedObject var state: UsersRecentState
     @ObservedObject var users: UsersState
     let store: GlobalStore
-    
+    /** функция обработка кнопок тайлов*/
+    private  func goNextPage(page:String) -> Void {
+        print(page,showFeedBackPage)
+    }
+
     /* инициализатор store + state перед рендером */
     init(store: GlobalStore) {
         self.store = store
@@ -42,7 +47,7 @@ struct StartPage: View {
                         Spacer()
                         CircleImage(imageSize: 40, icon: "like")
                     }.padding(.bottom, 20)
-                    
+
                     /** Привет userName*/
                     HStack{
                         Text("Привет," + "\n" + "userName!")
@@ -107,21 +112,25 @@ struct StartPage: View {
                     /** Меню с ссылками на приложения*/
                     VStack(spacing: 15){
                         ActionCard(
+                                action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
                         )
                         ActionCard(
+                                action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
                         )
                         ActionCard(
+                                action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
                         )
                         ActionCard(
+                                action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
@@ -139,6 +148,7 @@ struct StartPage: View {
                     }
                     Spacer(minLength: 25)
                 }.padding(.horizontal, 30)
+
             }
             .partialSheet(presented: $showFeedBackPage) {
                 FeedBackPage(store: self.store)

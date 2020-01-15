@@ -9,14 +9,16 @@
 import SwiftUI
 
 struct ActionCard: View {
+     let action: (_ msg:String) -> Void
     @State var textTitle: String
     @State var textBody: String
     @State var icon: String
-    
+   
+
     var body: some View {
         
         VStack(){
-            Button(action: {print(1234)}) {
+            Button(action: {self.action("new")}) {
                 HStack(){
                     //тут должна быть иконка
                     CircleImage(imageSize: 50,
@@ -30,6 +32,7 @@ struct ActionCard: View {
                             .lineLimit(-1)
                             .padding(.top, BasicPadding.p15)
                             .foregroundColor(Color.RTFPallete.textDefault)
+
                         
                         Text("\(self.textBody)")
                             .padding(.top, BasicPadding.p5)
@@ -53,6 +56,10 @@ struct ActionCard: View {
 
 struct ActionCard_Previews: PreviewProvider {
     static var previews: some View {
-        ActionCard(textTitle: "Обратная связь", textBody:"Дать и запросить обратную связь по компетенциям", icon: "like")
+        ActionCard(
+            action: { (firstSelectorString) in print(firstSelectorString) } ,
+            textTitle: "Обратная связь",
+            textBody:"Дать и запросить обратную связь по компетенциям",
+            icon: "like")
     }
 }
