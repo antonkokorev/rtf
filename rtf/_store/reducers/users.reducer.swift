@@ -56,7 +56,7 @@ struct IUser: Codable, Equatable, Identifiable, Hashable {
 func initIUser()-> IUser{
     return IUser(
         sUserId: "",
-        sFirstName: nil,
+        sFirstName: "",
         sMiddleName: nil,
         sLastName: nil,
         sFullName: nil,

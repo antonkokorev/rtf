@@ -44,13 +44,17 @@ struct StartPage: View {
                     /** Аватарка и лайк*/
                     HStack{
                         CircleImage(imageSize: 40, icon: "like")
+                            .onAppear(perform: {
+                                self.store.dispatch(usersActions.pendingGetMe)
+                        })
+    
                         Spacer()
                         CircleImage(imageSize: 40, icon: "like")
                     }.padding(.bottom, 20)
 
                     /** Привет userName*/
                     HStack{
-                        Text("Привет," + "\n" + "\(users.me.sUserId)")
+                        Text("Привет,\n\(users.me.sFirstName!)")
                             .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                         Spacer()
                     }
