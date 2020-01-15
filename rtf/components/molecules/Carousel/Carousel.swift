@@ -9,50 +9,38 @@
 import SwiftUI
 
 struct Carousel: View {
-    
+
     @Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
     
-    @State private var searchTerm: String = ""
-    
-    
+    let test:(_ msg:String) -> Void
     /* reactiveState */
     @ObservedObject var state: UsersRecentState
-    let store: GlobalStore
-    
-    /* инициализатор store + state перед рендером */
-    init(store: GlobalStore) {
-        self.store = store
-        self.state = store.state.usersRecentSubState
-    }
-    
-    
-    
     
     var body: some View {
         
         VStack(){
             ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 25){
+                HStack{
+                    Spacer(minLength: 30)
                     ForEach(state.collection) { item in
-                        Button(action: {print(1234)}) {
+                        Button(action: {self.test("±!!")}) {
                             CarouselUser(
                                 firstName: item.sFirstName!,
                                 lastName: item.sLastName!,
-								imageUrl: getPhoto(item.sUserId),
+								imageUrl: getPhoto(item.sUserId!),
                                 borderColor: .green)
                             }.self.buttonStyle(PlainButtonStyle())
-                    }
+                        }.padding(.trailing, 25.0)
                 }
             .frame(height: 87)
             }
-            .onAppear(perform: {
-                self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-            })
         }
     }
     struct Carousel_Previews: PreviewProvider {
         static var previews: some View {
-            Carousel(store: AppMain().store)
+            Carousel(test: { (firstSelectorString) in
+                print(firstSelectorString) //this prints FirstButtonString
+            }, state: AppMain().store.state.usersRecentSubState)
         }
         
     }

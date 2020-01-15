@@ -5,146 +5,165 @@
 //  Created by антон on 13.01.2020.
 //  Copyright © 2020 team. All rights reserved.
 //
-
 import SwiftUI
 import PartialSheet
+func greetUser(msg:String) {
 
+    print(msg)
+}
 struct StartPage: View {
     
     /* reactiveState */
     @ObservedObject var state: UsersRecentState
     @ObservedObject var users: UsersState
     let store: GlobalStore
-    
+    /** функция обработка кнопок тайлов*/
+    private  func goNextPage(page:String) -> Void {
+        print(page,showFeedBackPage)
+    }
+
     /* инициализатор store + state перед рендером */
     init(store: GlobalStore) {
         self.store = store
         self.state = store.state.usersRecentSubState
         self.users = store.state.usersSubState
-     
+        
     }
-
+    
     
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
     
     
-    //background(Color.RTFPallete.backgroundDefault)
     var body: some View {
         
-        VStack(alignment: .leading){
-            HStack{
-				CircleImage(
-					imageUrl: getPhoto(users.sUserId),
-					imageSize: 40,
-					backgroundColor: .black
-				)
-                Spacer()
-                CircleImage(imageSize: 40, icon: "like")
-            }.padding(.bottom, 20)
-            
-			Text("Привет," + "\n" + "username" + "!")
-                .font(Font.Typography.sizingFont(font: .bold, size: .H1))
-                .padding(.bottom, 25)
-            
-            HStack(spacing: 15){
-                
-                Button(
-                    action: {},
-                    label: {Text("Входящие")
-                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
-                Button(
-                    action: {},
-                    label: {Text("Запросы")
-                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
-                Button(
-                    action: {},
-                    label: {Text("Недавние")
-                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
-                Spacer()
-            }.padding(.bottom, 10)
-            
-            
-            Carousel(store: store)
-                .padding(.bottom, 30)
-            
-            ScrollView(.horizontal, showsIndicators: false){
-            HStack(spacing: 15){
-                
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Командный отчет")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                    .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                
-                Button(action: {}) {
-                Text("История")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Статиситка")
-                    .padding(10)
-                }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                .background(Color.RTFPallete.buttonGrayBackground)
-                .cornerRadius(BasicRadius.max)
-                    
-                
+        VStack(){
+            ScrollView(.vertical, showsIndicators: false){
+                VStack{
+                    /** Аватарка и лайк*/
+                    HStack{
+						
+						CircleImage(
+							imageUrl: getPhoto(String(self.users.me.sUserId!)),
+							imageSize: 40
+						)
+    
+                        Spacer()
+                        CircleImage(imageSize: 40, icon: "like")
+                    }.padding(.bottom, 20)
 
-                Spacer()
-            }.padding(.bottom, 10)
-            }.padding(.bottom, 25)
-            
-            VStack(spacing: 15){
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
-            )
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
-            )
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
-                )
-            ActionCard(
-                textTitle: "TextTitle1",
-                textBody: "TextBody1",
-                icon: "like"
-            )
-                
+                    /** Привет userName*/
+                    HStack{
+                        Text("Привет,\n\(users.me.sFirstName!)")
+                            .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                        Spacer()
+                    }
+//                    .padding(.bottom, 25)
+                    /** Меню выбора списка юзеров*/
+                    HStack(spacing: 15){
+                        
+                        Button(
+                            action: {},
+                            label: {Text("Входящие")
+                        }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textDefault);
+                        Button(
+                            action: {},
+                            label: {Text("Запросы")
+                        }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
+                        Button(
+                            action: {},
+                            label: {Text("Недавние")
+                        }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
+                        Spacer()
+                    }.padding(.bottom, 10)
+                    
+                    /** Карусель с юзерами*/
+                    Carousel(test:greetUser , state: store.state.usersRecentSubState)
+                        .padding(.bottom, 30) .padding(.horizontal, -30).onAppear(perform: {
+                            self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+                        })
+                    /** Меню с кнопками Отчет-История-Статистика*/
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack{
+                            Spacer(minLength: 30)
+                            
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                                Text("Командный отчет")
+                                    .padding(10)
+                            }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
+                                .background(Color.RTFPallete.buttonGrayBackground)
+                                .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+                            
+                            Button(action: {}) {
+                                Text("История")
+                                    .padding(10.0)
+                            }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefaultPale)
+                                .background(Color.RTFPallete.buttonGrayBackground)
+                                .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+                            
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                                Text("Статиситка")
+                                    .padding(10)
+                            }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefaultPale)
+                                .background(Color.RTFPallete.buttonGrayBackground)
+                                .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
+                            Spacer()
+                        }.padding(.bottom, 10)
+                    }.padding(.bottom, 25)
+                        .padding(.horizontal, -30)
+                    
+                    /** Меню с ссылками на приложения*/
+                    VStack(spacing: 15){
+                        ActionCard(
+                                action: self.goNextPage,
+                            textTitle: "TextTitle1",
+                            textBody: "TextBody1",
+                            icon: "like"
+                        )
+                        ActionCard(
+                                action: self.goNextPage,
+                            textTitle: "TextTitle1",
+                            textBody: "TextBody1",
+                            icon: "like"
+                        )
+                        ActionCard(
+                                action: self.goNextPage,
+                            textTitle: "TextTitle1",
+                            textBody: "TextBody1",
+                            icon: "like"
+                        )
+                        ActionCard(
+                                action: self.goNextPage,
+                            textTitle: "TextTitle1",
+                            textBody: "TextBody1",
+                            icon: "like"
+                        )
+                    }.padding(.bottom, 30)
+                    
+                    /** Сообщить об ошибке*/
+                    HStack{
+                        Button(
+                            action: {self.showFeedBackPage = true },
+                            label: {Text("Сообщить об ошибке")
+                                .font(Font.Typography.sizingFont(font: .regular, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary)
+                        })
+                        Spacer()
+                    }
+                    Spacer(minLength: 25)
+                }.padding(.horizontal, 30)
+
             }
-            
-            
-            
-            //            Button(
-            //                action: {self.showFeedBackPage = true },
-            //                label: {Text("Переход")
-            //            })
-            Spacer()
-        }.padding(.horizontal, 30)
             .partialSheet(presented: $showFeedBackPage) {
                 FeedBackPage(store: self.store)
-        }.padding(.top, 50)
-        .background(Color.RTFPallete.backgroundDefault).edgesIgnoringSafeArea(.all)
-        
-
-					.onAppear(perform: {
-						self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
-//						self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-		//				self.store.dispatch(usersRequestActions.pendingGetUsersWithRequest)
-		//				self.store.dispatch(subordinatesActions.pendingGetSubordinates)
-		//				self.store.dispatch(thanksActions.pendingGetThanksCount)
-					})
-	}
+            }.padding(.top, 50)
+                .background(Color.RTFPallete.backgroundDefault)
+                .edgesIgnoringSafeArea(.all)
+        }
+		
+		.onAppear(perform: {
+			self.store.dispatch(usersActions.pendingGetMe)
+		})
+    }
 }
 
 struct StartPage_Previews: PreviewProvider {

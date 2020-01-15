@@ -37,6 +37,7 @@ struct FeedBackPage: View {
 		NavigationView {
 			//SearchBarPopup(store: store)
 			VStack(alignment: .leading, spacing: 5) {
+				
 				Text("Запросить или дать обратную связь у коллег для развития")
 					.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
 					.font(.custom("SBSansDisplay-Regular", size: 16))
@@ -47,8 +48,8 @@ struct FeedBackPage: View {
 					.font(.custom("SBSansDisplay-Regular", size: 18))
 					.padding()
 				
-				Carousel(store: store)
-					.padding()
+//				Carousel(store: store)
+//					.padding()
 				
 				HStack{
 					Text("Избранное")
@@ -64,26 +65,26 @@ struct FeedBackPage: View {
 						.padding()
 				}
 				
-				HStack {
-					
-					CircleImage(
-						imageSize: 80,
-						icon: "add",
-						iconSize: BasicIconSizes.max,
-						backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-					)
-					
-
-					
-					ForEach(state.collection, id: \.self){ user in
-
-						CircleImage(
-							imageSize: 80,
-							backgroundColor: .blue
-							)
-					}
-				}
-				.padding()
+//				HStack {
+//
+//					CircleImage(
+//						imageSize: 80,
+//						icon: "add",
+//						iconSize: BasicIconSizes.max,
+//						backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
+//					)
+//
+//
+//
+//					ForEach(state.collection, id: \.self){ user in
+//
+//						CircleImage(
+//							imageSize: 80,
+//							backgroundColor: .blue
+//							)
+//					}
+//				}
+//				.padding()
 				
 				HStack(alignment: .center) {
 					CircleImage(

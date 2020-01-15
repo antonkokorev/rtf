@@ -39,7 +39,7 @@ struct SearchBarPopup: View {
 								HStack{
 									
 									CircleImage(
-										imageUrl: getPhoto(user.sUserId),
+										imageUrl: getPhoto(user.sUserId!),
 										imageSize: 60,
 										backgroundColor: .black
 									)

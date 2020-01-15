@@ -41,6 +41,9 @@ struct ColorPallete {
     // Синяя по умолчанию
     let buttonDefault: Color!
     
+    // Синяя светлая
+    let buttonDefaultPale: Color!
+    
     // Серая
     let buttonSecondary: Color!
     
@@ -57,6 +60,7 @@ struct ColorPallete {
         self.textSecondary = baseColor.textGray
         
         self.buttonDefault = baseColor.mainBlue
+        self.buttonDefaultPale = baseColor.paleBlue
         self.buttonSecondary = baseColor.black
         self.buttonBlank = baseColor.white
         self.buttonGrayBackground = baseColor.buttonGrayBackground

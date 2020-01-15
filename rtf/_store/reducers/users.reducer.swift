@@ -13,10 +13,10 @@ import SwiftUI
 struct IUser: Codable, Equatable, Identifiable, Hashable {
 		/* Нужно для Identifiable */
 		var id: String {
-			return sUserId
+			return sUserId!
 		}
     /** ID */
-    let sUserId: String
+    let sUserId: String?
     /** Имя */
     let sFirstName: String?
     /** Фамилия */
@@ -56,7 +56,7 @@ struct IUser: Codable, Equatable, Identifiable, Hashable {
 func initIUser()-> IUser{
     return IUser(
         sUserId: "",
-        sFirstName: nil,
+        sFirstName: "",
         sMiddleName: nil,
         sLastName: nil,
         sFullName: nil,
@@ -80,7 +80,7 @@ final class UsersState: StateType, ObservableObject {
 	@Published var sUserId: String = ""
     @Published var me: IUser = IUser(
         sUserId: "",
-        sFirstName: nil,
+        sFirstName: "",
         sMiddleName: nil,
         sLastName: nil,
         sFullName: nil,
@@ -116,7 +116,7 @@ func usersReducer(action: Action, state: UsersState?) -> UsersState {
         break;
     case .successGetMe(let me):
         state.me = me
-		state.sUserId = me.sUserId
+		state.sUserId = me.sUserId!
         state.status = "[Success] successGetMe"
         break;
     case .pendingGetUserById:
