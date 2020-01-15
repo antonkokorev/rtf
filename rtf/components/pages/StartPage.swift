@@ -8,7 +8,9 @@
 
 import SwiftUI
 import PartialSheet
-
+func greetUser(msg:String) {
+            print(msg)
+        }
 struct StartPage: View {
     
     /* reactiveState */
@@ -27,8 +29,8 @@ struct StartPage: View {
     
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
-    
-    
+
+
     //background(Color.RTFPallete.backgroundDefault)
     var body: some View {
         
@@ -60,12 +62,14 @@ struct StartPage: View {
                 Spacer()
             }.padding(.bottom, 10)
             
-            
-            Carousel(store: store)
-                .padding(.bottom, 30)
+        
+            Carousel(test:greetUser , state: store.state.usersRecentSubState)
+                .padding(.bottom, 30).onAppear(perform: {
+                          self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+                      })
             
             ScrollView(.horizontal, showsIndicators: false){
-            HStack(spacing: 15){
+            HStack(spacing: 12){
                 
                 
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
