@@ -15,13 +15,13 @@ var usersEffect: Middleware<AppState> = { dispatch, getState in
     return { next in
         return { action in
             
-            guard let userRecentInvokedAction = action as? usersActions else {
+            guard let userInvokedAction = action as? usersActions else {
                 next(action)
                 return
             }
 
             /* делает реквест только если pending вызвано */
-            switch userRecentInvokedAction {
+            switch userInvokedAction {
             case .pendingGetMe:
                     
                 AF.request(Interceptor.serviceRequest(service: "report/whoAmI",body: nil)).response { response in

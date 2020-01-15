@@ -34,12 +34,16 @@ struct StartPage: View {
         
         VStack(alignment: .leading){
             HStack{
-                CircleImage(imageSize: 40, icon: "like")
+				CircleImage(
+					imageUrl: getPhoto(users.sUserId),
+					imageSize: 40,
+					backgroundColor: .black
+				)
                 Spacer()
                 CircleImage(imageSize: 40, icon: "like")
             }.padding(.bottom, 20)
             
-            Text("Привет," + "\n" + "userName!")
+			Text("Привет," + "\n" + "username" + "!")
                 .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                 .padding(.bottom, 25)
             
@@ -133,8 +137,14 @@ struct StartPage: View {
         .background(Color.RTFPallete.backgroundDefault).edgesIgnoringSafeArea(.all)
         
 
-        
-    }
+					.onAppear(perform: {
+						self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
+//						self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+		//				self.store.dispatch(usersRequestActions.pendingGetUsersWithRequest)
+		//				self.store.dispatch(subordinatesActions.pendingGetSubordinates)
+		//				self.store.dispatch(thanksActions.pendingGetThanksCount)
+					})
+	}
 }
 
 struct StartPage_Previews: PreviewProvider {

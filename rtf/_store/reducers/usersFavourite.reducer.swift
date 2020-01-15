@@ -7,11 +7,13 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
 
 
-struct usersFavouriteState: StateType {
-    var collection = ""
-    var status = ""
+final class usersFavouriteState: StateType, ObservableObject {
+	@Published var collection: [IUser] = []
+	@Published var status: String = ""
 }
 
 func usersFavouriteReducer(action: Action, state: usersFavouriteState?) -> usersFavouriteState {
@@ -21,12 +23,13 @@ func usersFavouriteReducer(action: Action, state: usersFavouriteState?) -> users
         return state
     }
     
+	print("red", action)
     switch action {
     case .pendingGetFavFeedbackUsers:
         state.status = "[Pending] pendingGetFavFeedbackUsers"
         break;
-    case .successGetFavFeedbackUsers:
-        state.collection = "data blob, state change"
+    case .successGetFavFeedbackUsers(let data):
+        state.collection = data
         state.status = "[Success] successGetFavFeedbackUsers"
         break;
     case .pendingPinForFav:

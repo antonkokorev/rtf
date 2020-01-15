@@ -56,8 +56,8 @@ var AppEffects: Array = [
 	userRequestEffect,
 	thanksEffect,
     userHistoryEffect,
-    usersEffect
-
+    usersEffect,
+	usersFavouriteEffect
 ]
 
 struct IPagination: Codable, Equatable {

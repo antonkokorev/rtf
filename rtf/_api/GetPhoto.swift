@@ -12,5 +12,6 @@ import SwiftUI
 func getPhoto(_ username: String) -> String {
 	let photoHostUrl = "https://documentserviceproxyj2dacd8d8.ru1.hana.ondemand.com/document-service-bridge/userphoto/get/\(username)"
 	
+	print("photoURL", photoHostUrl)
 	return photoHostUrl
 }

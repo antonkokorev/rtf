@@ -11,7 +11,7 @@ import ReSwift
 /* создаем все actions в этом объекте */
 enum usersFavouriteActions: Action {
     case pendingGetFavFeedbackUsers
-    case successGetFavFeedbackUsers
+    case successGetFavFeedbackUsers([IUser])
     
     case pendingPinForFav
     case successPinForFav
