@@ -66,7 +66,7 @@ func initIUser()-> IUser{
         bIsMe: nil,
         bIsPinned: nil,
         bIsMyTeam: nil,
-        sPhoto: nil,
+        sPhoto: "",
         sIncomeComment: nil,
         sStatus: nil,
         iIncomeRates: nil,
