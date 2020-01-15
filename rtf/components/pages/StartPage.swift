@@ -8,7 +8,7 @@
 import SwiftUI
 import PartialSheet
 func greetUser(msg:String) {
-
+    
     print(msg)
 }
 struct StartPage: View {
@@ -21,7 +21,7 @@ struct StartPage: View {
     private  func goNextPage(page:String) -> Void {
         print(page,showFeedBackPage)
     }
-
+    
     /* инициализатор store + state перед рендером */
     init(store: GlobalStore) {
         self.store = store
@@ -33,7 +33,7 @@ struct StartPage: View {
     
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
-    
+    @State var showProfileMenu: Bool = false
     
     var body: some View {
         
@@ -42,15 +42,29 @@ struct StartPage: View {
                 VStack{
                     /** Аватарка и лайк*/
                     HStack{
-                        CircleImage(imageUrl: getPhoto("Admin_LB"), imageSize: 40)
-                            .onAppear(perform: {
-                                self.store.dispatch(usersActions.pendingGetMe)
-                        })
-    
+                        Button(action: {
+                            withAnimation{
+                                self.showProfileMenu.toggle()
+                            }
+                        }, label: {
+                            CircleImage(imageUrl: getPhoto("Admin_LB"), imageSize: 40)
+                                .onAppear(perform: {
+                                    self.store.dispatch(usersActions.pendingGetMe)
+                                })
+                        }).self.buttonStyle(PlainButtonStyle())
+                        
+                        if self.showProfileMenu{
+                            ProfileMenu(firstName: "\(self.users.me.sFirstName!)", lastName: "\(self.users.me.sFirstName!)", imageUrl: getPhoto("Admin_LB")
+                            ).onTapGesture {
+                                self.showProfileMenu.toggle()
+                            }
+                            .offset(x: -50, y: 20)
+                        }
+                        
                         Spacer()
-                        CircleImage(imageSize: 40, icon: "like")
-                    }.padding(.bottom, 20)
-
+                        Like(number: 5)
+                    }.padding(.vertical, 20.0)
+                    
                     /** Привет userName*/
                     HStack{
                         Text("Привет,\n\(users.me.sFirstName!)")
@@ -114,25 +128,25 @@ struct StartPage: View {
                     /** Меню с ссылками на приложения*/
                     VStack(spacing: 15){
                         ActionCard(
-                                action: self.goNextPage,
+                            action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
                         )
                         ActionCard(
-                                action: self.goNextPage,
+                            action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
                         )
                         ActionCard(
-                                action: self.goNextPage,
+                            action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
                         )
                         ActionCard(
-                                action: self.goNextPage,
+                            action: self.goNextPage,
                             textTitle: "TextTitle1",
                             textBody: "TextBody1",
                             icon: "like"
@@ -150,11 +164,11 @@ struct StartPage: View {
                     }
                     Spacer(minLength: 25)
                 }.padding(.horizontal, 30)
-
+                
             }
             .partialSheet(presented: $showFeedBackPage) {
                 FeedBackPage(store: self.store)
-            }.padding(.top, 50)
+            }.padding(.top, 10)
                 .background(Color.RTFPallete.backgroundDefault)
                 .edgesIgnoringSafeArea(.all)
         }
