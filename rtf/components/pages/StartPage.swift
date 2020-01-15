@@ -50,7 +50,7 @@ struct StartPage: View {
 
                     /** Привет userName*/
                     HStack{
-                        Text("Привет," + "\n" + "userName!")
+                        Text("Привет," + "\n" + "\(users.me.sUserId)")
                             .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                         Spacer()
                     }
