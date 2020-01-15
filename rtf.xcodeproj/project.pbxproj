@@ -458,7 +458,9 @@
 			path = EmployeeIconView;
 			sourceTree = "<group>";
 		};
+
 		EA6D1C8323CE0B0E00D5B34A /* SearchBarPopup */ = {
+
 			isa = PBXGroup;
 			children = (
 				EA6D1C8423CE0B3E00D5B34A /* SearchBarPopup.swift */,
@@ -839,14 +841,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GT2Y4248CJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.rtf;
+				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -859,14 +861,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GT2Y4248CJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.rtf;
+				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -49,10 +49,11 @@ struct CircleImage:View {
                 .modifier(Size(imageSize: $imageSize))
             
             /**Иконка*/
-            Image("\(icon ?? "")")
+            if ((icon) != nil){
+            Image("\(icon!)")
                 .resizable()
                 .frame(width: iconSize ?? BasicIconSizes.mini, height: iconSize ?? BasicIconSizes.mini)
-            
+            }
             /**Текст*/
             Text("\(labelText ?? "")")
                 .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
