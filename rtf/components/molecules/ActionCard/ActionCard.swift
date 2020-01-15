@@ -20,7 +20,6 @@ struct ActionCard: View {
         VStack(){
             Button(action: {self.action("new")}) {
                 HStack(){
-                    //тут должна быть иконка
                     CircleImage(imageSize: 50,
                                 icon: self.icon,
                                 iconSize: 30,
