@@ -67,13 +67,11 @@
 		4635894523CC9B8100DBA092 /* StartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894423CC9B8100DBA092 /* StartPage.swift */; };
 		4635894723CC9CE600DBA092 /* FeedBackPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894623CC9CE600DBA092 /* FeedBackPage.swift */; };
 		4657BFE223CDA56E00604801 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 4657BFE123CDA56E00604801 /* PartialSheet */; };
-
 		4657BFE623CDBF3500604801 /* HistoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657BFE523CDBF3500604801 /* HistoryPage.swift */; };
 		4657BFE823CDC2F900604801 /* usersHistory.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657BFE723CDC2F900604801 /* usersHistory.effect.swift */; };
 		4657BFEB23CDD18200604801 /* users.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657BFEA23CDD18200604801 /* users.effect.swift */; };
 		4657BFF023CDD2D100604801 /* EmployeeSearchBar.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657BFED23CDD2D100604801 /* EmployeeSearchBar.view.swift */; };
 		4657BFF123CDD2D100604801 /* EmployeeIconView.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657BFEF23CDD2D100604801 /* EmployeeIconView.view.swift */; };
-
 		46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAC99B23CCA80C00037D36 /* Slider.swift */; };
 		EA6D1C7223CDB8D500D5B34A /* usersRequest.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D1C7123CDB8D500D5B34A /* usersRequest.effect.swift */; };
 		EA6D1C7423CDDFFC00D5B34A /* thanks.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D1C7323CDDFFC00D5B34A /* thanks.effect.swift */; };
@@ -447,11 +445,6 @@
 			isa = PBXGroup;
 			children = (
 				EACEF5A123CCA55700C8EFE7 /* SearchBar */,
-
-
-				25B92A2823C10EB80063D4DE /* Like.swift */,
-
-
 				25C7064323CC94D500F26698 /* CircleImage */,
 			);
 			path = atoms;
@@ -467,7 +460,6 @@
 			path = pages;
 			sourceTree = "<group>";
 		};
-
 		4657BFEC23CDD2D100604801 /* EmployeeSearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,7 +476,6 @@
 			path = EmployeeIconView;
 			sourceTree = "<group>";
 		};
-
 		EA9211BD23C513D600A0CB5B /* containers */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,14 +873,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GT2Y4248CJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.rtf;
+				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -902,14 +893,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GT2Y4248CJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.rtf;
+				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -43,7 +43,7 @@ struct StartPage: View {
                 VStack{
                     /** Аватарка и лайк*/
                     HStack{
-                        CircleImage(imageSize: 40, icon: "like")
+                        CircleImage(imageUrl: getPhoto("Admin_LB"), imageSize: 40)
                             .onAppear(perform: {
                                 self.store.dispatch(usersActions.pendingGetMe)
                         })
