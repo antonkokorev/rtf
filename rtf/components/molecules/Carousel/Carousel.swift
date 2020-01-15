@@ -12,8 +12,6 @@ struct Carousel: View {
 
     @Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
     
-    @State private var searchTerm: String = ""
-    
     let test:(_ msg:String) -> Void
     /* reactiveState */
     @ObservedObject var state: UsersRecentState

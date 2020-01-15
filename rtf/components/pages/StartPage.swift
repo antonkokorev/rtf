@@ -9,8 +9,8 @@
 import SwiftUI
 import PartialSheet
 func greetUser(msg:String) {
-            print(msg)
-        }
+    print(msg)
+}
 struct StartPage: View {
     
     /* reactiveState */
@@ -29,11 +29,10 @@ struct StartPage: View {
     
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
-
-
-    //background(Color.RTFPallete.backgroundDefault)
+    
+    
     var body: some View {
-
+        
         VStack(){
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
@@ -43,57 +42,57 @@ struct StartPage: View {
                         Spacer()
                         CircleImage(imageSize: 40, icon: "like")
                     }.padding(.bottom, 20)
-
+                    
                     /** Привет userName*/
                     HStack{
                         Text("Привет," + "\n" + "userName!")
-                                .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                            .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                         Spacer()
                     }
-                            .padding(.bottom, 25)
-
+                    .padding(.bottom, 25)
+                    
                     /** Меню выбора списка юзеров*/
                     HStack(spacing: 15){
-
+                        
                         Button(
-                                action: {},
-                                label: {Text("Входящие")
-                                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textDefault);
+                            action: {},
+                            label: {Text("Входящие")
+                        }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textDefault);
                         Button(
-                                action: {},
-                                label: {Text("Запросы")
-                                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
+                            action: {},
+                            label: {Text("Запросы")
+                        }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
                         Button(
-                                action: {},
-                                label: {Text("Недавние")
-                                }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
+                            action: {},
+                            label: {Text("Недавние")
+                        }).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.textSecondary);
                         Spacer()
                     }.padding(.bottom, 10)
-
+                    
                     /** Карусель с юзерами*/
-            Carousel(test:greetUser , state: store.state.usersRecentSubState)
-                .padding(.bottom, 30) .padding(.horizontal, -30).onAppear(perform: {
-                          self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-                      })
+                    Carousel(test:greetUser , state: store.state.usersRecentSubState)
+                        .padding(.bottom, 30) .padding(.horizontal, -30).onAppear(perform: {
+                            self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+                        })
                     /** Меню с кнопками Отчет-История-Статистика*/
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
                             Spacer(minLength: 30)
-
+                            
                             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                                 Text("Командный отчет")
                                     .padding(10)
                             }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
                                 .background(Color.RTFPallete.buttonGrayBackground)
                                 .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
-
+                            
                             Button(action: {}) {
                                 Text("История")
                                     .padding(10.0)
                             }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefaultPale)
                                 .background(Color.RTFPallete.buttonGrayBackground)
                                 .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
-
+                            
                             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                                 Text("Статиситка")
                                     .padding(10)
