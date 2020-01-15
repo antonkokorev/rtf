@@ -55,7 +55,6 @@ struct StartPage: View {
                         Spacer()
                     }
                     .padding(.bottom, 25)
-                    
                     /** Меню выбора списка юзеров*/
                     HStack(spacing: 15){
                         
