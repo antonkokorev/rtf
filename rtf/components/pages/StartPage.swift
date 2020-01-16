@@ -18,6 +18,7 @@ struct StartPage: View {
     @ObservedObject var state: UsersRecentState
     @ObservedObject var users: UsersState
     @State var usersModal:Bool = false
+    @State var historyModal:Bool = false
     let store: GlobalStore
     /** функция обработка кнопок тайлов*/
     private  func goNextPage(page:String) -> Void {
@@ -121,7 +122,7 @@ struct StartPage: View {
                                         textBody: "TextBody1",
                                         icon: "like"
                                     ).sheet(isPresented: $usersModal) {
-                                        FeedBackPage(store:  self.store).padding(.top ,35)
+                                        HistoryPage(store:  self.store)
                                     }
                                     ActionCard(
                                             action: self.goNextPage,
@@ -157,14 +158,7 @@ struct StartPage: View {
 
 
                         }
-                        .partialSheet(presented: $showFeedBackPage ) {
-                          //  FeedBackPage(store: self.store)
-                            HStack{
-                               DynamicList()
-                                    Spacer()
-                            }.padding().frame(width:300 ,height: 200)
-            
-                        }
+                       
                     }
                     
                     .onAppear(perform: {
