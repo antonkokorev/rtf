@@ -17,6 +17,8 @@ struct StartPage: View {
     /* reactiveState */
     @ObservedObject var state: UsersRecentState
     @ObservedObject var users: UsersState
+	@ObservedObject var favUsers: usersFavouriteState
+	
     @State var usersModal:Bool = false
     let store: GlobalStore
     /** функция обработка кнопок тайлов*/
@@ -30,7 +32,7 @@ struct StartPage: View {
         self.store = store
         self.state = store.state.usersRecentSubState
         self.users = store.state.usersSubState
-        
+		self.favUsers = store.state.usersFavouriteSubState
     }
     
     
@@ -121,7 +123,8 @@ struct StartPage: View {
                                         textBody: "TextBody1",
                                         icon: "like"
                                     ).sheet(isPresented: $usersModal) {
-                                        FeedBackPage(store:  self.store).padding(.top ,35)
+										FavouriteUsersGrid(users: self.favUsers.collection).padding(.top ,35)
+//                                        FeedBackPage(store:  self.store).padding(.top ,35)
                                     }
                                     ActionCard(
                                             action: self.goNextPage,
@@ -169,6 +172,7 @@ struct StartPage: View {
                     
                     .onAppear(perform: {
                         self.store.dispatch(usersActions.pendingGetMe)
+						self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
                     })
         
        

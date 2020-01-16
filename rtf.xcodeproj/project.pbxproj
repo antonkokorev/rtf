@@ -113,6 +113,8 @@
 		EA92124123C72CA200A0CB5B /* SBSansUI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */; };
 		EA92124223C72CA200A0CB5B /* SBSansScreen.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122623C72CA200A0CB5B /* SBSansScreen.otf */; };
 		EA92124323C72CA200A0CB5B /* SBSansDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */; };
+		EAB9E83523D0C22500A92EA2 /* FlowStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9E83423D0C22500A92EA2 /* FlowStack.swift */; };
+		EAB9E83A23D0E13700A92EA2 /* FavouriteUsersGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9E83923D0E13700A92EA2 /* FavouriteUsersGrid.swift */; };
 		EACEF5A323CCA64800C8EFE7 /* SearchBar.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACEF5A223CCA64800C8EFE7 /* SearchBar.view.swift */; };
 /* End PBXBuildFile section */
 
@@ -221,6 +223,8 @@
 		EA92122523C72CA200A0CB5B /* SBSansUI-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansUI-Bold.otf"; sourceTree = "<group>"; };
 		EA92122623C72CA200A0CB5B /* SBSansScreen.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SBSansScreen.otf; sourceTree = "<group>"; };
 		EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansDisplay-Regular.otf"; sourceTree = "<group>"; };
+		EAB9E83423D0C22500A92EA2 /* FlowStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowStack.swift; sourceTree = "<group>"; };
+		EAB9E83923D0E13700A92EA2 /* FavouriteUsersGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteUsersGrid.swift; sourceTree = "<group>"; };
 		EACEF5A223CCA64800C8EFE7 /* SearchBar.view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.view.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +287,7 @@
 		3A2A88BE23C77E09003F15FE /* molecules */ = {
 			isa = PBXGroup;
 			children = (
+				EAB9E83823D0DF9B00A92EA2 /* FavouriteUsersGrid */,
 				EA6D1C8323CE0B0E00D5B34A /* SearchBarPopup */,
 				25CAD78423CD94DB0029E202 /* CarouselUser */,
 				25CAD78123CCB6490029E202 /* Carousel */,
@@ -338,6 +343,7 @@
 			children = (
 				3A506EC223C0D26600A498C8 /* Interceptor.swift */,
 				EA6D1C7E23CDF45700D5B34A /* GetPhoto.swift */,
+				EAB9E83423D0C22500A92EA2 /* FlowStack.swift */,
 			);
 			path = _api;
 			sourceTree = "<group>";
@@ -479,7 +485,6 @@
 			path = EmployeeIconView;
 			sourceTree = "<group>";
 		};
-
 		469BA53A23D05B9400F6DD9D /* DynamicList */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +546,14 @@
 				EA92121923C72CA100A0CB5B /* SBSansUI-Semibold.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		EAB9E83823D0DF9B00A92EA2 /* FavouriteUsersGrid */ = {
+			isa = PBXGroup;
+			children = (
+				EAB9E83923D0E13700A92EA2 /* FavouriteUsersGrid.swift */,
+			);
+			path = FavouriteUsersGrid;
 			sourceTree = "<group>";
 		};
 		EACEF5A123CCA55700C8EFE7 /* SearchBar */ = {
@@ -675,6 +688,7 @@
 				3A506F1723C0D26700A498C8 /* message.reducer.swift in Sources */,
 				3A506F1123C0D26700A498C8 /* comparison.reducers.swift in Sources */,
 				3A506F0423C0D26700A498C8 /* store.swift in Sources */,
+				EAB9E83A23D0E13700A92EA2 /* FavouriteUsersGrid.swift in Sources */,
 				3A506F0A23C0D26700A498C8 /* usersHistory.reducer.swift in Sources */,
 				3A506F0D23C0D26700A498C8 /* usersRequest.reducer.swift in Sources */,
 				3A506F1023C0D26700A498C8 /* usersInbox.reducer.swift in Sources */,
@@ -688,6 +702,7 @@
 				3A506EFC23C0D26700A498C8 /* boss.actions.swift in Sources */,
 				3A506F1223C0D26700A498C8 /* subordinates.reducer.swift in Sources */,
 				EA0689E923D06D4300A545FD /* search.reducer.swift in Sources */,
+				EAB9E83523D0C22500A92EA2 /* FlowStack.swift in Sources */,
 				3A506EFD23C0D26700A498C8 /* statistics.actions.swift in Sources */,
 				EACEF5A323CCA64800C8EFE7 /* SearchBar.view.swift in Sources */,
 				25CAD78323CCB6860029E202 /* Carousel.swift in Sources */,

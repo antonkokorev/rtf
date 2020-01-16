@@ -25,7 +25,7 @@ func addElement(_ data: [IUser]) -> [IUser] {
         sUserId: "",
         sFirstName: "Добавить",
         sMiddleName: "",
-        sLastName: "Коллегу",
+        sLastName: "",
         sFullName: "Добавить",
         sTitle: nil,
         sStructure: nil,
@@ -39,7 +39,8 @@ func addElement(_ data: [IUser]) -> [IUser] {
         iIncomeRates: nil,
         IncomeRequests: nil,
         bTypeEstimate: nil,
-        sExtidFblock: nil
+        sExtidFblock: nil,
+		bAddButton: true
     )
 	
 	dataCopy.insert(addSign, at: 0)
@@ -66,8 +67,8 @@ func usersFavouriteReducer(action: Action, state: usersFavouriteState?) -> users
         state.status = "[Pending] pendingGetFavFeedbackUsers"
         break;
     case .successGetFavFeedbackUsers(let data):
-        state.collection = data
-		state.rowsWithUsers = makeRows(addElement(data), 4)
+        state.collection = addElement(data)
+//		state.rowsWithUsers = makeRows(addElement(data), 4)
         state.status = "[Success] successGetFavFeedbackUsers"
         break;
     case .pendingPinForFav:
