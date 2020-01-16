@@ -11,15 +11,19 @@ import SwiftUI
 struct HistoryPage: View {
     @State  var store:GlobalStore
     var body: some View {
-         
         VStack(alignment:.leading){
-            Text("rrrr")
-            Spacer()
-        }.onAppear(perform: {
-
-            self.store.dispatch(usersHistoryActions.pendingGetUserHistory)
-        })
-        
+            VStack(alignment:.leading){
+                Text("Статистика").font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                
+            }
+            
+            VStack(alignment:.center){
+                
+                Chart(values: [10,1,6,7,8,4])
+                DynamicList()
+                
+                
+            }}.padding(.horizontal,30)
         
     }
     

@@ -46,7 +46,7 @@ struct Chart: View {
     
     var body: some View {
         ZStack{
-            HStack( alignment: .center, spacing: 30){
+            HStack( alignment: .center, spacing: 35){
                 
                 ForEach((0...5), id: \.self) {
                     ChartItem(
@@ -91,10 +91,10 @@ struct ChartItem: View {
             VStack{
                 ZStack(alignment: .bottom){
                     RoundedRectangle(cornerRadius: 15)
-                        .frame(width: 20, height: 200)
+                        .frame(width: 25, height: 200)
                         .foregroundColor(Color.RTFPallete.baseColor.blueGray)
                     RoundedRectangle(cornerRadius: 15)
-                        .frame(width: 20, height: CGFloat(20*value))
+                        .frame(width: 25, height: CGFloat(20*value))
                         .foregroundColor(color)
                 }
                 Text(String(format: "%.1f", value)).foregroundColor(Color.RTFPallete.textSecondary)
