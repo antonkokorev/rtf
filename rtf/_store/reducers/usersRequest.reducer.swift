@@ -22,12 +22,13 @@ final class usersRequestState: StateType, ObservableObject {
 }
 
 func usersRequestReducer(action: Action, state: usersRequestState?) -> usersRequestState {
-    var state = state ?? usersRequestState()
+    let state = state ?? usersRequestState()
     
     guard let action = action as? usersRequestActions else {
         return state
     }
-    print("red", action)
+    
+//	print("red", action)
     switch action {
     case .pendingGetUsersWithRequest:
         state.status = "[Pending] pendingGetUsersWithRequest"

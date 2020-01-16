@@ -32,7 +32,7 @@ func thanksReducer(action: Action, state: thanksState?) -> thanksState {
         return state
     }
     
-	print("red", action)
+//	print("red", action)
     switch action {
     case .pendingGetThanksCount:
         state.status = "[Pending] pendingGetThanksCount"

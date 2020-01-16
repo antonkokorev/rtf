@@ -1,37 +1,44 @@
 //
-//  users.effect.swift
+//  search.effect.swift
 //  rtf
 //
-//  Created by антон on 14.01.2020.
+//  Created by Anton Elistratov on 16.01.2020.
 //  Copyright © 2020 team. All rights reserved.
 //
-
 
 import Foundation
 import ReSwift
 import Alamofire
 
-var usersEffect: Middleware<AppState> = { dispatch, getState in
+var searchEffect: Middleware<AppState> = { dispatch, getState in
     return { next in
         return { action in
             
-            guard let userInvokedAction = action as? usersActions else {
+            guard let userInvokedAction = action as? searchActions else {
                 next(action)
                 return
             }
 
             /* делает реквест только если pending вызвано */
             switch userInvokedAction {
-            case .pendingGetMe:
+            case .pendingSearch(let searchTxt):
                     
-                AF.request(Interceptor.serviceRequest(service: "report/whoAmI",body: nil)).response { response in
+                AF.request(Interceptor.searchRequest(searchTxt: searchTxt)).response { response in
                     /* обработка ошибок */
                     switch response.error {
                     case .none:
-              
-                        let data = try? JSONDecoder().decode(IUser.self, from: response.data!)
-//                         print(data!)
-                        next(usersActions.successGetMe(data!))
+						
+                        let data = try? JSONDecoder().decode(ISearch.self, from: response.data!)
+//						print(response.value)
+						if ((data) != nil) {
+//							debugPrint(response)
+//							print(data!)
+							next(searchActions.successSearch(data!))
+						} else {
+							print("Error")
+//							debugPrint(response)
+						}
+
                     case .some(let error):
                         print(error)
                     }
@@ -43,4 +50,3 @@ var usersEffect: Middleware<AppState> = { dispatch, getState in
         }
     }
 }
-

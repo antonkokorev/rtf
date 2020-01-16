@@ -10,46 +10,81 @@ import Alamofire
 import UIKit
 
 enum Interceptor: URLRequestConvertible {
-    
+	
 	case serviceRequest(service: String, body: String?)
-    
-    static let RTF_ENDPOINT = "https://p2passesmentj2dacd8d8.ru1.hana.ondemand.com/p2p-assessment/"
-    static let RTF_AUTH = "Basic QWRtaW5fTEI6cGFzc3dvcmQ="
-    var requestMethod: HTTPMethod {
-        switch self {
-        case .serviceRequest:
-            return .post
-        }
-    }
+	case searchRequest(searchTxt: String?)
 	
-    
-    var servicePath: String {
-        switch self {
-        case .serviceRequest(let service, _):
-            return service
-        }
-    }
+	/*
+	iResultLimit: 10
+	iResultOffset: 0
+	sSearchLine: ""
+	*/
+	static let RTF_SEARCH = "https://smartsearchj2dacd8d8.ru1.hana.ondemand.com/smart-search/"
+	static let RTF_SEARCH_AUTH = "Basic dXNlcjpwYXNzd29yZA=="
 	
-    var requestBody: String? {
-        switch self {
-        case .serviceRequest(_, let body):
+	static let RTF_ENDPOINT = "https://p2passesmentj2dacd8d8.ru1.hana.ondemand.com/p2p-assessment/"
+	static let RTF_AUTH = "Basic QWRtaW5fTEI6cGFzc3dvcmQ="
+	
+	var serviceEndpoint: String {
+		switch self {
+		case .serviceRequest:
+			return Interceptor.RTF_ENDPOINT
+		case .searchRequest:
+			return Interceptor.RTF_SEARCH
+		}
+	}
+	
+	var serviceAuth: String {
+		switch self {
+		case .serviceRequest:
+			return Interceptor.RTF_AUTH
+		case .searchRequest:
+			return Interceptor.RTF_SEARCH_AUTH
+		}
+	}
+	
+	var requestMethod: HTTPMethod {
+		switch self {
+		case .serviceRequest, .searchRequest:
+			return .post
+		}
+	}
+	
+	
+	var servicePath: String {
+		switch self {
+		case .serviceRequest(let service, _):
+			return service
+		case .searchRequest:
+			return "search"
+		}
+	}
+	
+	var requestBody: String? {
+		switch self {
+		case .serviceRequest(_, let body):
 			return (body != nil) ? body : nil
-        }
-    }
-    
-    func asURLRequest() throws -> URLRequest {
-        let url = try Interceptor.RTF_ENDPOINT.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(servicePath))
+		case .searchRequest(let searchTxt):
+			return "{\"sSearchLine\": \"\(searchTxt!)\"}"
+		}
+	}
+	
+	func asURLRequest() throws -> URLRequest {
+		let url = try serviceEndpoint.asURL()
+		var urlRequest = URLRequest(url: url.appendingPathComponent(servicePath))
 		
-//		let parameters = "{\"iPage\":0, \"iSize\": 15, \"lId\": 0, \"sLoadOption\": \"UNPROCESSED_REQUESTS\"}"
+		//		let parameters = "{\"iPage\":0, \"iSize\": 15, \"lId\": 0, \"sLoadOption\": \"UNPROCESSED_REQUESTS\"}"
 		
 		if (requestBody != nil){
+//			print("inside request body")
+//			print(requestBody!)
 			urlRequest.httpBody = requestBody?.data(using: .utf8, allowLossyConversion: false)!
 		}
-        urlRequest.httpMethod = requestMethod.rawValue
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
-        urlRequest.setValue( Interceptor.RTF_AUTH, forHTTPHeaderField: "Authorization")
-
-        return urlRequest
-    }
+		urlRequest.httpMethod = requestMethod.rawValue
+		urlRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
+		urlRequest.setValue( serviceAuth, forHTTPHeaderField: "Authorization")
+		
+//		print(urlRequest.url)
+		return urlRequest
+	}
 }
