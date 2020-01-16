@@ -36,15 +36,15 @@ struct StartPage: View {
     @State var showProfileMenu: Bool = false
     
     var body: some View {
-        
+        NavigationView{
         ScrollView(.vertical, showsIndicators: false){
             VStack{
                 /** Аватарка и лайк*/
                 HStack{
                     Button(action: {
-                        withAnimation{
-                            self.showProfileMenu.toggle()
-                        }
+                        //                        withAnimation{
+                        //                            self.showProfileMenu.toggle()
+                        //                        }
                     }, label: {
                         CircleImage(imageUrl: getPhoto("Admin_LB"), imageSize: 40)
                             .onAppear(perform: {
@@ -162,18 +162,19 @@ struct StartPage: View {
                     })
                     Spacer()
                 }
-                Spacer(minLength: 25)
+                Spacer(minLength: 50)
             }.padding(.horizontal, 30)
             
         }
         .partialSheet(presented: $showFeedBackPage) {
             FeedBackPage(store: self.store)
-        }.padding(.top, 10)
+        }.padding(.top, 30)
             .background(Color.RTFPallete.backgroundDefault)
             .edgesIgnoringSafeArea(.all)
             .onAppear(perform: {
                 self.store.dispatch(usersActions.pendingGetMe)
             })
+        }
     }
 }
 
