@@ -18,7 +18,7 @@ struct ActionCard: View {
     var body: some View {
         
         VStack(){
-            Button(action: {self.action("new")}) {
+            Button(action: {self.action(self.icon)}) {
                 HStack(){
                     CircleImage(imageSize: 50,
                                 icon: self.icon,
