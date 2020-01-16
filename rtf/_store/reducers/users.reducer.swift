@@ -11,10 +11,8 @@ import Combine
 import SwiftUI
 
 struct IUser: Codable, Equatable, Identifiable, Hashable {
-		/* Нужно для Identifiable */
-		var id: String {
-			return sUserId!
-		}
+	/* Нужно для Identifiable */
+	let id = UUID()
     /** ID */
     let sUserId: String?
     /** Имя */
@@ -51,6 +49,8 @@ struct IUser: Codable, Equatable, Identifiable, Hashable {
     let bTypeEstimate: Bool?;
     /** Функциональный блок */
     let sExtidFblock: String?;
+	/**  **/
+	let bAddButton: Bool?
 
 }
 func initIUser()-> IUser{
@@ -72,7 +72,8 @@ func initIUser()-> IUser{
         iIncomeRates: nil,
         IncomeRequests: nil,
         bTypeEstimate: nil,
-        sExtidFblock: nil
+        sExtidFblock: nil,
+		bAddButton: false
     )
 }
 
@@ -96,7 +97,8 @@ final class UsersState: StateType, ObservableObject {
         iIncomeRates: nil,
         IncomeRequests: nil,
         bTypeEstimate: nil,
-        sExtidFblock: nil
+        sExtidFblock: nil,
+		bAddButton: false
     )
     @Published var status = ""
 }

@@ -17,6 +17,8 @@ struct StartPage: View {
     /* reactiveState */
     @ObservedObject var state: UsersRecentState
     @ObservedObject var users: UsersState
+	@ObservedObject var favUsers: usersFavouriteState
+	
     @State var usersModal:Bool = false
     @State var historyModal:Bool = false
     let store: GlobalStore
@@ -31,7 +33,7 @@ struct StartPage: View {
         self.store = store
         self.state = store.state.usersRecentSubState
         self.users = store.state.usersSubState
-        
+		self.favUsers = store.state.usersFavouriteSubState
     }
     
     
@@ -122,7 +124,9 @@ struct StartPage: View {
                                         textBody: "TextBody1",
                                         icon: "like"
                                     ).sheet(isPresented: $usersModal) {
-                                        HistoryPage(store:  self.store)
+										FavouriteUsersGrid(users: self.favUsers.collection).padding(.top ,35)
+                                        // HistoryPage(store:  self.store)
+
                                     }
                                     ActionCard(
                                             action: self.goNextPage,
@@ -163,6 +167,7 @@ struct StartPage: View {
                     
                     .onAppear(perform: {
                         self.store.dispatch(usersActions.pendingGetMe)
+						self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
                     })
         
        
