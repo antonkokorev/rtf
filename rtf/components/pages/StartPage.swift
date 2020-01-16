@@ -129,27 +129,27 @@ struct StartPage: View {
                 VStack(spacing: 15){
                     ActionCard(
                         action: self.goNextPage,
-                        textTitle: "TextTitle1",
-                        textBody: "TextBody1",
-                        icon: "like"
+                        textTitle: "Коллеги",
+                        textBody: "Обратная связь по компетенциям и проф. навыкам",
+                        icon: "home__feedback"
                     )
                     ActionCard(
                         action: self.goNextPage,
-                        textTitle: "TextTitle1",
-                        textBody: "TextBody1",
-                        icon: "like"
+                        textTitle: "Встречи",
+                        textBody: "Обратная связь по компетенциям на встречах",
+                        icon: "home__meetings"
                     )
                     ActionCard(
                         action: self.goNextPage,
-                        textTitle: "TextTitle1",
-                        textBody: "TextBody1",
-                        icon: "like"
+                        textTitle: "Достижения",
+                        textBody: "Обратная связь по достижениям и проектам",
+                        icon: "home__projects"
                     )
                     ActionCard(
                         action: self.goNextPage,
-                        textTitle: "TextTitle1",
-                        textBody: "TextBody1",
-                        icon: "like"
+                        textTitle: "Профоценка SberProfi",
+                        textBody: "Оценка уровня профессионального мастерства",
+                        icon: "home__sberprofi"
                     )
                 }.padding(.bottom, 30)
                 
