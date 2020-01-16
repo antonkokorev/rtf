@@ -25,7 +25,6 @@
 		3A506EB023C0D24E00A498C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A506EAF23C0D24E00A498C8 /* Assets.xcassets */; };
 		3A506EB323C0D24E00A498C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A506EB223C0D24E00A498C8 /* Preview Assets.xcassets */; };
 		3A506EB623C0D24E00A498C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A506EB423C0D24E00A498C8 /* LaunchScreen.storyboard */; };
-		3A506EF023C0D26700A498C8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EBE23C0D26600A498C8 /* StartView.swift */; };
 		3A506EF123C0D26700A498C8 /* loginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EC023C0D26600A498C8 /* loginModel.swift */; };
 		3A506EF223C0D26700A498C8 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EC223C0D26600A498C8 /* Interceptor.swift */; };
 		3A506EF323C0D26700A498C8 /* message.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EC523C0D26600A498C8 /* message.actions.swift */; };
@@ -132,7 +131,6 @@
 		3A506EB223C0D24E00A498C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3A506EB523C0D24E00A498C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A506EB723C0D24E00A498C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A506EBE23C0D26600A498C8 /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		3A506EC023C0D26600A498C8 /* loginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginModel.swift; sourceTree = "<group>"; };
 		3A506EC223C0D26600A498C8 /* Interceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		3A506EC523C0D26600A498C8 /* message.actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = message.actions.swift; sourceTree = "<group>"; };
@@ -287,11 +285,8 @@
 		3A2A88BE23C77E09003F15FE /* molecules */ = {
 			isa = PBXGroup;
 			children = (
-
 				EA6D1C8323CE0B0E00D5B34A /* SearchBarPopup */,
-
 				256638A523CF3607003D1DD0 /* ProfileMenu */,
-
 				25CAD78423CD94DB0029E202 /* CarouselUser */,
 				25CAD78123CCB6490029E202 /* Carousel */,
 				259D9C3823CCAFAB00334C44 /* Like */,
@@ -459,7 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				3A506EC023C0D26600A498C8 /* loginModel.swift */,
-				3A506EBE23C0D26600A498C8 /* StartView.swift */,
 				4635894423CC9B8100DBA092 /* StartPage.swift */,
 				4635894623CC9CE600DBA092 /* FeedBackPage.swift */,
 				4657BFE523CDBF3500604801 /* HistoryPage.swift */,
@@ -483,11 +477,7 @@
 			path = EmployeeIconView;
 			sourceTree = "<group>";
 		};
-
-
 		EA6D1C8323CE0B0E00D5B34A /* SearchBarPopup */ = {
-
-
 			isa = PBXGroup;
 			children = (
 				EA6D1C8423CE0B3E00D5B34A /* SearchBarPopup.swift */,
@@ -726,7 +716,6 @@
 				3A506F1323C0D26700A498C8 /* usersTeam.reducer.swift in Sources */,
 				EA6D1C8723CE206A00D5B34A /* usersFavourite.effect.swift in Sources */,
 				3A506EF323C0D26700A498C8 /* message.actions.swift in Sources */,
-				3A506EF023C0D26700A498C8 /* StartView.swift in Sources */,
 				3A506F0C23C0D26700A498C8 /* teamInfo.reducer.swift in Sources */,
 				3A2A88C023C86576003F15FE /* Topography.swift in Sources */,
 				3A506EF423C0D26700A498C8 /* thanks.actions.swift in Sources */,
@@ -880,7 +869,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -900,7 +889,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
