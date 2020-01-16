@@ -60,7 +60,7 @@ func usersFavouriteReducer(action: Action, state: usersFavouriteState?) -> users
         return state
     }
     
-	print("red", action)
+//	print("red", action)
     switch action {
     case .pendingGetFavFeedbackUsers:
         state.status = "[Pending] pendingGetFavFeedbackUsers"

@@ -26,6 +26,7 @@ struct AppState: StateType {
 	var usersRecentSubState: UsersRecentState = UsersRecentState()
 	var usersRequestSubState = usersRequestState()
 	var usersTeamSubState = usersTeamState()
+	var searchSubState: SearchState = SearchState()
 }
 
 func appReducer(action: Action, state: AppState?) -> AppState {
@@ -46,7 +47,8 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		usersInboxSubState: usersInboxReducer(action: action, state: state?.usersInboxSubState),
 		usersRecentSubState: usersRecentReducer(action: action, state: state?.usersRecentSubState),
 		usersRequestSubState: usersRequestReducer(action: action, state: state?.usersRequestSubState),
-		usersTeamSubState: usersTeamReducer(action: action, state: state?.usersTeamSubState)
+		usersTeamSubState: usersTeamReducer(action: action, state: state?.usersTeamSubState),
+		searchSubState: searchReducer(action: action, state: state?.searchSubState)
 	)
 }
 
@@ -57,10 +59,6 @@ var AppEffects: Array = [
 	thanksEffect,
     userHistoryEffect,
     usersEffect,
-	usersFavouriteEffect
+	usersFavouriteEffect,
+	searchEffect
 ]
-
-struct IPagination: Codable, Equatable {
-	var aObjects: [IUser]?
-	var bHasNext: Bool?
-}

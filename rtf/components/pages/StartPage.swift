@@ -8,10 +8,11 @@
 import SwiftUI
 import PartialSheet
 func greetUser(msg:String) {
-
-    print(msg)
+	
+	print(msg)
 }
 struct StartPage: View {
+
     
     /* reactiveState */
     @ObservedObject var state: UsersRecentState
@@ -175,7 +176,7 @@ struct StartPage: View {
 }
 
 struct StartPage_Previews: PreviewProvider {
-    static var previews: some View {
-        StartPage(store: AppMain().store)
-    }
+	static var previews: some View {
+		StartPage(store: AppMain().store)
+	}
 }
