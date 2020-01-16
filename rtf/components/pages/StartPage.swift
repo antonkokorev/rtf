@@ -8,17 +8,21 @@
 import SwiftUI
 import PartialSheet
 func greetUser(msg:String) {
+
     
     print(msg)
-}
+
 struct StartPage: View {
+
     
     /* reactiveState */
     @ObservedObject var state: UsersRecentState
     @ObservedObject var users: UsersState
+    @State var usersModal:Bool = false
     let store: GlobalStore
     /** функция обработка кнопок тайлов*/
     private  func goNextPage(page:String) -> Void {
+        self.usersModal = true
         print(page,showFeedBackPage)
     }
     
@@ -36,6 +40,7 @@ struct StartPage: View {
     @State var showProfileMenu: Bool = false
     
     var body: some View {
+
         NavigationView{
         ScrollView(.vertical, showsIndicators: false){
             VStack{
@@ -132,7 +137,9 @@ struct StartPage: View {
                         textTitle: "Коллеги",
                         textBody: "Обратная связь по компетенциям и проф. навыкам",
                         icon: "home__feedback"
-                    )
+                    ).sheet(isPresented: $usersModal) {
+        FeedBackPage(store:  self.store).padding(.top ,35)
+                    }
                     ActionCard(
                         action: self.goNextPage,
                         textTitle: "Встречи",
@@ -175,11 +182,12 @@ struct StartPage: View {
                 self.store.dispatch(usersActions.pendingGetMe)
             })
         }
+        }
     }
 }
 
 struct StartPage_Previews: PreviewProvider {
-    static var previews: some View {
-        StartPage(store: AppMain().store)
-    }
+	static var previews: some View {
+		StartPage(store: AppMain().store)
+	}
 }

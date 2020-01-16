@@ -109,7 +109,7 @@ func usersReducer(action: Action, state: UsersState?) -> UsersState {
         return state
     }
 
-	print("red", action)
+//	print("red", action)
     switch action {
     case .pendingGetMe:
         state.status = "[Pending] pendingGetMe"

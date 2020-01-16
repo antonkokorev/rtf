@@ -9,25 +9,57 @@
 import SwiftUI
 
 struct EmployeeSearchBar: View {
+	
+		@ObservedObject var search: SearchState
+		
+		let store: GlobalStore
+		
+		
+		/* инициализатор store + state перед рендером */
+		init(store: GlobalStore) {
+			self.store = store
+			self.search = store.state.searchSubState
+		}
+	
+	@State var searchTxt: String = ""
+	
+	
 	var body: some View {
-		ZStack {
-			RoundedRectangle(cornerRadius: 29)
-				.frame(height: 45)
-				.foregroundColor(Color(red:0.93, green:0.94, blue:0.97))
-				.padding()
+		VStack {
 			
-			HStack {
-				Image(systemName: "magnifyingglass")
-				Text("Поиск по ФИО")
-				Spacer()
+			
+			ZStack {
+				RoundedRectangle(cornerRadius: 29)
+					.frame(height: 45)
+					.foregroundColor(Color(red:0.93, green:0.94, blue:0.97))
+					.padding()
+				
+				HStack {
+					Image(systemName: "magnifyingglass")
+					
+					TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
+						if changed {
+							print("[changed] Searching for... \(self.searchTxt)")
+							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
+						} else {
+							print("[commited] Searching for... \(self.searchTxt)")
+							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
+						}
+					})
+					
+					Spacer()
+				}
+					
+				.padding(.leading, CGFloat(30))
 			}
-			.padding(.leading, CGFloat(30))
+			
+
 		}
 	}
 }
 
-struct EmployeeSearchBar_Preview: PreviewProvider {
-	static var previews: some View {
-			EmployeeSearchBar()
-	}
-}
+//struct EmployeeSearchBar_Preview: PreviewProvider {
+//	static var previews: some View {
+//			EmployeeSearchBar()
+//	}
+//}

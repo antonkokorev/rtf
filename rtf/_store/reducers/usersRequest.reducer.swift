@@ -27,7 +27,8 @@ func usersRequestReducer(action: Action, state: usersRequestState?) -> usersRequ
     guard let action = action as? usersRequestActions else {
         return state
     }
-    print("red", action)
+    
+//	print("red", action)
     switch action {
     case .pendingGetUsersWithRequest:
         state.status = "[Pending] pendingGetUsersWithRequest"
