@@ -28,7 +28,7 @@ final class usersHistoryState: StateType, ObservableObject {
 
 
 func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHistoryState {
-    var state = state ?? usersHistoryState()
+    let state = state ?? usersHistoryState()
     
     guard let action = action as? usersHistoryActions else {
         return state
