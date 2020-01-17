@@ -29,21 +29,20 @@ struct StartPage: View {
         print(page,showFeedBackPage)
     }
     
-    /* инициализатор store + state перед рендером */
+    /** инициализатор store + state перед рендером */
     init(store: GlobalStore) {
         self.store = store
         self.state = store.state.usersRecentSubState
         self.users = store.state.usersSubState
         self.favUsers = store.state.usersFavouriteSubState
     }
-    
-    
+
+
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
-    
-    
-    var body: some View {
 
+
+    var body: some View {
         VStack(){
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
@@ -53,17 +52,16 @@ struct StartPage: View {
                         .onAppear(perform: {
                             self.store.dispatch(usersActions.pendingGetMe)
                         })
-                    
 
 
                     /** Привет userName*/
                     HStack{
-                        Text("Привет,\n\(users.me.sFirstName!)")
+                        Text("Привет ,\n\(users.me.sFirstName!)")
                             .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                         Spacer()
                     }
-                        .padding(.bottom, 25)
-                    
+                    .padding(.bottom, 25)
+
                     /** Меню выбора списка юзеров*/
                     HStack{
                         HorizontalMenu(
@@ -78,52 +76,44 @@ struct StartPage: View {
                             buttonSpace: 10,
                             cloud: false)
                         Spacer()
-                    }.padding(.bottom, 10)
-                    
+                    }
+                    .padding(.bottom, 10)
+
                     /** Карусель с юзерами*/
                     Carousel(test:greetUser , state: store.state.usersRecentSubState)
-                        .padding(.bottom, 30) .padding(.horizontal, -30).onAppear(perform: {
+                        .padding(.bottom, 30)
+                        .padding(.horizontal, -30)
+                        .onAppear(perform: {
                             self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
                         })
+
                     /** Меню с кнопками Отчет-История-Статистика*/
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
                             Spacer(minLength: 30)
                             HorizontalMenu(
                                 texts: ["История", "Статистика"],
-                                active: 0,
+                                active: 99,
                                 activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
                                 passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
                                 activeFontColor: Color.RTFPallete.buttonDefaultPale,
                                 passiveFontColor: Color.RTFPallete.buttonDefaultPale,
-                                activeColor: .red,
-                                passiveColor: .blue,
+                                activeColor: Color.RTFPallete.buttonGrayBackground,
+                                passiveColor: Color.RTFPallete.buttonGrayBackground,
+                                activeBorderColor: Color.RTFPallete.buttonGrayBackground,
+                                passiveBorderColor: Color.RTFPallete.buttonGrayBackground,
                                 horizontalPadding: 10,
                                 verticalPadding: 10,
                                 buttonSpace: 10,
                                 cloud: true
-                                )
-                            
-                            
-                            
-
-                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                                Text("Командный отчет")
-                                    .padding(10)
-                            }.font(Font.Typography.sizingFont(font: .semibold, size: .H3)).foregroundColor(Color.RTFPallete.buttonDefault)
-                                .background(Color.RTFPallete.buttonGrayBackground)
-                                .cornerRadius(BasicRadius.max).padding(.trailing, 15.0)
-                            
-
+                            )
                             Spacer()
-                            
-                            
-                            
-                            
-                        }.padding(.bottom, 10)
-                    }.padding(.bottom, 25)
-                        .padding(.horizontal, -30)
-                    
+                        }
+                        .padding(.bottom, 10)
+                    }
+                    .padding(.bottom, 25)
+                    .padding(.horizontal, -30)
+
                     /** Меню с ссылками на приложения*/
                     VStack(spacing: 15){
                         ActionCard(
@@ -132,9 +122,9 @@ struct StartPage: View {
                             textBody: "Обратная связь по компетенциям и проф. навыкам",
                             icon: "home__feedback"
                         ).sheet(isPresented: $usersModal) {
-                         //   FavouriteUsersGrid(users: self.favUsers.collection).padding(.top ,35)
-                             HistoryPage(store:  self.store)
-                            
+                            FavouriteUsersGrid(users: self.favUsers.collection)
+                                .padding(.top ,35)
+                            // HistoryPage(store:  self.store)
                         }
                         ActionCard(
                             action: self.goNextPage,
@@ -154,9 +144,10 @@ struct StartPage: View {
                             textBody: "Оценка уровня профессионального мастерства",
                             icon: "home__sberprofi"
                         )
-                        
-                    }.padding(.bottom, 30)
-                    
+
+                    }
+                    .padding(.bottom, 30)
+
                     /** Сообщить об ошибке*/
                     HStack{
                         Button(
@@ -166,25 +157,22 @@ struct StartPage: View {
                         })
                         Spacer()
                     }
+
+                    /**Минимальный отступ от нижнего края экрана*/
                     Spacer(minLength: 25)
-                }.padding(.horizontal, 30)
-                
-                
+                }
+                .padding(.horizontal, 30)
             }
-            
         }
-            
         .onAppear(perform: {
             self.store.dispatch(usersActions.pendingGetMe)
             self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
         })
-        
-        
     }
 }
 
 
-//*Аватар пользователя и кнопка с лайками/
+//*Аватар пользователя и кнопка с лайками*/
 struct AvaLikeRow: View {
     var body: some View{
         HStack{
@@ -195,6 +183,7 @@ struct AvaLikeRow: View {
     }
 }
 
+/**Превью*/
 struct StartPage_Previews: PreviewProvider {
     static var previews: some View {
         StartPage(store: AppMain().store)
