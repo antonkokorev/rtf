@@ -124,7 +124,10 @@ struct StartPage: View {
                                         textBody: "TextBody1",
                                         icon: "like"
                                     ).sheet(isPresented: $usersModal) {
-										FavouriteUsersGrid(users: self.favUsers.collection).padding(.top ,35)
+//										FavouriteUsersGrid(users: self.favUsers.collection).padding(.top ,35)
+//										
+										FeedBackPage(store: self.store)
+										
                                         // HistoryPage(store:  self.store)
 
                                     }

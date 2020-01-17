@@ -16,12 +16,12 @@ struct ISearch: Codable {
     var sStatus: String?
 }
 
-struct ISearchResults: Codable {
-    let sScore: Double?
-    let oUserData: ISearchUser?
+struct ISearchResults: Codable, Hashable {
+    var sScore: Double?
+    var oUserData: ISearchUser?
 }
 
-struct ISearchUser: Codable {
+struct ISearchUser: Codable, Hashable {
     var sPersonID: String?
 	var sPositionID: String?
 	var sOrgunitID: String?
