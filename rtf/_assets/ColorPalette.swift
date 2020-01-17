@@ -17,8 +17,7 @@ struct BaseColor {
     let textGray = Color("textGray")
     let black = Color("mainBlack")
     let white = Color("mainWhite")
-	let buttonGrayBackground = Color("mainWhite")
-//    let buttonGrayBackground = Color("buttonGrayBackground")
+    let buttonGrayBackground = Color("buttonGrayBackground")
     
     /// Статичные цвета
     

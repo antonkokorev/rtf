@@ -53,10 +53,9 @@ struct StartPage: View {
                             self.store.dispatch(usersActions.pendingGetMe)
                         })
 
-
                     /** Привет userName*/
                     HStack{
-                        Text("Привет ,\n\(users.me.sFirstName!)")
+                        Text("Привет,\n\(users.me.sFirstName!)")
                             .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                         Spacer()
                     }
@@ -113,7 +112,7 @@ struct StartPage: View {
                     }
                     .padding(.bottom, 25)
                     .padding(.horizontal, -30)
-
+ActionCardList()
                     /** Меню с ссылками на приложения*/
                     VStack(spacing: 15){
                         ActionCard(
@@ -144,7 +143,6 @@ struct StartPage: View {
                             textBody: "Оценка уровня профессионального мастерства",
                             icon: "home__sberprofi"
                         )
-
                     }
                     .padding(.bottom, 30)
 
