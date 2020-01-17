@@ -16,7 +16,7 @@ struct CircleImage:View {
     @State var imageUrl: String?
     
     /**Размер изображения*/
-    @State var imageSize: CGFloat!
+    @State var imageSize: CGFloat! = BasicIconSizes.max
     
     /**Тип иконки*/
     @State var icon: String?

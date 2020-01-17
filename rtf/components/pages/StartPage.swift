@@ -112,7 +112,7 @@ struct StartPage: View {
                     }
                     .padding(.bottom, 25)
                     .padding(.horizontal, -30)
-ActionCardList()
+
                     /** Меню с ссылками на приложения*/
                     VStack(spacing: 15){
                         ActionCard(
