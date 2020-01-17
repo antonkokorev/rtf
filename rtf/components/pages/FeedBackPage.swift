@@ -53,10 +53,15 @@ struct FeedBackPage: View {
 						.font(.custom("SBSansDisplay-Regular", size: 16))
 						.padding()
 					
+					
+					
+					
 					/** Заглушка поиска **/
 					EmployeeSearchBar(store: self.store)
 					
-					
+					FlowStack(columns: 3, numItems: 27, alignment: .leading) { index, colWidth in
+					  Text(" \(index) ").frame(width: colWidth)
+					}
 
 						Text("Недавние")
 							.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
