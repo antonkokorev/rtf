@@ -8,17 +8,22 @@
 
 import SwiftUI
 
-struct DynamicList: View {
+struct DynamicList<Content: View>: View {
     @State var expanded:[Int:Bool] = [:]
+    let mainCard:Content
     
     func isExpanded(_ id:Int) -> Bool {
         expanded[id] ?? false
     }
+    init(destinationView: Content) {
+           self.mainCard = destinationView
+       }
+
     var body: some View {
         
         List{
             ForEach((0...10), id: \.self  ){ section in
-                Section(header: CustomeHeader(name: "Section \(section)", color: Color.blue)){
+                Section(header: self.mainCard){
                 if self.isExpanded(section) {
                     ForEach((0...10), id: \.self  ) { row in
                         Text("Row \(row)")
@@ -53,8 +58,19 @@ struct CustomeHeader: View {
         .frame(height: 50)
     }
 }
+
+
+struct defView: View {
+
+    var body: some View {
+
+                Text("текст по умолчанию")
+   
+    }
+}
+
 struct DynamicList_Previews: PreviewProvider {
     static var previews: some View {
-        DynamicList()
+        DynamicList(destinationView: defView())
     }
 }
