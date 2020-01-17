@@ -146,7 +146,9 @@ struct StartPage: View {
                                         textTitle: "Профоценка SberProfi",
                                         textBody: "Оценка уровня профессионального мастерства",
                                         icon: "home__sberprofi"
-                                    )                                }.padding(.bottom, 30)
+                                    )
+                                    
+                                }.padding(.bottom, 30)
 
                                 /** Сообщить об ошибке*/
                                 HStack{
