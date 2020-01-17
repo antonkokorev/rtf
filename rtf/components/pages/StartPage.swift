@@ -161,7 +161,7 @@ struct StartPage: View {
                 }
                 .padding(.horizontal, 30)
             }
-        }
+            }
         .onAppear(perform: {
             self.store.dispatch(usersActions.pendingGetMe)
             self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
