@@ -36,23 +36,24 @@ struct StartPage: View {
         self.users = store.state.usersSubState
         self.favUsers = store.state.usersFavouriteSubState
     }
-
-
+    
+    
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
-
-
+    
+    
     var body: some View {
         VStack(){
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
                     /** Аватарка и лайк*/
+                    Spacer(minLength: 5)
                     AvaLikeRow()
                         .padding(.bottom, 20)
                         .onAppear(perform: {
                             self.store.dispatch(usersActions.pendingGetMe)
                         })
-
+                    
                     /** Привет userName*/
                     HStack{
                         Text("Привет,\n\(users.me.sFirstName!)")
@@ -60,7 +61,7 @@ struct StartPage: View {
                         Spacer()
                     }
                     .padding(.bottom, 25)
-
+                    
                     /** Меню выбора списка юзеров*/
                     HStack{
                         HorizontalMenu(
@@ -77,7 +78,7 @@ struct StartPage: View {
                         Spacer()
                     }
                     .padding(.bottom, 10)
-
+                    
                     /** Карусель с юзерами*/
                     Carousel(test:greetUser , state: store.state.usersRecentSubState)
                         .padding(.bottom, 30)
@@ -85,7 +86,7 @@ struct StartPage: View {
                         .onAppear(perform: {
                             self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
                         })
-
+                    
                     /** Меню с кнопками Отчет-История-Статистика*/
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
@@ -112,7 +113,7 @@ struct StartPage: View {
                     }
                     .padding(.bottom, 25)
                     .padding(.horizontal, -30)
-
+                    
                     /** Меню с ссылками на приложения*/
                     VStack(spacing: 15){
                         ActionCard(
@@ -145,7 +146,7 @@ struct StartPage: View {
                         )
                     }
                     .padding(.bottom, 30)
-
+                    
                     /** Сообщить об ошибке*/
                     HStack{
                         Button(
@@ -155,13 +156,14 @@ struct StartPage: View {
                         })
                         Spacer()
                     }
-
+                    
                     /**Минимальный отступ от нижнего края экрана*/
                     Spacer(minLength: 25)
                 }
                 .padding(.horizontal, 30)
             }
-            }
+        }
+        .padding(.top, 10)//Для обхода SafeArea
         .onAppear(perform: {
             self.store.dispatch(usersActions.pendingGetMe)
             self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
@@ -176,7 +178,7 @@ struct AvaLikeRow: View {
         HStack{
             CircleImage(imageUrl: getPhoto("Admin_LB"), imageSize: BasicIconSizes.max)
             Spacer()
-            CircleImage(imageSize: BasicIconSizes.max, icon: "like")
+            Like(number: 77)
         }
     }
 }
