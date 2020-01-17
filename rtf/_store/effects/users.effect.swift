@@ -30,7 +30,7 @@ var usersEffect: Middleware<AppState> = { dispatch, getState in
                     case .none:
               
                         let data = try? JSONDecoder().decode(IUser.self, from: response.data!)
-//                         print(data!)
+                      
                         next(usersActions.successGetMe(data!))
                     case .some(let error):
                         print(error)

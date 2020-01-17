@@ -65,6 +65,7 @@
 		3A506F1623C0D26700A498C8 /* thanks.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEA23C0D26600A498C8 /* thanks.reducer.swift */; };
 		3A506F1723C0D26700A498C8 /* message.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEB23C0D26600A498C8 /* message.reducer.swift */; };
 		3A506F1823C0D26700A498C8 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506EEE23C0D26700A498C8 /* CircleImage.swift */; };
+		4618CF9C23D1AA6300C7A694 /* LineComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4618CF9B23D1AA6300C7A694 /* LineComp.swift */; };
 		4625762423CF196F009D85BD /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4625762323CF196F009D85BD /* Chart.swift */; };
 		4635894523CC9B8100DBA092 /* StartPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894423CC9B8100DBA092 /* StartPage.swift */; };
 		4635894723CC9CE600DBA092 /* FeedBackPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635894623CC9CE600DBA092 /* FeedBackPage.swift */; };
@@ -179,6 +180,7 @@
 		3A506EEA23C0D26600A498C8 /* thanks.reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thanks.reducer.swift; sourceTree = "<group>"; };
 		3A506EEB23C0D26600A498C8 /* message.reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = message.reducer.swift; sourceTree = "<group>"; };
 		3A506EEE23C0D26700A498C8 /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		4618CF9B23D1AA6300C7A694 /* LineComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineComp.swift; sourceTree = "<group>"; };
 		4625762323CF196F009D85BD /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		4635894423CC9B8100DBA092 /* StartPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPage.swift; sourceTree = "<group>"; };
 		4635894623CC9CE600DBA092 /* FeedBackPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackPage.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 		3A506EED23C0D26700A498C8 /* atoms */ = {
 			isa = PBXGroup;
 			children = (
+				4618CF9A23D1AA2E00C7A694 /* LineCompenentions */,
 				469801E723D0A7E200C7776F /* HorizontalMenu */,
 				469BA53A23D05B9400F6DD9D /* DynamicList */,
 				4625762223CF1930009D85BD /* Chart */,
@@ -463,6 +466,14 @@
 				25C7064323CC94D500F26698 /* CircleImage */,
 			);
 			path = atoms;
+			sourceTree = "<group>";
+		};
+		4618CF9A23D1AA2E00C7A694 /* LineCompenentions */ = {
+			isa = PBXGroup;
+			children = (
+				4618CF9B23D1AA6300C7A694 /* LineComp.swift */,
+			);
+			path = LineCompenentions;
 			sourceTree = "<group>";
 		};
 		4625762223CF1930009D85BD /* Chart */ = {
@@ -480,11 +491,8 @@
 				4635894423CC9B8100DBA092 /* StartPage.swift */,
 				4635894623CC9CE600DBA092 /* FeedBackPage.swift */,
 				4657BFE523CDBF3500604801 /* HistoryPage.swift */,
-
 				25CC6E1523D07403000E1EAD /* Profile.swift */,
-
 				EA0689DE23CF96CB00A545FD /* testView.swift */,
-
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -505,8 +513,6 @@
 			path = EmployeeIconView;
 			sourceTree = "<group>";
 		};
-
-
 		469801E723D0A7E200C7776F /* HorizontalMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,7 +521,6 @@
 			path = HorizontalMenu;
 			sourceTree = "<group>";
 		};
-
 		469BA53A23D05B9400F6DD9D /* DynamicList */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,7 +529,6 @@
 			path = DynamicList;
 			sourceTree = "<group>";
 		};
-
 		EA6D1C8323CE0B0E00D5B34A /* SearchBarPopup */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +741,7 @@
 				EA0689E923D06D4300A545FD /* search.reducer.swift in Sources */,
 				EAB9E83523D0C22500A92EA2 /* FlowStack.swift in Sources */,
 				3A506EFD23C0D26700A498C8 /* statistics.actions.swift in Sources */,
+				4618CF9C23D1AA6300C7A694 /* LineComp.swift in Sources */,
 				EACEF5A323CCA64800C8EFE7 /* SearchBar.view.swift in Sources */,
 				25CAD78323CCB6860029E202 /* Carousel.swift in Sources */,
 				3A506EF223C0D26700A498C8 /* Interceptor.swift in Sources */,

@@ -35,7 +35,7 @@ struct HistoryPage: View {
                     cloud: true
                     
                 )
-                DynamicList()
+                DynamicList(destinationView: lineCom())
                 
                 
             }}.padding(.horizontal,30)
@@ -44,6 +44,9 @@ struct HistoryPage: View {
     
     
 }
+
+
+
 
 struct HistoryPage_Previews: PreviewProvider {
     static var previews: some View {
