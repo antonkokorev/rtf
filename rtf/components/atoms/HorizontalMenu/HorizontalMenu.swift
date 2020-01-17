@@ -20,6 +20,9 @@ struct HorizontalMenu: View {
     var passiveColor : Color = Color.white
     var activeBorderColor : Color = Color.blue
     var passiveBorderColor : Color = Color.blue
+    var horizontalPadding : CGFloat = 20
+    var verticalPadding : CGFloat = 10
+    var buttonSpace: CGFloat = 10
     let clickFunc:(_ active:Int) -> Void =   { (tmp) in print(tmp) } 
 
     var cloud:Bool = false
@@ -28,14 +31,15 @@ struct HorizontalMenu: View {
     }
     var body: some View {
         
-        HStack(spacing:10){
+        HStack(spacing: self.buttonSpace){
             ForEach(0..<texts.count){i in
                 Button(action: {
                     self.active = i
                 }) {
                     if(i == self.active){
                         Text(self.texts[i]).font(self.activeFont).accentColor(self.activeFontColor)
-                            .padding(.all, 15)
+                            .padding(.horizontal, self.horizontalPadding)
+                            .padding(.vertical, self.verticalPadding)
                             .background(self.cloud ? self.activeColor :Color( #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)))
                             .cornerRadius(BasicRadius.max)
                          
@@ -46,7 +50,8 @@ struct HorizontalMenu: View {
                         Text(self.texts[i])
                             .font(self.passiveFont)
                             .accentColor(self.passiveFontColor)
-                            .padding(.all, 15)
+                            .padding(.horizontal, self.horizontalPadding)
+                            .padding(.vertical, self.verticalPadding)
                             .background(self.cloud ? self.passiveColor :Color( #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)))
                             .cornerRadius(BasicRadius.max)
                             .overlay(
