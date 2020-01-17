@@ -13,7 +13,7 @@ struct HorizontalMenu: View {
     @State var active:Int = 0
 
     var activeFont : Font = Font.Typography.sizingFont(font: .bold, size: .H3)
-    var passiveFont : Font = Font.Typography.sizingFont(font: .regular, size: .H3)
+    var passiveFont : Font = Font.Typography.sizingFont(font: .bold, size: .H3)
     var activeFontColor : Color = Color.white
     var passiveFontColor : Color = Color.black
     var activeColor : Color = Color.blue
@@ -23,14 +23,14 @@ struct HorizontalMenu: View {
     var horizontalPadding : CGFloat = 20
     var verticalPadding : CGFloat = 10
     var buttonSpace: CGFloat = 10
-    let clickFunc:(_ active:Int) -> Void =   { (tmp) in print(tmp) } 
-
+    let clickFunc:(_ active:Int) -> Void =   { (tmp) in print(tmp) }
     var cloud:Bool = false
     public func setActive(i:Int){
         self.active = i
     }
     var body: some View {
         
+
         HStack(spacing: self.buttonSpace){
             ForEach(0..<texts.count){i in
                 Button(action: {
@@ -42,10 +42,6 @@ struct HorizontalMenu: View {
                             .padding(.vertical, self.verticalPadding)
                             .background(self.cloud ? self.activeColor :Color( #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)))
                             .cornerRadius(BasicRadius.max)
-                         
-                             
-                        
-                        
                     }else{
                         Text(self.texts[i])
                             .font(self.passiveFont)
@@ -56,12 +52,8 @@ struct HorizontalMenu: View {
                             .cornerRadius(BasicRadius.max)
                             .overlay(
                                 RoundedRectangle(cornerRadius: BasicRadius.max)
-                                    .stroke(self.cloud ? self.passiveBorderColor :Color( #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)), lineWidth: 2)
+                                    .stroke(self.cloud ? self.passiveBorderColor :Color( #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)), lineWidth: 1)
                         )
-                        
-                        
-                        
-                        
                     }
                 }
             }

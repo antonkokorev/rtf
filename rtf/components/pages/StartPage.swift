@@ -43,6 +43,7 @@ struct StartPage: View {
     
     
     var body: some View {
+
         VStack(){
             ScrollView(.vertical, showsIndicators: false){
                 VStack{
@@ -53,6 +54,7 @@ struct StartPage: View {
                             self.store.dispatch(usersActions.pendingGetMe)
                         })
                     
+
 
                     /** Привет userName*/
                     HStack{
@@ -130,8 +132,8 @@ struct StartPage: View {
                             textBody: "Обратная связь по компетенциям и проф. навыкам",
                             icon: "home__feedback"
                         ).sheet(isPresented: $usersModal) {
-                            FavouriteUsersGrid(users: self.favUsers.collection).padding(.top ,35)
-                            // HistoryPage(store:  self.store)
+                         //   FavouriteUsersGrid(users: self.favUsers.collection).padding(.top ,35)
+                             HistoryPage(store:  self.store)
                             
                         }
                         ActionCard(
