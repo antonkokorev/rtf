@@ -14,7 +14,13 @@ struct EmployeeSearchBar: View {
 	@Binding var searchTxt: String
 	
 	/** нужно для диспатча эвента **/
-	let store: GlobalStore = AppMain().store
+	let store: GlobalStore
+	init(store: GlobalStore, searchTxt: Binding<String>) {
+		self.store = store
+		/** binding синтакс swift 4 **/
+		self._searchTxt = searchTxt
+	}
+	
 
 	var body: some View {
 		VStack {

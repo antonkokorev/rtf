@@ -8,38 +8,40 @@
 
 import SwiftUI
 
+/** Функциональный компонент, ререндер при изменение переменной users **/
 struct SearchList: View {
 	
-	@ObservedObject var users: SearchState
+	/** Сотрудники из поиска у них другой интерфейс в отличии от IUser **/
+	@State var users: [ISearchResults] = []
 	
-	/** строчка поиска из компонента выше **/
-	@Binding var searchTxt: String
+	@State var employeeCardVisibility: Bool = false
 	
-	let store: GlobalStore
-	
-	
-	/* инициализатор store + state перед рендером */
-	init(searchTxt: Binding<String>,store: GlobalStore) {
-		self.store = store
-		self.users = store.state.searchSubState
-		self._searchTxt = searchTxt
+	func showEmployeeCard() -> Void {
+		self.employeeCardVisibility = true
 	}
 	
-	//	@State var users: SearchState
 	
 	var body: some View {
-		//		Text("HELLO")
 		List {
-			ForEach(self.users.collection!, id: \.self) { user in
+			ForEach(self.users, id: \.self) { user in
 				
 				HStack {
 					
-					
-					CircleImage(
-						imageUrl: "https://documentserviceproxyj2dacd8d8.ru1.hana.ondemand.com/document-service-bridge/userphoto/get/matvey",
-						imageSize: 60,
-						backgroundColor: .black
-					)
+//					Button(action: {
+//						self.showEmployeeCard()
+//					}, label: {
+//
+						CircleImage(
+							imageUrl: getPhoto((user.oUserData?.sPersonSFID)!),
+							imageSize: 60,
+							backgroundColor: .black
+						)
+							
+//							.sheet(isPresented: self.$employeeCardVisibility) {
+//							EmployeeProfile()
+//						}
+//
+//					})
 					
 					VStack{
 						Text(String((user.oUserData?.sPersonFirstName)!))
@@ -52,20 +54,27 @@ struct SearchList: View {
 							.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
 					}
 					
+					
 					Spacer()
 					
-					CircleImage(
-						imageSize: 60,
-						backgroundColor: .blue
-					)
+					
+					
+					/** кнопка добавления **/
+					Button(action: {
+						print("добавлен")
+					}, label: {
+						CircleImage(
+							imageSize: 50,
+							icon: "add",
+							iconSize: BasicIconSizes.max,
+							backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
+						).foregroundColor(.blue)
+					})
+					
 				}
-
+				
 			}
-		}.onAppear(perform: {
-			self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
-			print("SEARCH LIST")
-			debugPrint(self.users)
-		})
+		}
 	}
 }
 

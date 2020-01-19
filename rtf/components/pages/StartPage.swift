@@ -119,7 +119,7 @@ struct StartPage: View {
                                 /** Меню с ссылками на приложения*/
                                 VStack(spacing: 15){
                                     ActionCard(
-                                            action: self.goNextPage,
+										action: self.goNextPage,
                                         textTitle: "TextTitle1",
                                         textBody: "TextBody1",
                                         icon: "like"
