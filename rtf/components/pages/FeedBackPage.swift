@@ -8,146 +8,112 @@
 
 import SwiftUI
 
-
 struct FeedBackPage: View {
-	@Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
-	@ObservedObject var state: usersFavouriteState
+	//	@Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
+	@State var searchTxt: String = ""
+	@State var editMode: Bool = false
+	@ObservedObject var favUsers: usersFavouriteState
 	@ObservedObject var users: UsersRecentState
 	@ObservedObject var search: SearchState
-	@State var favCounter: Int = 0;
-	
-	//	@State var searchTxt: String = ""
 	
 	let store: GlobalStore
 	
-	
+
 	/* инициализатор store + state перед рендером */
 	init(store: GlobalStore) {
 		self.store = store
-		self.state = store.state.usersFavouriteSubState
+		self.favUsers = store.state.usersFavouriteSubState
 		self.users = store.state.usersRecentSubState
 		self.search = store.state.searchSubState
 	}
 	
-	func showFavorites(_ users:[IUser], d: Int) -> [IUser] {
-		
-		
-		let oneSlice: ArraySlice<IUser> = users.self[0..<d]
-		
-		let sortedUsers: [IUser] = Array(oneSlice)
-		
-		return sortedUsers
+	func changeEditMode (_ mode: Bool) -> Void {
+		self.editMode = !mode
 	}
 	
+	
 	var body: some View {
-		GeometryReader{ g in
-			
-			
-			NavigationView {
+		NavigationView {
+			VStack(alignment: .leading, spacing: 5) {
+				Text("Запросить или дать обратную связь у коллег для развития")
+					.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
+					.font(.custom("SBSansDisplay-Regular", size: 16))
+					.padding()
 				
-				//SearchBarPopup(store: store)
-				VStack(alignment: .leading, spacing: 5) {
-					
-					Text("Запросить или дать обратную связь у коллег для развития")
-						.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-						.font(.custom("SBSansDisplay-Regular", size: 16))
+				/** Заглушка поиска  **/
+				EmployeeSearchBar(store: self.store,searchTxt: self.$searchTxt)
+				//				Button(action: {
+				//					self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
+				//				}, label: {
+				//					Text("get data")
+				//				})
+				
+				/** Скрывает все, если есть найденые пользователи **/
+				if (self.search.collection != []) {
+					SearchList(users: self.search.collection!)
+				} else {
+					Text("Недавние")
+						.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
+						.font(.custom("SBSansDisplay-Regular", size: 18))
 						.padding()
-					
-					
-					
-					
-					/** Заглушка поиска **/
-					EmployeeSearchBar(store: self.store)
-					
-					FlowStack(columns: 3, numItems: 27, alignment: .leading) { index, colWidth in
-					  Text(" \(index) ").frame(width: colWidth)
-					}
 
-						Text("Недавние")
+					
+					/** Карусель с юзерами **/
+					Carousel(test: greetUser, state: self.users)
+
+					/** Кнопки для управления юзерами **/
+					HStack{
+						Text("Избранное")
 							.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
 							.font(.custom("SBSansDisplay-Regular", size: 18))
 							.padding()
 						
-						
-						
-						/** Карусель с юзерами*/
-						Carousel(test:greetUser , state: self.users)
-						
-						
-						/** Разметка с избранными юзерами **/
-						HStack{
-							Text("Избранное")
-								.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
-								.font(.custom("SBSansDisplay-Regular", size: 18))
-								.padding()
-							
-							Spacer()
-							
-							Text("Сохранить")
-								.foregroundColor(Color(red:0.20, green:0.32, blue:1.00))
-								.font(.custom("SBSansDisplay-Regular", size: 18))
-								.padding()
-						}
-						
-						
-						ForEach(self.state.rowsWithUsers, id:\.self) { row in
-							HStack(spacing: 5) {
-								
-								ForEach(row) { user in
-									VStack(alignment: .center) {
-										
-										if(user.sFullName == "Добавить"){
-											CircleImage(
-												imageSize: 50,
-												icon: "add",
-												iconSize: BasicIconSizes.max,
-												backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-											)
-										} else {
-											CircleImage(
-												imageUrl: getPhoto(user.sUserId!),
-												imageSize: 50,
-												backgroundColor: .blue
-											)
-										}
-										
-										Text(String(user.sFirstName!))
-										
-										Text(String(user.sLastName!))
-										
-									}.frame(width: (g.size.width - 30 ) / 4, height: 100)
-									
-								}
-								
-							}.padding()
-						}
-						
-						
 						Spacer()
+						
+						
+						if (self.editMode){
+							Button(action: {
+								self.changeEditMode(self.editMode)
+							}, label: {
+								Text("Сохранить")
+									.foregroundColor(Color(red:0.20, green:0.32, blue:1.00))
+									.font(.custom("SBSansDisplay-Regular", size: 18))
+									.padding()
+							})
+						} else {
+							Button(action: {
+								self.changeEditMode(self.editMode)
+							}, label: {
+								Text("Изменить")
+									.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
+									.font(.custom("SBSansDisplay-Regular", size: 18))
+									.padding()
+							})
+						}
 					}
-					.onAppear(perform: {
-						self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
-						
-						self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-						
-						//					self.store.dispatch(searchActions.pendingSearch("Кирилл"))
-						
-					})
-						
-						
-						.navigationBarTitle("Обратная связь")
+					/** грид избранных юзеров, на вход [IUser] **/
+					FavouriteUsersGrid(users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
 				}
 				
-				
-				
-				
+				/** двигает все на верх **/
+				Spacer()
 			}
+			.navigationBarTitle("Обратная связь")
 		}
-		
+		.onAppear(perform: {
+			/** загружает избранных пользователей [IUser] **/
+			self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
+			
+			/** загружает недавних пользователей [IUser] **/
+			self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+		})
 	}
-	
-	struct FeedBackPage_Preview: PreviewProvider {
-		static var previews: some View {
-			FeedBackPage(store: AppMain().store)
-		}
+}
+
+
+
+struct FeedBackPage_Preview: PreviewProvider {
+	static var previews: some View {
+		FeedBackPage(store: AppMain().store)
+	}
 }

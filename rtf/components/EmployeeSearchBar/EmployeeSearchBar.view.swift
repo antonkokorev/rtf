@@ -10,24 +10,20 @@ import SwiftUI
 
 struct EmployeeSearchBar: View {
 	
-		@ObservedObject var search: SearchState
-		
-		let store: GlobalStore
-		
-		
-		/* инициализатор store + state перед рендером */
-		init(store: GlobalStore) {
-			self.store = store
-			self.search = store.state.searchSubState
-		}
+	/** строчка поиска из компонента выше **/
+	@Binding var searchTxt: String
 	
-	@State var searchTxt: String = ""
+	/** нужно для диспатча эвента **/
+	let store: GlobalStore
+	init(store: GlobalStore, searchTxt: Binding<String>) {
+		self.store = store
+		/** binding синтакс swift 4 **/
+		self._searchTxt = searchTxt
+	}
 	
-	
+
 	var body: some View {
 		VStack {
-			
-			
 			ZStack {
 				RoundedRectangle(cornerRadius: 29)
 					.frame(height: 45)
@@ -49,11 +45,9 @@ struct EmployeeSearchBar: View {
 					
 					Spacer()
 				}
-					
+				
 				.padding(.leading, CGFloat(30))
 			}
-			
-
 		}
 	}
 }
