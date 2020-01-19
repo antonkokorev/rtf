@@ -27,9 +27,9 @@ struct Carousel: View {
                             CarouselUser(
                                 firstName: item.sFirstName!,
                                 lastName: item.sLastName!,
-								imageUrl: getPhoto(item.sUserId!),
-                                borderColor: .green)
-                            }.self.buttonStyle(PlainButtonStyle())
+								imageUrl: getPhoto(item.sUserId!)
+                                //borderColor: .green
+                            )                            }.self.buttonStyle(PlainButtonStyle())
                         }.padding(.trailing, 25.0)
                 }
             .frame(height: 87)

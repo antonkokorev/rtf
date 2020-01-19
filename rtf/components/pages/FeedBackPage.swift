@@ -27,9 +27,8 @@ struct FeedBackPage: View {
 		self.search = store.state.searchSubState
 	}
 	
-	func changeEditMode (_ mode: Bool) -> Bool {
+	func changeEditMode (_ mode: Bool) -> Void {
 		self.editMode = !mode
-		return self.editMode
 	}
 	
 	
@@ -91,11 +90,6 @@ struct FeedBackPage: View {
 									.padding()
 							})
 						}
-
-						
-
-						
-
 					}
 					/** грид избранных юзеров, на вход [IUser] **/
 					FavouriteUsersGrid(users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)

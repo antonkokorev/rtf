@@ -27,7 +27,7 @@ struct ActionCard: View {
                                 backgroundColor: .white ).frame(width:BasicIconSizes.max,height:BasicIconSizes.max).padding()
                     VStack(alignment: .leading){
                         Text("\(self.textTitle)")
-                            .font(Font.Typography.sizingFont(font: .semibold, size: .H1))
+                            .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
                             .lineLimit(-1)
                             .padding(.top, BasicPadding.p15)
                             .foregroundColor(Color.RTFPallete.textDefault)
@@ -41,11 +41,11 @@ struct ActionCard: View {
                     }
                     Spacer()
                     
-                }
+                }.padding(.horizontal, 10.0)
                 
             }.background(Color.white)
                 .cornerRadius(BasicRadius.mini)
-                .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                .shadow(color: .gray, radius: 5, x: 0, y:5)
         }.frame(height: 84)
         
     }

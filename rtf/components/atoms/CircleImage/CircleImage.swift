@@ -16,7 +16,7 @@ struct CircleImage:View {
     @State var imageUrl: String?
     
     /**Размер изображения*/
-    @State var imageSize: CGFloat!
+    @State var imageSize: CGFloat! = BasicIconSizes.max
     
     /**Тип иконки*/
     @State var icon: String?
@@ -75,8 +75,9 @@ struct CircleImage:View {
             return AnyView(
                 URLImage( URL(string: "\(imageUrl ?? "")")!){ proxy in
                     proxy.image
-                        .resizable()
-                        .cornerRadius(self.imageSize/2)
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(Circle())
                 }
             )
         }
@@ -89,23 +90,11 @@ struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             CircleImage(
-                //imageUrl: "https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200",
-                imageSize: 100,
-                icon: "like",
-                iconSize: BasicIconSizes.max,
-                //borderColor: Color.RTFPallete.buttonDefault,
+                imageUrl: "https://avatars.mds.yandex.net/get-pdb/2886563/cc248d9b-d5f9-4374-bcf4-0c7b50228b45/s1200",
+                imageSize: 300,
                 shadowOn: true,
                 backgroundColor: Color.RTFPallete.buttonBlank
             )
-            CircleImage(
-                imageSize: 40,
-                labelText: "99",
-                labelColor: Color.RTFPallete.buttonBlank,
-                backgroundColor: Color.RTFPallete.buttonDefault
-            ).offset(x: 35, y: -35)
-            
-            
-            
         }
     }
 }

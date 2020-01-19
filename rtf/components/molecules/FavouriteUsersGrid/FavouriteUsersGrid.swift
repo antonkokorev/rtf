@@ -18,7 +18,7 @@ struct FavouriteUsersGrid: View {
 	**/
 	@State var users: [IUser] = []
 	
-	@State var editMode: Bool
+	@State var editMode: Bool = false
 	
 	var body: some View {
 		NavigationView {
