@@ -18,6 +18,7 @@ struct SlideOverCard<Content: View> : View {
     
     var content: () -> Content
     var body: some View {
+        
 		_ = DragGesture()
             .updating($dragState) { drag, state, transaction in
                 state = .dragging(translation: drag.translation)

@@ -19,7 +19,7 @@ extension Color {
 /** установка параметров темы проекта*/
  struct BasicIconSizes {
     static let  max:CGFloat = 40
-    static let  middle:CGFloat = 20
+    static let  middle:CGFloat = 30
     static let  mini:CGFloat = 10
 }
  struct BasicRadius {

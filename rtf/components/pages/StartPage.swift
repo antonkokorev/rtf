@@ -122,10 +122,11 @@ struct StartPage: View {
                             textBody: "Обратная связь по компетенциям и проф. навыкам",
                             icon: "home__feedback"
                         ).sheet(isPresented: $usersModal) {
-//                            FavouriteUsersGrid(users: self.favUsers.collection)
-//                                .padding(.top ,35)
-							FeedBackPage(store: self.store)
-                            // HistoryPage(store:  self.store)
+
+//							FeedBackPage(store: self.store)
+
+                            HistoryPage(store:  self.store)
+
                         }
                         ActionCard(
                             action: self.goNextPage,
