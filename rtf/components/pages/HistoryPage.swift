@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct HistoryPage: View {
+	
+	@State var active: Int = 0
+	
     @State  var store:GlobalStore
     var body: some View {
         VStack(alignment:.leading){
@@ -17,6 +20,7 @@ struct HistoryPage: View {
             VStack(alignment:.leading){
                 Text("Статистика").font(Font.Typography.sizingFont(font: .bold, size: .H1))
                  HorizontalMenu( texts: ["Компетенции","Навыки"],
+								 active: self.$active,
                                  activeFontColor: Color.RTFPallete.textDefault,
                                  passiveFontColor: Color.RTFPallete.textSecondary,
                                  buttonSpace:5
@@ -29,6 +33,7 @@ struct HistoryPage: View {
                 Chart(values: [10,1,6,7,8,4])
                 HorizontalMenu(
                     texts: ["Месяц","Квартал","Год"],
+					active: self.$active,
                     passiveFontColor: Color.RTFPallete.textSecondary,
                     activeColor: Color.RTFPallete.baseColor.mainBlue,
                     passiveBorderColor: Color.RTFPallete.baseColor.blueGray,

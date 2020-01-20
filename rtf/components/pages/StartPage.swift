@@ -8,13 +8,9 @@
 import SwiftUI
 import PartialSheet
 func greetUser(msg:String) {
-	
-	
 	print(msg)
 }
 struct StartPage: View {
-	
-	
 	
 	/* reactiveState */
 	@ObservedObject var recentUsers: UsersRecentState
@@ -26,7 +22,8 @@ struct StartPage: View {
 	@State var usersModal:Bool = false
 	@State var historyModal:Bool = false
 	
-	@State var selectedTab: Int = 0
+	/** индикатор для выбора пункта меню **/
+	@State var active: Int = 0
 	
 	let store: GlobalStore
 	/** функция обработка кнопок тайлов*/
@@ -45,25 +42,33 @@ struct StartPage: View {
 		self.thanks = store.state.thanksSubState
 	}
 	
-	
 	@State private var showFeedBackPage = false
 	@State private var longer: Bool = false
 	
-	
-	/** потенциальная реализация **/
-	func stateSelector(_ state: String) -> [IUser] {
-		
-		switch state {
-		case "recent":
+	/** Возвращает массив с пользователями в зависимости от вкладки  **/
+	func stateSelector(_ tab: Int) -> [IUser] {
+		switch tab {
+			/** Входящие  **/
+		case 0:
 			return self.recentUsers.collection
-		case "favorite":
-			return self.favUsers.collection
-		case "requests":
-			return []
+			/** Избранные  **/
+		case 1:
+			/** фильтр кнопки ADD **/
+			var filtred: [IUser] = []
+			
+			for user in self.favUsers.collection {
+				if (user.bAddButton != true) {
+					filtred.append(user)
+				}
+			}
+			return filtred
+			/** Недавние  **/
+		case 2:
+			return self.recentUsers.collection
+			/** пустота **/
 		default:
 			return []
 		}
-		
 	}
 	
 	
@@ -71,7 +76,7 @@ struct StartPage: View {
 		VStack(){
 			ScrollView(.vertical, showsIndicators: false){
 				VStack{
-					/** Аватарка и лайк*/
+					/** Аватарка и лайк **/
 					Spacer(minLength: 5)
 					
 					if (users.me.sUserId != nil && users.me.sUserId != "") {
@@ -81,7 +86,7 @@ struct StartPage: View {
 							.padding(.bottom, 20)
 					}
 					
-					/** Привет userName*/
+					/** Привет userName **/
 					HStack{
 						Text("Привет,\n\(users.me.sFirstName!)")
 							.font(Font.Typography.sizingFont(font: .bold, size: .H1))
@@ -89,15 +94,26 @@ struct StartPage: View {
 					}
 					.padding(.bottom, 25)
 					
-					/** Меню выбора списка юзеров*/
+					/** Меню выбора списка юзеров **/
 					HStack{
-						RecentMenu()
+						HorizontalMenu(
+							texts: ["Входящие", "Запросы", "Недвание"],
+							active: self.$active,
+							activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+							passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+							activeFontColor: Color.RTFPallete.textDefault,
+							passiveFontColor: Color.RTFPallete.textSecondary,
+							horizontalPadding: 0,
+							verticalPadding: 10,
+							buttonSpace: 10,
+							cloud: false
+						)
 						Spacer()
 					}
 					.padding(.bottom, 10)
 					
 					/** Карусель с юзерами*/
-					Carousel(stateSelector("recent"))
+					Carousel(stateSelector(self.active))
 						.padding(.bottom, 30)
 						.padding(.horizontal, -30)
 					
@@ -105,7 +121,7 @@ struct StartPage: View {
 					ScrollView(.horizontal, showsIndicators: false){
 						HStack{
 							Spacer(minLength: 30)
-							HistoryStatsMenu()
+							//							HistoryStatsMenu()
 							Spacer()
 						}
 						.padding(.bottom, 10)
@@ -195,45 +211,34 @@ struct AvaLikeRow: View {
 
 //-------------------------------------------------------------------------
 //Меню Входящие-Запросы-Недвание
-func RecentMenu()-> HorizontalMenu {
-	
-	//	self.selectedTab = HorizontalMenu().text[]
-	
-	let testMenu = HorizontalMenu(
-		texts: ["Входящие", "Запросы", "Недвание"],
-		active: 0,
-		activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-		passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-		activeFontColor: Color.RTFPallete.textDefault,
-		passiveFontColor: Color.RTFPallete.textSecondary,
-		horizontalPadding: 0,
-		verticalPadding: 10,
-		buttonSpace: 10,
-		cloud: false
-	)
-	
-	return testMenu
-}
+//func RecentMenu()-> HorizontalMenu {
+//
+//	//	self.selectedTab = HorizontalMenu().text[]
+//
+//
+//
+//	return testMenu
+//}
 //-------------------------------------------------------------------------
 //Меню перехода в Историю-Статистику-Командный отчет
-func HistoryStatsMenu()-> HorizontalMenu{
-	return HorizontalMenu(
-		texts: ["История", "Статистика"],
-		active: 99,
-		activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-		passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-		activeFontColor: Color.RTFPallete.buttonDefaultPale,
-		passiveFontColor: Color.RTFPallete.buttonDefaultPale,
-		activeColor: Color.RTFPallete.buttonGrayBackground,
-		passiveColor: Color.RTFPallete.buttonGrayBackground,
-		activeBorderColor: Color.RTFPallete.buttonGrayBackground,
-		passiveBorderColor: Color.RTFPallete.buttonGrayBackground,
-		horizontalPadding: 10,
-		verticalPadding: 10,
-		buttonSpace: 10,
-		cloud: true
-	)
-}
+//func HistoryStatsMenu()-> HorizontalMenu{
+//	return HorizontalMenu(
+//		texts: ["История", "Статистика"],
+//		active: 99,
+//		activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+//		passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+//		activeFontColor: Color.RTFPallete.buttonDefaultPale,
+//		passiveFontColor: Color.RTFPallete.buttonDefaultPale,
+//		activeColor: Color.RTFPallete.buttonGrayBackground,
+//		passiveColor: Color.RTFPallete.buttonGrayBackground,
+//		activeBorderColor: Color.RTFPallete.buttonGrayBackground,
+//		passiveBorderColor: Color.RTFPallete.buttonGrayBackground,
+//		horizontalPadding: 10,
+//		verticalPadding: 10,
+//		buttonSpace: 10,
+//		cloud: true
+//	)
+//}
 //-------------------------------------------------------------------------
 /**Превью*/
 struct StartPage_Previews: PreviewProvider {
