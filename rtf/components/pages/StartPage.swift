@@ -48,7 +48,9 @@ struct StartPage: View {
                 VStack{
                     /** Аватарка и лайк*/
                     Spacer(minLength: 5)
-                    AvaLikeRow(userId: "Admin_LB")
+                    AvaLikeRow(userId: "Admin_LB",
+                               like: 77
+                    )
                         .padding(.bottom, 20)
                         .onAppear(perform: {
                             self.store.dispatch(usersActions.pendingGetMe)
@@ -177,6 +179,8 @@ struct StartPage: View {
 //*Аватар пользователя и кнопка с лайками*/
 struct AvaLikeRow: View {
     @State var userId: String!
+    @State var like: Int!
+    
     var body: some View{
         HStack{
             CircleImage(
@@ -184,7 +188,7 @@ struct AvaLikeRow: View {
                 imageSize: BasicIconSizes.max
             )
             Spacer()
-            Like(number: 77)
+            Like(number: like ?? 0)
         }
     }
 }

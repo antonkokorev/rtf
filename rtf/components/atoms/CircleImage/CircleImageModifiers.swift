@@ -21,6 +21,7 @@ struct Shadow: ViewModifier {
 struct Border: ViewModifier {
     @Binding var borderColor: Color?
     @Binding var imageSize: CGFloat!
+    @Binding var borderPadding: Bool?
     
     func body(content: Content) -> some View {
         switch borderColor {
@@ -31,16 +32,10 @@ struct Border: ViewModifier {
                     Circle()
                         .stroke(Color.clear , lineWidth: 2)
             )
-        case Color.white:
-            return content
-                .padding(0)
-                .overlay(
-                    Circle()
-                        .stroke(Color.white , lineWidth: 2)
-            )
         default:
             return content
-                .padding(BasicPadding.p5)
+                .padding(
+                    ((borderPadding == true) || (borderPadding == nil)) ? BasicPadding.p5 : 0)
                 .overlay(
                     Circle()
                         .stroke(borderColor! , lineWidth: 2)

@@ -32,7 +32,9 @@ struct CircleImage:View {
     
     /**Цвет обводки (толщина 2px)*/
     @State var borderColor: Color?
-    
+
+    /**Padding (толщина 2px)*/
+    @State var borderPadding: Bool?
     /**Тень*/
     @State var shadowOn: Bool?
     
@@ -45,7 +47,7 @@ struct CircleImage:View {
             /**Основная картинка*/
             customImage()
                 .modifier(Shadow(showShadow: $shadowOn))
-                .modifier(Border(borderColor: $borderColor, imageSize: $imageSize))
+                .modifier(Border(borderColor: $borderColor, imageSize: $imageSize, borderPadding: $borderPadding))
                 .modifier(Size(imageSize: $imageSize))
             
             /**Иконка*/
@@ -93,6 +95,7 @@ struct CircleImage_Previews: PreviewProvider {
                 imageUrl: "https://avatars.mds.yandex.net/get-pdb/2886563/cc248d9b-d5f9-4374-bcf4-0c7b50228b45/s1200",
                 imageSize: 300,
                 borderColor: .red,
+                //borderPadding: false,
                 shadowOn: true,
                 backgroundColor: Color.RTFPallete.buttonBlank
             )
