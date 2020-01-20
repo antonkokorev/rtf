@@ -79,27 +79,7 @@ func initIUser()-> IUser{
 
 final class UsersState: StateType, ObservableObject {
 	@Published var sUserId: String = ""
-    @Published var me: IUser = IUser(
-        sUserId: "",
-        sFirstName: "",
-        sMiddleName: "",
-        sLastName: "",
-        sFullName: "",
-        sTitle: nil,
-        sStructure: nil,
-        iRating: nil,
-        bIsMe: nil,
-        bIsPinned: nil,
-        bIsMyTeam: nil,
-        sPhoto: nil,
-        sIncomeComment: nil,
-        sStatus: nil,
-        iIncomeRates: nil,
-        IncomeRequests: nil,
-        bTypeEstimate: nil,
-        sExtidFblock: nil,
-		bAddButton: false
-    )
+    @Published var me: IUser = initIUser()
     @Published var status = ""
 }
 

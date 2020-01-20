@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HorizontalMenu: View {
     @State var texts:[String]
-    @State var active:Int = 0
+    @State var activeButton:Int = 0
 
     var activeFont : Font = Font.Typography.sizingFont(font: .bold, size: .H3)
     var passiveFont : Font = Font.Typography.sizingFont(font: .bold, size: .H3)
@@ -26,7 +26,7 @@ struct HorizontalMenu: View {
     let clickFunc:(_ active:Int) -> Void =   { (tmp) in print(tmp) }
     var cloud:Bool = false
     public func setActive(i:Int){
-        self.active = i
+        self.activeButton = i
     }
     var body: some View {
         
@@ -34,9 +34,9 @@ struct HorizontalMenu: View {
         HStack(spacing: self.buttonSpace){
             ForEach(0..<texts.count){i in
                 Button(action: {
-                    self.active = i
+                    self.activeButton = i
                 }) {
-                    if(i == self.active){
+                    if(i == self.activeButton){
                         Text(self.texts[i]).font(self.activeFont).accentColor(self.activeFontColor)
                             .padding(.horizontal, self.horizontalPadding)
                             .padding(.vertical, self.verticalPadding)

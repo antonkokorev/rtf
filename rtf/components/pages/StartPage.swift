@@ -19,9 +19,11 @@ struct StartPage: View {
     @ObservedObject var state: UsersRecentState
     @ObservedObject var users: UsersState
     @ObservedObject var favUsers: usersFavouriteState
+    @ObservedObject var thanks: thanksState
     
     @State var usersModal:Bool = false
     @State var historyModal:Bool = false
+    
     let store: GlobalStore
     /** функция обработка кнопок тайлов*/
     private  func goNextPage(page:String) -> Void {
@@ -35,6 +37,7 @@ struct StartPage: View {
         self.state = store.state.usersRecentSubState
         self.users = store.state.usersSubState
         self.favUsers = store.state.usersFavouriteSubState
+        self.thanks = store.state.thanksSubState
     }
     
     
@@ -48,13 +51,10 @@ struct StartPage: View {
                 VStack{
                     /** Аватарка и лайк*/
                     Spacer(minLength: 5)
-                    AvaLikeRow(userId: "Admin_LB",
-                               like: 77
+                    AvaLikeRow(userId: ((users.me.sUserId != "") ?  users.me.sUserId : "123"),
+                               like: thanks.collection
                     )
                         .padding(.bottom, 20)
-                        .onAppear(perform: {
-                            self.store.dispatch(usersActions.pendingGetMe)
-                        })
                     
                     /** Привет userName*/
                     HStack{
@@ -66,17 +66,7 @@ struct StartPage: View {
                     
                     /** Меню выбора списка юзеров*/
                     HStack{
-                        HorizontalMenu(
-                            texts: ["Входящие", "Запросы", "Недвание"],
-                            active: 0,
-                            activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-                            passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-                            activeFontColor: Color.RTFPallete.textDefault,
-                            passiveFontColor: Color.RTFPallete.textSecondary,
-                            horizontalPadding: 0,
-                            verticalPadding: 10,
-                            buttonSpace: 10,
-                            cloud: false)
+                        RecentMenu()
                         Spacer()
                     }
                     .padding(.bottom, 10)
@@ -85,30 +75,12 @@ struct StartPage: View {
                     Carousel(test:greetUser , state: store.state.usersRecentSubState)
                         .padding(.bottom, 30)
                         .padding(.horizontal, -30)
-                        .onAppear(perform: {
-                            self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-                        })
                     
                     /** Меню с кнопками Отчет-История-Статистика*/
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
                             Spacer(minLength: 30)
-                            HorizontalMenu(
-                                texts: ["История", "Статистика"],
-                                active: 99,
-                                activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-                                passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-                                activeFontColor: Color.RTFPallete.buttonDefaultPale,
-                                passiveFontColor: Color.RTFPallete.buttonDefaultPale,
-                                activeColor: Color.RTFPallete.buttonGrayBackground,
-                                passiveColor: Color.RTFPallete.buttonGrayBackground,
-                                activeBorderColor: Color.RTFPallete.buttonGrayBackground,
-                                passiveBorderColor: Color.RTFPallete.buttonGrayBackground,
-                                horizontalPadding: 10,
-                                verticalPadding: 10,
-                                buttonSpace: 10,
-                                cloud: true
-                            )
+                            HistoryStatsMenu()
                             Spacer()
                         }
                         .padding(.bottom, 10)
@@ -170,7 +142,9 @@ struct StartPage: View {
         .padding(.top, 10)//Для обхода SafeArea
         .onAppear(perform: {
             self.store.dispatch(usersActions.pendingGetMe)
+            self.store.dispatch(thanksActions.pendingGetThanksCount)
             self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
+            self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
         })
     }
 }
@@ -188,11 +162,49 @@ struct AvaLikeRow: View {
                 imageSize: BasicIconSizes.max
             )
             Spacer()
-            Like(number: like ?? 0)
+            Like(number: like ?? 88)
         }
     }
 }
 
+
+//-------------------------------------------------------------------------
+//Меню Входящие-Запросы-Недвание
+func RecentMenu()-> HorizontalMenu{
+    return HorizontalMenu(
+        texts: ["Входящие", "Запросы", "Недвание"],
+        activeButton: 0,
+        activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+        passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+        activeFontColor: Color.RTFPallete.textDefault,
+        passiveFontColor: Color.RTFPallete.textSecondary,
+        horizontalPadding: 0,
+        verticalPadding: 10,
+        buttonSpace: 10,
+        cloud: false
+    )
+}
+//-------------------------------------------------------------------------
+//Меню перехода в Историю-Статистику-Командный отчет
+func HistoryStatsMenu()-> HorizontalMenu{
+    return HorizontalMenu(
+        texts: ["История", "Статистика"],
+        activeButton: 99,
+        activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+        passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
+        activeFontColor: Color.RTFPallete.buttonDefaultPale,
+        passiveFontColor: Color.RTFPallete.buttonDefaultPale,
+        activeColor: Color.RTFPallete.buttonGrayBackground,
+        passiveColor: Color.RTFPallete.buttonGrayBackground,
+        activeBorderColor: Color.RTFPallete.buttonGrayBackground,
+        passiveBorderColor: Color.RTFPallete.buttonGrayBackground,
+        horizontalPadding: 10,
+        verticalPadding: 10,
+        buttonSpace: 10,
+        cloud: true
+    )
+}
+//-------------------------------------------------------------------------
 /**Превью*/
 struct StartPage_Previews: PreviewProvider {
     static var previews: some View {
