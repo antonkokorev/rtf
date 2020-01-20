@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct HorizontalMenu: View {
-    @State var texts:[String]
-    @State var active:Int = 0
+    @State var texts: [String]
+    @Binding var active: Int
 
     var activeFont : Font = Font.Typography.sizingFont(font: .bold, size: .H3)
     var passiveFont : Font = Font.Typography.sizingFont(font: .bold, size: .H3)
@@ -62,14 +62,14 @@ struct HorizontalMenu: View {
     }
 }
 
-struct HorizontalMenu_Previews: PreviewProvider {
-  
-
-    static var previews: some View {
-        
-        HorizontalMenu(
-            texts:["Месяц","Квартал","Год"],
-   
-            cloud: true)
-    }
-}
+//struct HorizontalMenu_Previews: PreviewProvider {
+//  
+//
+//    static var previews: some View {
+//        
+//        HorizontalMenu(
+//            texts:["Месяц","Квартал","Год"],
+//   
+//            cloud: true)
+//    }
+//}
