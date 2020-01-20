@@ -16,7 +16,8 @@ struct StartPage: View {
     
     
     /* reactiveState */
-    @ObservedObject var state: UsersRecentState
+    @ObservedObject var recentUsers: UsersRecentState
+    @ObservedObject var requestUsers: usersRequestState
     @ObservedObject var users: UsersState
     @ObservedObject var favUsers: usersFavouriteState
     @ObservedObject var thanks: thanksState
@@ -34,7 +35,8 @@ struct StartPage: View {
     /** инициализатор store + state перед рендером */
     init(store: GlobalStore) {
         self.store = store
-        self.state = store.state.usersRecentSubState
+        self.recentUsers = store.state.usersRecentSubState
+        self.requestUsers = store.state.usersRequestSubState
         self.users = store.state.usersSubState
         self.favUsers = store.state.usersFavouriteSubState
         self.thanks = store.state.thanksSubState
@@ -72,7 +74,7 @@ struct StartPage: View {
                     .padding(.bottom, 10)
                     
                     /** Карусель с юзерами*/
-                    Carousel(test:greetUser , state: store.state.usersRecentSubState)
+                    Carousel(test:greetUser , state: recentUsers)
                         .padding(.bottom, 30)
                         .padding(.horizontal, -30)
                     
@@ -145,6 +147,7 @@ struct StartPage: View {
             self.store.dispatch(thanksActions.pendingGetThanksCount)
             self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
             self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+            self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
         })
     }
 }
@@ -173,7 +176,7 @@ struct AvaLikeRow: View {
 func RecentMenu()-> HorizontalMenu{
     return HorizontalMenu(
         texts: ["Входящие", "Запросы", "Недвание"],
-        activeButton: 0,
+        active: 0,
         activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
         passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
         activeFontColor: Color.RTFPallete.textDefault,
@@ -189,7 +192,7 @@ func RecentMenu()-> HorizontalMenu{
 func HistoryStatsMenu()-> HorizontalMenu{
     return HorizontalMenu(
         texts: ["История", "Статистика"],
-        activeButton: 99,
+        active: 99,
         activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
         passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
         activeFontColor: Color.RTFPallete.buttonDefaultPale,
