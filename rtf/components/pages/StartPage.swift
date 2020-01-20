@@ -174,7 +174,6 @@ struct AvaLikeRow: View {
 //-------------------------------------------------------------------------
 //Меню Входящие-Запросы-Недвание
 func RecentMenu()-> HorizontalMenu{
-<<<<<<< HEAD
     return HorizontalMenu(
         texts: ["Входящие", "Запросы", "Недвание"],
         active: 0,
@@ -187,45 +186,13 @@ func RecentMenu()-> HorizontalMenu{
         buttonSpace: 10,
         cloud: false
     )
-=======
-	return HorizontalMenu(
-		texts: ["Входящие", "Запросы", "Недвание"],
-		activeButton: 0,
-		activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-		passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-		activeFontColor: Color.RTFPallete.textDefault,
-		passiveFontColor: Color.RTFPallete.textSecondary,
-		horizontalPadding: 0,
-		verticalPadding: 10,
-		buttonSpace: 10,
-		cloud: false
-	)
->>>>>>> 3ee9aaa680cae12472e81cdff75ced58c194ad21
 }
 //-------------------------------------------------------------------------
 //Меню перехода в Историю-Статистику-Командный отчет
 func HistoryStatsMenu()-> HorizontalMenu{
-<<<<<<< HEAD
-    return HorizontalMenu(
-        texts: ["История", "Статистика"],
-        active: 99,
-        activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-        passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
-        activeFontColor: Color.RTFPallete.buttonDefaultPale,
-        passiveFontColor: Color.RTFPallete.buttonDefaultPale,
-        activeColor: Color.RTFPallete.buttonGrayBackground,
-        passiveColor: Color.RTFPallete.buttonGrayBackground,
-        activeBorderColor: Color.RTFPallete.buttonGrayBackground,
-        passiveBorderColor: Color.RTFPallete.buttonGrayBackground,
-        horizontalPadding: 10,
-        verticalPadding: 10,
-        buttonSpace: 10,
-        cloud: true
-    )
-=======
 	return HorizontalMenu(
 		texts: ["История", "Статистика"],
-		activeButton: 99,
+		active: 99,
 		activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 		passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 		activeFontColor: Color.RTFPallete.buttonDefaultPale,
@@ -239,7 +206,6 @@ func HistoryStatsMenu()-> HorizontalMenu{
 		buttonSpace: 10,
 		cloud: true
 	)
->>>>>>> 3ee9aaa680cae12472e81cdff75ced58c194ad21
 }
 //-------------------------------------------------------------------------
 /**Превью*/
