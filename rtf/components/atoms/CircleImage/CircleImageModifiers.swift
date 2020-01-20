@@ -28,14 +28,14 @@ struct Border: ViewModifier {
             return content
                 .padding(0)
                 .overlay(
-                    RoundedRectangle(cornerRadius: imageSize/2)
+                    Circle()
                         .stroke(Color.clear , lineWidth: 2)
             )
         default:
             return content
                 .padding(BasicPadding.p5)
                 .overlay(
-                    RoundedRectangle(cornerRadius: imageSize/2)
+                     Circle()
                         .stroke(borderColor! , lineWidth: 2)
             )
         }

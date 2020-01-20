@@ -92,6 +92,7 @@ struct CircleImage_Previews: PreviewProvider {
             CircleImage(
                 imageUrl: "https://avatars.mds.yandex.net/get-pdb/2886563/cc248d9b-d5f9-4374-bcf4-0c7b50228b45/s1200",
                 imageSize: 300,
+                borderColor: .red,
                 shadowOn: true,
                 backgroundColor: Color.RTFPallete.buttonBlank
             )
