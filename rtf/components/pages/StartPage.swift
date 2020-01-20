@@ -25,6 +25,8 @@ struct StartPage: View {
     
     @State var usersModal:Bool = false
     @State var historyModal:Bool = false
+	
+	@State var selectedTab: Int = 0
     
     let store: GlobalStore
     /** функция обработка кнопок тайлов*/
@@ -46,6 +48,23 @@ struct StartPage: View {
     
     @State private var showFeedBackPage = false
     @State private var longer: Bool = false
+	
+	
+	/** потенциальная реализация **/
+	func stateSelector(_ state: String) -> [IUser] {
+
+		switch state {
+		case "recent":
+			return self.recentUsers.collection
+		case "favorite":
+			return self.favUsers.collection
+		case "requests":
+			return []
+		default:
+			return []
+		}
+		
+	}
     
     
     var body: some View {
@@ -75,7 +94,7 @@ struct StartPage: View {
                     .padding(.bottom, 10)
                     
                     /** Карусель с юзерами*/
-                    Carousel(test:greetUser , state: recentUsers)
+					Carousel(stateSelector("recent"))
                         .padding(.bottom, 30)
                         .padding(.horizontal, -30)
                     
@@ -173,8 +192,11 @@ struct AvaLikeRow: View {
 
 //-------------------------------------------------------------------------
 //Меню Входящие-Запросы-Недвание
-func RecentMenu()-> HorizontalMenu{
-    return HorizontalMenu(
+func RecentMenu()-> HorizontalMenu {
+	
+//	self.selectedTab = HorizontalMenu().text[]
+	
+	let testMenu = HorizontalMenu(
         texts: ["Входящие", "Запросы", "Недвание"],
         active: 0,
         activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
@@ -186,6 +208,8 @@ func RecentMenu()-> HorizontalMenu{
         buttonSpace: 10,
         cloud: false
     )
+	
+    return testMenu
 }
 //-------------------------------------------------------------------------
 //Меню перехода в Историю-Статистику-Командный отчет

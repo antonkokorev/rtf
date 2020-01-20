@@ -59,7 +59,7 @@ struct FeedBackPage: View {
 
 					
 					/** Карусель с юзерами **/
-					Carousel(test: greetUser, state: self.users)
+//					Carousel(test: greetUser, state: self.users)
 
 					/** Кнопки для управления юзерами **/
 					HStack{
