@@ -35,7 +35,7 @@ struct HistoryPage: View {
                     cloud: true
                     
                 )
-                DynamicList(destinationView: lineCom())
+                DynamicList()
                 
                 
             }}.padding(.horizontal,30)
