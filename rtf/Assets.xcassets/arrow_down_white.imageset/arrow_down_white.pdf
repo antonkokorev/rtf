@@ -1,0 +1,145 @@
+%PDF-1.7
+
+1 0 obj
+  << /BBox [ 0.000000 0.000000 35.000000 35.000000 ]
+     /Resources << >>
+     /Subtype /Form
+     /Length 2 0 R
+     /Group << /Type /Group
+               /S /Transparency
+            >>
+     /Type /XObject
+  >>
+stream
+/DeviceRGB CS
+/DeviceRGB cs
+q
+-0.000000 1.000000 -1.000000 -0.000000 35.000000 0.000002 cm
+1.000000 1.000000 1.000000 scn
+0.000000 35.000000 m
+35.000000 35.000000 l
+35.000000 0.000000 l
+0.000000 0.000000 l
+0.000000 35.000000 l
+h
+f
+n
+Q
+
+endstream
+endobj
+
+2 0 obj
+  235
+endobj
+
+3 0 obj
+  << /BBox [ 0.000000 0.000000 35.000000 35.000000 ]
+     /Resources << >>
+     /Subtype /Form
+     /Length 4 0 R
+     /Group << /Type /Group
+               /S /Transparency
+            >>
+     /Type /XObject
+  >>
+stream
+/DeviceRGB CS
+/DeviceRGB cs
+q
+-0.000000 1.000000 -1.000000 -0.000000 29.166809 5.833314 cm
+0.000000 0.000000 0.000000 scn
+23.333334 13.124980 m
+5.585417 13.124980 l
+13.737500 21.277063 l
+11.666667 23.333313 l
+0.000000 11.666647 l
+11.666667 -0.000019 l
+13.722917 2.056231 l
+5.585417 10.208314 l
+23.333334 10.208314 l
+23.333334 13.124980 l
+h
+f
+n
+Q
+
+endstream
+endobj
+
+4 0 obj
+  346
+endobj
+
+5 0 obj
+  << /XObject << /X1 1 0 R >>
+     /ExtGState << /E1 << /SMask << /Type /Mask
+                                    /G 3 0 R
+                                    /S /Alpha
+                                 >>
+                          /Type /ExtGState
+                       >> >>
+  >>
+endobj
+
+6 0 obj
+  << /Length 7 0 R >>
+stream
+/DeviceRGB CS
+/DeviceRGB cs
+q
+/E1 gs
+/X1 Do
+Q
+
+endstream
+endobj
+
+7 0 obj
+  46
+endobj
+
+8 0 obj
+  << /Annots []
+     /Type /Page
+     /MediaBox [ 0.000000 0.000000 35.000000 35.000000 ]
+     /Resources 5 0 R
+     /Contents 6 0 R
+     /Parent 9 0 R
+  >>
+endobj
+
+9 0 obj
+  << /Kids [ 8 0 R ]
+     /Count 1
+     /Type /Pages
+  >>
+endobj
+
+10 0 obj
+  << /Type /Catalog
+     /Pages 9 0 R
+  >>
+endobj
+
+xref
+0 11
+0000000000 65535 f 
+0000000010 00000 n 
+0000000493 00000 n 
+0000000515 00000 n 
+0000001109 00000 n 
+0000001131 00000 n 
+0000001429 00000 n 
+0000001531 00000 n 
+0000001552 00000 n 
+0000001725 00000 n 
+0000001799 00000 n 
+trailer
+<< /ID [ (some) (id) ]
+   /Root 10 0 R
+   /Size 11
+>>
+startxref
+1859
+%%EOF

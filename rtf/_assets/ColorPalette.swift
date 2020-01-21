@@ -12,12 +12,14 @@ import SwiftUI
 struct BaseColor {
     /// Динамические цвета, которые зависят от dark/light mode
     let mainBlue = Color("mainBlue")
+    let mainPink = Color("mainPink")
     let paleBlue = Color("paleBlue")
     let blueGray = Color("blueGray")
     let textGray = Color("textGray")
     let black = Color("mainBlack")
     let white = Color("mainWhite")
     let buttonGrayBackground = Color("buttonGrayBackground")
+    let litePink = Color("litePink")
     
     /// Статичные цвета
     
@@ -35,6 +37,9 @@ struct ColorPallete {
     
     // Вторичный серый текст
     let textSecondary: Color!
+    
+    // Светлый розовый
+    let litePink: Color!
     
 
     //КНОПКИ
@@ -55,6 +60,7 @@ struct ColorPallete {
     
     init() {
         /// themePrimary
+        self.litePink = baseColor.litePink
         self.backgroundDefault = baseColor.blueGray
         self.textDefault = baseColor.black
         self.textSecondary = baseColor.textGray
