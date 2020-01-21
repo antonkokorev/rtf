@@ -148,19 +148,19 @@ struct StartPage: View {
 							textTitle: "Встречи",
 							textBody: "Обратная связь по компетенциям на встречах",
 							icon: "home__meetings"
-						)
+						).disabled(true).opacity(0.6)
 						ActionCard(
 							action: self.goNextPage,
 							textTitle: "Достижения",
 							textBody: "Обратная связь по достижениям и проектам",
 							icon: "home__projects"
-						)
+						).disabled(true).opacity(0.6)
 						ActionCard(
 							action: self.goNextPage,
 							textTitle: "Профоценка SberProfi",
 							textBody: "Оценка уровня профессионального мастерства",
 							icon: "home__sberprofi"
-						)
+                        ).disabled(true).opacity(0.6)
 					}
 					.padding(.bottom, 30)
 					

@@ -30,7 +30,6 @@ struct UserFeedbackPopup: View {
                     .font(Font.Typography.sizingFont(font: .bold, size: .H2))
                     .foregroundColor(Color.RTFPallete.textDefault)
                     .padding(.bottom, 4.0)
-                //.frame(width: 80, height: 13, alignment: .center)
                 Text(position)
                     .font(Font.Typography.sizingFont(font: .regular, size: .H3))
                     .foregroundColor(Color.RTFPallete.textSecondary)
