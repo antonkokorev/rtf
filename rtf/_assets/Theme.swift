@@ -26,6 +26,7 @@ extension Color {
     static let  max:CGFloat = 40
     static let  middle:CGFloat = 30
     static let  mini:CGFloat = 15
+    static let  micro:CGFloat = 10
 }
  struct BasicPadding {
     static let  p5:CGFloat = 5
