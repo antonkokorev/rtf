@@ -11,14 +11,16 @@ import SwiftUI
 
 
 struct UserFeedbackPopup: View {
-    @State var fullName: String!
+    @State var fullName: String
     @State var imageUrl: String
     @State var position: String
     
     
     var body: some View {
         VStack{
+            
             Spacer(minLength: 20)
+            //ФИО и должность
             VStack{
                 CircleImage(
                     imageUrl: "\(imageUrl)",
@@ -35,49 +37,66 @@ struct UserFeedbackPopup: View {
                     .multilineTextAlignment(.center).frame(height: 42.0)
             }.padding(.bottom, 30)
             
+            //Кнопки дать-взять обратную связь
             HStack{
-                ZStack{
-                    Rectangle()
-                        .frame(width: 142, height: 145, alignment: .center)
-                        .foregroundColor(Color.RTFPallete.litePink)
-                        .cornerRadius(BasicRadius.mini)
-                    VStack{
-                        CircleImage(
-                            imageSize: 60,
-                            icon: "arrow_down_white",
-                            iconSize: 35,
-                            backgroundColor: Color.RTFPallete.baseColor.mainPink)
-                        Text("Запросить \n обратную связь")
-                            .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
-                            .foregroundColor(Color.RTFPallete.textDefault)
-                            .multilineTextAlignment(.center).frame(height: 42.0)
-                    }
-                }
+                Button(action: {
+                    //Запросить обратную связь
+                },
+                       label: {
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 142, height: 145, alignment: .center)
+                                .foregroundColor(Color.RTFPallete.litePink)
+                                .cornerRadius(BasicRadius.mini)
+                            VStack{
+                                CircleImage(
+                                    imageSize: 60,
+                                    icon: "arrow_down_white",
+                                    iconSize: 35,
+                                    backgroundColor: Color.RTFPallete.baseColor.mainPink)
+                                Text("Дать \n обратную связь")
+                                    .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
+                                    .foregroundColor(Color.RTFPallete.textDefault)
+                                    .multilineTextAlignment(.center).frame(height: 42.0)
+                            }
+                        }
+                }).buttonStyle(PlainButtonStyle())
                 
                 Spacer()
                 
-                ZStack{
-                    Rectangle()
-                        .frame(width: 142, height: 145, alignment: .center)
-                        .foregroundColor(Color.RTFPallete.baseColor.blueGray)
-                        .cornerRadius(BasicRadius.mini)
-                    VStack{
-                        CircleImage(
-                            imageSize: 60,
-                            icon: "arrow_up_white",
-                            iconSize: 35,
-                            backgroundColor: Color.RTFPallete.baseColor.mainBlue)
-                        Text("Оставить \n обратную связь")
-                            .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
-                            .foregroundColor(Color.RTFPallete.textDefault)
-                            .multilineTextAlignment(.center).frame(height: 42.0)
-                    }
-                }
+                Button(action: {
+                    //Дать обратную связь
+                },
+                       label: {
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 142, height: 145, alignment: .center)
+                                .foregroundColor(Color.RTFPallete.baseColor.blueGray)
+                                .cornerRadius(BasicRadius.mini)
+                            VStack{
+                                CircleImage(
+                                    imageSize: 60,
+                                    icon: "arrow_up_white",
+                                    iconSize: 35,
+                                    backgroundColor: Color.RTFPallete.baseColor.mainBlue)
+                                Text("Оставить \n обратную связь")
+                                    .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
+                                    .foregroundColor(Color.RTFPallete.textDefault)
+                                    .multilineTextAlignment(.center).frame(height: 42.0)
+                            }
+                        }
+                }).buttonStyle(PlainButtonStyle())
             }.padding(.bottom, 30)
             
-            Text("История оценок")
-                .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
-                .foregroundColor(Color.RTFPallete.buttonDefault)
+            //Футер
+            Button(action:{
+                //Переход в историю пользователя
+            } ,
+                   label: {
+                    Text("История оценок")
+                        .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                        .foregroundColor(Color.RTFPallete.buttonDefault)
+            }).buttonStyle(PlainButtonStyle())
             
             Spacer(minLength: 20)
             
@@ -90,7 +109,7 @@ struct UserFeedbackPopup: View {
 struct UserFeedbackPopup_Previews: PreviewProvider {
     static var previews: some View {
         UserFeedbackPopup(
-            fullName: "Териков Иван Анатольевич",
+            fullName: "Петров Иван Анатольевич",
             imageUrl:"https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200", position: "Управляющий директор - начальник управления")
     }
 }
