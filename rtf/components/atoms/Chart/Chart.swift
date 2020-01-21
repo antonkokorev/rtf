@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+typealias TChart = [(name:String,value:Double,color:Color)]
+
 class TimerHolder  {
     var timer : Timer!
     var action:()->Void = {}
@@ -22,17 +24,10 @@ class TimerHolder  {
     }
 }
 struct Chart: View {
-    let values:[Double]
-    let texts:[String]=[
-        "Системное мышление и решение проблем",
-        "Управление результатом и ответсвенность",
-        "Управление собой",
-        "Инновационность и Digital навыки",
-        "Клиентоцентричность",
-        "Развитие команд и сотрудничество"
-    ]
-    let colors:[Color]=[]
-    
+    var values: TChart
+    init(_ values: TChart) {
+        self.values = values
+    }
     @State var showPopover : Bool = false
     @State var textPopover : String = ""
     var timer : TimerHolder = TimerHolder()
@@ -47,14 +42,22 @@ struct Chart: View {
     var body: some View {
         ZStack{
             HStack( alignment: .center, spacing: 35){
-                
-                ForEach((0...5), id: \.self) {
-                    ChartItem(
-                        value: self.values[$0],
-                        text: self.texts[$0],
-                        color:Color("chart\($0)"),
-                        clickChart:self.clickChart)
-                }
+                ForEach(self.values, id:\.name) { item in
+                    Button(action: {
+                        self.clickChart(str: item.name + " " + String(format: "%.1f", item.value))
+                    }){
+                        VStack{
+                            ZStack(alignment: .bottom){
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: 20, height: 200)
+                                    .foregroundColor(Color.RTFPallete.baseColor.blueGray)
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: 20, height: CGFloat(20*item.value))
+                                    .foregroundColor(item.color)
+                            }
+                            Text(String(format: "%.1f", item.value)).foregroundColor(Color.RTFPallete.textSecondary)
+                        }
+                    }}
             }.animation(.default)
             if(showPopover == true){
                 Button(action: {
@@ -80,30 +83,27 @@ struct Chart: View {
 
 
 struct ChartItem: View {
-    let value:Double
-    let text:String
+    @State var value:Double = 0
+    @State var text:String = ""
     let color:Color
     let clickChart:(_ str:String)-> Void
     var body: some View {
-        Button(action: {
-            self.clickChart(self.text + " " + String(format: "%.1f", self.value))
-        }) {
-            VStack{
-                ZStack(alignment: .bottom){
-                    RoundedRectangle(cornerRadius: 15)
-                        .frame(width: 20, height: 200)
-                        .foregroundColor(Color.RTFPallete.baseColor.blueGray)
-                    RoundedRectangle(cornerRadius: 15)
-                        .frame(width: 20, height: CGFloat(20*value))
-                        .foregroundColor(color)
-                }
-                Text(String(format: "%.1f", value)).foregroundColor(Color.RTFPallete.textSecondary)
-            }
-        }}
+        
+        Text("asdf")
+        
+        
+    }
 }
 
 struct Chart_Previews: PreviewProvider {
     static var previews: some View {
-        Chart(values: [10,1,6,7,8,4])
+        Chart(
+            [  (name:"Системное мышление и решение проблем",value:0, color:Color.red),
+               ( name:"Управление результатом и ответсвенность",value:0, color:Color.red),
+               (name:"Управление собой",value:0, color:Color.red),
+               (name: "Инновационность и Digital навыки",value:0, color:Color.red),
+               (name: "Клиентоцентричность",value:0, color:Color.red),
+               (name:"Развитие команд и сотрудничество",value:6.0, color:Color.red)
+        ])
     }
 }

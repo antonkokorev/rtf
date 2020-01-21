@@ -13,6 +13,7 @@ enum Interceptor: URLRequestConvertible {
 	
 	case serviceRequest(service: String, body: String?)
 	case searchRequest(searchTxt: String?)
+   // case JsonRequest(searchTxt: Any?)
 	
 	/*
 	iResultLimit: 10

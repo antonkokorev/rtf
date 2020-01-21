@@ -36,6 +36,7 @@ struct lineCom:View{
                             imageSize: BasicIconSizes.middle,
                             labelText: "10",
                             labelColor: Color.RTFPallete.baseColor.white,
+                            borderColor: Color.white,
                             shadowOn: true,
                             backgroundColor: self.bgColor)
                             .padding(.leading, CGFloat(25 * tmp) )

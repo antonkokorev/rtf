@@ -11,6 +11,7 @@ func greetUser(msg:String) {
 	print(msg)
 }
 struct StartPage: View {
+
 	
 	/* reactiveState */
 	@ObservedObject var recentUsers: UsersRecentState
@@ -140,7 +141,7 @@ struct StartPage: View {
 							
 							//							FeedBackPage(store: self.store)
 							
-							HistoryPage(store:  self.store)
+							StatisticsPage(store:  self.store)
 							
 						}
 						ActionCard(
@@ -188,6 +189,7 @@ struct StartPage: View {
 				self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
 			})
 	}
+
 }
 
 

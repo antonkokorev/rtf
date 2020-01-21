@@ -15,7 +15,7 @@ struct AppState: StateType {
 	var feedbackPropsSubState: FeedbackPropsState = FeedbackPropsState()
 	var messageSubState: MessageState = MessageState()
 	var requestRatingSubState = requestRatingState()
-	var statisticsSubState = statisticsState()
+    var statisticsSubState:StatisticsState = StatisticsState()
 	var subordinatesSubState: SubordinatesState = SubordinatesState()
 	var teamInfoSubState = teamInfoState()
 	var thanksSubState = thanksState()
@@ -60,5 +60,6 @@ var AppEffects: Array = [
     userHistoryEffect,
     usersEffect,
 	usersFavouriteEffect,
-	searchEffect
+	searchEffect,
+    statisticsEffect
 ]

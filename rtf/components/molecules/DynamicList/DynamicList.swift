@@ -20,7 +20,9 @@ struct DynamicList: View {
         
         List{
             ForEach((0...10), id: \.self  ){ section in
-                Section(header: lineCom()){
+                Section(header: lineCom().onTapGesture {
+                                     self.expanded[section] = !self.isExpanded(section)
+                               }){
                     
                 if self.isExpanded(section) {
                     ForEach((0...10), id: \.self  ) { row in
@@ -28,9 +30,7 @@ struct DynamicList: View {
                     }}
                 }.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:-5))
                 
-                .onTapGesture {
-                      self.expanded[section] = !self.isExpanded(section)
-                }.background(Color.white)
+               .background(Color.white)
                 
             }
         }
