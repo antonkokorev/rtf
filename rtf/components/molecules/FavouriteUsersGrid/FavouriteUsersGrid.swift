@@ -16,42 +16,53 @@ struct FavouriteUsersGrid: View {
 	Переменная объявлена как стейт, чтобы ререндерить компонент при подтягивание данных
 	у родителя через ObservedObject
 	**/
-	@State var users: [IUser] = []
+	var users: [IUser]
+	var editMode: Bool
+	let store: GlobalStore
+	init(store: GlobalStore, users: [IUser], editMode: Bool){
+		self.store = store
+		self.users = users
+		self.editMode = editMode
+	}
 	
-	@State var editMode: Bool = false
 	
 	var body: some View {
 		NavigationView {
 			/** Функция, которая парсит массив на ряды, columns = кол-во столбиков в ряду **/
-			FlowStack(columns: 3, numItems: self.users.count, alignment: .leading) { index, colWidth in
+			FlowStack(columns: 4, numItems: self.users.count, alignment: .leading) { index, colWidth in
 				/** Объединение в одну вертикальную ячейку **/
 				VStack {
 					/** Выбор либо кнопки добавить, либо пикчи челика  **/
 					/** никогда не думал что буду чекать на true, эх Swift !<3 **/
 					if(self.users[index].bAddButton == true){
-						CircleImage(
-							imageSize: 50,
-							icon: "add",
-							iconSize: BasicIconSizes.max,
-							backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-						)
+						Button( action: {
+							self.store.dispatch(searchActions.displaySearch)
+						}, label: {
+							CircleImage(
+								imageSize: 60,
+								icon: "add",
+								iconSize: BasicIconSizes.max,
+								backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
+							)
+						})
+
 					} else {
-						CircleImage(
-							imageUrl: getPhoto(self.users[index].sUserId!),
-							imageSize: 50,
-							borderColor: self.editMode ? .red : nil,
-							backgroundColor: .blue
-						)
+
+						UserDeleteIcon(self.store, self.editMode, self.users[index].sUserId!)
+
+
 					}
 					
 					/** Имя **/
-					Text(self.users[index].sFirstName!)
+					Text(self.users[index].sFirstName!)               .font(Font.Typography.sizingFont(font: .semibold, size: .H5))
+							.frame(width: 80, height: 13, alignment: .center)
 					/** Фамилия  **/
-					Text(self.users[index].sLastName!)
+					Text(self.users[index].sLastName!)               .font(Font.Typography.sizingFont(font: .semibold, size: .H5))
+					 .frame(width: 80, height: 13, alignment: .center)
 					
 					/** Выравнивание по топу клетки **/
 					Spacer()
-				}.padding()
+				}
 			}
 			.navigationBarTitle("")
 			.navigationBarHidden(true)

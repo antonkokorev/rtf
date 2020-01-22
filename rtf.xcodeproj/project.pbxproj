@@ -82,6 +82,7 @@
 		EA0689E523D06CB100A545FD /* search.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0689E423D06CB100A545FD /* search.effect.swift */; };
 		EA0689E723D06CED00A545FD /* search.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0689E623D06CED00A545FD /* search.actions.swift */; };
 		EA0689E923D06D4300A545FD /* search.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0689E823D06D4300A545FD /* search.reducer.swift */; };
+		EA09758F23D8A63A002B3E8E /* UserDeleteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09758E23D8A63A002B3E8E /* UserDeleteIcon.swift */; };
 		EA22A96923D617F7008D9D6F /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EA22A96823D617F7008D9D6F /* Toast */; };
 		EA22A96B23D6198C008D9D6F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A96A23D6198C008D9D6F /* Toast.swift */; };
 		EA22A96D23D62C70008D9D6F /* error.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A96C23D62C70008D9D6F /* error.actions.swift */; };
@@ -200,6 +201,7 @@
 		EA0689E423D06CB100A545FD /* search.effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search.effect.swift; sourceTree = "<group>"; };
 		EA0689E623D06CED00A545FD /* search.actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search.actions.swift; sourceTree = "<group>"; };
 		EA0689E823D06D4300A545FD /* search.reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search.reducer.swift; sourceTree = "<group>"; };
+		EA09758E23D8A63A002B3E8E /* UserDeleteIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeleteIcon.swift; sourceTree = "<group>"; };
 		EA22A96A23D6198C008D9D6F /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		EA22A96C23D62C70008D9D6F /* error.actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = error.actions.swift; sourceTree = "<group>"; };
 		EA22A96F23D62CE7008D9D6F /* error.reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = error.reducer.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		3A2A88BE23C77E09003F15FE /* molecules */ = {
 			isa = PBXGroup;
 			children = (
+				EA09758D23D8A623002B3E8E /* UserDeleteIcon */,
 				469BA53A23D05B9400F6DD9D /* DynamicList */,
 				EAB9E83823D0DF9B00A92EA2 /* FavouriteUsersGrid */,
 				256638A523CF3607003D1DD0 /* ProfileMenu */,
@@ -532,6 +535,14 @@
 				469BA53C23D05BC700F6DD9D /* DynamicList.swift */,
 			);
 			path = DynamicList;
+			sourceTree = "<group>";
+		};
+		EA09758D23D8A623002B3E8E /* UserDeleteIcon */ = {
+			isa = PBXGroup;
+			children = (
+				EA09758E23D8A63A002B3E8E /* UserDeleteIcon.swift */,
+			);
+			path = UserDeleteIcon;
 			sourceTree = "<group>";
 		};
 		EA22A97123D71F26008D9D6F /* ErrorHandler */ = {
@@ -804,6 +815,7 @@
 				3A506EF423C0D26700A498C8 /* thanks.actions.swift in Sources */,
 				4625762423CF196F009D85BD /* Chart.swift in Sources */,
 				3A506F0123C0D26700A498C8 /* requestRating.actions.swift in Sources */,
+				EA09758F23D8A63A002B3E8E /* UserDeleteIcon.swift in Sources */,
 				4623E29123D57E8400000310 /* SublineComp.swift in Sources */,
 				3A506EF823C0D26700A498C8 /* subordinates.actions.swift in Sources */,
 				EA0689E523D06CB100A545FD /* search.effect.swift in Sources */,
@@ -944,14 +956,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
-				DEVELOPMENT_TEAM = GT2Y4248CJ;
+				DEVELOPMENT_TEAM = H9B99NLA3J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
+				PRODUCT_BUNDLE_IDENTIFIER = triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -964,14 +976,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"rtf/Preview Content\"";
-				DEVELOPMENT_TEAM = GT2Y4248CJ;
+				DEVELOPMENT_TEAM = H9B99NLA3J;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = rtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = .triton.com.team.rtf;
+				PRODUCT_BUNDLE_IDENTIFIER = triton.com.team.rtf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

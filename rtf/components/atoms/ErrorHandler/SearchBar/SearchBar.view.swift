@@ -31,20 +31,33 @@ struct SearchBar: View {
 					.padding()
 				
 				HStack {
-					Image(systemName: "magnifyingglass")
+					Image("search")
 					
 					TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
 						if changed {
-//							print("[changed] Searching for... \(self.searchTxt)")
-//							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
+							print("[changed] Searching for... \(self.searchTxt)")
+							self.store.dispatch(searchActions.displaySearch)
 						} else {
 							print("[commited] Searching for... \(self.searchTxt)")
 							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
 						}
 					})
 					
+					Button(action: {
+						self.searchTxt = ""
+						self.store.dispatch(searchActions.hideSearch)
+						
+					}, label: {
+						Image(systemName: "xmark").foregroundColor(.red)
+					})
 					Spacer()
+					Spacer()
+					Spacer()
+					Spacer()
+					
 				}
+				
+					
 				
 				.padding(.leading, CGFloat(30))
 			}
