@@ -22,11 +22,8 @@ struct FavouriteUsersGrid: View {
 	
 	var body: some View {
 		NavigationView {
-			
-			
 			/** Функция, которая парсит массив на ряды, columns = кол-во столбиков в ряду **/
 			FlowStack(columns: 3, numItems: self.users.count, alignment: .leading) { index, colWidth in
-				//				NavigationLink(destination: EmployeeProfile(), label: {
 				/** Объединение в одну вертикальную ячейку **/
 				VStack {
 					/** Выбор либо кнопки добавить, либо пикчи челика  **/
@@ -39,16 +36,12 @@ struct FavouriteUsersGrid: View {
 							backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
 						)
 					} else {
-							CircleImage(
-								imageUrl: getPhoto(self.users[index].sUserId!),
-								imageSize: 50,
-								borderColor: self.editMode ? .red : nil,
-								backgroundColor: .blue
-							)
-//						})
-						
-						
-						
+						CircleImage(
+							imageUrl: getPhoto(self.users[index].sUserId!),
+							imageSize: 50,
+							borderColor: self.editMode ? .red : nil,
+							backgroundColor: .blue
+						)
 					}
 					
 					/** Имя **/
@@ -58,10 +51,7 @@ struct FavouriteUsersGrid: View {
 					
 					/** Выравнивание по топу клетки **/
 					Spacer()
-					
-					
 				}.padding()
-				//				})
 			}
 			.navigationBarTitle("")
 			.navigationBarHidden(true)

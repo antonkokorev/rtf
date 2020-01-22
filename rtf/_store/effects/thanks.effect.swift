@@ -24,13 +24,29 @@ var thanksEffect: Middleware<AppState> = { dispatch, getState in
 			case .pendingGetThanksCount:
 				AF.request(Interceptor.serviceRequest(service: "assessment/thanks/getOverview", body: nil)).response { response in
 					/* обработка ошибок */
-					switch response.error {
-					case .none:
-						let data = try? JSONDecoder().decode(IThanks.self, from: response.data!)
-						next(thanksActions.successGetThanksCount(data!))
-					case .some(let error):
-						print(error)
+					switch response.result {
+					case .success:
+						do {
+						let data = try JSONDecoder().decode(IThanks.self, from: response.data!)
+							
+							next(thanksActions.successGetThanksCount(data))
+						} catch {
+							print("can't parse data")
+							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
+						}
+						break;
+					case .failure:
+						print("ERROR - result")
+						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
+						break;
 					}
+//					switch response.error {
+//					case .none:
+//						let data = try? JSONDecoder().decode(IThanks.self, from: response.data!)
+//						next(thanksActions.successGetThanksCount(data!))
+//					case .some(let error):
+//						print(error)
+//					}
 				}
 				break
 			default:

@@ -41,12 +41,21 @@ var userRequestEffect: Middleware<AppState> = { dispatch, getState in
 			case .pendingGetUsersWithRequest:
 				AF.request(Interceptor.serviceRequest(service: "relation/allIncome", body: userRequestBody)).response { response in
 					/* обработка ошибок */
-					switch response.error {
-					case .none:
-						let data = try? JSONDecoder().decode(IUsersRequest.self, from: response.data!)
-						next(usersRequestActions.successGetUsersWithRequest(data!))
-					case .some(let error):
-						print(error)
+					switch response.result {
+					case .success:
+						do {
+							let data = try JSONDecoder().decode(IUsersRequest.self, from: response.data!)
+							
+							next(usersRequestActions.successGetUsersWithRequest(data))
+						} catch {
+							print("can't parse data")
+							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
+						}
+						break;
+					case .failure:
+						print("ERROR - result")
+						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
+						break;
 					}
 				}
 				break

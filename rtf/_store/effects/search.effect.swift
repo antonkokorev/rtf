@@ -11,42 +11,44 @@ import ReSwift
 import Alamofire
 
 var searchEffect: Middleware<AppState> = { dispatch, getState in
-    return { next in
-        return { action in
-            
-            guard let userInvokedAction = action as? searchActions else {
-                next(action)
-                return
-            }
-
-            /* делает реквест только если pending вызвано */
-            switch userInvokedAction {
-            case .pendingSearch(let searchTxt):
-                    
-                AF.request(Interceptor.searchRequest(searchTxt: searchTxt)).response { response in
-                    /* обработка ошибок */
-                    switch response.error {
-                    case .none:
-						
-                        let data = try? JSONDecoder().decode(ISearch.self, from: response.data!)
-//						print(response.value)
-						if ((data) != nil) {
-//							debugPrint(response)
-//							print(data!)
-							next(searchActions.successSearch(data!))
-						} else {
-							print("Error")
-//							debugPrint(response)
+	return { next in
+		return { action in
+			
+			guard let userInvokedAction = action as? searchActions else {
+				next(action)
+				return
+			}
+			
+			/* делает реквест только если pending вызвано */
+			switch userInvokedAction {
+			case .pendingSearch(let searchTxt):
+				
+				AF.request(Interceptor.searchRequest(searchTxt: searchTxt)).response { response in
+					/* обработка ошибок */
+					switch response.result {
+					case .success:
+						do {
+							let data = try JSONDecoder().decode(ISearch.self, from: response.data!)
+							
+							if (searchTxt.count > 0 &&  data.iSearchResultSize == 0) {
+								dispatch(errorActions.errorSuccess("Пользователей с таким именем не найдено"))
+							}
+							next(searchActions.successSearch(data))
+						} catch {
+							print("can't parse data")
+							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
 						}
-
-                    case .some(let error):
-                        print(error)
-                    }
-                }
-                break
-            default:
-                break
-            }
-        }
-    }
+						break;
+					case .failure:
+						print("ERROR - result")
+						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
+						break;
+					}
+				}
+				break
+			default:
+				break
+			}
+		}
+	}
 }
