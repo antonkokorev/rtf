@@ -7,6 +7,8 @@
 //
 import SwiftUI
 import PartialSheet
+
+
 func greetUser(msg:String) {
 	print(msg)
 }
@@ -18,6 +20,7 @@ struct StartPage: View {
 	@ObservedObject var users: UsersState
 	@ObservedObject var favUsers: usersFavouriteState
 	@ObservedObject var thanks: thanksState
+	@ObservedObject var error: ErrorState
 	
 	@State var usersModal:Bool = false
 	@State var historyModal:Bool = false
@@ -31,7 +34,7 @@ struct StartPage: View {
 		self.usersModal = true
 		print(page,showFeedBackPage)
 	}
-	
+
 	/** инициализатор store + state перед рендером */
 	init(store: GlobalStore) {
 		self.store = store
@@ -40,6 +43,8 @@ struct StartPage: View {
 		self.users = store.state.usersSubState
 		self.favUsers = store.state.usersFavouriteSubState
 		self.thanks = store.state.thanksSubState
+		self.error = store.state.errorSubState
+//		showToast = store.state.errorSubState.errorHappened
 	}
 	
 	@State private var showFeedBackPage = false
@@ -138,9 +143,9 @@ struct StartPage: View {
 							icon: "home__feedback"
 						).sheet(isPresented: $usersModal) {
 							
-							//							FeedBackPage(store: self.store)
+							FeedBackPage(store: self.store)
 							
-							HistoryPage(store:  self.store)
+//							HistoryPage(store:  self.store)
 							
 						}
 						ActionCard(
@@ -176,16 +181,25 @@ struct StartPage: View {
 					
 					/**Минимальный отступ от нижнего края экрана*/
 					Spacer(minLength: 25)
+					//					if (self.error.errorHappened) {
+					//						self.showToast.toggle()
+					//					}
+//					if(self.error.errorHappened){
+//						self.changeToast
+//					}
 				}
 				.padding(.horizontal, 30)
 			}
 		}
-			.padding(.top, 10)//Для обхода SafeArea
+			.padding(.top, 10) //Для обхода SafeArea
+			.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
+
 			.onAppear(perform: {
 				self.store.dispatch(usersActions.pendingGetMe)
 				self.store.dispatch(thanksActions.pendingGetThanksCount)
 				self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
 				self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+//				self.store.dispatch(errorActions.errorSuccess("Ошибка в запросе API feedback"))
 			})
 	}
 }

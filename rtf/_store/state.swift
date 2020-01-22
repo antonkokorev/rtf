@@ -27,6 +27,7 @@ struct AppState: StateType {
 	var usersRequestSubState = usersRequestState()
 	var usersTeamSubState = usersTeamState()
 	var searchSubState: SearchState = SearchState()
+	var errorSubState: ErrorState = ErrorState()
 }
 
 func appReducer(action: Action, state: AppState?) -> AppState {
@@ -48,7 +49,8 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		usersRecentSubState: usersRecentReducer(action: action, state: state?.usersRecentSubState),
 		usersRequestSubState: usersRequestReducer(action: action, state: state?.usersRequestSubState),
 		usersTeamSubState: usersTeamReducer(action: action, state: state?.usersTeamSubState),
-		searchSubState: searchReducer(action: action, state: state?.searchSubState)
+		searchSubState: searchReducer(action: action, state: state?.searchSubState),
+		errorSubState: errorReducer(action: action, state: state?.errorSubState)
 	)
 }
 
