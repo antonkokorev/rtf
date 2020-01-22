@@ -19,6 +19,7 @@ struct ISearch: Codable {
 struct ISearchResults: Codable, Hashable {
     var sScore: Double?
     var oUserData: ISearchUser?
+	var bFavourite: Bool?
 }
 
 struct ISearchUser: Codable, Hashable {
@@ -48,6 +49,7 @@ final class SearchState: StateType, ObservableObject {
     @Published var collection: [ISearchResults]? = []
 	@Published var searchTxt: String? = ""
     @Published var status = ""
+	@Published var bShowSearch = false
 }
 
 func searchReducer(action: Action, state: SearchState?) -> SearchState {
@@ -57,7 +59,7 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
         return state
     }
 
-	print("red", action)
+//	print("red", action)
     switch action {
 
 	case .pendingSearch(let searchTxt):
@@ -71,6 +73,10 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
 		
 		state.status = "[Success] successSearch"
 		break;
+	case .displaySearch:
+		state.bShowSearch = true
+	case .hideSearch:
+		state.bShowSearch = false
 	}
     
     return state;

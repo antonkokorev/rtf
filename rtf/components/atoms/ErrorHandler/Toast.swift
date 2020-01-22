@@ -26,7 +26,7 @@ struct Toast<Presenting>: View where Presenting: View {
 		/** визуальная часть **/
 		return GeometryReader { geometry in
 			
-			ZStack(alignment: .center) {
+			ZStack(alignment: .bottom) {
 				
 				self.presenting()
 					.blur(radius: self.isShowing ? 1 : 0)
@@ -34,10 +34,10 @@ struct Toast<Presenting>: View where Presenting: View {
 				VStack {
 					self.text
 				}
-				.frame(width: geometry.size.width / 2,
-					   height: geometry.size.height / 5)
-					.background(Color.secondary.colorInvert())
-					.foregroundColor(Color.primary)
+				.frame(width: geometry.size.width / 1.2,
+					   height: geometry.size.height / 10)
+					.background(Color(red:0.11, green:0.11, blue:0.11))
+					.foregroundColor(.white)
 					.cornerRadius(20)
 					.transition(.slide)
 					.opacity(self.isShowing ? 1 : 0)
