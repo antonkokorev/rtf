@@ -19,6 +19,8 @@
 		25CAD78323CCB6860029E202 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CAD78223CCB6860029E202 /* Carousel.swift */; };
 		25CAD78623CD952F0029E202 /* CarouselUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CAD78523CD952F0029E202 /* CarouselUser.swift */; };
 		25CC6E1623D07403000E1EAD /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CC6E1523D07403000E1EAD /* Profile.swift */; };
+		25FEF9B323D82CC20017D440 /* RequestCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEF9B223D82CC20017D440 /* RequestCard.swift */; };
+		25FEF9B623D8450B0017D440 /* RequestCardCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEF9B523D8450B0017D440 /* RequestCardCarousel.swift */; };
 		3A2A88BD23C769DA003F15FE /* ActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A88BC23C769DA003F15FE /* ActionCard.swift */; };
 		3A2A88C023C86576003F15FE /* Topography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A88BF23C86576003F15FE /* Topography.swift */; };
 		3A2A88C223C865D1003F15FE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2A88C123C865D1003F15FE /* Theme.swift */; };
@@ -132,6 +134,8 @@
 		25CAD78223CCB6860029E202 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		25CAD78523CD952F0029E202 /* CarouselUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselUser.swift; sourceTree = "<group>"; };
 		25CC6E1523D07403000E1EAD /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		25FEF9B223D82CC20017D440 /* RequestCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCard.swift; sourceTree = "<group>"; };
+		25FEF9B523D8450B0017D440 /* RequestCardCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCardCarousel.swift; sourceTree = "<group>"; };
 		3A2A88BC23C769DA003F15FE /* ActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCard.swift; sourceTree = "<group>"; };
 		3A2A88BF23C86576003F15FE /* Topography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topography.swift; sourceTree = "<group>"; };
 		3A2A88C123C865D1003F15FE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -300,9 +304,27 @@
 			path = CarouselUser;
 			sourceTree = "<group>";
 		};
+		25FEF9B123D82CAB0017D440 /* RequestCard */ = {
+			isa = PBXGroup;
+			children = (
+				25FEF9B223D82CC20017D440 /* RequestCard.swift */,
+			);
+			path = RequestCard;
+			sourceTree = "<group>";
+		};
+		25FEF9B423D844E70017D440 /* RequestCardCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				25FEF9B523D8450B0017D440 /* RequestCardCarousel.swift */,
+			);
+			path = RequestCardCarousel;
+			sourceTree = "<group>";
+		};
 		3A2A88BE23C77E09003F15FE /* molecules */ = {
 			isa = PBXGroup;
 			children = (
+				25FEF9B423D844E70017D440 /* RequestCardCarousel */,
+				25FEF9B123D82CAB0017D440 /* RequestCard */,
 				469BA53A23D05B9400F6DD9D /* DynamicList */,
 				EAB9E83823D0DF9B00A92EA2 /* FavouriteUsersGrid */,
 				256638A523CF3607003D1DD0 /* ProfileMenu */,
@@ -756,6 +778,7 @@
 				3A506EF523C0D26700A498C8 /* users.actions.swift in Sources */,
 				EA6D1C7423CDDFFC00D5B34A /* thanks.effect.swift in Sources */,
 				4657BFEB23CDD18200604801 /* users.effect.swift in Sources */,
+				25FEF9B323D82CC20017D440 /* RequestCard.swift in Sources */,
 				469801E923D0A80300C7776F /* HorizontalMenu.swift in Sources */,
 				3A506F1423C0D26700A498C8 /* users.reducer.swift in Sources */,
 				3A506EAC23C0D24E00A498C8 /* SceneDelegate.swift in Sources */,
@@ -779,6 +802,7 @@
 				3A506EF423C0D26700A498C8 /* thanks.actions.swift in Sources */,
 				4625762423CF196F009D85BD /* Chart.swift in Sources */,
 				3A506F0123C0D26700A498C8 /* requestRating.actions.swift in Sources */,
+				25FEF9B623D8450B0017D440 /* RequestCardCarousel.swift in Sources */,
 				4623E29123D57E8400000310 /* SublineComp.swift in Sources */,
 				3A506EF823C0D26700A498C8 /* subordinates.actions.swift in Sources */,
 				EA0689E523D06CB100A545FD /* search.effect.swift in Sources */,
