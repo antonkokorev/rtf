@@ -17,7 +17,7 @@ struct Like: View {
             CircleImage(
                 imageSize: 40,
                 icon: "like",
-                iconSize: BasicIconSizes.middle,
+                iconSize: 20,
                 shadowOn: true,
                 backgroundColor: Color.RTFPallete.buttonBlank
             )
