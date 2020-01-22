@@ -1,5 +1,5 @@
 //
-//  EmployeeSearchBar.view.swift
+//  SearchBar.view.swift
 //  rtf
 //
 //  Created by Anton Elistratov on 07.01.2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct EmployeeSearchBar: View {
+struct SearchBar: View {
 	
 	/** строчка поиска из компонента выше **/
 	@Binding var searchTxt: String
@@ -35,8 +35,8 @@ struct EmployeeSearchBar: View {
 					
 					TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
 						if changed {
-							print("[changed] Searching for... \(self.searchTxt)")
-							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
+//							print("[changed] Searching for... \(self.searchTxt)")
+//							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
 						} else {
 							print("[commited] Searching for... \(self.searchTxt)")
 							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
@@ -52,7 +52,7 @@ struct EmployeeSearchBar: View {
 	}
 }
 
-//struct EmployeeSearchBar_Preview: PreviewProvider {
+//struct SearchBar_Preview: PreviewProvider {
 //	static var previews: some View {
 //			EmployeeSearchBar()
 //	}

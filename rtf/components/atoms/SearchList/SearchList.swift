@@ -26,23 +26,11 @@ struct SearchList: View {
 			ForEach(self.users, id: \.self) { user in
 				
 				HStack {
-					
-//					Button(action: {
-//						self.showEmployeeCard()
-//					}, label: {
-//
 						CircleImage(
 							imageUrl: getPhoto((user.oUserData?.sPersonSFID)!),
 							imageSize: 60,
 							backgroundColor: .black
 						)
-							
-//							.sheet(isPresented: self.$employeeCardVisibility) {
-//							EmployeeProfile()
-//						}
-//
-//					})
-					
 					VStack{
 						Text(String((user.oUserData?.sPersonFirstName)!))
 							.padding(8)
@@ -57,19 +45,17 @@ struct SearchList: View {
 					
 					Spacer()
 					
-					
-					
-					/** кнопка добавления **/
-					Button(action: {
-						print("добавлен")
-					}, label: {
-						CircleImage(
-							imageSize: 50,
-							icon: "add",
-							iconSize: BasicIconSizes.max,
-							backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-						).foregroundColor(.blue)
-					})
+					/** кнопка перехода **/
+//					Button(action: {
+//						print("Переход")
+//					}, label: {
+//						CircleImage(
+//							imageSize: 50,
+//							icon: "add",
+//							iconSize: BasicIconSizes.max,
+//							backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
+//						).foregroundColor(.blue)
+//					})
 					
 				}
 				

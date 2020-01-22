@@ -14,11 +14,6 @@ enum Interceptor: URLRequestConvertible {
 	case serviceRequest(service: String, body: String?)
 	case searchRequest(searchTxt: String?)
 	
-	/*
-	iResultLimit: 10
-	iResultOffset: 0
-	sSearchLine: ""
-	*/
 	static let RTF_SEARCH = "https://smartsearchj2dacd8d8.ru1.hana.ondemand.com/smart-search/"
 	static let RTF_SEARCH_AUTH = "Basic dXNlcjpwYXNzd29yZA=="
 	
@@ -73,18 +68,13 @@ enum Interceptor: URLRequestConvertible {
 		let url = try serviceEndpoint.asURL()
 		var urlRequest = URLRequest(url: url.appendingPathComponent(servicePath))
 		
-		//		let parameters = "{\"iPage\":0, \"iSize\": 15, \"lId\": 0, \"sLoadOption\": \"UNPROCESSED_REQUESTS\"}"
-		
 		if (requestBody != nil){
-//			print("inside request body")
-//			print(requestBody!)
 			urlRequest.httpBody = requestBody?.data(using: .utf8, allowLossyConversion: false)!
 		}
 		urlRequest.httpMethod = requestMethod.rawValue
 		urlRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
 		urlRequest.setValue( serviceAuth, forHTTPHeaderField: "Authorization")
 		
-//		print(urlRequest.url)
 		return urlRequest
 	}
 }
