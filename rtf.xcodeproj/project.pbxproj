@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2517A9F823D888B80019F435 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2517A9F723D888B80019F435 /* CustomSlider.swift */; };
 		25188B2C23C764AD00BC0B06 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25188B2B23C764AD00BC0B06 /* ColorPalette.swift */; };
 		25188B2F23C765E500BC0B06 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25188B2E23C765E500BC0B06 /* Colors.xcassets */; };
 		256638A723CF3626003D1DD0 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256638A623CF3626003D1DD0 /* ProfileMenu.swift */; };
@@ -130,6 +131,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2517A9F723D888B80019F435 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		25188B2B23C764AD00BC0B06 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		25188B2E23C765E500BC0B06 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		256638A623CF3626003D1DD0 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
@@ -265,6 +267,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2517A9F623D888A30019F435 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				2517A9F723D888B80019F435 /* CustomSlider.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
 		256638A523CF3607003D1DD0 /* ProfileMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +508,7 @@
 		3A506EED23C0D26700A498C8 /* atoms */ = {
 			isa = PBXGroup;
 			children = (
+				2517A9F623D888A30019F435 /* Slider */,
 				259F8DC423D85C54009CC22F /* Comment */,
 				EA22A97123D71F26008D9D6F /* ErrorHandler */,
 				4657BFEC23CDD2D100604801 /* SearchBar */,
@@ -794,6 +805,7 @@
 				25CAD78323CCB6860029E202 /* Carousel.swift in Sources */,
 				3A506EF223C0D26700A498C8 /* Interceptor.swift in Sources */,
 				3A506EFE23C0D26700A498C8 /* feedbackProps.actions.swift in Sources */,
+				2517A9F823D888B80019F435 /* CustomSlider.swift in Sources */,
 				3A506F0E23C0D26700A498C8 /* statistics.reducer.swift in Sources */,
 				4657BFE823CDC2F900604801 /* usersHistory.effect.swift in Sources */,
 				3A506F1623C0D26700A498C8 /* thanks.reducer.swift in Sources */,
