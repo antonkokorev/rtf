@@ -12,6 +12,7 @@ import SwiftUI
 struct BaseColor {
     /// Динамические цвета, которые зависят от dark/light mode
     let mainBlue = Color("mainBlue")
+    let darkBlue = Color("darkBlue")
     let mainPink = Color("mainPink")
     let paleBlue = Color("paleBlue")
     let blueGray = Color("blueGray")
@@ -44,6 +45,9 @@ struct ColorPallete {
     
     // Фон карусели
     let carouselBackground: Color!
+    
+    // Темно-синий фон
+    let darkBlue: Color!
 
     //КНОПКИ
     // Синяя по умолчанию
@@ -63,6 +67,7 @@ struct ColorPallete {
     
     init() {
         /// themePrimary
+        self.darkBlue = baseColor.darkBlue
         self.litePink = baseColor.litePink
         self.carouselBackground = baseColor.carouselBackground
         self.backgroundDefault = baseColor.blueGray
