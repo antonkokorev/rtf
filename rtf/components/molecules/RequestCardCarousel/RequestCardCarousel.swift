@@ -37,7 +37,6 @@ struct RequestCardCarousel: View {
     //    }
     
     var body: some View {
-        
         VStack(){
             ScrollView(.horizontal, showsIndicators: false){
                 HStack(spacing: 15){
@@ -55,12 +54,9 @@ struct RequestCardCarousel: View {
                     Spacer(minLength: 30)
                 }
                 .frame(height: 250)
-                .background(Color.RTFPallete.baseColor.darkBlue)
-            }
+            }.background(Color.RTFPallete.baseColor.darkBlue)
         }
     }
-    
-    
 }
 
 struct RequestCardCarousel_Previews: PreviewProvider {

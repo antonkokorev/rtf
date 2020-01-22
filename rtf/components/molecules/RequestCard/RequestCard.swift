@@ -18,7 +18,7 @@ struct RequestCard: View {
         case "ASSESSMENT":
             return "Обратная связь"
         case "PROJECT":
-            return "Достижения"
+            return "Оценка\nдостижения"
         default:
             return "--------"
         }
@@ -41,7 +41,7 @@ struct RequestCard: View {
                     .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
                     .foregroundColor(Color.RTFPallete.buttonDefault)
                     .multilineTextAlignment(.leading)
-                
+                    .padding(.top, 10.0)
                 
                 Text("\(dateLabel(requestDate: requestDate!))")
                     .font(Font.Typography.sizingFont(font: .regular, size: .H3))
