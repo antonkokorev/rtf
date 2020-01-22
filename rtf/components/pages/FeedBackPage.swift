@@ -12,6 +12,7 @@ struct FeedBackPage: View {
 	//	@Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
 	@State var searchTxt: String = ""
 	@State var editMode: Bool = false
+	@State var bAddToFav: Bool = false
 	@ObservedObject var favUsers: usersFavouriteState
 	@ObservedObject var users: UsersRecentState
 	@ObservedObject var search: SearchState
@@ -52,8 +53,8 @@ struct FeedBackPage: View {
 				SearchBar(store: self.store, searchTxt: self.$searchTxt)
 				
 				/** Скрывает все, если есть найденые пользователи **/
-				if (self.search.collection != []) {
-					SearchList(users: self.search.collection!)
+				if (self.search.collection != [] || self.bAddToFav) {
+					SearchList(self.store, self.search.collection!, self.favUsers.collection)
 				} else {
 					Text("Недавние")
 						.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))

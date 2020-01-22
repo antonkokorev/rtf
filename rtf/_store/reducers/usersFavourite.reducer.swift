@@ -50,6 +50,7 @@ func addElement(_ data: [IUser]) -> [IUser] {
 
 final class usersFavouriteState: StateType, ObservableObject {
 	@Published var collection: [IUser] = []
+	@Published var sfUserId: String = ""
 	@Published var status: String = ""
 	@Published var rowsWithUsers: [[IUser]] = []
 }
@@ -83,10 +84,11 @@ func usersFavouriteReducer(action: Action, state: usersFavouriteState?) -> users
     case .successDeleteFromFav:
         state.status = "[Success] successDeleteFromFav"
         break;
-    case .pendingAddToFeedbackFav:
+    case .pendingAddToFav(let sUserId):
+		state.sfUserId = sUserId
         state.status = "[Pending] pendingAddToFeedbackFav"
         break;
-    case .successAddToFeedbackFav:
+    case .successAddToFav:
         state.status = "[Success] successAddToFeedbackFav"
         break;
     }

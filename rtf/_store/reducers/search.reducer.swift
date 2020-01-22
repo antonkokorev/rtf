@@ -19,6 +19,7 @@ struct ISearch: Codable {
 struct ISearchResults: Codable, Hashable {
     var sScore: Double?
     var oUserData: ISearchUser?
+	var bFavourite: Bool?
 }
 
 struct ISearchUser: Codable, Hashable {
@@ -57,7 +58,7 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
         return state
     }
 
-	print("red", action)
+//	print("red", action)
     switch action {
 
 	case .pendingSearch(let searchTxt):
