@@ -2,7 +2,8 @@
 import SwiftUI
 
 struct lineCom:View{
-    let bgColor:Color = Color( #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))
+    let data: ICompetence
+    var color:String = ""
     let open: Bool = false
     let text:String = "Системное мышление и решение  "
     var body:some View{
@@ -11,10 +12,10 @@ struct lineCom:View{
             HStack(alignment: .center, spacing: 0){
                 CircleImage(
                     imageSize: BasicIconSizes.max,
-                    labelText: "10",
+                    labelText: String(data.fAverageGrade),
                     labelColor: Color.RTFPallete.baseColor.white,
-                    backgroundColor: self.bgColor)
-                Text(self.text).lineLimit(3).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).padding(.leading, 10)
+                    backgroundColor: Color(color))
+                Text(data.sName).lineLimit(3).font(Font.Typography.sizingFont(font: .semibold, size: .H3)).padding(.leading, 10)
                 
                 Spacer()
                 CircleImage(imageSize: BasicIconSizes.max,
@@ -24,10 +25,10 @@ struct lineCom:View{
             }.padding(.top, 10)
             HStack(alignment: .center, spacing: 0){
                 CircleImage(imageSize: BasicIconSizes.max,
-                            icon: !self.open ? "arrowGreen" : "arrowRed" ,
+                            icon: !(data.fDifference < 0) ? "arrowGreen" : "arrowRed" ,
                             iconSize: BasicIconSizes.middle,
                             backgroundColor: Color( #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)))
-                Text("1.4")
+                Text(String(data.fDifference))
                     .font(Font.Typography.sizingFont(font: .regular, size: .H2))
                     .foregroundColor(Color.RTFPallete.textDefault)
                 ZStack(alignment: .leading){
@@ -38,7 +39,7 @@ struct lineCom:View{
                             labelColor: Color.RTFPallete.baseColor.white,
                             borderColor: Color.white,
                             shadowOn: true,
-                            backgroundColor: self.bgColor)
+                            backgroundColor: Color(self.color))
                             .padding(.leading, CGFloat(25 * tmp) )
                     }.padding([.top, .bottom], 0).padding([.trailing,.leading], 10)
                     
@@ -58,11 +59,11 @@ struct lineCom:View{
     }
     
 }
-struct lineCom_Previews: PreviewProvider {
-    
-    
-    static var previews: some View {
-        
-        lineCom()
-    }
-}
+//struct lineCom_Previews: PreviewProvider {
+//    
+//    
+//    static var previews: some View {
+//        
+//        lineCom()
+//    }
+//}

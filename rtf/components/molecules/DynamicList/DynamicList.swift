@@ -14,48 +14,29 @@ struct DynamicList: View {
     func isExpanded(_ id:Int) -> Bool {
         expanded[id] ?? false
     }
-
-
-    var body: some View {
-        
-        List{
-            ForEach((0...10), id: \.self  ){ section in
-                Section(header: lineCom().onTapGesture {
-                                     self.expanded[section] = !self.isExpanded(section)
-                               }){
-                    
-                if self.isExpanded(section) {
-                    ForEach((0...10), id: \.self  ) { row in
-                        SublineComp().padding()
-                    }}
-                }.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:-5))
-                
-               .background(Color.white)
-                
-            }
-        }
-        
-        
-        
-    }
-}
-struct CustomeHeader: View {
-    let name: String = "тест"
-    let color: Color = Color.white
+    var values: [ICompetence] = []
+    
     
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                Text(name)
-                Spacer()
+        List{
+            ForEach(0..<self.values.count, id: \.self  ){ section in
+                Section(header: lineCom(data: self.values[section], color: "chart\(section)").onTapGesture {
+                    self.expanded[section] = !self.isExpanded(section)
+                }){
+                    
+                    if self.isExpanded(section) {
+                        ForEach((0...10), id: \.self  ) { row in
+                            SublineComp().padding()
+                        }}
+                }.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:-5))
+                    
+                    .background(Color.white)
+                
             }
-            Spacer()
-           
         }
-        .padding(0)
-        .background(color)
-        .frame(height: 60)
+        
+        
+        
     }
 }
 

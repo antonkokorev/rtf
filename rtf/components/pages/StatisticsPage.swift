@@ -9,92 +9,92 @@
 import SwiftUI
 
 struct  StatisticsPageModel {
-       let store: GlobalStore
+    
+    
+    //    func changePeriod() -> Void{
+    //        var result:TChart = []
+    //        for (index,el) in self.stat.collection.aCompetence.enumerated() {
+    //            result.append((name:el.sName, value:el.fAverageGrade , color:Color("chart\(index)")))
+    //        }
+    //
+    //    }
+}
 
+struct  StatisticsPage: View {
     /** номер меню для дат*/
     @State var activeDate: Int = 2
     /** номер меню для типа оценки*/
     @State var activeType: Int = 0
     
+    @ObservedObject  var stat: StatisticsState
+    
+    let store: GlobalStore
     
     init(store: GlobalStore) {
         self.store = store
-        
-       }
+        self.stat = store.state.statisticsSubState
+    }
+    
+    //-----------------------------------------------------------------------
     func getChartData(stat:StatisticsState) -> TChart{
-     
         var result:TChart = []
         print(stat.collection.aCompetence)
         for (index,el) in stat.collection.aCompetence.enumerated() {
-               
+            
             result.append((name:el.sName, value:el.fAverageGrade , color:Color("chart\(index)")))
         }
         return result
     }
+    //-----------------------------------------------------------------------
     func clickFunc(tmp:String)-> Void{
-        print("!!!!!!!" + tmp)
-        self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("MONTH"))
+        var enName:String = ""
+        switch tmp {
+        case "Квартал":
+            enName = "QUARTER"
+        case "Месяц":
+            enName = "MONTH"
+        default:
+            enName = "YEAR"
+        }
+        self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies(enName))
     }
-    
-    
-//    func changePeriod() -> Void{
-//        var result:TChart = []
-//        for (index,el) in self.stat.collection.aCompetence.enumerated() {
-//            result.append((name:el.sName, value:el.fAverageGrade , color:Color("chart\(index)")))
-//        }
-//
-//    }
-}
-
-struct  StatisticsPage: View {
-    @ObservedObject  var stat: StatisticsState
-    var model :StatisticsPageModel
-
-    init(store: GlobalStore) {
-        self.model = StatisticsPageModel(store: store)
-        self.stat = store.state.statisticsSubState
-    }
+    //-----------------------------------------------------------------------
     var body: some View {
         VStack(alignment:.leading){
-//---------------------------------------------------------------------
+            //---------------------------------------------------------------------
             /** Тест и меню*/
             VStack(alignment:.leading){
                 Text("Статистика").font(Font.Typography.sizingFont(font: .bold, size: .H1))
-                
-                Text("Test")
                 HorizontalMenu( texts: ["Компетенции","Навыки"],
-                        active: model.$activeType,
-                        activeFontColor: Color.RTFPallete.textDefault,
-                        passiveFontColor: Color.RTFPallete.textSecondary,
-                        buttonSpace:5
+                                active: self.$activeType,
+                                activeFontColor: Color.RTFPallete.textDefault,
+                                passiveFontColor: Color.RTFPallete.textSecondary,
+                                buttonSpace:5
                 ).padding(.leading, -5)
             }.padding(.top,10)
-//---------------------------------------------------------------------
+            //---------------------------------------------------------------------
             VStack(alignment:.center, spacing: 20){
-
-
-                Chart( model.getChartData(stat: self.stat))
+                Chart( self.getChartData(stat: self.stat))
                 HorizontalMenu(
-                        texts: ["Месяц","Квартал","Год"],
-                        
-                        active: model.$activeDate,
-                        passiveFontColor: Color.RTFPallete.textSecondary,
-                        activeColor: Color.RTFPallete.baseColor.mainBlue,
-                        passiveBorderColor: Color.RTFPallete.baseColor.blueGray,
-                        clickFunc:self.model.clickFunc,
-                        cloud: true
-
+                    texts: ["Месяц","Квартал","Год"],
+                    active: self.$activeDate,
+                    passiveFontColor: Color.RTFPallete.textSecondary,
+                    activeColor: Color.RTFPallete.baseColor.mainBlue,
+                    passiveBorderColor: Color.RTFPallete.baseColor.blueGray,
+                    clickFunc:self.clickFunc,
+                    cloud: true
+                    
                 )
-                DynamicList()
-
-
+                DynamicList( values: stat.collection.aCompetence)
+                
+                
             }}.padding(.horizontal,30).onAppear(perform: {
-                self.model.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
-        })
-
+                self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
+            })
+        
     }
-
-
+    
+    
 }
 
 
