@@ -24,12 +24,21 @@ var userRecentEffect: Middleware<AppState> = { dispatch, getState in
 			case .pendingGetRecentUsers:
 				AF.request(Interceptor.serviceRequest(service: "relation/recent", body: nil )).response { response in
 					/* обработка ошибок */
-					switch response.error {
-					case .none:
-						let data = try? JSONDecoder().decode([IUser].self, from: response.data!)
-						next(usersRecentActions.successGetRecentUsers(data!))
-					case .some(let error):
-						print(error)
+					switch response.result {
+					case .success:
+						do {
+							let data = try JSONDecoder().decode([IUser].self, from: response.data!)
+							
+							next(usersRecentActions.successGetRecentUsers(data))
+						} catch {
+							print("can't parse data")
+							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
+						}
+						break;
+					case .failure:
+						print("ERROR - result")
+						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
+						break;
 					}
 				}
 				break

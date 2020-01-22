@@ -20,6 +20,7 @@ struct BaseColor {
     let white = Color("mainWhite")
     let buttonGrayBackground = Color("buttonGrayBackground")
     let litePink = Color("litePink")
+    let carouselBackground = Color("carouselBackground")
     
     /// Статичные цвета
     
@@ -41,6 +42,8 @@ struct ColorPallete {
     // Светлый розовый
     let litePink: Color!
     
+    // Фон карусели
+    let carouselBackground: Color!
 
     //КНОПКИ
     // Синяя по умолчанию
@@ -61,6 +64,7 @@ struct ColorPallete {
     init() {
         /// themePrimary
         self.litePink = baseColor.litePink
+        self.carouselBackground = baseColor.carouselBackground
         self.backgroundDefault = baseColor.blueGray
         self.textDefault = baseColor.black
         self.textSecondary = baseColor.textGray
