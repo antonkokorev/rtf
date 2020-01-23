@@ -82,19 +82,6 @@ struct Chart: View {
 
 
 
-struct ChartItem: View {
-    @State var value:Double = 0
-    @State var text:String = ""
-    let color:Color
-    let clickChart:(_ str:String)-> Void
-    var body: some View {
-        
-        Text("asdf")
-        
-        
-    }
-}
-
 struct Chart_Previews: PreviewProvider {
     static var previews: some View {
         Chart(
