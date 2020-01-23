@@ -15,6 +15,7 @@ struct CustomSlider: View {
         VStack{
             
             Slider(value: $score, in: 1...10, step: 1)
+                .accentColor(.red)
             Text("\(score)")
 
             }
