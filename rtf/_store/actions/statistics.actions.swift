@@ -13,6 +13,8 @@ enum statisticsActions: Action {
     
     case pendingGetStatisticsCompetencies(String)
     case successGetStatisticsCompetencies(IStatColl)
+    case pendingGetStatisticsAttributes(String)
+    case successGetStatisticsAttributes([IAttr])
     
     // пока не используется
     
@@ -25,8 +27,7 @@ enum statisticsActions: Action {
     
 
     
-    case pendingGetStatisticsAttributes
-    case successGetStatisticsAttributes
+  
     
     case setActiveFilter
     case setPropertyFilter

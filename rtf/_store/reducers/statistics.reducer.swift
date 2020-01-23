@@ -8,6 +8,22 @@
 
 import ReSwift
 import Combine
+
+
+
+struct IAttr: Codable, Hashable {
+    /** оценка*/
+    let iGrade:Double
+    /** дата*/
+    let lDate:CLong
+    /*комментарий**/
+    let sComment:String
+    /** информация о юзере*/
+    let oUser:IUser
+}
+
+
+
 struct ICompetence: Codable, Hashable {
     /** уникальный номер*/
     let sId:String
@@ -17,7 +33,6 @@ struct ICompetence: Codable, Hashable {
     let fAverageGrade:Double
     /** изменение за период*/
     let fDifference:Double
-    
     let iGradeCount:Int
     /** юзере оценившие компетенцию может быть не больше 3*/
     let aLastUsersId:[String]
@@ -26,19 +41,23 @@ struct ICompetence: Codable, Hashable {
     /** список атрибутов*/
     let aAttributes:[ICompetence]?
 }
+func initICompetence()-> ICompetence{
+    return ICompetence(
+        sId: "0", sName: "test", fAverageGrade: 0, fDifference: 0, iGradeCount: 0, aLastUsersId: [], iCountUser: 0, aAttributes: []
+    )}
 
-
-
+func initIAttr()-> IAttr{
+    return IAttr(iGrade: 10, lDate: 1000000, sComment: "", oUser: initIUser())}
 final class StatisticsState: StateType, ObservableObject {
-
+    
     @Published var collection: IStatColl = IStatColl()
-
+    @Published var attrCollection: [IAttr] = [initIAttr()]
 }
 
 
 
 struct IStatColl: Codable, Hashable {
-   
+    
     var  aCompetence: [ICompetence] = []
     var  aShape: [ICompetence] = []
 }
@@ -47,7 +66,7 @@ func statisticsReducer(action: Action, state: StatisticsState?) -> StatisticsSta
     let state = state ?? StatisticsState()
     
     guard let action = action as? statisticsActions else {
-
+        
         return state
     }
     
@@ -56,16 +75,16 @@ func statisticsReducer(action: Action, state: StatisticsState?) -> StatisticsSta
         
         break;
     case .successGetStatisticsSkills:
-       
+        
         break;
     case .pendingGetStatisticsSummary:
-       
+        
         break;
     case .successGetStatisticsSummary:
         
         break;
     case .pendingGetStatisticsCompetencies:
-
+        
         break;
     case .successGetStatisticsCompetencies(let data):
         
@@ -73,19 +92,21 @@ func statisticsReducer(action: Action, state: StatisticsState?) -> StatisticsSta
         
         break;
     case .pendingGetStatisticsAttributes:
-
+        
         break;
-    case .successGetStatisticsAttributes:
-      
+    case .successGetStatisticsAttributes(let data):
+        
+        state.attrCollection = data
+        
         break;
     case .setActiveFilter:
-     
+        
         break;
     case .setPropertyFilter:
         
         break;
     case .setClearLoadingFlag:
-       
+        
         break;
     }
     

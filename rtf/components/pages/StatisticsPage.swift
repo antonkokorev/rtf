@@ -87,8 +87,8 @@ struct  StatisticsPage: View {
                     cloud: true
                     
                 )
-                DynamicList( values: stat.collection.aCompetence)
-                
+        
+                StatDynamicList(store: self.store, values: stat.collection.aCompetence)
                 
             }}.padding(.horizontal,30).onAppear(perform: {
                 self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
