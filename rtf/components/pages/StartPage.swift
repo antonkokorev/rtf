@@ -55,7 +55,7 @@ struct StartPage: View {
 		switch tab {
 			/** Входящие  **/
 		case 0:
-			return []//self.recentUsers.collection
+			return self.recentUsers.collection
 			/** Избранные  **/
 		case 1:
 			/** фильтр кнопки ADD **/
@@ -200,7 +200,7 @@ struct StartPage: View {
 			}
 		}
 			.padding(.top, 10)//Для обхода SafeArea
-			.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
+			//.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
 			.onAppear(perform: {
 				self.store.dispatch(usersActions.pendingGetMe)
 				self.store.dispatch(thanksActions.pendingGetThanksCount)
