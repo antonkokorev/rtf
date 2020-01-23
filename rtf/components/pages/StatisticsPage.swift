@@ -38,7 +38,7 @@ struct  StatisticsPage: View {
     //-----------------------------------------------------------------------
     func getChartData(stat:StatisticsState) -> TChart{
         var result:TChart = []
-        print(stat.collection.aCompetence)
+ 
         for (index,el) in stat.collection.aCompetence.enumerated() {
             
             result.append((name:el.sName, value:el.fAverageGrade , color:Color("chart\(index)")))
@@ -60,6 +60,8 @@ struct  StatisticsPage: View {
     }
     //-----------------------------------------------------------------------
     var body: some View {
+        
+   
         VStack(alignment:.leading){
             //---------------------------------------------------------------------
             /** Тест и меню*/
@@ -92,7 +94,7 @@ struct  StatisticsPage: View {
                 self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
             })
         
-    }
+        }
     
     
 }

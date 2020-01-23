@@ -68,7 +68,7 @@ func statisticsReducer(action: Action, state: StatisticsState?) -> StatisticsSta
 
         break;
     case .successGetStatisticsCompetencies(let data):
-         
+        
         state.collection = data
         
         break;

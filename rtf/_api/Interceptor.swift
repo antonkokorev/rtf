@@ -19,8 +19,9 @@ enum Interceptor: URLRequestConvertible {
 	static let RTF_SEARCH_AUTH = "Basic dXNlcjpwYXNzd29yZA=="
 	
 	static let RTF_ENDPOINT = "https://p2passesmentj2dacd8d8.ru1.hana.ondemand.com/p2p-assessment/"
-	static let RTF_AUTH = "Basic QWRtaW5fTEI6cGFzc3dvcmQ="
-	
+//	static let RTF_AUTH = "Basic QWRtaW5fTEI6cGFzc3dvcmQ="
+    static let RTF_AUTH = "Basic ZXh0dXNlcjg3MjpwYXNzd29yZA=="
+	//static let RTF_AUTH = "Basic OTcwMTpwYXNzd29yZA=="
 	var serviceEndpoint: String {
 		switch self {
 		case .serviceRequest:

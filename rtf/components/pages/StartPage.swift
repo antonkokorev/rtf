@@ -157,9 +157,9 @@ struct StartPage: View {
 							icon: "home__feedback"
 						).sheet(isPresented: $usersModal) {
 							
-							FeedBackPage(store: self.store)
-							
-							//HistoryPage(store:  self.store)
+							//FeedBackPage(store: self.store)
+				
+							StatisticsPage(store:  self.store)
 							
 						}
 						ActionCard(
@@ -208,6 +208,7 @@ struct StartPage: View {
 				self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
 			})
 	}
+
 
 }
 

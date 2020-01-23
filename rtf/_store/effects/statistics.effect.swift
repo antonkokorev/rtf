@@ -40,14 +40,12 @@ var statisticsEffect: Middleware<AppState> = { dispatch, getState in
             /* делает реквест только если pending вызвано */
             switch statisticsAction {
             case .pendingGetStatisticsCompetencies(let period):
-                    
-                 
-                      AF.request(Interceptor.serviceRequest(service: "assessment/getStatisticsForCompetencies",body: stringify(json: ["sPeriod": "YEAR"]))).response { response in
+                      AF.request(Interceptor.serviceRequest(service: "assessment/getStatisticsForCompetencies",body: stringify(json: ["sDatePeriod": period]))).response { response in
                           /* обработка ошибок */
                           switch response.error {
                           case .none:
                               let data = try? JSONDecoder().decode(IStatColl.self, from: response.data!)
-                            //debugPrint(response)
+                            debugPrint(response)
                               next(statisticsActions.successGetStatisticsCompetencies(data!))
                           case .some(let error):
                               print(error)

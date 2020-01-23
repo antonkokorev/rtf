@@ -18,23 +18,27 @@ struct DynamicList: View {
     
     
     var body: some View {
+        
         List{
             ForEach(0..<self.values.count, id: \.self  ){ section in
-                Section(header: lineCom(data: self.values[section], color: "chart\(section)").onTapGesture {
-                    self.expanded[section] = !self.isExpanded(section)
-                }){
-                    
-                    if self.isExpanded(section) {
+                VStack{
+                    lineCom(data: self.values[section], color: "chart\(section)", open: self.expanded[section] ?? false)
+                    if (self.isExpanded(section)) {
                         ForEach((0...10), id: \.self  ) { row in
-                            SublineComp().padding()
-                        }}
-                }.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:-5))
-                    
-                    .background(Color.white)
+                            SublineComp().padding()}}
+                }
+                .onTapGesture {
+                    self.expanded[section] = !self.isExpanded(section)
+                }
+                
+                
+                
+                
                 
             }
+        }.onAppear {
+            UITableView.appearance().separatorStyle = .none
         }
-        
         
         
     }
