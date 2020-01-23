@@ -42,9 +42,17 @@ var searchEffect: Middleware<AppState> = { dispatch, getState in
 					case .failure:
 						print("ERROR - result")
 						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
-						break;
+						break
 					}
 				}
+				break
+				
+			case .displaySearch:
+				next(searchActions.displaySearch)
+				break
+				
+			case .hideSearch:
+				next(searchActions.hideSearch)
 				break
 			default:
 				break

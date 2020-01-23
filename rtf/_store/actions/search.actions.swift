@@ -12,4 +12,7 @@ import ReSwift
 enum searchActions: Action {
     case pendingSearch(String)
     case successSearch(ISearch)
+	
+	case displaySearch
+	case hideSearch
 }

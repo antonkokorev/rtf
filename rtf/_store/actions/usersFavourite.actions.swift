@@ -13,12 +13,16 @@ enum usersFavouriteActions: Action {
     case pendingGetFavFeedbackUsers
     case successGetFavFeedbackUsers([IUser])
     
+	/** добавление пользовтеля в список избранных **/
+	case pendingAddToFav(String)
+    case successAddToFav
+	
+	/** удаление пользователя из списка избранных **/
+    case pendingDeleteFromFav(String)
+    case successDeleteFromFav
+
     case pendingPinForFav
     case successPinForFav
     
-    case pendingDeleteFromFav
-    case successDeleteFromFav
-    
-    case pendingAddToFeedbackFav
-    case successAddToFeedbackFav
+
 }
