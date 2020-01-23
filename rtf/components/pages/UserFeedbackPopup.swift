@@ -11,9 +11,11 @@ import SwiftUI
 
 
 struct UserFeedbackPopup: View {
-    @State var fullName: String
-    @State var imageUrl: String
-    @State var position: String
+	var firstName: String
+	var lastName: String
+	var middleName: String
+	var imageUrl: String
+    var position: String
     
     
     var body: some View {
@@ -26,7 +28,7 @@ struct UserFeedbackPopup: View {
                     imageUrl: "\(imageUrl)",
                     imageSize: 90
                 ).padding(.bottom, 15.0)
-                Text(fullName)
+                Text(lastName + " " + firstName + " " + middleName)
                     .font(Font.Typography.sizingFont(font: .bold, size: .H2))
                     .foregroundColor(Color.RTFPallete.textDefault)
                     .padding(.bottom, 4.0)
@@ -105,10 +107,12 @@ struct UserFeedbackPopup: View {
     }
 }
 
-struct UserFeedbackPopup_Previews: PreviewProvider {
-    static var previews: some View {
-        UserFeedbackPopup(
-            fullName: "Петров Иван Анатольевич",
-            imageUrl:"https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200", position: "Управляющий директор - начальник управления")
-    }
-}
+//struct UserFeedbackPopup_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserFeedbackPopup(
+//			firstName: "Иван",
+//			lastName: "Петров",
+//			middleName: "Анатольевич",
+//            imageUrl:"https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200", position: "Управляющий директор - начальник управления")
+//    }
+//}

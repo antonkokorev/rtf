@@ -23,23 +23,23 @@ struct ISearchResults: Codable, Hashable {
 }
 
 struct ISearchUser: Codable, Hashable {
-    var sPersonID: String?
-	var sPositionID: String?
-	var sOrgunitID: String?
-	var sPersonSFID: String?
-    var sPersonLastName: String?
-	var sPersonFirstName: String?
-	var sPersonMiddleName: String?
-	var sEmailSigma: String?
-    var sEmailAlpha: String?
-	var sPersonPhotoLink: String?
-    var sSberChatLink: String?
+    var sPersonID: String? = ""
+	var sPositionID: String? = ""
+	var sOrgunitID: String? = ""
+	var sPersonSFID: String? = ""
+    var sPersonLastName: String? = ""
+	var sPersonFirstName: String? = ""
+	var sPersonMiddleName: String? = ""
+	var sEmailSigma: String? = ""
+    var sEmailAlpha: String? = ""
+	var sPersonPhotoLink: String? = ""
+    var sSberChatLink: String? = ""
     var bPersonSex: Bool?
-    var sPositionName: String?
-	var sPositionFullName: String?
-	var sOrgunitCode: String?
-	var sOrgunitSubordination: String?
-    var sFunctionalBlock: String?
+    var sPositionName: String? = ""
+	var sPositionFullName: String? = ""
+	var sOrgunitCode: String? = ""
+	var sOrgunitSubordination: String? = ""
+    var sFunctionalBlock: String? = ""
     var bOrgunitIsRemote: Bool?
     var sOrgunitCity: String?
 }
@@ -70,13 +70,14 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
 		if (users.oSearchResult != nil) {
 			state.collection = users.oSearchResult!
 		}
-		
 		state.status = "[Success] successSearch"
 		break;
 	case .displaySearch:
 		state.bShowSearch = true
 	case .hideSearch:
 		state.bShowSearch = false
+	case .resetSearch:
+		state.collection = []
 	}
     
     return state;

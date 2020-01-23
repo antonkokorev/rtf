@@ -29,12 +29,12 @@ struct Toast<Presenting>: View where Presenting: View {
 			ZStack(alignment: .bottom) {
 				
 				self.presenting()
-					.blur(radius: self.isShowing ? 1 : 0)
+					.blur(radius: self.isShowing ? 15 : 0)
 				
 				VStack {
 					self.text
 				}
-				.frame(width: geometry.size.width / 1.2,
+				.frame(width: geometry.size.width / 1.1,
 					   height: geometry.size.height / 10)
 					.background(Color(red:0.11, green:0.11, blue:0.11))
 					.foregroundColor(.white)

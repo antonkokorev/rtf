@@ -15,4 +15,6 @@ enum searchActions: Action {
 	
 	case displaySearch
 	case hideSearch
+	
+	case resetSearch
 }
