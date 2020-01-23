@@ -14,48 +14,33 @@ struct DynamicList: View {
     func isExpanded(_ id:Int) -> Bool {
         expanded[id] ?? false
     }
-
-
+    var values: [ICompetence] = []
+    
+    
     var body: some View {
         
         List{
-            ForEach((0...10), id: \.self  ){ section in
-                Section(header: lineCom()){
-                    
-                if self.isExpanded(section) {
-                    ForEach((0...10), id: \.self  ) { row in
-                        SublineComp().padding()
-                    }}
-                }.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing:-5))
-                
+            ForEach(0..<self.values.count, id: \.self  ){ section in
+                VStack{
+                    lineCom(data: self.values[section], color: "chart\(section)", open: self.expanded[section] ?? false)
+                    if (self.isExpanded(section)) {
+                        ForEach((0...10), id: \.self  ) { row in
+                            SublineComp().padding()}}
+                }
                 .onTapGesture {
-                      self.expanded[section] = !self.isExpanded(section)
-                }.background(Color.white)
+                    self.expanded[section] = !self.isExpanded(section)
+                }
+                
+                
+                
+                
                 
             }
+        }.onAppear {
+            UITableView.appearance().separatorStyle = .none
         }
         
         
-        
-    }
-}
-struct CustomeHeader: View {
-    let name: String = "тест"
-    let color: Color = Color.white
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                Text(name)
-                Spacer()
-            }
-            Spacer()
-           
-        }
-        .padding(0)
-        .background(color)
-        .frame(height: 60)
     }
 }
 
