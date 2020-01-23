@@ -23,18 +23,32 @@ struct StartPage: View {
 	@ObservedObject var thanks: thanksState
 	@ObservedObject var error: ErrorState
 	
-	@State var usersModal:Bool = false
+    /**Модальные окна*/
+	@State var feedbackModal:Bool = false
 	@State var historyModal:Bool = false
+    @State var statisticsModal:Bool = false
+    
+    /** функция обработка кнопок тайлов*/
+    private  func goNextPage(page:String) -> Void {
+        switch page {
+        case "История":
+            historyModal = true
+        case "Статистика":
+            statisticsModal = true
+        case "home__feedback":
+            feedbackModal = true
+        default:
+            break
+        }
+    }
 	
-	/** индикатор для выбора пункта меню **/
+	/** индикатор для выбора пункта меню входящие-запросы-недавние **/
 	@State var active: Int = 0
+    /** индикатор для выбора пункта меню история-статистика **/
+    @State var active2: Int = 0
 	
 	let store: GlobalStore
-	/** функция обработка кнопок тайлов*/
-	private  func goNextPage(page:String) -> Void {
-		self.usersModal = true
-		print(page,showFeedBackPage)
-	}
+
 	
 	/** инициализатор store + state перед рендером */
 	init(store: GlobalStore) {
@@ -128,7 +142,7 @@ struct StartPage: View {
 							Spacer(minLength: 30)
 							HorizontalMenu(
 								texts: ["История", "Статистика"],
-								active: self.$active,
+								active: self.$active2,
 								activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 								passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 								activeFontColor: Color.RTFPallete.buttonDefaultPale,
@@ -140,8 +154,18 @@ struct StartPage: View {
 								horizontalPadding: 15,
 								verticalPadding: 10,
 								buttonSpace: 10,
+                                clickFunc: goNextPage,
 								cloud: true
-							)
+                            )
+                            Spacer()
+                            .sheet(isPresented: $historyModal) {
+                                FeedBackPage(store: self.store)
+                            }
+                            Spacer()
+                            .sheet(isPresented: $statisticsModal) {
+                                StatisticsPage(store: self.store)
+                            }
+                            
 							Spacer()
 						}
 					}
@@ -155,13 +179,9 @@ struct StartPage: View {
 							textTitle: "Коллеги",
 							textBody: "Обратная связь по компетенциям и проф. навыкам",
 							icon: "home__feedback"
-						).sheet(isPresented: $usersModal) {
-							
-							//FeedBackPage(store: self.store)
-				
-							StatisticsPage(store:  self.store)
-							
-						}
+						).sheet(isPresented: $feedbackModal) {
+							FeedBackPage(store: self.store)
+                        }
 						ActionCard(
 							action: self.goNextPage,
 							textTitle: "Встречи",
@@ -172,7 +192,7 @@ struct StartPage: View {
 							action: self.goNextPage,
 							textTitle: "Достижения",
 							textBody: "Обратная связь по достижениям и проектам",
-							icon: "home__projects"
+					git git 		icon: "home__projects"
 						).disabled(true).opacity(0.6)
 						ActionCard(
 							action: self.goNextPage,
