@@ -13,12 +13,19 @@ struct CustomSlider: View {
     
     var body: some View{
         VStack{
-            
+            HStack{
+                CircleImage(
+                )
+                Spacer()
             Slider(value: $score, in: 1...10, step: 1)
-                .accentColor(.red)
-            Text("\(score)")
-
+                .accentColor(.blue)
+                Spacer()
+                CircleImage(
+                )
             }
+            Text(String(format: "%.0f", (score)))
+
+        }.padding(.horizontal, 30)
         }
     }
 
