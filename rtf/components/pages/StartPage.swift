@@ -26,6 +26,7 @@ struct StartPage: View {
     /**Модальные окна*/
 	@State var feedbackModal:Bool = false
 	@State var historyModal:Bool = false
+
     @State var statisticsModal:Bool = false
 
     /** функция обработка кнопок тайлов*/
@@ -42,10 +43,11 @@ struct StartPage: View {
         }
     }
 
-	/** индикатор для выбора пункта меню входящие-запросы-недавние **/
-	@State var active: Int = 0
-    /** индикатор для выбора пункта меню история-статистика **/
-    @State var active2: Int = 0
+	/** индикатор для выбора пункта меню **/
+	@State var activeCarousel: Int = 0
+	
+	/** индикатор для выбора пункта меню **/
+	@State var activeBinaryMenu: Int = 0
 
 	let store: GlobalStore
 
@@ -117,7 +119,7 @@ struct StartPage: View {
 					HStack{
 						HorizontalMenu(
 							texts: ["Входящие", "Запросы", "Недвание"],
-							active: self.$active,
+							active: self.$activeCarousel,
 							activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 							passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 							activeFontColor: Color.RTFPallete.textDefault,
@@ -132,7 +134,7 @@ struct StartPage: View {
 					.padding(.bottom, 10)
 
 					/** Карусель с юзерами*/
-					Carousel(stateSelector(self.active))
+					Carousel(stateSelector(self.activeCarousel))
 						.padding(.bottom, 30)
 						.padding(.horizontal, -30)
 
@@ -142,7 +144,7 @@ struct StartPage: View {
 							Spacer(minLength: 30)
 							HorizontalMenu(
 								texts: ["История", "Статистика"],
-								active: self.$active2,
+								active: self.$activeBinaryMenu,
 								activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 								passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 								activeFontColor: Color.RTFPallete.buttonDefaultPale,
@@ -179,6 +181,7 @@ struct StartPage: View {
 							textTitle: "Коллеги",
 							textBody: "Обратная связь по компетенциям и проф. навыкам",
 							icon: "home__feedback"
+
 						).sheet(isPresented: $feedbackModal) {
 							FeedBackPage(store: self.store)
                         }
