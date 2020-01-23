@@ -42,6 +42,7 @@ struct RequestCard: View {
                     .foregroundColor(Color.RTFPallete.buttonDefault)
                     .multilineTextAlignment(.leading)
                     .padding(.top, 10.0)
+                    .frame(height: 30)
                 
                 Text("\(dateLabel(requestDate: requestDate!))")
                     .font(Font.Typography.sizingFont(font: .regular, size: .H3))

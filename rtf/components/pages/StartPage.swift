@@ -192,7 +192,7 @@ struct StartPage: View {
 							action: self.goNextPage,
 							textTitle: "Достижения",
 							textBody: "Обратная связь по достижениям и проектам",
-					git git 		icon: "home__projects"
+                            icon: "home__projects"
 						).disabled(true).opacity(0.6)
 						ActionCard(
 							action: self.goNextPage,

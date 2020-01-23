@@ -24,9 +24,9 @@ struct RequestCardCarousel: View {
     
     var requests = [
         Request(t: "ASSESSMENT", d: 1575551187687),
-        Request(t: "PROJECT", d: 1575551187687),
         Request(t: "ASSESSMENT", d: 1575551187687),
-        Request(t: "PROJECT", d: 1575551187687),
+        Request(t: "ASSESSMENT", d: 1575551187687),
+        Request(t: "ASSESSMENT", d: 1575551187687),
         Request(t: "ASSESSMENT", d: 1575551187687)
     ]
     //---------------
