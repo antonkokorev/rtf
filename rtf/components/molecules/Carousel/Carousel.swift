@@ -31,7 +31,7 @@ struct Carousel: View {
                         Spacer(minLength: 30)
                         ForEach(self.users) { item in
                             Button(action: {
-                                //							self.test("±!!")
+                                print(item.sFirstName as Any)
                             }) {
                                 CarouselUser(
                                     firstName: item.sFirstName!,

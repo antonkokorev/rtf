@@ -19,13 +19,13 @@ struct CircleImage:View {
     @State var imageSize: CGFloat! = BasicIconSizes.max
     
     /**Тип иконки*/
-    @State var icon: String?
+    var icon: String?
     
     /**Размер иконки*/
-    @State var iconSize: CGFloat?
+  var iconSize: CGFloat?
     
     /**Текст*/
-    @State var labelText: String?
+ var labelText: String = ""
     
     /**Цвет текста*/
     @State var labelColor: Color?
@@ -57,7 +57,7 @@ struct CircleImage:View {
                 .frame(width: iconSize ?? BasicIconSizes.mini, height: iconSize ?? BasicIconSizes.mini)
             }
             /**Текст*/
-            Text("\(labelText ?? "")")
+            Text("\(self.labelText)")
                 .font(Font.Typography.sizingFont(font: .semibold, size: .H4))
                 .lineLimit(-1)
                 .foregroundColor(labelColor)

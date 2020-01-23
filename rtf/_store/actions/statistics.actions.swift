@@ -10,17 +10,24 @@ import ReSwift
 
 /* создаем все actions в этом объекте */
 enum statisticsActions: Action {
+    
+    case pendingGetStatisticsCompetencies(String)
+    case successGetStatisticsCompetencies(IStatColl)
+    case pendingGetStatisticsAttributes(String)
+    case successGetStatisticsAttributes([IAttr])
+    
+    // пока не используется
+    
     case pendingGetStatisticsSkills
     case successGetStatisticsSkills
     
     case pendingGetStatisticsSummary
     case successGetStatisticsSummary
     
-    case pendingGetStatisticsCompetencies
-    case successGetStatisticsCompetencies
     
-    case pendingGetStatisticsAttributes
-    case successGetStatisticsAttributes
+
+    
+  
     
     case setActiveFilter
     case setPropertyFilter

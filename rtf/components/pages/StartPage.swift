@@ -10,10 +10,11 @@ import PartialSheet
 
 
 func greetUser(msg:String) {
-	print(msg)
+    print(msg)
 }
 struct StartPage: View {
-	
+
+
 	/* reactiveState */
 	@ObservedObject var recentUsers: UsersRecentState
 	@ObservedObject var requestUsers: usersRequestState
@@ -21,23 +22,36 @@ struct StartPage: View {
 	@ObservedObject var favUsers: usersFavouriteState
 	@ObservedObject var thanks: thanksState
 	@ObservedObject var error: ErrorState
-	
-	@State var usersModal:Bool = false
+
+    /**Модальные окна*/
+	@State var feedbackModal:Bool = false
 	@State var historyModal:Bool = false
-	
+
+    @State var statisticsModal:Bool = false
+
+    /** функция обработка кнопок тайлов*/
+    private  func goNextPage(page:String) -> Void {
+        switch page {
+        case "История":
+            historyModal = true
+        case "Статистика":
+            statisticsModal = true
+        case "home__feedback":
+            feedbackModal = true
+        default:
+            break
+        }
+    }
+
 	/** индикатор для выбора пункта меню **/
 	@State var activeCarousel: Int = 0
 	
 	/** индикатор для выбора пункта меню **/
 	@State var activeBinaryMenu: Int = 0
-	
+
 	let store: GlobalStore
-	/** функция обработка кнопок тайлов*/
-	private  func goNextPage(page:String) -> Void {
-		self.usersModal = true
-		print(page,showFeedBackPage)
-	}
-	
+
+
 	/** инициализатор store + state перед рендером */
 	init(store: GlobalStore) {
 		self.store = store
@@ -48,21 +62,21 @@ struct StartPage: View {
 		self.thanks = store.state.thanksSubState
 		self.error = store.state.errorSubState
 	}
-	
+
 	@State private var showFeedBackPage = false
 	@State private var longer: Bool = false
-	
+
 	/** Возвращает массив с пользователями в зависимости от вкладки  **/
 	func stateSelector(_ tab: Int) -> [IUser] {
 		switch tab {
 			/** Входящие  **/
 		case 0:
-			return []//self.recentUsers.collection
+			return self.recentUsers.collection
 			/** Избранные  **/
 		case 1:
 			/** фильтр кнопки ADD **/
 			var filtred: [IUser] = []
-			
+
 			for user in self.favUsers.collection {
 				if (user.bAddButton != true) {
 					filtred.append(user)
@@ -77,22 +91,22 @@ struct StartPage: View {
 			return []
 		}
 	}
-	
-	
+
+
 	var body: some View {
 		VStack(){
 			ScrollView(.vertical, showsIndicators: false){
 				VStack(spacing: 0){
 					/** Аватарка и лайк **/
 					Spacer(minLength: 5)
-					
+
 					if (users.me.sUserId != nil && users.me.sUserId != "") {
 						AvaLikeRow(userId: ((users.me.sUserId != "") ?  users.me.sUserId : "123"),
 								   like: thanks.collection
 						)
 							.padding(.bottom, 20)
 					}
-					
+
 					/** Привет userName **/
 					HStack{
 						Text("Привет,\n\(users.me.sFirstName!)")
@@ -100,7 +114,7 @@ struct StartPage: View {
 						Spacer()
 					}
 					.padding(.bottom, 25)
-					
+
 					/** Меню выбора списка юзеров **/
 					HStack{
 						HorizontalMenu(
@@ -118,12 +132,12 @@ struct StartPage: View {
 						Spacer()
 					}
 					.padding(.bottom, 10)
-					
+
 					/** Карусель с юзерами*/
 					Carousel(stateSelector(self.activeCarousel))
 						.padding(.bottom, 30)
 						.padding(.horizontal, -30)
-					
+
 					/** Меню с кнопками Отчет-История-Статистика*/
 					ScrollView(.horizontal, showsIndicators: false){
 						HStack{
@@ -142,14 +156,24 @@ struct StartPage: View {
 								horizontalPadding: 15,
 								verticalPadding: 10,
 								buttonSpace: 10,
+                                clickFunc: goNextPage,
 								cloud: true
-							)
+                            )
+                            Spacer()
+                            .sheet(isPresented: $historyModal) {
+                                FeedBackPage(store: self.store)
+                            }
+                            Spacer()
+                            .sheet(isPresented: $statisticsModal) {
+                                StatisticsPage(store: self.store)
+                            }
+
 							Spacer()
 						}
 					}
 					.padding(.bottom, 25)
 					.padding(.horizontal, -30)
-					
+
 					/** Меню с ссылками на приложения*/
 					VStack(spacing: 15){
 						ActionCard(
@@ -157,10 +181,10 @@ struct StartPage: View {
 							textTitle: "Коллеги",
 							textBody: "Обратная связь по компетенциям и проф. навыкам",
 							icon: "home__feedback"
-						).sheet(isPresented: $usersModal) {
+
+						).sheet(isPresented: $feedbackModal) {
 							FeedBackPage(store: self.store)
-							//HistoryPage(store:  self.store)
-						}
+                        }
 						ActionCard(
 							action: self.goNextPage,
 							textTitle: "Встречи",
@@ -171,7 +195,7 @@ struct StartPage: View {
 							action: self.goNextPage,
 							textTitle: "Достижения",
 							textBody: "Обратная связь по достижениям и проектам",
-							icon: "home__projects"
+                            icon: "home__projects"
 						).disabled(true).opacity(0.6)
 						ActionCard(
 							action: self.goNextPage,
@@ -181,7 +205,7 @@ struct StartPage: View {
 						).disabled(true).opacity(0.6)
 					}
 					.padding(.bottom, 30)
-					
+
 					/** Сообщить об ошибке*/
 					HStack{
 						Button(
@@ -191,7 +215,7 @@ struct StartPage: View {
 						})
 						Spacer()
 					}
-					
+
 					/**Минимальный отступ от нижнего края экрана*/
 					Spacer(minLength: 25)
 				}
@@ -199,7 +223,7 @@ struct StartPage: View {
 			}
 		}
 			.padding(.top, 10)//Для обхода SafeArea
-			.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
+			//.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
 			.onAppear(perform: {
 				self.store.dispatch(usersActions.pendingGetMe)
 				self.store.dispatch(thanksActions.pendingGetThanksCount)
@@ -207,24 +231,27 @@ struct StartPage: View {
 				self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
 			})
 	}
+
+
+
 }
 
 
 //*Аватар пользователя и кнопка с лайками*/
 struct AvaLikeRow: View {
-	@State var userId: String!
-	@State var like: Int!
-	
-	var body: some View{
-		HStack{
-			CircleImage(
-				imageUrl: getPhoto(userId),
-				imageSize: BasicIconSizes.max
-			)
-			Spacer()
-			Like(number: like ?? 88)
-		}
-	}
+    @State var userId: String!
+    @State var like: Int!
+    
+    var body: some View{
+        HStack{
+            CircleImage(
+                imageUrl: getPhoto(userId),
+                imageSize: BasicIconSizes.max
+            )
+            Spacer()
+            Like(number: like ?? 88)
+        }
+    }
 }
 
 
@@ -241,7 +268,7 @@ struct AvaLikeRow: View {
 
 /**Превью*/
 struct StartPage_Previews: PreviewProvider {
-	static var previews: some View {
-		StartPage(store: AppMain().store)
-	}
+    static var previews: some View {
+        StartPage(store: AppMain().store)
+    }
 }

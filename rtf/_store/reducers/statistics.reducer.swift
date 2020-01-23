@@ -7,54 +7,106 @@
 //
 
 import ReSwift
+import Combine
 
 
-struct statisticsState: StateType {
-    var collection = ""
-    var status = ""
+
+struct IAttr: Codable, Hashable {
+    /** оценка*/
+    let iGrade:Double
+    /** дата*/
+    let lDate:CLong
+    /*комментарий**/
+    let sComment:String
+    /** информация о юзере*/
+    let oUser:IUser
 }
 
-func statisticsReducer(action: Action, state: statisticsState?) -> statisticsState {
-    var state = state ?? statisticsState()
+
+
+struct ICompetence: Codable, Hashable {
+    /** уникальный номер*/
+    let sId:String
+    /** название  кометенции*/
+    let sName:String
+    /** средняя оценка компетенции*/
+    let fAverageGrade:Double
+    /** изменение за период*/
+    let fDifference:Double
+    let iGradeCount:Int
+    /** юзере оценившие компетенцию может быть не больше 3*/
+    let aLastUsersId:[String]
+    /** если юзеров больше 3 то  приходит количество отсавшихся*/
+    let iCountUser:Int
+    /** список атрибутов*/
+    let aAttributes:[ICompetence]?
+}
+func initICompetence()-> ICompetence{
+    return ICompetence(
+        sId: "0", sName: "test", fAverageGrade: 0, fDifference: 0, iGradeCount: 0, aLastUsersId: [], iCountUser: 0, aAttributes: []
+    )}
+
+func initIAttr()-> IAttr{
+    return IAttr(iGrade: 10, lDate: 1000000, sComment: "", oUser: initIUser())}
+final class StatisticsState: StateType, ObservableObject {
+    
+    @Published var collection: IStatColl = IStatColl()
+    @Published var attrCollection: [IAttr] = [initIAttr()]
+}
+
+
+
+struct IStatColl: Codable, Hashable {
+    
+    var  aCompetence: [ICompetence] = []
+    var  aShape: [ICompetence] = []
+}
+
+func statisticsReducer(action: Action, state: StatisticsState?) -> StatisticsState {
+    let state = state ?? StatisticsState()
     
     guard let action = action as? statisticsActions else {
+        
         return state
     }
     
     switch action {
     case .pendingGetStatisticsSkills:
-        state.status = "[Pending] pendingGetStatisticsSkills"
+        
         break;
     case .successGetStatisticsSkills:
-        state.collection = "data blob, state change"
-        state.status = "[Success] successGetStatisticsSkills"
+        
         break;
     case .pendingGetStatisticsSummary:
-        state.status = "[Pending] pendingGetStatisticsSummary"
+        
         break;
     case .successGetStatisticsSummary:
-        state.status = "[Success] successGetStatisticsSummary"
+        
         break;
     case .pendingGetStatisticsCompetencies:
-        state.status = "[Pending] pendingGetStatisticsCompetencies"
+        
         break;
-    case .successGetStatisticsCompetencies:
-        state.status = "[Success] successGetStatisticsCompetencies"
+    case .successGetStatisticsCompetencies(let data):
+        
+        state.collection = data
+        
         break;
     case .pendingGetStatisticsAttributes:
-        state.status = "[Pending] pendingGetStatisticsAttributes"
+        
         break;
-    case .successGetStatisticsAttributes:
-        state.status = "[Success] successGetStatisticsAttributes"
+    case .successGetStatisticsAttributes(let data):
+        
+        state.attrCollection = data
+        
         break;
     case .setActiveFilter:
-        state.status = "[Set] setActiveFilter"
+        
         break;
     case .setPropertyFilter:
-        state.status = "[Set] setPropertyFilter"
+        
         break;
     case .setClearLoadingFlag:
-        state.status = "[Set] setClearLoadingFlag"
+        
         break;
     }
     

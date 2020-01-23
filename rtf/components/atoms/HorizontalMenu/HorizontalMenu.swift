@@ -23,7 +23,7 @@ struct HorizontalMenu: View {
     var horizontalPadding : CGFloat = 20
     var verticalPadding : CGFloat = 10
     var buttonSpace: CGFloat = 10
-    let clickFunc:(_ active:String) -> Void =   { (tmp) in print(tmp) }
+    var clickFunc:(_ active:String) -> Void =   { (tmp) in print(tmp) }
     var cloud:Bool = false
     public func setActive(i:Int){
         self.active = i
