@@ -14,9 +14,6 @@
 		259F8DC623D85C66009CC22F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259F8DC523D85C66009CC22F /* Comment.swift */; };
 		25B92A2923C10EB80063D4DE /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B92A2823C10EB80063D4DE /* Like.swift */; };
 		25BB098C23D6DC6900E069E6 /* UserFeedbackPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BB098B23D6DC6900E069E6 /* UserFeedbackPopup.swift */; };
-		25C7063E23CC4C4E00F26698 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1B23C0D29200A498C8 /* Alamofire */; };
-		25C7063F23CC4C4E00F26698 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1E23C0D2A300A498C8 /* ReSwift */; };
-		25C7064023CC4C4E00F26698 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F2123C0D2B900A498C8 /* URLImage */; };
 		25C7064223CC5AE200F26698 /* CircleImageModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C7064123CC5AE200F26698 /* CircleImageModifiers.swift */; };
 		25CAD78323CCB6860029E202 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CAD78223CCB6860029E202 /* Carousel.swift */; };
 		25CAD78623CD952F0029E202 /* CarouselUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CAD78523CD952F0029E202 /* CarouselUser.swift */; };
@@ -82,15 +79,20 @@
 		4657BFF023CDD2D100604801 /* SearchBar.view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657BFED23CDD2D100604801 /* SearchBar.view.swift */; };
 		469801E923D0A80300C7776F /* HorizontalMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469801E823D0A80300C7776F /* HorizontalMenu.swift */; };
 		469BA53D23D05BC700F6DD9D /* StatDynamicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469BA53C23D05BC700F6DD9D /* StatDynamicList.swift */; };
-		469BA54323D0943500F6DD9D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 469BA54223D0943500F6DD9D /* PartialSheet */; };
 		46B952FF23D9CFD7009889EC /* AttrComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B952FE23D9CFD7009889EC /* AttrComp.swift */; };
+		46B9530523DACE0C009889EC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1B23C0D29200A498C8 /* Alamofire */; };
+		46B9530623DACE0C009889EC /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F1E23C0D2A300A498C8 /* ReSwift */; };
+		46B9530723DACE0C009889EC /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A506F2123C0D2B900A498C8 /* URLImage */; };
+		46B9530823DACE0C009889EC /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 469BA54223D0943500F6DD9D /* PartialSheet */; };
+		46B9530923DACE0C009889EC /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EA22A96823D617F7008D9D6F /* Toast */; };
+		46B9530C23DAD312009889EC /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 46B9530B23DAD312009889EC /* QGrid */; };
 		46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAC99B23CCA80C00037D36 /* Slider.swift */; };
 		46F4662123D9A55200352F03 /* StatAttrInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4662023D9A55200352F03 /* StatAttrInfo.swift */; };
+		53D593397AC07E9A2E5C6553 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5909AB9DF98E0693C3C90 /* Grid.swift */; };
 		EA0689E523D06CB100A545FD /* search.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0689E423D06CB100A545FD /* search.effect.swift */; };
 		EA0689E723D06CED00A545FD /* search.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0689E623D06CED00A545FD /* search.actions.swift */; };
 		EA0689E923D06D4300A545FD /* search.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0689E823D06D4300A545FD /* search.reducer.swift */; };
 		EA09758F23D8A63A002B3E8E /* UserDeleteIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA09758E23D8A63A002B3E8E /* UserDeleteIcon.swift */; };
-		EA22A96923D617F7008D9D6F /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EA22A96823D617F7008D9D6F /* Toast */; };
 		EA22A96B23D6198C008D9D6F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A96A23D6198C008D9D6F /* Toast.swift */; };
 		EA22A96D23D62C70008D9D6F /* error.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A96C23D62C70008D9D6F /* error.actions.swift */; };
 		EA22A97023D62CE7008D9D6F /* error.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A96F23D62CE7008D9D6F /* error.reducer.swift */; };
@@ -214,6 +216,7 @@
 		46B952FE23D9CFD7009889EC /* AttrComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttrComp.swift; sourceTree = "<group>"; };
 		46BAC99B23CCA80C00037D36 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		46F4662023D9A55200352F03 /* StatAttrInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatAttrInfo.swift; sourceTree = "<group>"; };
+		53D5909AB9DF98E0693C3C90 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		EA0689E423D06CB100A545FD /* search.effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search.effect.swift; sourceTree = "<group>"; };
 		EA0689E623D06CED00A545FD /* search.actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search.actions.swift; sourceTree = "<group>"; };
 		EA0689E823D06D4300A545FD /* search.reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search.reducer.swift; sourceTree = "<group>"; };
@@ -268,11 +271,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25C7063E23CC4C4E00F26698 /* Alamofire in Frameworks */,
-				25C7064023CC4C4E00F26698 /* URLImage in Frameworks */,
-				25C7063F23CC4C4E00F26698 /* ReSwift in Frameworks */,
-				EA22A96923D617F7008D9D6F /* Toast in Frameworks */,
-				469BA54323D0943500F6DD9D /* PartialSheet in Frameworks */,
+				46B9530C23DAD312009889EC /* QGrid in Frameworks */,
+				46B9530523DACE0C009889EC /* Alamofire in Frameworks */,
+				46B9530723DACE0C009889EC /* URLImage in Frameworks */,
+				46B9530823DACE0C009889EC /* PartialSheet in Frameworks */,
+				46B9530923DACE0C009889EC /* Toast in Frameworks */,
+				46B9530623DACE0C009889EC /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +539,7 @@
 				EACEF5A123CCA55700C8EFE7 /* SearchBar */,
 				EA7166A623D1C036004B9CE9 /* SearchList */,
 				2517A9F623D888A30019F435 /* Slider */,
+				53D59BB584A774491DD2C54D /* Grid */,
 			);
 			path = atoms;
 			sourceTree = "<group>";
@@ -602,6 +607,14 @@
 				469BA53A23D05B9400F6DD9D /* StatDynamicList */,
 			);
 			path = organizms;
+			sourceTree = "<group>";
+		};
+		53D59BB584A774491DD2C54D /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				53D5909AB9DF98E0693C3C90 /* Grid.swift */,
+			);
+			path = Grid;
 			sourceTree = "<group>";
 		};
 		EA09758D23D8A623002B3E8E /* UserDeleteIcon */ = {
@@ -737,6 +750,7 @@
 				3A506F2123C0D2B900A498C8 /* URLImage */,
 				469BA54223D0943500F6DD9D /* PartialSheet */,
 				EA22A96823D617F7008D9D6F /* Toast */,
+				46B9530B23DAD312009889EC /* QGrid */,
 			);
 			productName = rtf;
 			productReference = 3A506EA623C0D24E00A498C8 /* rtf.app */;
@@ -772,6 +786,7 @@
 				3A506F2023C0D2B900A498C8 /* XCRemoteSwiftPackageReference "url-image" */,
 				469BA54123D0943500F6DD9D /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				EA22A96723D617F7008D9D6F /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				46B9530A23DAD312009889EC /* XCRemoteSwiftPackageReference "QGrid" */,
 			);
 			productRefGroup = 3A506EA723C0D24E00A498C8 /* Products */;
 			projectDirPath = "";
@@ -919,6 +934,7 @@
 				4623E29123D57E8400000310 /* SublineComp.swift in Sources */,
 				3A506EF823C0D26700A498C8 /* subordinates.actions.swift in Sources */,
 				EA0689E523D06CB100A545FD /* search.effect.swift in Sources */,
+				53D593397AC07E9A2E5C6553 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,6 +1162,14 @@
 				minimumVersion = 0.0.4;
 			};
 		};
+		46B9530A23DAD312009889EC /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 		EA22A96723D617F7008D9D6F /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -1176,6 +1200,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 469BA54123D0943500F6DD9D /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
+		};
+		46B9530B23DAD312009889EC /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46B9530A23DAD312009889EC /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
 		};
 		EA22A96823D617F7008D9D6F /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

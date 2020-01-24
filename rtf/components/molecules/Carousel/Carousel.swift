@@ -9,19 +9,16 @@
 import SwiftUI
 
 struct Carousel: View {
-    
-    //    @Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
-    
-    //    let test:(_ msg:String) -> Void
-    /* reactiveState */
-    //    @ObservedObject var state: UsersRecentState
-    
+    var action: (_ msg:IUser) -> Void = {i in print(i)}
     var users: [IUser]
     
-    init(_ users: [IUser]){
+    init(_ users: [IUser] ){
         self.users = users
     }
-    
+    init(_ users: [IUser] , action:@escaping (_ msg:IUser) -> Void ){
+          self.users = users
+        self.action = action
+      }
     var body: some View {
         
         VStack(){
@@ -30,16 +27,22 @@ struct Carousel: View {
                     HStack{
                         Spacer(minLength: 30)
                         ForEach(self.users) { item in
-                            Button(action: {
-                                print(item.sFirstName as Any)
-                            }) {
+                            
+                          //  Button(action: {
+                          //      self.action(item)
+                           // }) {
                                 CarouselUser(
                                     firstName: item.sFirstName!,
                                     lastName: item.sLastName!,
                                     imageUrl: getPhoto(item.sUserId!)
                                     //borderColor: .green
-                                    )
-                 }.self.buttonStyle(PlainButtonStyle())
+                                ).onTapGesture {
+                                  self.action(item)
+                            }
+                 //}.self.buttonStyle(PlainButtonStyle())
+                    
+                            
+                            
                 }.padding(.trailing, 25.0)
                     }
                     .frame(height: 87)

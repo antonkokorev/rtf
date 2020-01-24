@@ -13,7 +13,7 @@ import URLImage
 
 struct CircleImage:View {
     /**Ссылка на изображение, если нет - отображается backgroundColor */
-    @State var imageUrl: String?
+    var imageUrl: String?
     
     /**Размер изображения*/
     @State var imageSize: CGFloat! = BasicIconSizes.max
@@ -74,8 +74,9 @@ struct CircleImage:View {
                 
             )
         default:
+            // , expireAfter: Date(timeIntervalSinceNow: 0.0) 
             return AnyView(
-                URLImage( URL(string: "\(imageUrl ?? "")")!){ proxy in
+                URLImage( URL(string: "\(imageUrl ?? "")")! ){ proxy in
                     proxy.image
                     .resizable()
                     .scaledToFill()

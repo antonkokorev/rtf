@@ -118,7 +118,7 @@ struct StartPage: View {
 					/** Меню выбора списка юзеров **/
 					HStack{
 						HorizontalMenu(
-							texts: ["Входящие", "Запросы", "Недвание"],
+							texts: ["Оценки", "Запросы", "Недвание"],
 							active: self.$activeCarousel,
 							activeFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
 							passiveFont: Font.Typography.sizingFont(font: .semibold, size: .H3),
