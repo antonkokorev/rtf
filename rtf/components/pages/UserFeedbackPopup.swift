@@ -30,10 +30,10 @@ struct UserFeedbackPopup: View {
                 ).padding(.bottom, 15.0)
                 }
                 Text(user.sFullName ?? "")
-
                     .font(Font.Typography.sizingFont(font: .bold, size: .H2))
                     .foregroundColor(Color.RTFPallete.textDefault)
                     .padding(.bottom, 4.0)
+                
                 Text(user.sTitle ?? "")
                     .font(Font.Typography.sizingFont(font: .regular, size: .H3))
                     .foregroundColor(Color.RTFPallete.textSecondary)
@@ -42,6 +42,7 @@ struct UserFeedbackPopup: View {
             
             //Кнопки дать-взять обратную связь
             HStack{
+                Spacer()
                 Button(action: {
                     //Запросить обратную связь
                     self.action("post")
@@ -67,7 +68,7 @@ struct UserFeedbackPopup: View {
                         }
                 }).buttonStyle(PlainButtonStyle())
                 
-                Spacer()
+                Spacer(minLength: 25)
                 
                 Button(action: {
                     //Дать обратную связь
@@ -92,22 +93,24 @@ struct UserFeedbackPopup: View {
                             }
                         }
                 }).buttonStyle(PlainButtonStyle())
+                Spacer()
             }.padding(.bottom, 30)
             
             //Футер
-            Button(action:{
-                //Переход в историю пользователя
-            } ,
-                   label: {
-                    Text("История оценок")
-                        .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
-                        .foregroundColor(Color.RTFPallete.buttonDefault)
-            }).buttonStyle(PlainButtonStyle())
+//            Button(action:{
+//                //Переход в историю пользователя
+//            } ,
+//                   label: {
+//                    Text("История оценок")
+//                        .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+//                        .foregroundColor(Color.RTFPallete.buttonDefault)
+//            }).buttonStyle(PlainButtonStyle())
             
             Spacer(minLength: 20)
             
-        }.frame(height: 460, alignment: .center)
+        }//.frame(height: 400, alignment: .center)
             .padding(.horizontal, 30)
+            .animation(.none)
         //.background(Color.red)
     }
 }
