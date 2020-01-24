@@ -14,8 +14,8 @@ enum usersHistoryActions: Action {
     case pendingGetHistoryList
     case successGetHistoryList([IUserHistoryList])
     
-    case pendingGetUserHistory
-    case successGetUserHistory(IUserHistory)
+    case pendingGetUserHistory(String,String)
+    case successGetUserHistory([IUserHistoryItem])
     
     
     case pendingUpdateAssessmentStatus
