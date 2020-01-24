@@ -78,7 +78,7 @@ struct UserFeedbackPopup: View {
                             Rectangle()
                                 .frame(width: 142, height: 145, alignment: .center)
                                 .foregroundColor(Color.RTFPallete.baseColor.blueGray)
-                                .cornerRadius(BasicRadius.micro)
+                                .cornerRadius(BasicRadius.mini)
                             VStack{
                                 CircleImage(
                                     imageSize: 60,
