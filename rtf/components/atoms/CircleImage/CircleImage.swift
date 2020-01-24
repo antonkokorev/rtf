@@ -76,7 +76,13 @@ struct CircleImage:View {
         default:
             // , expireAfter: Date(timeIntervalSinceNow: 0.0) 
             return AnyView(
-                URLImage( URL(string: "\(imageUrl ?? "")")! ){ proxy in
+                URLImage( URL(string: "\(imageUrl ?? "")")! , placeholder: { _ in
+                    Image(systemName: "user")             // Use different image for the placeholder
+     
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                }){ proxy in
                     proxy.image
                     .resizable()
                     .scaledToFill()

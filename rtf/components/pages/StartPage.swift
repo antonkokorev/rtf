@@ -34,6 +34,7 @@ struct StartPage: View {
         switch page {
         case "История":
             historyModal = true
+            self.store.dispatch(usersHistoryActions.pendingGetHistoryList)
         case "Статистика":
             statisticsModal = true
         case "home__feedback":

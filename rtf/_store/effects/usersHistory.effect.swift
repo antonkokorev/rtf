@@ -22,16 +22,16 @@ var userHistoryEffect: Middleware<AppState> = { dispatch, getState in
 			
 			/* делает реквест только если pending вызвано */
 			switch userRecentInvokedAction {
-			case .pendingGetUserHistory:
+			case .pendingGetHistoryList:
 				
-				AF.request(Interceptor.serviceRequest(service: "asessment/historyList", body: nil)).response { response in
+                AF.request(Interceptor.serviceRequest(service: "assessment/historyList",  body: stringify(json: ["iPage": 0,"iSize":15 ]))).response { response in
 					/* обработка ошибок */
 					switch response.result {
 					case .success:
 						do {
 							let data = try JSONDecoder().decode(IUserHistory.self, from: response.data!)
-							
-							next(usersHistoryActions.successGetUserHistory(data))
+							debugPrint(response)
+                            next(usersHistoryActions.successGetHistoryList(data.aObjects ?? [initIUserHistoryList()]))
 						} catch {
 							print("can't parse data")
 							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))

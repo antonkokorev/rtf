@@ -10,21 +10,24 @@ import ReSwift
 import Combine
 import SwiftUI
 
-struct IRequester: Codable, Equatable, Hashable{
-   let  oRequester:IUser?
+struct IUserHistoryList: Codable, Equatable, Hashable{
+   let  oRequester:IUser
 }
 
 struct IUserHistory: Codable, Equatable, Hashable {
     /** хз что */
    let  bHasNext: Bool?
-   let  aObjects: [IRequester]?
+   let  aObjects: [IUserHistoryList]?
 }
 
 final class usersHistoryState: StateType, ObservableObject {
-    @Published var collection: IUserHistory = .init(bHasNext: false, aObjects: [])
+    @Published var historyList: [IUserHistoryList] = [initIUserHistoryList()]
     @Published var status = ""
   
 }
+
+func initIUserHistoryList()-> IUserHistoryList{
+return IUserHistoryList(oRequester: initIUser())}
 
 
 func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHistoryState {
@@ -35,33 +38,25 @@ func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHist
     }
     
     switch action {
-    case .pendingGetUserHistory:
-        state.status = "[Pending] pendingGetUserHistory"
-        break;
+
     case .successGetUserHistory:
         //state.collection = "data blob, state change"
         state.status = "[Success] successGetUserHistory"
         break;
-    case .pendingGetHistory:
-        state.status = "[Pending] pendingGetHistory"
-        break;
-    case .successGetHistory:
+
+    case .successGetHistoryList(let data):
+        state.historyList = data
+  
+        
         state.status = "[Success] successGetHistory"
         break;
-    case .pendingUpdateAssessmentStatus:
-        state.status = "[Pending] pendingUpdateAssessmentStatus"
-        break;
+
     case .successUpdateAssessmentStatus:
         state.status = "[Success] successUpdateAssessmentStatus"
         break;
-    case .pendingUpdateProjectAssessmentStatus:
-        state.status = "[Pending] pendingUpdateProjectAssessmentStatus"
-        break;
+
     case .successUpdateProjectAssessmentStatus:
         state.status = "[Success] successUpdateProjectAssessmentStatus"
-        break;
-    case .pendingSetHistoryUsersFilter:
-        state.status = "[Pending] pendingSetHistoryUsersFilter"
         break;
     case .successSetHistoryUsersFilter:
         state.status = "[Success] successSetHistoryUsersFilter"
@@ -69,6 +64,8 @@ func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHist
     case .setClearHistoryFlag:
         state.status = "[Set] setClearHistoryFlag"
         break;
+    default:
+        print("")
     }
     
     return state;
