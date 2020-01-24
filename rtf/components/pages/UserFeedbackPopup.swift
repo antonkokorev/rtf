@@ -8,31 +8,33 @@
 
 import Foundation
 import SwiftUI
-
+import URLImage
 
 struct UserFeedbackPopup: View {
-	var firstName: String
-	var lastName: String
-	var middleName: String
-	var imageUrl: String
-    var position: String
-    
-    
+
+    @State var fullName: String = ""
+    @State var imageUrl: String = ""
+    @State var position: String = ""
+    var user:IUser = initIUser()
+    var action:(_ method:String) -> Void = {i in print(i)}
     var body: some View {
         VStack{
             
             Spacer(minLength: 20)
             //ФИО и должность
             VStack{
+                if (self.user.sUserId  != nil && self.user.sUserId  != "") {
                 CircleImage(
-                    imageUrl: "\(imageUrl)",
+                    imageUrl: getPhoto(self.user.sUserId ??  ""),
                     imageSize: 90
                 ).padding(.bottom, 15.0)
-                Text(lastName + " " + firstName + " " + middleName)
+                }
+                Text(user.sFullName ?? "")
+
                     .font(Font.Typography.sizingFont(font: .bold, size: .H2))
                     .foregroundColor(Color.RTFPallete.textDefault)
                     .padding(.bottom, 4.0)
-                Text(position)
+                Text(user.sTitle ?? "")
                     .font(Font.Typography.sizingFont(font: .regular, size: .H3))
                     .foregroundColor(Color.RTFPallete.textSecondary)
                     .multilineTextAlignment(.center).frame(height: 42.0)
@@ -42,6 +44,8 @@ struct UserFeedbackPopup: View {
             HStack{
                 Button(action: {
                     //Запросить обратную связь
+                    self.action("post")
+                    print(self.user)
                 },
                        label: {
                         ZStack{
@@ -67,6 +71,7 @@ struct UserFeedbackPopup: View {
                 
                 Button(action: {
                     //Дать обратную связь
+                       self.action("get")
                 },
                        label: {
                         ZStack{

@@ -88,6 +88,7 @@ public struct FlowStack<Content>: View where Content: View {
 								// Size the content to frame to fill the column
 								.frame(width: self.width(for: geometry.size))
 						}
+                        Spacer()
 					}
 				}
 			}

@@ -87,13 +87,13 @@ struct SearchList: View {
 			VStack{
 				Group {
 					if (self.sUserId != ""){
-						UserFeedbackPopup(
-							firstName: self.firstName!,
-							lastName: self.lastName!,
-							middleName: self.middleName!,
-							imageUrl: getPhoto(self.sUserId!),
-							position: self.sPositionName!
-						)
+//						UserFeedbackPopup(
+//							firstName: self.firstName!,
+//							lastName: self.lastName!,
+//							middleName: self.middleName!,
+//							imageUrl: getPhoto(self.sUserId!),
+//							position: self.sPositionName!
+//						)
 						
 					}
 					
