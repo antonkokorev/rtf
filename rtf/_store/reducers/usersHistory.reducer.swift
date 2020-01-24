@@ -11,23 +11,74 @@ import Combine
 import SwiftUI
 
 struct IUserHistoryList: Codable, Equatable, Hashable{
-   let  oRequester:IUser
+    let  oRequester:IUser
 }
 
-struct IUserHistory: Codable, Equatable, Hashable {
-    /** хз что */
-   let  bHasNext: Bool?
-   let  aObjects: [IUserHistoryList]?
+struct IAttributeToCategory: Codable, Equatable, Hashable{
+    let sAttributeId:String
+    let sCategoryId:String
 }
+struct ISkill: Codable, Equatable, Hashable{
+    let sId:String
+}
+
+struct IPersonAssesmentItem: Codable, Equatable, Hashable {
+    let sId:String
+    let sPersonAssessmentId:String
+    let oAttributeToCategory:IAttributeToCategory?
+    let oSkill:ISkill?
+    let iGrade:Double
+    let bActive:Bool
+    let sRespondentComment:String
+    let sCanNotAnswerType:String?
+    let sCanNotAnswerText:String?
+}
+
+
+struct IUserPayload: Codable, Equatable, Hashable {
+    let sId: String?
+    let sRequesterId: String?
+    let sRespondentId: String?
+    let lCreationTime: CLong?
+    let lResponseTime: CLong?
+    let sRequesterComment: String?
+    let sStatus:String?
+    let aPersonAssessmentItem:[IPersonAssesmentItem]?
+    let aPersonAssessmentSkillItem:[IPersonAssesmentItem]?
+    let bIsSetThanks:Bool?
+    let bIsAnonimus:Bool?
+    
+}
+
+struct IUserHistoryItem: Codable, Equatable, Hashable {
+    let  sActivityType: String
+    let  oPayload: IUserPayload
+}
+
+struct IUserHistoryRequest: Codable, Equatable, Hashable {
+    let  sLoadOption: String
+    let  bHasNext: Bool
+    let oData:[IUserHistoryItem]
+}
+
+
+
+struct IUserHistoryListRequest: Codable, Equatable, Hashable {
+    let  bHasNext: Bool
+    let aObjects:[IUserHistoryList]
+}
+
+
 
 final class usersHistoryState: StateType, ObservableObject {
     @Published var historyList: [IUserHistoryList] = [initIUserHistoryList()]
+    @Published var userHistory: [IUserHistoryItem] = []
     @Published var status = ""
-  
+    
 }
 
 func initIUserHistoryList()-> IUserHistoryList{
-return IUserHistoryList(oRequester: initIUser())}
+    return IUserHistoryList(oRequester: initIUser())}
 
 
 func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHistoryState {
@@ -38,23 +89,23 @@ func usersHistoryReducer(action: Action, state: usersHistoryState?) -> usersHist
     }
     
     switch action {
-
-    case .successGetUserHistory:
-        //state.collection = "data blob, state change"
+        
+    case .successGetUserHistory(let data):
+        state.userHistory = data
         state.status = "[Success] successGetUserHistory"
         break;
-
+        
     case .successGetHistoryList(let data):
         state.historyList = data
-  
+        
         
         state.status = "[Success] successGetHistory"
         break;
-
+        
     case .successUpdateAssessmentStatus:
         state.status = "[Success] successUpdateAssessmentStatus"
         break;
-
+        
     case .successUpdateProjectAssessmentStatus:
         state.status = "[Success] successUpdateProjectAssessmentStatus"
         break;
