@@ -54,6 +54,10 @@ var searchEffect: Middleware<AppState> = { dispatch, getState in
 			case .hideSearch:
 				next(searchActions.hideSearch)
 				break
+				
+			case .resetSearch:
+				next(searchActions.resetSearch)
+				break
 			default:
 				break
 			}

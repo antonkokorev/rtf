@@ -50,11 +50,11 @@ struct FeedBackPage: View {
 					.padding()
 				
 				/** Поиск  **/
-				SearchBar(store: self.store, searchTxt: self.$searchTxt)
+				SearchBar(self.store, self.$searchTxt, nil)
 				
 				/** Скрывает все, если есть найденые пользователи **/
 				if (self.search.bShowSearch) {
-					SearchList(self.store, self.search.collection!, self.favUsers.collection)
+					SearchList(self.store, self.search.collection!)
 				} else {
 					Text("Недавние")
 						.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
@@ -109,13 +109,11 @@ struct FeedBackPage: View {
 		}
 		.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
 
-//		.onAppear(perform: {
-//			/** загружает избранных пользователей [IUser] **/
-//			self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
-//
-//			/** загружает недавних пользователей [IUser] **/
-//			self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-//		})
+		.onAppear(perform: {
+			/** Срабатывает при переходе с главного экрана **/
+			self.store.dispatch(searchActions.hideSearch)
+			self.store.dispatch(searchActions.resetSearch)
+		})
 
 	}
 }

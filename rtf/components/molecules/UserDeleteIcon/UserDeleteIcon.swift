@@ -39,11 +39,11 @@ struct UserDeleteIcon: View {
 						iconSize: 10,
 						shadowOn: true,
 						backgroundColor: Color(red:0.65, green:0.71, blue:0.78)
-						)
+					)
 						.offset(x: 20, y: -20)
 						.foregroundColor(.white)
 				})
-
+				
 			}
 		}
 	}

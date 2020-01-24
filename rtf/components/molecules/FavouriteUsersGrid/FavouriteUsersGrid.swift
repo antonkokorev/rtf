@@ -12,9 +12,11 @@ import SwiftUI
 struct FavouriteUsersGrid: View {
 	@Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
 	
+	@State var usersModal: Bool = false
+
 	/**
-	Переменная объявлена как стейт, чтобы ререндерить компонент при подтягивание данных
-	у родителя через ObservedObject
+		Переменная объявлена как стейт, чтобы ререндерить компонент при подтягивание данных
+		у родителя через ObservedObject
 	**/
 	var users: [IUser]
 	var editMode: Bool
@@ -36,29 +38,30 @@ struct FavouriteUsersGrid: View {
 					/** никогда не думал что буду чекать на true, эх Swift !<3 **/
 					if(self.users[index].bAddButton == true){
 						Button( action: {
-							self.store.dispatch(searchActions.displaySearch)
+							self.usersModal = true
 						}, label: {
 							CircleImage(
 								imageSize: 60,
 								icon: "add",
 								iconSize: BasicIconSizes.max,
 								backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-							)
+							).sheet(isPresented: self.$usersModal) {
+								SearchFavourite(self.store)
+							}
 						})
-
 					} else {
-
 						UserDeleteIcon(self.store, self.editMode, self.users[index].sUserId!)
-
-
 					}
 					
 					/** Имя **/
-					Text(self.users[index].sFirstName!)               .font(Font.Typography.sizingFont(font: .semibold, size: .H5))
-							.frame(width: 80, height: 13, alignment: .center)
+					Text(self.users[index].sFirstName!)
+						.font(Font.Typography.sizingFont(font: .semibold, size: .H5))
+						.frame(width: 80, height: 13, alignment: .center)
+					
 					/** Фамилия  **/
-					Text(self.users[index].sLastName!)               .font(Font.Typography.sizingFont(font: .semibold, size: .H5))
-					 .frame(width: 80, height: 13, alignment: .center)
+					Text(self.users[index].sLastName!)
+						.font(Font.Typography.sizingFont(font: .semibold, size: .H5))
+						.frame(width: 80, height: 13, alignment: .center)
 					
 					/** Выравнивание по топу клетки **/
 					Spacer()

@@ -13,15 +13,18 @@ struct SearchBar: View {
 	/** строчка поиска из компонента выше **/
 	@Binding var searchTxt: String
 	
+	var listType: String? = nil
+	
 	/** нужно для диспатча эвента **/
 	let store: GlobalStore
-	init(store: GlobalStore, searchTxt: Binding<String>) {
+	init(_ store: GlobalStore,_ searchTxt: Binding<String>,_ listType: String?) {
 		self.store = store
 		/** binding синтакс swift 4 **/
 		self._searchTxt = searchTxt
+		self.listType = listType
 	}
 	
-
+	
 	var body: some View {
 		VStack {
 			ZStack {
@@ -36,29 +39,31 @@ struct SearchBar: View {
 					TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
 						if changed {
 							print("[changed] Searching for... \(self.searchTxt)")
-							self.store.dispatch(searchActions.displaySearch)
+							self.store.dispatch(searchActions.resetSearch)
+							if (self.listType == nil) {
+								self.store.dispatch(searchActions.displaySearch)
+							}
+							
 						} else {
 							print("[commited] Searching for... \(self.searchTxt)")
 							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
 						}
 					})
 					
-					Button(action: {
-						self.searchTxt = ""
-						self.store.dispatch(searchActions.hideSearch)
-						
-					}, label: {
-						Image(systemName: "xmark").foregroundColor(.red)
-					})
+					if (self.listType == nil) {
+						Button(action: {
+							self.searchTxt = ""
+							self.store.dispatch(searchActions.hideSearch)
+							
+						}, label: {
+							Image(systemName: "xmark").foregroundColor(.red)
+						})
+					}
 					Spacer()
 					Spacer()
 					Spacer()
 					Spacer()
-					
 				}
-				
-					
-				
 				.padding(.leading, CGFloat(30))
 			}
 		}
