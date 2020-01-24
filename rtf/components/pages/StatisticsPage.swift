@@ -66,13 +66,13 @@ struct  StatisticsPage: View {
             //---------------------------------------------------------------------
             /** Тест и меню*/
             VStack(alignment:.leading){
-                Text("Статистика").font(Font.Typography.sizingFont(font: .bold, size: .H1))
-                HorizontalMenu( texts: ["Компетенции","Навыки"],
-                                active: self.$activeType,
-                                activeFontColor: Color.RTFPallete.textDefault,
-                                passiveFontColor: Color.RTFPallete.textSecondary,
-                                buttonSpace:5
-                ).padding(.leading, -5)
+                Text("Статистика").font(Font.Typography.sizingFont(font: .bold, size: .H1)).padding(.leading, -5)
+//                HorizontalMenu( texts: ["Компетенции","Навыки"],
+//                                active: self.$activeType,
+//                                activeFontColor: Color.RTFPallete.textDefault,
+//                                passiveFontColor: Color.RTFPallete.textSecondary,
+//                                buttonSpace:5
+//                ).padding(.leading, -5)
             }.padding(.top,10)
             //---------------------------------------------------------------------
             VStack(alignment:.center, spacing: 20){
@@ -90,8 +90,8 @@ struct  StatisticsPage: View {
         
                 StatDynamicList(store: self.store, values: stat.collection.aCompetence)
                 
-            }}.padding(.horizontal,30).onAppear(perform: {
-                self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
+            }}.padding(.horizontal,30)
+            .onAppear(perform: {                self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
             })
         
         }

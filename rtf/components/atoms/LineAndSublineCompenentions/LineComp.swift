@@ -3,9 +3,9 @@ import SwiftUI
 
 struct lineCom:View{
     let data: ICompetence
-    var color:String = ""
+    var color: String = ""
     var open: Bool
-    let text:String = "Системное мышление и решение  "
+    let text: String = "Системное мышление и решение"
     var body:some View{
         VStack(alignment: .leading, spacing: 0){
             
@@ -15,7 +15,8 @@ struct lineCom:View{
                     labelText: data.aLastUsersId.count != 0 ? String(format: "%.1f",data.fAverageGrade): "0",
                     labelColor: Color.RTFPallete.baseColor.white,
                     backgroundColor: Color(color)).padding(.trailing, 10)
-                Text(data.sName).font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                Text(data.sName)
+                    .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
                     .multilineTextAlignment(.leading)
                 
                 
@@ -68,10 +69,10 @@ struct lineCom:View{
     
 }
 //struct lineCom_Previews: PreviewProvider {
-//    
-//    
+//
+//
 //    static var previews: some View {
-//        
+//
 //        lineCom()
 //    }
 //}

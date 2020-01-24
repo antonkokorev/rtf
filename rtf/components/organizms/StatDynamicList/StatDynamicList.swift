@@ -17,7 +17,7 @@ struct StatDynamicList: View {
         expanded[id] ?? false
     }
     var values: [ICompetence]
-
+    
     func subAtrrClick(id:String,title:String){
         self.openEstimate = true
         self.openAttr = (id,title)

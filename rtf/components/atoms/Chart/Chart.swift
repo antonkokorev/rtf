@@ -38,13 +38,18 @@ struct Chart: View {
         timer.start(action:{self.showPopover = false})
     }
     
-    
+    func chartSpacing() -> CGFloat{
+        let a = (UIScreen.main.bounds.width - 80) / 2 / CGFloat(values.count)
+        //print(a)
+        return a
+    }
     var body: some View {
         ZStack{
-            HStack( alignment: .center, spacing: 35){
+            HStack(alignment: .center, spacing: chartSpacing()){
                 ForEach(self.values, id:\.name) { item in
                     Button(action: {
                         self.clickChart(str: item.name + " " + String(format: "%.1f", item.value))
+                        
                     }){
                         VStack{
                             ZStack(alignment: .bottom){
@@ -55,9 +60,12 @@ struct Chart: View {
                                     .frame(width: 20, height: CGFloat(20*item.value))
                                     .foregroundColor(item.color)
                             }
-                            Text(String(format: "%.1f", item.value)).foregroundColor(Color.RTFPallete.textSecondary)
+                            Text(String(format: "%.1f", item.value))
+                                .foregroundColor(Color.RTFPallete.textSecondary)
+                                .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
                         }
-                    }}
+                    }
+                }
             }.animation(.default)
             if(showPopover == true){
                 Button(action: {
@@ -65,17 +73,18 @@ struct Chart: View {
                 }){
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
-                        
                         Text("\(textPopover)")
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
                             .lineLimit(nil)
                             .frame(width: 280, height: 50)
-                    }.frame(width: 300, height: 50).opacity(0.7).accentColor(Color.black).animation(.easeIn(duration: 0.3))
+                    }.frame(width: 300, height: 50)
+                        .opacity(0.7)
+                        .accentColor(Color.black)
+                        .animation(.easeIn(duration: 0.3))
                 }
-                
-                
-            }}
+            }
+        }
     }
 }
 
@@ -85,12 +94,12 @@ struct Chart: View {
 struct Chart_Previews: PreviewProvider {
     static var previews: some View {
         Chart(
-            [  (name:"Системное мышление и решение проблем",value:0, color:Color.red),
-               ( name:"Управление результатом и ответсвенность",value:0, color:Color.red),
-               (name:"Управление собой",value:0, color:Color.red),
-               (name: "Инновационность и Digital навыки",value:0, color:Color.red),
-               (name: "Клиентоцентричность",value:0, color:Color.red),
-               (name:"Развитие команд и сотрудничество",value:6.0, color:Color.red)
-        ])
+            [  (name:"Системное мышление и решение проблем",value:10.0, color:Color.red),
+               (name:"Управление результатом и ответсвенность",value:10.0, color:Color.red),
+               (name:"Управление собой",value:10.0, color:Color.red),
+               (name: "Инновационность и Digital навыки",value:10.0, color:Color.red),
+               (name: "Клиентоцентричность",value:10.0, color:Color.red),
+               (name:"Развитие команд и сотрудничество",value:10.0, color:Color.red)
+        ]).padding(.horizontal, 30)
     }
 }
