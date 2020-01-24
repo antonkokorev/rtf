@@ -38,7 +38,7 @@ struct  StatisticsPage: View {
     //-----------------------------------------------------------------------
     func getChartData(stat:StatisticsState) -> TChart{
         var result:TChart = []
- 
+        
         for (index,el) in stat.collection.aCompetence.enumerated() {
             
             result.append((name:el.sName, value:el.fAverageGrade , color:Color("chart\(index)")))
@@ -61,21 +61,24 @@ struct  StatisticsPage: View {
     //-----------------------------------------------------------------------
     var body: some View {
         
-   
+        
         VStack(alignment:.leading){
             //---------------------------------------------------------------------
             /** Тест и меню*/
             VStack(alignment:.leading){
-                Text("Статистика").font(Font.Typography.sizingFont(font: .bold, size: .H1)).padding(.leading, -5)
-//                HorizontalMenu( texts: ["Компетенции","Навыки"],
-//                                active: self.$activeType,
-//                                activeFontColor: Color.RTFPallete.textDefault,
-//                                passiveFontColor: Color.RTFPallete.textSecondary,
-//                                buttonSpace:5
-//                ).padding(.leading, -5)
-            }.padding(.top,10)
+                Text("Статистика")
+                    .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                   // .padding(.leading, -5)
+                HorizontalMenu( texts: ["Компетенции"],
+                                active: self.$activeType,
+                                activeFontColor: Color.RTFPallete.textDefault,
+                                passiveFontColor: Color.RTFPallete.textSecondary,
+                                buttonSpace:5
+                )//.padding(.leading, -5)
+            }.padding(.top, 40)
+            .padding(.leading, 30)
             //---------------------------------------------------------------------
-            VStack(alignment:.center, spacing: 20){
+            VStack(spacing: 20){
                 Chart( self.getChartData(stat: self.stat))
                 HorizontalMenu(
                     texts: ["Месяц","Квартал","Год"],
@@ -87,16 +90,15 @@ struct  StatisticsPage: View {
                     cloud: true
                     
                 )
-        
+                
                 StatDynamicList(store: self.store, values: stat.collection.aCompetence)
                 
-            }}.padding(.horizontal,30)
-            .onAppear(perform: {                self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
-            })
-        
+            }.padding(.horizontal,15)
         }
-    
-    
+        
+        .onAppear(perform: {                self.store.dispatch(statisticsActions.pendingGetStatisticsCompetencies("YEAR"))
+        })
+    }
 }
 
 

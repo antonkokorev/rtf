@@ -39,7 +39,7 @@ struct Chart: View {
     }
     
     func chartSpacing() -> CGFloat{
-        let a = (UIScreen.main.bounds.width - 80) / 2 / CGFloat(values.count)
+        let a = (UIScreen.main.bounds.width - 60) / 2 / CGFloat(values.count-1)
         //print(a)
         return a
     }
@@ -63,6 +63,7 @@ struct Chart: View {
                             Text(String(format: "%.1f", item.value))
                                 .foregroundColor(Color.RTFPallete.textSecondary)
                                 .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                            .fixedSize(horizontal: true, vertical: false)
                         }
                     }
                 }

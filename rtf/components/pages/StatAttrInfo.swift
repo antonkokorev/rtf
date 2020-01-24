@@ -19,18 +19,21 @@ struct StatAttrInfo: View {
         self.store.dispatch(statisticsActions.pendingGetStatisticsAttributes(id))
     }
     var body: some View {
-        VStack(alignment:.center){
-            Text(self.title).font(Font.Typography.sizingFont(font: .bold, size: .H1))
+        VStack(alignment:.leading){
+            Text(self.title)
+                .font(Font.Typography.sizingFont(font: .bold, size: .H2))
+                .padding(.top, 40)
+                .padding(.leading, 30)
             AttrComp(data: attrData.attrCollection)
             Spacer()
 
-        }.padding(.top,10)
+        }
    
     }
 }
 
 struct StatAttrInfo_Previews: PreviewProvider {
     static var previews: some View {
-        StatAttrInfo(id:"0", title:"sd",store:AppMain().store)
+        StatAttrInfo(id:"0", title:"Какой-то там очень длинный в несколько строк атрибут",store:AppMain().store)
     }
 }

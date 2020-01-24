@@ -12,30 +12,56 @@ struct AttrComp: View {
     var data: [IAttr]
     var clickFunc:(_ id:String, _ title:String) -> Void =   { (tmp, tmp1) in print("вы кликнули по \(tmp)") }
     var body: some View {
+        
         List{
             ForEach(data, id: \.self  ) { item in
-                HStack(alignment: .center, spacing: 0){
+                VStack{
+                    HStack{
+                        CircleImage(
+                            imageUrl: getPhoto(item.oUser.sUserId ?? "" ),
+                            imageSize: 50
+                        )
+                            .padding(.trailing, 15)
+                        
+                        VStack(alignment: .leading){
+                            Text((item.oUser.sFirstName ?? "") + " " + (item.oUser.sLastName ?? ""))
+                                .lineLimit(3)
+                                .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                                .foregroundColor(Color.RTFPallete.textDefault)
+                            Text(item.oUser.sTitle ?? "")
+                                .lineLimit(1)
+                                .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                                .foregroundColor(Color.RTFPallete.textSecondary)
+                        }
+                        
+                        Spacer()
+                        
+                        ZStack{
                             CircleImage(
-                                imageUrl: getPhoto(item.oUser.sUserId ?? "" ),
-                        imageSize: BasicIconSizes.max
-                    ).padding(.trailing, 10)
-                    Text(item.oUser.sFullName ?? "").lineLimit(3).font(Font.Typography.sizingFont(font: .regular, size: .H3)).foregroundColor(Color.RTFPallete.textDefault)
-                    Spacer()
-                    CircleImage(
-                                           imageSize: BasicIconSizes.max,
-                                           labelText: String(format: "%.0f",item.iGrade),
-                                           labelColor: Color.RTFPallete.baseColor.mainBlue,
-                                           backgroundColor: Color.RTFPallete.baseColor.blueGray).padding(.trailing, 10)
+                                imageSize: BasicIconSizes.max,
+                                labelColor: Color.RTFPallete.baseColor.mainBlue,
+                                backgroundColor: Color.RTFPallete.baseColor.blueGray
+                            )
+                            Text(String(format: "%.0f",item.iGrade))
+                                .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                                .foregroundColor(Color.RTFPallete.buttonDefault)
+                        }
+                    }
                     
-                }.padding()
-                }
+                    Text(item.sComment)
+                        .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                        .foregroundColor(Color.RTFPallete.textSecondary)
+                    
+                    Divider()
+                }.padding(.bottom, 15)
             }
-        }
-    }
-
-
-struct AttrComp_Previews: PreviewProvider {
-    static var previews: some View {
-        SublineComp(data: [initICompetence()])
+        }.padding(.horizontal, 15)
     }
 }
+
+
+//struct AttrComp_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SublineComp(data: [initICompetence()])
+//    }
+//}

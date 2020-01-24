@@ -28,17 +28,18 @@ struct StatDynamicList: View {
         List{
             ForEach(0..<self.values.count, id: \.self  ){ section in
                 VStack{
-                    lineCom(data: self.values[section], color: "chart\(section)", open: self.expanded[section] ?? false).onTapGesture {
-                        self.expanded[section] = !self.isExpanded(section)
-                    }
+                    lineCom(data: self.values[section], color: "chart\(section)", open: self.expanded[section] ?? false)
+                            .onTapGesture {
+                                self.expanded[section] = !self.isExpanded(section)
+                            }
+
                     if (self.isExpanded(section)) {
                         SublineComp(
                             data:self.values[section].aAttributes ?? [],
                             clickFunc:self.subAtrrClick)
                             .sheet(isPresented: self.$openEstimate) {
                                 StatAttrInfo(id:self.openAttr.0,title: self.openAttr.1,store: self.store)
-                        }.padding()
-                        
+                        }
                     }
                 }
             }

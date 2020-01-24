@@ -10,14 +10,20 @@ struct lineCom:View{
         VStack(alignment: .leading, spacing: 0){
             
             HStack(alignment: .center, spacing: 0){
+                ZStack{
                 CircleImage(
-                    imageSize: BasicIconSizes.max,
-                    labelText: data.aLastUsersId.count != 0 ? String(format: "%.1f",data.fAverageGrade): "0",
+                    imageSize: 45,
                     labelColor: Color.RTFPallete.baseColor.white,
-                    backgroundColor: Color(color)).padding(.trailing, 10)
+                    backgroundColor: Color(color))
+                Text(data.aLastUsersId.count != 0 ? String(format: "%.1f",data.fAverageGrade): "0")
+                    .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                    .foregroundColor(Color.RTFPallete.buttonBlank)
+                }.padding(.trailing, 10)
+                
                 Text(data.sName)
                     .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
                     .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
                 
                 
                 Spacer()
@@ -26,28 +32,30 @@ struct lineCom:View{
                             iconSize: BasicIconSizes.middle,
                             backgroundColor: Color( #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)))
             }.padding(.top, 10)
-            HStack(alignment: .center, spacing: 0){
+            
+            HStack(alignment: .bottom, spacing: 0){
                 if(data.fDifference != 0 && data.aLastUsersId.count != 0)//&&  data.fAverageGrade != 0)
                 {CircleImage(imageSize: BasicIconSizes.mini,
                              icon: !(data.fDifference < 0) ? "arrowGreen" : "arrowRed" ,
-                             iconSize: BasicIconSizes.middle,
+                             iconSize: 23,
                              backgroundColor: Color( #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)))
                     Text(String(format: "%.1f", data.fDifference))
-                        .font(Font.Typography.sizingFont(font: .regular, size: .H2))
+                        .font(Font.Typography.sizingFont(font: .regular, size: .H3))
                         .foregroundColor(Color.RTFPallete.textDefault)
                 }
                 ZStack(alignment: .leading){
                     ForEach(0..<data.aLastUsersId.count, id: \.self) { i in
                         CircleImage(
                             imageUrl: getPhoto(self.data.aLastUsersId[i]),
-                            imageSize: BasicIconSizes.max,
+                            imageSize: 35,
                             labelColor: Color.RTFPallete.baseColor.white,
                             borderColor: Color.white,
                             borderPadding: false,
-                            shadowOn: false,
                             backgroundColor: Color(self.color))
                             .padding(.leading, CGFloat(25 * i) )
-                    }.padding([.top, .bottom], 0).padding([.trailing,.leading], 10)
+                    }
+                    .padding([.top, .bottom], 0)
+                    .padding([.trailing,.leading], 10)
                     
                     
                     

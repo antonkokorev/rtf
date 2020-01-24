@@ -525,7 +525,6 @@
 			children = (
 				EA3D364023D9ED43007C25B6 /* PersonNameTransformator */,
 				EA3D363D23D9CBC9007C25B6 /* SearchListFav */,
-				2517A9F623D888A30019F435 /* Slider */,
 				4625762223CF1930009D85BD /* Chart */,
 				25C7064323CC94D500F26698 /* CircleImage */,
 				259F8DC423D85C54009CC22F /* Comment */,
@@ -561,7 +560,6 @@
 		4635894323CC9B3E00DBA092 /* pages */ = {
 			isa = PBXGroup;
 			children = (
-				EA3746E923D4B5AC00A2F3C2 /* EmployeeProfile.swift */,
 				3A506EC023C0D26600A498C8 /* loginModel.swift */,
 				4635894423CC9B8100DBA092 /* StartPage.swift */,
 				4635894623CC9CE600DBA092 /* FeedBackPage.swift */,
