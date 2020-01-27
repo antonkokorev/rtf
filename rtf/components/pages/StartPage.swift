@@ -22,6 +22,7 @@ struct StartPage: View {
 	@ObservedObject var favUsers: usersFavouriteState
 	@ObservedObject var thanks: thanksState
 	@ObservedObject var error: ErrorState
+    @ObservedObject var historyList: usersHistoryState
 
     /**Модальные окна*/
 	@State var feedbackModal:Bool = false
@@ -62,6 +63,7 @@ struct StartPage: View {
 		self.favUsers = store.state.usersFavouriteSubState
 		self.thanks = store.state.thanksSubState
 		self.error = store.state.errorSubState
+        self.historyList = store.state.userHistorySubState
 	}
 
 	@State private var showFeedBackPage = false
@@ -161,10 +163,6 @@ struct StartPage: View {
 								cloud: true
                             )
                             Spacer()
-                            .sheet(isPresented: $historyModal) {
-                                FeedBackPage(store: self.store)
-                            }
-                            Spacer()
                             .sheet(isPresented: $statisticsModal) {
                                 StatisticsPage(store: self.store)
                             }
@@ -231,6 +229,10 @@ struct StartPage: View {
 				self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
 				self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
 			})
+            .partialSheet(presented: $historyModal) {
+                HistoryPopup(historyList: self.historyList.historyList)
+                   // .frame(height: 400)
+            }
 	}
 
 
