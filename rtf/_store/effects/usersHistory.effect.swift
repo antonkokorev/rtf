@@ -24,7 +24,7 @@ var userHistoryEffect: Middleware<AppState> = { dispatch, getState in
 			switch userRecentInvokedAction {
             case .pendingGetUserHistory(let sload, let user):
             
-                AF.request(Interceptor.serviceRequest(service: "assessment/history",  body: stringify(json: ["iPage": 0,"iSize":15, "sLoadOption":sload, "sUserId":user ]))).response { response in
+                AF.request(Interceptor.serviceRequest(service: "assessment/history",  body: stringify(json: ["iPage": 0,"iSize":12, "sLoadOption":sload, "sUserId":user ]))).response { response in
                       /* обработка ошибок */
                       switch response.result {
                       case .success:
@@ -46,7 +46,7 @@ var userHistoryEffect: Middleware<AppState> = { dispatch, getState in
                   }
                 break
 			case .pendingGetHistoryList:
-                AF.request(Interceptor.serviceRequest(service: "assessment/historyList",  body: stringify(json: ["iPage": 0,"iSize":15 ]))).response { response in
+                AF.request(Interceptor.serviceRequest(service: "assessment/historyList",  body: stringify(json: ["iPage": 0,"iSize":12 ]))).response { response in
 					/* обработка ошибок */
 					switch response.result {
 					case .success:

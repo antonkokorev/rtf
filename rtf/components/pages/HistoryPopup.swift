@@ -15,29 +15,23 @@ struct HistoryPopup: View {
     
     var body: some View {
         
-    
-//        FlowStackNoScroll(columns: 4, numItems: self.historyList.count , alignment: .leading) { item, colWidth in
-//            Button( action: {
-//                print(self.historyList)
-//            }, label: {
-//            CarouselUser(
-//                firstName: self.historyList[item].oRequester.sFirstName ?? "asdf",
-//                lastName: self.historyList[item].oRequester.sLastName ?? "asdf",
-//                imageUrl: getPhoto(self.historyList[item].oRequester.sUserId!)
-//
-//            )
-//            })}
         VStack{
-            ForEach(1..<self.historyList.count, id:\.self){item in
+            FlowStackNoScroll(columns: 4, numItems: self.historyList.count, alignment: .leading) {
+                item, colWidth in
+                VStack(alignment: .leading){
+                    Button( action: {
+                        
+                    }, label: {
                         CarouselUser(
-                            firstName: self.historyList[item].oRequester.sFirstName ?? "asdf",
-                            lastName: self.historyList[item].oRequester.sLastName ?? "asdf",
+                            firstName: self.historyList[item].oRequester.sFirstName!,
+                            lastName: self.historyList[item].oRequester.sLastName ?? " ",
                             imageUrl: getPhoto(self.historyList[item].oRequester.sUserId!)
-            
                         )
-            }}
-
-        
+                    }).buttonStyle(PlainButtonStyle())
+                }
+            }
+            Spacer()
+        }
     }
 }
 

@@ -233,7 +233,7 @@ struct StartPage: View {
 			})
             .partialSheet(presented: $historyModal) {
                 HistoryPopup(historyList: self.historyList.historyList)
-                   // .frame(height: 400)
+                .frame(height: 300)
             }
 	}
 
