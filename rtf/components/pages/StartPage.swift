@@ -228,6 +228,7 @@ struct StartPage: View {
 				self.store.dispatch(thanksActions.pendingGetThanksCount)
 				self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
 				self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
+                self.store.dispatch(usersHistoryActions.pendingGetHistoryList)
 			})
             .partialSheet(presented: $historyModal) {
                 HistoryPopup(historyList: self.historyList.historyList)

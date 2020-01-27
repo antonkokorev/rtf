@@ -11,26 +11,32 @@ import SwiftUI
 import URLImage
 
 struct HistoryPopup: View {
-    var historyList: [IUserHistoryList]
-    @State private var historyModal: Bool = false
+    var historyList: [IUserHistoryList]    
     
     var body: some View {
         
-        /** Функция, которая парсит массив на ряды, columns = кол-во столбиков в ряду **/
-        FlowStack(columns: 4, numItems: self.historyList.count , alignment: .leading) { index, colWidth in
-            CircleImage(
-                imageUrl: getPhoto(self.historyList[index].oRequester.sUserId!),
-                imageSize: BasicIconSizes.max
-            )
-            Text(self.historyList[index].oRequester.sFirstName!)
-            Text(self.historyList[index].oRequester.sLastName ?? "asdf")
-            Text(self.historyList[index].oRequester.sTitle ?? "33333")
+    
+//        FlowStackNoScroll(columns: 4, numItems: self.historyList.count , alignment: .leading) { item, colWidth in
+//            Button( action: {
+//                print(self.historyList)
+//            }, label: {
+//            CarouselUser(
+//                firstName: self.historyList[item].oRequester.sFirstName ?? "asdf",
+//                lastName: self.historyList[item].oRequester.sLastName ?? "asdf",
+//                imageUrl: getPhoto(self.historyList[item].oRequester.sUserId!)
+//
+//            )
+//            })}
+        VStack{
+            ForEach(1..<self.historyList.count, id:\.self){item in
+                        CarouselUser(
+                            firstName: self.historyList[item].oRequester.sFirstName ?? "asdf",
+                            lastName: self.historyList[item].oRequester.sLastName ?? "asdf",
+                            imageUrl: getPhoto(self.historyList[item].oRequester.sUserId!)
+            
+                        )
+            }}
 
-        }
-        
-        
-        
-        
         
     }
 }
