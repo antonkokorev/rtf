@@ -77,7 +77,7 @@ struct CircleImage:View {
             // , expireAfter: Date(timeIntervalSinceNow: 0.0) 
             return AnyView(
                 URLImage( URL(string: "\(imageUrl ?? "")")! , placeholder: { _ in
-                    Image(systemName: "user")             // Use different image for the placeholder
+                    Image( "user")             // Use different image for the placeholder
      
                         .resizable()
                         .scaledToFill()

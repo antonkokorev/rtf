@@ -13,14 +13,20 @@ import URLImage
 
 
 class TextModel: ObservableObject {
-
+    var count: Int { searchTxt.count }
+    let debouncedFunction = debounce(interval: 500, queue: DispatchQueue.main, action: {
+        print("called:  1")
+        })
     @Published var searchTxt = "" {
         didSet {
-            
-            print("set")
-            //do whatever you want
+            DispatchQueue.global(qos: .background).async {
+                self.debouncedFunction()
+            }
         }
     }
+
+    
+//    self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
 }
 
 
@@ -74,7 +80,7 @@ struct FeedBackPage: View {
         return NavigationView {
             VStack(alignment: .leading, spacing: 5) {
                 
-                if (self.search.bShowSearch) {
+                if (self.textModel.searchTxt.count > 0 ) {
                     Text("Найдите пользователя и дайте оценку ") .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
                         .font(.custom("SBSansDisplay-Regular", size: 18)).padding()
                 }else{
@@ -91,7 +97,11 @@ struct FeedBackPage: View {
            
                /** Скрывает все, если есть найденые пользователи */
                 if (self.textModel.searchTxt.count > 0 ) {
-                  //  SearchList(self.store, self.search.collection!, self.favUsers.collection)
+                    
+                
+                    SearchList(store: self.store, aSearchUsers: self.search.collection ?? [],aFavUsers: self.favUsers.collection)
+                    
+                    
                 } else {
                     Text("Недавние")
                         .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
@@ -131,7 +141,7 @@ struct FeedBackPage: View {
                         }
                     }
                     /** грид избранных юзеров, на вход [IUser] **/
-                    FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
+                FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
                 }
                 /** двигает все на верх **/
                 Spacer()

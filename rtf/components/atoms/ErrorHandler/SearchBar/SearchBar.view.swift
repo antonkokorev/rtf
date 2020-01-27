@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchBar: View {
 	
 	/** строчка поиска из компонента выше **/
-	@Binding var searchTxt: String
+	@Binding var searchTxt: String 
 	
 	var listType: String? = nil
 	
@@ -37,6 +37,7 @@ struct SearchBar: View {
 					Image("search")
 					
 					TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
+                       
 						if changed {
 							print("[changed] Searching for... \(self.searchTxt)")
 							self.store.dispatch(searchActions.resetSearch)
@@ -48,7 +49,7 @@ struct SearchBar: View {
 							print("[commited] Searching for... \(self.searchTxt)")
 							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
 						}
-					})
+                    })
 					
 					if (self.listType == nil) {
 						Button(action: {
