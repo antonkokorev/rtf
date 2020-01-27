@@ -91,7 +91,7 @@ struct FeedBackPage: View {
            
                /** Скрывает все, если есть найденые пользователи */
                 if (self.textModel.searchTxt.count > 0 ) {
-                  //  SearchList(self.store, self.search.collection!, self.favUsers.collection)
+                //    SearchList(self.store, self.search.collection!, self.favUsers.collection)
                 } else {
                     Text("Недавние")
                         .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
@@ -131,7 +131,7 @@ struct FeedBackPage: View {
                         }
                     }
                     /** грид избранных юзеров, на вход [IUser] **/
-                    FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
+                FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
                 }
                 /** двигает все на верх **/
                 Spacer()

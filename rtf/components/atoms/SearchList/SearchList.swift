@@ -19,11 +19,11 @@ struct SearchList: View {
 	
 	/** Копия для правильного отображения userData **/
 	//	@State var currentUser: ISearchUser? = ISearchUser()
-	@State var lastName: String? = ""
-	@State var firstName: String? = ""
-	@State var middleName: String? = ""
-	@State var sUserId: String? = ""
-	@State var sPositionName: String? = ""
+	@State var lastName: String = ""
+	@State var firstName: String = ""
+	@State var middleName: String = ""
+	@State var sUserId: String = ""
+	@State var sPositionName: String = ""
 	
 	/** открывает окно пользователя **/
 	@State var userPopup: Bool = false
@@ -50,13 +50,14 @@ struct SearchList: View {
 					
 					Button(action: {
 						/** создает копию данных **/
-						self.lastName = String((user.oUserData?.sPersonLastName)!)
-						self.firstName = String((user.oUserData?.sPersonFirstName)!)
-						self.middleName = String((user.oUserData?.sPersonMiddleName)!)
-						self.sUserId = String((user.oUserData?.sPersonSFID)!)
-						self.sPositionName = String((user.oUserData?.sPositionFullName)!)
-						/** включает модификатор показа **/
-						self.userPopup.toggle()
+//						self.lastName = String((user.oUserData?.sPersonLastName)!)
+//						self.firstName = String((user.oUserData?.sPersonFirstName)!)
+//						self.middleName = String((user.oUserData?.sPersonMiddleName)!)
+//						self.sUserId = String((user.oUserData?.sPersonSFID)!)
+//						self.sPositionName = String((user.oUserData?.sPositionFullName)!)
+//						/** включает модификатор показа **/
+//						self.userPopup.toggle()
+                        print("")
 					}, label: {
 						VStack{
 							/** формат имени **/
@@ -86,7 +87,7 @@ struct SearchList: View {
 		}.partialSheet(presented: self.$userPopup) {
 			VStack{
 				Group {
-					if (self.sUserId != ""){
+//					if (self.sUserId != ""){
 //						UserFeedbackPopup(
 //							firstName: self.firstName!,
 //							lastName: self.lastName!,
@@ -95,8 +96,8 @@ struct SearchList: View {
 //							position: self.sPositionName!
 //						)
 						
-					}
-					
+				//	}
+					Text("!!!!")
 				}
 				Spacer()
 
