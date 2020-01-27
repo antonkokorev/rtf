@@ -11,34 +11,49 @@ import PartialSheet
 import URLImage
 
 
+struct ITextStore{
+    var store : GlobalStore
+    var str : String
+}
+// todo: адовое извращение  для поиска с дебоунсом
 
 class TextModel: ObservableObject {
-    var count: Int { searchTxt.count }
-    let debouncedFunction = debounce(interval: 500, queue: DispatchQueue.main, action: {
-        print("called:  1")
+    let debouncedFunction = debounce(interval: 800, queue: DispatchQueue.main, action: { (this:ITextStore) in
+        this.store.dispatch(searchActions.pendingSearch(this.str))
         })
-    @Published var searchTxt = "" {
+    var store:GlobalStore
+    init(store: GlobalStore) {
+        self.store = store
+    }
+    @Published var searchTxt = ""
+        {
         didSet {
             DispatchQueue.global(qos: .background).async {
-                self.debouncedFunction()
+                self.debouncedFunction(ITextStore.init(store: self.store, str: self.searchTxt))
             }
         }
     }
-
-    
-//    self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
 }
 
 
 
 struct FeedBackPage: View {
-    //	@Environment(\.presentationMode) var  presentationMode:Binding<PresentationMode>
+    
     @State var searchTxt: String = ""
     @State var editMode: Bool = false
     @State var bAddToFav: Bool = false
     @State var estimateUserModal: Bool = false
     
-    @ObservedObject var textModel = TextModel()
+    @ObservedObject var textModel :TextModel
+    /* инициализатор store + state перед рендером */
+    init(store: GlobalStore) {
+        self.store = store
+        self.favUsers = store.state.usersFavouriteSubState
+        self.users = store.state.usersRecentSubState
+        self.search = store.state.searchSubState
+        self.error = store.state.errorSubState
+        self.textModel = TextModel(store: store)
+    }
 
 
     @State private var modalPresented: Bool = false
@@ -60,14 +75,7 @@ struct FeedBackPage: View {
         estimateUserModal = true
         print(method)
     }
-    /* инициализатор store + state перед рендером */
-    init(store: GlobalStore) {
-        self.store = store
-        self.favUsers = store.state.usersFavouriteSubState
-        self.users = store.state.usersRecentSubState
-        self.search = store.state.searchSubState
-        self.error = store.state.errorSubState
-    }
+
     func changeEditMode (_ mode: Bool) -> Void {
         self.editMode = !mode
     }
@@ -89,19 +97,14 @@ struct FeedBackPage: View {
                         .font(.custom("SBSansDisplay-Regular", size: 18))
                         .padding()
                 }
-                
-                
 
                 /** Поиск  **/
                 SearchBar(self.store, $textModel.searchTxt, nil)
            
                /** Скрывает все, если есть найденые пользователи */
                 if (self.textModel.searchTxt.count > 0 ) {
-                    
                 
-                    SearchList(store: self.store, aSearchUsers: self.search.collection ?? [],aFavUsers: self.favUsers.collection)
-                    
-                    
+                    SearchList(store: self.store, aSearchUsers: self.search.collection ?? [],aFavUsers: self.favUsers.collection, action:self.userClick)
                 } else {
                     Text("Недавние")
                         .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
@@ -159,21 +162,5 @@ struct FeedBackPage: View {
         }
         .toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
         
-        //		.onAppear(perform: {
-        //			/** загружает избранных пользователей [IUser] **/
-        //			self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
-        //
-        //			/** загружает недавних пользователей [IUser] **/
-        //			self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
-        //		})
-        
     }
 }
-
-
-
-//struct FeedBackPage_Preview: PreviewProvider {
-//	static var previews: some View {
-//		FeedBackPage(store: AppMain().store)
-//	}
-//}

@@ -29,7 +29,7 @@ struct UserFeedbackPopup: View {
                     imageSize: 90
                 ).padding(.bottom, 15.0)
                 }
-                Text(user.sFullName ?? "")
+                Text("\(user.sLastName ?? "") \(user.sFirstName ?? "") \(user.sMiddleName ?? "")")
                     .font(Font.Typography.sizingFont(font: .bold, size: .H2))
                     .foregroundColor(Color.RTFPallete.textDefault)
                     .padding(.bottom, 4.0)
@@ -46,7 +46,7 @@ struct UserFeedbackPopup: View {
                 Button(action: {
                     //Запросить обратную связь
                     self.action("post")
-                    print(self.user)
+                  
                 },
                        label: {
                         ZStack{
@@ -96,31 +96,11 @@ struct UserFeedbackPopup: View {
                 Spacer()
             }.padding(.bottom, 30)
             
-            //Футер
-//            Button(action:{
-//                //Переход в историю пользователя
-//            } ,
-//                   label: {
-//                    Text("История оценок")
-//                        .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
-//                        .foregroundColor(Color.RTFPallete.buttonDefault)
-//            }).buttonStyle(PlainButtonStyle())
-            
             Spacer(minLength: 20)
             
-        }//.frame(height: 400, alignment: .center)
+        }
             .padding(.horizontal, 30)
             .animation(.none)
-        //.background(Color.red)
     }
 }
 
-//struct UserFeedbackPopup_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserFeedbackPopup(
-//			firstName: "Иван",
-//			lastName: "Петров",
-//			middleName: "Анатольевич",
-//            imageUrl:"https://avatars.mds.yandex.net/get-pdb/1054037/bf8c96bf-9986-4c8a-940b-d49ce998f906/s1200", position: "Управляющий директор - начальник управления")
-//    }
-//}

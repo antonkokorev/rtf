@@ -91,6 +91,8 @@
 		46B9530923DACE0C009889EC /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EA22A96823D617F7008D9D6F /* Toast */; };
 		46B9530C23DAD312009889EC /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 46B9530B23DAD312009889EC /* QGrid */; };
 		46B9530E23DECA1D009889EC /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B9530D23DECA1D009889EC /* Debounce.swift */; };
+		46B9531123DEDE70009889EC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46B9531023DEDE70009889EC /* RxSwift */; };
+		46B9531323DEDE70009889EC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 46B9531223DEDE70009889EC /* RxCocoa */; };
 		46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAC99B23CCA80C00037D36 /* Slider.swift */; };
 		46F4662123D9A55200352F03 /* StatAttrInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4662023D9A55200352F03 /* StatAttrInfo.swift */; };
 		53D593397AC07E9A2E5C6553 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5909AB9DF98E0693C3C90 /* Grid.swift */; };
@@ -297,6 +299,8 @@
 				46B9530823DACE0C009889EC /* PartialSheet in Frameworks */,
 				46B9530923DACE0C009889EC /* Toast in Frameworks */,
 				46B9530623DACE0C009889EC /* ReSwift in Frameworks */,
+				46B9531323DEDE70009889EC /* RxCocoa in Frameworks */,
+				46B9531123DEDE70009889EC /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,6 +825,8 @@
 				469BA54223D0943500F6DD9D /* PartialSheet */,
 				EA22A96823D617F7008D9D6F /* Toast */,
 				46B9530B23DAD312009889EC /* QGrid */,
+				46B9531023DEDE70009889EC /* RxSwift */,
+				46B9531223DEDE70009889EC /* RxCocoa */,
 			);
 			productName = rtf;
 			productReference = 3A506EA623C0D24E00A498C8 /* RTF.app */;
@@ -857,6 +863,7 @@
 				469BA54123D0943500F6DD9D /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				EA22A96723D617F7008D9D6F /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				46B9530A23DAD312009889EC /* XCRemoteSwiftPackageReference "QGrid" */,
+				46B9530F23DEDE70009889EC /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 3A506EA723C0D24E00A498C8 /* Products */;
 			projectDirPath = "";
@@ -1250,6 +1257,14 @@
 				minimumVersion = 0.1.3;
 			};
 		};
+		46B9530F23DEDE70009889EC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		EA22A96723D617F7008D9D6F /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -1285,6 +1300,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 46B9530A23DAD312009889EC /* XCRemoteSwiftPackageReference "QGrid" */;
 			productName = QGrid;
+		};
+		46B9531023DEDE70009889EC /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46B9530F23DEDE70009889EC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		46B9531223DEDE70009889EC /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46B9530F23DEDE70009889EC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
 		};
 		EA22A96823D617F7008D9D6F /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
