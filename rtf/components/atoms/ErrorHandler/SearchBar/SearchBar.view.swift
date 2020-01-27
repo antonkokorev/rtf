@@ -7,12 +7,12 @@
 //
 
 import SwiftUI
-
+import RxSwift
 struct SearchBar: View {
 	
 	/** строчка поиска из компонента выше **/
 	@Binding var searchTxt: String 
-	
+	var tmp = "2145"
 	var listType: String? = nil
 	
 	/** нужно для диспатча эвента **/
@@ -22,6 +22,9 @@ struct SearchBar: View {
 		/** binding синтакс swift 4 **/
 		self._searchTxt = searchTxt
 		self.listType = listType
+        
+       
+    
 	}
 	
 	

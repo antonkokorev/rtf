@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import RxSwift
 /** Функциональный компонент, ререндер при изменение переменной users **/
 struct SearchList: View {
     /** глобальный стор*/
@@ -16,23 +16,15 @@ struct SearchList: View {
     var aSearchUsers: [ISearchResults]
     /** Сотрудники для сравнения **/
     var aFavUsers: [IUser]?
+    
+    var action:(_ user:IUser)->Void
     /** открывает окно пользователя **/
     @State var showUserPopup: Bool = false
-    
-    //	/** Копия для правильного отображения userData **/
-    //	@State var currentUser: ISearchUser? = ISearchUser()
-    //	@State var lastName: String = ""
-    //	@State var firstName: String = ""
-    //	@State var middleName: String = ""
-    //	@State var sUserId: String = ""
-    //	@State var sPositionName: String = ""
-    //
-    
-    
     
     
     
     var body: some View {
+        
         //        Button(action: {
         //            print(self.aSearchUsers)
         //                        }, label: {Text("!!!!!!!!!!!!!!!!!!!")})
@@ -41,25 +33,12 @@ struct SearchList: View {
             ForEach(aSearchUsers, id: \.self) { user in
                 
                 HStack {
-//
-//                    CircleImage(
-//                        imageUrl: getPhoto((user.oUserData?.sPersonSFID)!),
-//                        imageSize: 60,
-//                        backgroundColor: .black
-//                    )
-                    Text("!!!!!!!!!!!")
-                    
-                    Button(action: {
-                        /** создает копию данных **/
-                        //						self.lastName = String((user.oUserData?.sPersonLastName)!)
-                        //						self.firstName = String((user.oUserData?.sPersonFirstName)!)
-                        //						self.middleName = String((user.oUserData?.sPersonMiddleName)!)
-                        //						self.sUserId = String((user.oUserData?.sPersonSFID)!)
-                        //						self.sPositionName = String((user.oUserData?.sPositionFullName)!)
-                        //						/** включает модификатор показа **/
-                        //						self.userPopup.toggle()
-                        print("")
-                    }, label: {
+                    CircleImage(
+                        imageUrl: getPhoto((user.oUserData?.sPersonSFID)!),
+                        imageSize: 60,
+                        backgroundColor: .black
+                    )
+
                         VStack{
                             /** формат имени **/
                             HStack {
@@ -79,13 +58,22 @@ struct SearchList: View {
                                 
                                 Spacer()
                             }
-                        }
-                    })
+                        }.onTapGesture {
+                            var userTmp:IUser = initIUser()
+                            userTmp.sUserId = user.oUserData?.sPersonSFID
+                            userTmp.sFirstName =  user.oUserData?.sPersonFirstName
+                            userTmp.sMiddleName = user.oUserData?.sPersonMiddleName
+                            userTmp.sLastName = user.oUserData?.sPersonLastName
+                            userTmp.sTitle = user.oUserData?.sPositionName
+                            self.action(userTmp)
+                    }
                     
                     Spacer()
+                }.onTapGesture {
+                   print("QQQQQQQQ")
                 }
             }
-        }.partialSheet(presented: self.$showUserPopup) {
+        }.modifier(DismissingKeyboard()).partialSheet(presented: self.$showUserPopup) {
             VStack{
                 
                 Text("!!!!")
@@ -97,7 +85,20 @@ struct SearchList: View {
     }
     
 }
-
+struct DismissingKeyboard: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .onTapGesture {
+                let keyWindow = UIApplication.shared.connectedScenes
+                        .filter({$0.activationState == .foregroundActive})
+                        .map({$0 as? UIWindowScene})
+                        .compactMap({$0})
+                        .first?.windows
+                        .filter({$0.isKeyWindow}).first
+                keyWindow?.endEditing(true)
+        }
+    }
+}
 //struct SearchList_Previews: PreviewProvider {
 //    static var previews: some View {
 //        SearchList()

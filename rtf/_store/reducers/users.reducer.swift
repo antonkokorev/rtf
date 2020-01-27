@@ -14,17 +14,17 @@ struct IUser: Codable, Equatable, Identifiable, Hashable {
 	/* Нужно для Identifiable */
 	let id = UUID()
     /** ID */
-    let sUserId: String?
+    var sUserId: String?
     /** Имя */
-    let sFirstName: String?
+    var sFirstName: String?
     /** Фамилия */
-    let sMiddleName: String?
+    var sMiddleName: String?
     /** Отчество */
-    let sLastName: String?
+    var sLastName: String?
     /** Полное имя */
-    let sFullName: String?
+    var sFullName: String?
     /** Должность */
-    let sTitle: String?
+    var sTitle: String?
     /** Функциональный блок */
     let sStructure: String?
     /** Рейтинг */
