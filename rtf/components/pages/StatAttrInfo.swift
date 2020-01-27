@@ -23,7 +23,7 @@ struct StatAttrInfo: View {
             Text(self.title)
                 .font(Font.Typography.sizingFont(font: .bold, size: .H2))
                 .padding(.top, 40)
-                .padding(.leading, 30)
+                .padding(.horizontal, 30)
             AttrComp(data: attrData.attrCollection)
             Spacer()
 
