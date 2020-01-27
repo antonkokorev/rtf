@@ -11,6 +11,7 @@ import SwiftUI
 import URLImage
 
 struct HistoryPopup: View {
+    @State var historyPage: Bool = false
     var historyList: [IUserHistoryList]    
     
     var body: some View {
@@ -20,7 +21,7 @@ struct HistoryPopup: View {
                 item, colWidth in
                 VStack(alignment: .leading){
                     Button( action: {
-                        
+                        self.historyPage = true
                     }, label: {
                         CarouselUser(
                             firstName: self.historyList[item].oRequester.sFirstName!,
@@ -28,6 +29,9 @@ struct HistoryPopup: View {
                             imageUrl: getPhoto(self.historyList[item].oRequester.sUserId!)
                         )
                     }).buttonStyle(PlainButtonStyle())
+                }
+                .sheet(isPresented: self.$historyPage) {
+                    HistoryPage()
                 }
             }
             Spacer()

@@ -13,6 +13,8 @@
 		25657D1723DB13C100F85472 /* HistoryPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25657D1623DB13C100F85472 /* HistoryPopup.swift */; };
 		25657D1923DEC9D300F85472 /* FlowStackNoScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25657D1823DEC9D300F85472 /* FlowStackNoScroll.swift */; };
 		256638A723CF3626003D1DD0 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256638A623CF3626003D1DD0 /* ProfileMenu.swift */; };
+		259DF42323DEE85500652A9A /* HistoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DF42223DEE85500652A9A /* HistoryPage.swift */; };
+		259DF42623DF185700652A9A /* HistoryAssessmentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DF42523DF185700652A9A /* HistoryAssessmentCard.swift */; };
 		259F8DC623D85C66009CC22F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259F8DC523D85C66009CC22F /* Comment.swift */; };
 		25B92A2923C10EB80063D4DE /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B92A2823C10EB80063D4DE /* Like.swift */; };
 		25BB098C23D6DC6900E069E6 /* UserFeedbackPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BB098B23D6DC6900E069E6 /* UserFeedbackPopup.swift */; };
@@ -153,6 +155,8 @@
 		25657D1623DB13C100F85472 /* HistoryPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPopup.swift; sourceTree = "<group>"; };
 		25657D1823DEC9D300F85472 /* FlowStackNoScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowStackNoScroll.swift; sourceTree = "<group>"; };
 		256638A623CF3626003D1DD0 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
+		259DF42223DEE85500652A9A /* HistoryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPage.swift; sourceTree = "<group>"; };
+		259DF42523DF185700652A9A /* HistoryAssessmentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAssessmentCard.swift; sourceTree = "<group>"; };
 		259F8DC523D85C66009CC22F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		25B92A2823C10EB80063D4DE /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		25BB098B23D6DC6900E069E6 /* UserFeedbackPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedbackPopup.swift; sourceTree = "<group>"; };
@@ -331,6 +335,14 @@
 			path = ActionCard;
 			sourceTree = "<group>";
 		};
+		259DF42423DF181200652A9A /* HistoryCards */ = {
+			isa = PBXGroup;
+			children = (
+				259DF42523DF185700652A9A /* HistoryAssessmentCard.swift */,
+			);
+			path = HistoryCards;
+			sourceTree = "<group>";
+		};
 		259F8DC423D85C54009CC22F /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +395,7 @@
 		3A2A88BE23C77E09003F15FE /* molecules */ = {
 			isa = PBXGroup;
 			children = (
+				259DF42423DF181200652A9A /* HistoryCards */,
 				EA7FD2D123DE34BB00FF1181 /* FeedBackHistoryScore */,
 				EA7FD2CE23DE2E1200FF1181 /* FeedBackHistoryUser */,
 				EA09758D23D8A623002B3E8E /* UserDeleteIcon */,
@@ -417,16 +430,16 @@
 		3A506EA823C0D24E00A498C8 /* rtf */ = {
 			isa = PBXGroup;
 			children = (
-				EA9211D023C53FAD00A0CB5B /* _assets */,
 				3A506EC123C0D26600A498C8 /* _api */,
+				EA9211D023C53FAD00A0CB5B /* _assets */,
 				3A506EC323C0D26600A498C8 /* _store */,
-				3A506EEC23C0D26700A498C8 /* components */,
 				3A506EA923C0D24E00A498C8 /* AppDelegate.swift */,
-				3A506EAB23C0D24E00A498C8 /* SceneDelegate.swift */,
 				3A506EAF23C0D24E00A498C8 /* Assets.xcassets */,
-				3A506EB423C0D24E00A498C8 /* LaunchScreen.storyboard */,
+				3A506EEC23C0D26700A498C8 /* components */,
 				3A506EB723C0D24E00A498C8 /* Info.plist */,
+				3A506EB423C0D24E00A498C8 /* LaunchScreen.storyboard */,
 				3A506EB123C0D24E00A498C8 /* Preview Content */,
+				3A506EAB23C0D24E00A498C8 /* SceneDelegate.swift */,
 			);
 			path = rtf;
 			sourceTree = "<group>";
@@ -447,7 +460,6 @@
 				EAB9E83423D0C22500A92EA2 /* FlowStack.swift */,
 				25657D1823DEC9D300F85472 /* FlowStackNoScroll.swift */,
 				46B9530D23DECA1D009889EC /* Debounce.swift */,
-
 			);
 			path = _api;
 			sourceTree = "<group>";
@@ -593,6 +605,7 @@
 				4635894623CC9CE600DBA092 /* FeedBackPage.swift */,
 				25BB098B23D6DC6900E069E6 /* UserFeedbackPopup.swift */,
 				4657BFE523CDBF3500604801 /* StatisticsPage.swift */,
+				259DF42223DEE85500652A9A /* HistoryPage.swift */,
 				25657D1623DB13C100F85472 /* HistoryPopup.swift */,
 				25CC6E1523D07403000E1EAD /* Profile.swift */,
 				46F4662023D9A55200352F03 /* StatAttrInfo.swift */,
@@ -908,6 +921,7 @@
 				3A506F0F23C0D26700A498C8 /* boss.reducer.swift in Sources */,
 				3A506F0B23C0D26700A498C8 /* feedbackProps.reducer.swift in Sources */,
 				3A506F0323C0D26700A498C8 /* comparison.actions.swift in Sources */,
+				259DF42623DF185700652A9A /* HistoryAssessmentCard.swift in Sources */,
 				25BB098C23D6DC6900E069E6 /* UserFeedbackPopup.swift in Sources */,
 				3A2A88BD23C769DA003F15FE /* ActionCard.swift in Sources */,
 				EA7166A823D1C068004B9CE9 /* SearchList.swift in Sources */,
@@ -948,6 +962,7 @@
 				EA22A96D23D62C70008D9D6F /* error.actions.swift in Sources */,
 				256638A723CF3626003D1DD0 /* ProfileMenu.swift in Sources */,
 				25B92A2923C10EB80063D4DE /* Like.swift in Sources */,
+				259DF42323DEE85500652A9A /* HistoryPage.swift in Sources */,
 				46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */,
 				259F8DC623D85C66009CC22F /* Comment.swift in Sources */,
 				4657BFF023CDD2D100604801 /* SearchBar.view.swift in Sources */,
