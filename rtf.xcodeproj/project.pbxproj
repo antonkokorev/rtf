@@ -169,7 +169,7 @@
 		3A2A88BC23C769DA003F15FE /* ActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCard.swift; sourceTree = "<group>"; };
 		3A2A88BF23C86576003F15FE /* Topography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topography.swift; sourceTree = "<group>"; };
 		3A2A88C123C865D1003F15FE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		3A506EA623C0D24E00A498C8 /* Обратная связь.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Обратная связь.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A506EA623C0D24E00A498C8 /* RTF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A506EA923C0D24E00A498C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A506EAB23C0D24E00A498C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3A506EAF23C0D24E00A498C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -422,7 +422,7 @@
 		3A506EA723C0D24E00A498C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A506EA623C0D24E00A498C8 /* Обратная связь.app */,
+				3A506EA623C0D24E00A498C8 /* RTF.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -823,7 +823,7 @@
 				46B9530B23DAD312009889EC /* QGrid */,
 			);
 			productName = rtf;
-			productReference = 3A506EA623C0D24E00A498C8 /* Обратная связь.app */;
+			productReference = 3A506EA623C0D24E00A498C8 /* RTF.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1160,7 +1160,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = triton.com.team.rtf;
-				PRODUCT_NAME = "Обратная связь";
+				PRODUCT_NAME = RTF;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1180,7 +1180,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = triton.com.team.rtf;
-				PRODUCT_NAME = "Обратная связь";
+				PRODUCT_NAME = RTF;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
