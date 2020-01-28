@@ -34,10 +34,9 @@ struct UserDeleteIcon: View {
 						imageSize: 20,
 						icon: "xmark",
 						iconSize: 10,
-						shadowOn: true,
-						backgroundColor: Color(red:0.65, green:0.71, blue:0.78)
+                        backgroundColor: Color.white
 					)
-						.offset(x: 20, y: -20)
+						.offset(x: 25, y: -30)
 						.foregroundColor(.white)
                         .onTapGesture {
                             self.store.dispatch(usersFavouriteActions.pendingDeleteFromFav(self.sUserId))

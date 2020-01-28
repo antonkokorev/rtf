@@ -19,18 +19,25 @@ struct FavouriteUsersGrid: View {
 	var body: some View {
 		VStack {
             /** Функция, которая парсит массив на ряды, columns = кол-во столбиков в ряду **/
-            FlowStack(columns: 4, numItems: 100 , alignment: .leading) { index, colWidth in
+            FlowStackNoScroll(columns: 4, numItems: 100 , alignment: .leading) { index, colWidth in
                 /** Объединение в одну вертикальную ячейку **/
                 if(index < self.users.count + 1){
                     VStack{
                         /** Выбор либо кнопки добавить, либо пикчи челика  **/
                         if(index == 0){
+                            VStack(spacing: 0){
                             CircleImage(
                                 imageSize: 60,
                                 icon: "add",
                                 iconSize: BasicIconSizes.max,
                                 backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-                            ).sheet(isPresented: self.$usersModal) {
+                            )
+                            Text("Добавить \n коллегу")
+                                .font(Font.Typography.sizingFont(font: .semibold, size: .H5))
+                                .frame(alignment: .center)
+                                .fixedSize(horizontal: false, vertical: true)
+                           
+                            }.sheet(isPresented: self.$usersModal) {
                                 SearchFavourite(self.store)
                             }.onTapGesture {
                                 print("click")
@@ -53,7 +60,7 @@ struct FavouriteUsersGrid: View {
                         }
 				}
 			}
-		}
+        }
 	}
 }
 

@@ -50,7 +50,7 @@ struct FeedBackPage: View {
         self.search = store.state.searchSubState
         self.error = store.state.errorSubState
         self.textModel = TextModel(store: store)
-    
+        
     }
     
     
@@ -82,13 +82,13 @@ struct FeedBackPage: View {
         }
         return
             VStack(alignment: .leading, spacing: 0) {
-   
+                
                 VStack(alignment:.leading){
                     Text("Коллеги")
                         .font(Font.Typography.sizingFont(font: .bold, size: .H1))
                         .padding(.bottom, 10)
                     
-                     if (self.textModel.searchText.count > 0 ) {
+                    if (self.textModel.searchText.count > 0 ) {
                         Text("Найдите сотрудника Сбербанка, которому хотите дать обратную связь")
                             .font(Font.Typography.sizingFont(font: .regular, size: .H3))
                             .foregroundColor(Color.RTFPallete.textSecondary)
@@ -103,8 +103,9 @@ struct FeedBackPage: View {
                 
                 
                 /** Поиск  **/
-              
+                
                 SearchBar(store: self.store, searchTxt: $textModel.searchText)
+                    .padding(.bottom, 20)
                 
                 /** Скрывает все, если есть найденые пользователи */
                 if (self.textModel.searchText.count > 0 ) {
@@ -112,20 +113,21 @@ struct FeedBackPage: View {
                     SearchList(store: self.store, aSearchUsers: self.search.collection ,aFavUsers: self.favUsers.collection, action:self.userClick)
                 } else {
                     Text("Недавние")
-                        .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
-                        .font(.custom("SBSansDisplay-Regular", size: 20))
-                        .bold()
-                        .padding()
+                        .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                        .foregroundColor(Color.RTFPallete.textDefault)
+                    
                     /** Карусель с юзерами **/
                     Carousel(self.users.collection, action: userClick)
+                        .padding(.leading, -30)
+                        .padding(.top, 15)
+                        .padding(.bottom, 30)
                     
                     /** Кнопки для управления юзерами **/
                     HStack{
                         Text("Избранное")
-                            .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
-                            .font(.custom("SBSansDisplay-Regular", size: 20))
-                            .bold()
-                            .padding()
+                            .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                            .foregroundColor(Color.RTFPallete.textDefault)
+                        
                         Spacer()
                         if (self.editMode){
                             Button(action: {
@@ -133,40 +135,39 @@ struct FeedBackPage: View {
                                 
                             }, label: {
                                 Text("Сохранить")
-                                    .foregroundColor(Color(red:0.20, green:0.32, blue:1.00))
-                                    .font(.custom("SBSansDisplay-Regular", size: 18))
-                                    .padding()
+                                    .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                                    .foregroundColor(Color.RTFPallete.textSecondary)
                             })
                         } else {
                             Button(action: {
                                 self.changeEditMode(self.editMode)
                             }, label: {
                                 Text("Изменить")
-                                    .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                                    .font(.custom("SBSansDisplay-Regular", size: 18))
-                                    .padding()
+                                    .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                                    .foregroundColor(Color.RTFPallete.textSecondary)
                             })
                         }
                     }
+                    .padding(.bottom, 15)
                     /** грид избранных юзеров, на вход [IUser] **/
-                   
-                    FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode, action:self.userClick).padding(.top ,35)
-            
+                    
+                    FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode, action:self.userClick)
+                    Spacer()
                 }
                 /** двигает все на верх **/
                 Spacer()
             }
             .padding(.horizontal, 30)
-        .modifier(DismissingKeyboard()).partialSheet(presented: $modalPresented) {
-            VStack {
-                UserFeedbackPopup(user: self.selectedUser, action:self.methodClick)
-                    .frame(height: 450)
-                
+            .modifier(DismissingKeyboard()).partialSheet(presented: $modalPresented) {
+                VStack {
+                    UserFeedbackPopup(user: self.selectedUser, action:self.methodClick)
+                        .frame(height: 450)
+                    
+                }
+            } .sheet(isPresented: $estimateUserModal) {
+                StatisticsPage(store: self.store)
             }
-        } .sheet(isPresented: $estimateUserModal) {
-            StatisticsPage(store: self.store)
-        }
-        .toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
+            .toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
         
     }
 }
