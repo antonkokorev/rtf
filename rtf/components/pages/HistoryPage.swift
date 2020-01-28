@@ -37,6 +37,7 @@ struct  HistoryPage: View {
                 .padding(.leading, 30)
                 
                 //---------------------------------------------------------------------
+                //Цикл вывода оценок
                 HistoryAssessmentCard()
                 HistoryAssessmentCard()
                 
