@@ -80,18 +80,27 @@ struct FeedBackPage: View {
                 self.error.errorHappened = false
             }
         }
-        return NavigationView {
-            VStack(alignment: .leading, spacing: 5) {
-                
-                if (self.textModel.searchText.count > 0 ) {
-                    Text("Найдите пользователя  по ФИО, блоку, почте  и оцените его.") .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                        .font(.custom("SBSansDisplay-Regular", size: 18)).padding()
-                }else{
-                    Text("Запросить или дать обратную связь у коллег для развития")
-                        .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                        .font(.custom("SBSansDisplay-Regular", size: 18))
-                        .padding()
+        return
+            VStack(alignment: .leading, spacing: 0) {
+   
+                VStack(alignment:.leading){
+                    Text("Коллеги")
+                        .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                        .padding(.bottom, 10)
+                    
+                     if (self.textModel.searchText.count > 0 ) {
+                        Text("Найдите сотрудника Сбербанка, которому хотите дать обратную связь")
+                            .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                            .foregroundColor(Color.RTFPallete.textSecondary)
+                    }else{
+                        Text("Обратная связь по компетенциям и профессиональным навыкам")
+                            .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                            .foregroundColor(Color.RTFPallete.textSecondary)
+                    }
                 }
+                .padding(.top, 40)
+                .padding(.bottom, 20)
+                
                 
                 /** Поиск  **/
               
@@ -147,10 +156,8 @@ struct FeedBackPage: View {
                 /** двигает все на верх **/
                 Spacer()
             }
-            .navigationBarTitle("Обратная связь")
-     
-            
-        }.modifier(DismissingKeyboard()).partialSheet(presented: $modalPresented) {
+            .padding(.horizontal, 30)
+        .modifier(DismissingKeyboard()).partialSheet(presented: $modalPresented) {
             VStack {
                 UserFeedbackPopup(user: self.selectedUser, action:self.methodClick)
                     .frame(height: 450)
