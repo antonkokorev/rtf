@@ -108,7 +108,7 @@ struct Attribute: View {
                 }else{
                     CircleImage(
                         //imageSize: BasicIconSizes.max,
-                        icon: "attributeIcon",
+                        icon: "AttributeIcon",
                         iconSize: 40,
                         backgroundColor: Color.RTFPallete.baseColor.iconGray)
                 }
