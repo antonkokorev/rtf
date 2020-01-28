@@ -16,23 +16,32 @@ struct  HistoryPage: View {
         
         
         VStack(alignment:.leading){
-            //---------------------------------------------------------------------
-            /** Тест и меню*/
-            VStack(alignment:.leading){
-                Text("История")
-                    .font(Font.Typography.sizingFont(font: .bold, size: .H1))
-                   
-                HorizontalMenu( texts: ["Все", "Входящие", "Исходящие"],
-                                active: $activeHistoryPage,
-                                activeFontColor: Color.RTFPallete.textDefault,
-                                passiveFontColor: Color.RTFPallete.textSecondary,
-                                buttonSpace:5
-                )
-            }.padding(.top, 40)
-            .padding(.leading, 30)
-            //---------------------------------------------------------------------
-            HistoryAssessmentCard()
-
+            ScrollView(.vertical, showsIndicators: false){ //---------------------------------------------------------------------
+                /** Тест и меню*/
+                
+                VStack(alignment:.leading){
+                    Text("История")
+                        .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                    HStack{
+                        HorizontalMenu( texts: ["Все", "Входящие", "Исходящие"],
+                                        active: $activeHistoryPage,
+                                        activeFontColor: Color.RTFPallete.textDefault,
+                                        passiveFontColor: Color.RTFPallete.textSecondary,
+                                        horizontalPadding: 10 ,
+                                        buttonSpace:5
+                                        
+                        ).padding(.leading, -10)
+                        Spacer()
+                    }
+                }.padding(.top, 40)
+                .padding(.leading, 30)
+                
+                //---------------------------------------------------------------------
+                HistoryAssessmentCard()
+                HistoryAssessmentCard()
+                
+            }
+            
         }
     }
 }
