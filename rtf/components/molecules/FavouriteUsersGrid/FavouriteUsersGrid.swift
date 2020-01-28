@@ -29,7 +29,7 @@ struct FavouriteUsersGrid: View {
 	
 	
 	var body: some View {
-		NavigationView {
+		VStack {
 			/** Функция, которая парсит массив на ряды, columns = кол-во столбиков в ряду **/
 			FlowStack(columns: 4, numItems: self.users.count , alignment: .leading) { index, colWidth in
 				/** Объединение в одну вертикальную ячейку **/
@@ -63,13 +63,8 @@ struct FavouriteUsersGrid: View {
 					Text(self.users[index].sLastName!)
 						.font(Font.Typography.sizingFont(font: .semibold, size: .H5))
 						.frame(width: 80, height: 13, alignment: .center)
-					
-					/** Выравнивание по топу клетки **/
-					Spacer()
 				}
 			}
-			.navigationBarTitle("")
-			.navigationBarHidden(true)
 		}
 	}
 }

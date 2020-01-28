@@ -20,7 +20,7 @@ struct ITextStore{
 class TextModel: ObservableObject {
     let debouncedFunction = debounce(interval: 800, queue: DispatchQueue.main, action: { (this:ITextStore) in
         this.store.dispatch(searchActions.pendingSearch(this.str))
-        })
+    })
     var store:GlobalStore
     init(store: GlobalStore) {
         self.store = store
@@ -54,8 +54,8 @@ struct FeedBackPage: View {
         self.error = store.state.errorSubState
         self.textModel = TextModel(store: store)
     }
-
-
+    
+    
     @State private var modalPresented: Bool = false
     @State var selectedUser:IUser = initIUser()
     @ObservedObject var favUsers: usersFavouriteState
@@ -75,7 +75,7 @@ struct FeedBackPage: View {
         estimateUserModal = true
         print(method)
     }
-
+    
     func changeEditMode (_ mode: Bool) -> Void {
         self.editMode = !mode
     }
@@ -85,47 +85,60 @@ struct FeedBackPage: View {
                 self.error.errorHappened = false
             }
         }
-        return NavigationView {
-            VStack(alignment: .leading, spacing: 5) {
+        return
+            VStack(alignment: .leading, spacing: 0) {
+                //---------------------------------------------------------------------
+                /**Header*/
                 
-                if (self.textModel.searchTxt.count > 0 ) {
-                    Text("Найдите пользователя и дайте оценку ") .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                        .font(.custom("SBSansDisplay-Regular", size: 18)).padding()
-                }else{
-                    Text("Запросить или дать обратную связь у коллег для развития")
-                        .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                        .font(.custom("SBSansDisplay-Regular", size: 18))
-                        .padding()
+                VStack(alignment:.leading){
+                    Text("Коллеги")
+                        .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                        .padding(.bottom, 10)
+                    
+                    if (self.textModel.searchTxt.count > 0 ) {
+                        Text("Найдите сотрудника Сбербанка, которому хотите дать обратную связь")
+                            .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                            .foregroundColor(Color.RTFPallete.textSecondary)
+                    }else{
+                        Text("Обратная связь по компетенциям и профессиональным навыкам")
+                            .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                            .foregroundColor(Color.RTFPallete.textSecondary)
+                    }
                 }
-
+                .padding(.top, 40)
+                .padding(.bottom, 20)
+                
+                //---------------------------------------------------------------------
+                
+                
                 /** Поиск  **/
                 SearchBar(self.store, $textModel.searchTxt, nil)
-           
-               /** Скрывает все, если есть найденые пользователи */
-                if (self.textModel.searchTxt.count > 0 ) {
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
                 
+                /** Скрывает все, если есть найденые пользователи */
+                if (self.textModel.searchTxt.count > 0 ) {
+                    
                     SearchList(store: self.store, aSearchUsers: self.search.collection ?? [],aFavUsers: self.favUsers.collection, action:self.userClick)
                 } else {
                     Text("Недавние")
-                        .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
-                        .font(.custom("SBSansDisplay-Regular", size: 20))
-                        .bold()
-                        .padding()
+                        .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                        .foregroundColor(Color.RTFPallete.textDefault)
+                    
                     /** Карусель с юзерами **/
                     Carousel(self.users.collection, action: userClick)
-
+                    
                     /** Кнопки для управления юзерами **/
                     HStack{
                         Text("Избранное")
-                            .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
-                            .font(.custom("SBSansDisplay-Regular", size: 20))
-                            .bold()
-                            .padding()
+                            .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                            .foregroundColor(Color.RTFPallete.textDefault)
+                        
                         Spacer()
                         if (self.editMode){
                             Button(action: {
                                 self.changeEditMode(self.editMode)
-
+                                
                             }, label: {
                                 Text("Сохранить")
                                     .foregroundColor(Color(red:0.20, green:0.32, blue:1.00))
@@ -144,23 +157,23 @@ struct FeedBackPage: View {
                         }
                     }
                     /** грид избранных юзеров, на вход [IUser] **/
-                FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
+                    FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
                 }
                 /** двигает все на верх **/
                 Spacer()
-            }
-            .navigationBarTitle("Обратная связь")
-            
-        }.partialSheet(presented: $modalPresented) {
-            VStack {
-                UserFeedbackPopup(user: self.selectedUser, action:self.methodClick)
-                    .frame(height: 450)
+                
                 
             }
-        } .sheet(isPresented: $estimateUserModal) {
-            StatisticsPage(store: self.store)
-        }
-        .toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
+            .padding(.horizontal, 30)
+            .partialSheet(presented: $modalPresented) {
+                VStack {
+                    UserFeedbackPopup(user: self.selectedUser, action:self.methodClick)
+                        .frame(height: 450)
+                }
+            } .sheet(isPresented: $estimateUserModal) {
+                StatisticsPage(store: self.store)
+            }
+            .toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
         
     }
 }
