@@ -58,12 +58,13 @@ var usersFavouriteEffect: Middleware<AppState> = { dispatch, getState in
 					switch response.result {
 					case .success:
 						do {
-//							debugPrint(response)
+							debugPrint(response)
 							let data = try JSONDecoder().decode([addFavBody].self, from: response.data!)
+                            //debugPrint(response)
 							/** обновляет **/
 							dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
 						} catch {
-							print("can't parse data")
+							print("can't parse data pendingAddToFav")
 							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
 						}
 						break;
@@ -81,7 +82,7 @@ var usersFavouriteEffect: Middleware<AppState> = { dispatch, getState in
 					switch response.result {
 					case .success:
 						do {
-							debugPrint(response)
+							//debugPrint(response)
 							let data = try JSONDecoder().decode([addFavBody].self, from: response.data!)
 							/** обновляет **/
 							dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)

@@ -29,7 +29,7 @@ struct Toast<Presenting>: View where Presenting: View {
 			ZStack(alignment: .bottom) {
 				
 				self.presenting()
-					.blur(radius: self.isShowing ? 15 : 0)
+					//.blur(radius: self.isShowing ? 15 : 0)
 				
 				VStack {
 					self.text

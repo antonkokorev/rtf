@@ -29,10 +29,7 @@ struct UserDeleteIcon: View {
 				backgroundColor: .blue
 			)
 			if (self.bDelete){
-				Button(action: {
-					self.store.dispatch(usersFavouriteActions.pendingDeleteFromFav(self.sUserId))
-					print("DELETE: " + self.sUserId)
-				}, label: {
+
 					CircleImage(
 						imageSize: 20,
 						icon: "xmark",
@@ -42,7 +39,11 @@ struct UserDeleteIcon: View {
 					)
 						.offset(x: 20, y: -20)
 						.foregroundColor(.white)
-				})
+                        .onTapGesture {
+                            self.store.dispatch(usersFavouriteActions.pendingDeleteFromFav(self.sUserId))
+                            print("DELETE: " + self.sUserId)
+                }
+				
 				
 			}
 		}

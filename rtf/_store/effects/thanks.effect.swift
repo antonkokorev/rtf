@@ -31,8 +31,8 @@ var thanksEffect: Middleware<AppState> = { dispatch, getState in
 							
 							next(thanksActions.successGetThanksCount(data))
 						} catch {
-							print("can't parse data")
-							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
+							print("can't parse data pendingGetThanksCount")
+							dispatch(errorActions.errorSuccess("Ошибка обработки данных "))
 						}
 						break;
 					case .failure:

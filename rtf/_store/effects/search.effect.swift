@@ -30,17 +30,17 @@ var searchEffect: Middleware<AppState> = { dispatch, getState in
 						do {
 							let data = try JSONDecoder().decode(ISearch.self, from: response.data!)
 							
-							if (searchTxt.count > 0 &&  data.iSearchResultSize == 0) {
-								dispatch(errorActions.errorSuccess("Пользователей с таким именем не найдено"))
-							}
+//							if (searchTxt.count > 0 &&  data.iSearchResultSize == 0) {
+//								dispatch(errorActions.errorSuccess("Пользователей с таким именем не найдено"))
+//							}
 							next(searchActions.successSearch(data))
 						} catch {
-							print("can't parse data")
+							print("can't parse data pendingSearch")
 							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
 						}
 						break;
 					case .failure:
-						print("ERROR - result")
+						print("ERROR - result pendingSearch")
 						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
 						break
 					}

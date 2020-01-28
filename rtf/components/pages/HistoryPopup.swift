@@ -11,9 +11,10 @@ import SwiftUI
 import URLImage
 
 struct HistoryPopup: View {
-    @State var historyPage: Bool = false
-    var historyList: [IUserHistoryList]    
-    
+
+    var historyList: [IUserHistoryList]
+    var action: (_ userId:String) -> Void = {i in print(i)}
+//    var store:GlobalStore
     var body: some View {
         
         VStack{
@@ -21,7 +22,7 @@ struct HistoryPopup: View {
                 item, colWidth in
                 VStack(alignment: .leading){
                     Button( action: {
-                        self.historyPage = true
+                        self.action(self.historyList[item].oRequester.sUserId ?? "")
                     }, label: {
                         CarouselUser(
                             firstName: self.historyList[item].oRequester.sFirstName!,
@@ -30,9 +31,7 @@ struct HistoryPopup: View {
                         )
                     }).buttonStyle(PlainButtonStyle())
                 }
-                .sheet(isPresented: self.$historyPage) {
-                    HistoryPage()
-                }
+
             }
             Spacer()
         }

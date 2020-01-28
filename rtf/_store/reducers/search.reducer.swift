@@ -46,7 +46,7 @@ struct ISearchUser: Codable, Hashable {
 
 
 final class SearchState: StateType, ObservableObject {
-    @Published var collection: [ISearchResults]? = []
+    @Published var collection: [ISearchResults] = []
 	@Published var searchTxt: String? = ""
     @Published var status = ""
 	@Published var bShowSearch = false

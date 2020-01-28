@@ -10,19 +10,10 @@ import SwiftUI
 import RxSwift
 struct SearchBar: View {
     
+    let store: GlobalStore
     /** строчка поиска из компонента выше **/
     @Binding var searchTxt: String
-    var tmp = "2145"
     var listType: String? = nil
-    
-    /** нужно для диспатча эвента **/
-    let store: GlobalStore
-    init(_ store: GlobalStore,_ searchTxt: Binding<String>,_ listType: String?) {
-        self.store = store
-        /** binding синтакс swift 4 **/
-        self._searchTxt = searchTxt
-        self.listType = listType
-    }
     
     var body: some View {
         VStack {
@@ -35,24 +26,12 @@ struct SearchBar: View {
                 
                 HStack {
                     Image("search")
+                    
                     TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
                         
-                        if changed {
-                            print("[changed] Searching for... \(self.searchTxt)")
-                            self.store.dispatch(searchActions.resetSearch)
-                            if (self.listType == nil) {
-                                self.store.dispatch(searchActions.displaySearch)
-                            }
-                            
-                        } else {
-                            print("[commited] Searching for... \(self.searchTxt)")
-                            self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
-                        }
                     })
                     
-                    Spacer()
-                    
-                    if (self.listType == nil) {
+                    if (self.searchTxt.count > 0) {
                         Button(action: {
                             self.searchTxt = ""
                             self.store.dispatch(searchActions.hideSearch)
@@ -68,8 +47,4 @@ struct SearchBar: View {
     }
 }
 
-//struct SearchBar_Preview: PreviewProvider {
-//	static var previews: some View {
-//			EmployeeSearchBar()
-//	}
-//}
+
