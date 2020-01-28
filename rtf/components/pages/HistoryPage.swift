@@ -31,6 +31,8 @@ struct  HistoryPage: View {
             }.padding(.top, 40)
             .padding(.leading, 30)
             //---------------------------------------------------------------------
+            HistoryAssessmentCard()
+
         }
     }
 }
