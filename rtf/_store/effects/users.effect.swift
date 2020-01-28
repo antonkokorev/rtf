@@ -34,7 +34,7 @@ var usersEffect: Middleware<AppState> = { dispatch, getState in
 							
 							next(usersActions.successGetMe(data))
 						} catch {
-							print("can't parse data")
+							print("can't parse data pendingGetMe")
 							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
 						}
 						break;

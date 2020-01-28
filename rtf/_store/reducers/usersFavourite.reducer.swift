@@ -68,7 +68,7 @@ func usersFavouriteReducer(action: Action, state: usersFavouriteState?) -> users
         state.status = "[Pending] pendingGetFavFeedbackUsers"
         break;
     case .successGetFavFeedbackUsers(let data):
-        state.collection = addElement(data)
+        state.collection = data//addElement(data)
 //		state.rowsWithUsers = makeRows(addElement(data), 4)
         state.status = "[Success] successGetFavFeedbackUsers"
         break;

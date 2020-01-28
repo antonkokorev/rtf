@@ -30,8 +30,8 @@ func errorReducer(action: Action, state: ErrorState?) -> ErrorState {
     switch action {
 
 	case .errorSuccess(let errorName):
-		//state.errorText = errorName
-		//state.errorHappened = true
+		state.errorText = errorName
+		state.errorHappened = true
 		debugPrint(state.errorHappened)
 		break;
 	}

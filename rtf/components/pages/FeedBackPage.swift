@@ -20,21 +20,20 @@ struct ITextStore{
 class TextModel: ObservableObject {
     let debouncedFunction = debounce(interval: 800, queue: DispatchQueue.main, action: { (this:ITextStore) in
         this.store.dispatch(searchActions.pendingSearch(this.str))
-        })
+    })
     var store:GlobalStore
     init(store: GlobalStore) {
         self.store = store
     }
-    @Published var searchTxt = ""
+    @Published var searchText = ""
         {
         didSet {
             DispatchQueue.global(qos: .background).async {
-                self.debouncedFunction(ITextStore.init(store: self.store, str: self.searchTxt))
+                self.debouncedFunction(ITextStore.init(store: self.store, str: self.searchText))
             }
         }
     }
 }
-
 
 
 struct FeedBackPage: View {
@@ -53,9 +52,10 @@ struct FeedBackPage: View {
         self.search = store.state.searchSubState
         self.error = store.state.errorSubState
         self.textModel = TextModel(store: store)
+    
     }
-
-
+    
+    
     @State private var modalPresented: Bool = false
     @State var selectedUser:IUser = initIUser()
     @ObservedObject var favUsers: usersFavouriteState
@@ -65,17 +65,14 @@ struct FeedBackPage: View {
     
     let store: GlobalStore
     func userClick(user:IUser){
-        
         self.selectedUser = user
         modalPresented = true
     }
     func methodClick(method:String){
-        
         modalPresented = false
         estimateUserModal = true
-        print(method)
     }
-
+    
     func changeEditMode (_ mode: Bool) -> Void {
         self.editMode = !mode
     }
@@ -88,8 +85,8 @@ struct FeedBackPage: View {
         return NavigationView {
             VStack(alignment: .leading, spacing: 5) {
                 
-                if (self.textModel.searchTxt.count > 0 ) {
-                    Text("Найдите пользователя и дайте оценку ") .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
+                if (self.textModel.searchText.count > 0 ) {
+                    Text("Найдите пользователя  по ФИО, блоку, почте  и оцените его.") .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
                         .font(.custom("SBSansDisplay-Regular", size: 18)).padding()
                 }else{
                     Text("Запросить или дать обратную связь у коллег для развития")
@@ -97,14 +94,15 @@ struct FeedBackPage: View {
                         .font(.custom("SBSansDisplay-Regular", size: 18))
                         .padding()
                 }
-
-                /** Поиск  **/
-                SearchBar(self.store, $textModel.searchTxt, nil)
-           
-               /** Скрывает все, если есть найденые пользователи */
-                if (self.textModel.searchTxt.count > 0 ) {
                 
-                    SearchList(store: self.store, aSearchUsers: self.search.collection ?? [],aFavUsers: self.favUsers.collection, action:self.userClick)
+                /** Поиск  **/
+              
+                SearchBar(store: self.store, searchTxt: $textModel.searchText)
+                
+                /** Скрывает все, если есть найденые пользователи */
+                if (self.textModel.searchText.count > 0 ) {
+                    
+                    SearchList(store: self.store, aSearchUsers: self.search.collection ,aFavUsers: self.favUsers.collection, action:self.userClick)
                 } else {
                     Text("Недавние")
                         .foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
@@ -113,7 +111,7 @@ struct FeedBackPage: View {
                         .padding()
                     /** Карусель с юзерами **/
                     Carousel(self.users.collection, action: userClick)
-
+                    
                     /** Кнопки для управления юзерами **/
                     HStack{
                         Text("Избранное")
@@ -125,7 +123,7 @@ struct FeedBackPage: View {
                         if (self.editMode){
                             Button(action: {
                                 self.changeEditMode(self.editMode)
-
+                                
                             }, label: {
                                 Text("Сохранить")
                                     .foregroundColor(Color(red:0.20, green:0.32, blue:1.00))
@@ -144,14 +142,17 @@ struct FeedBackPage: View {
                         }
                     }
                     /** грид избранных юзеров, на вход [IUser] **/
-                FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode).padding(.top ,35)
+                   
+                    FavouriteUsersGrid(store: self.store, users: self.favUsers.collection, editMode: self.editMode, action:self.userClick).padding(.top ,35)
+            
                 }
                 /** двигает все на верх **/
                 Spacer()
             }
             .navigationBarTitle("Обратная связь")
+     
             
-        }.partialSheet(presented: $modalPresented) {
+        }.modifier(DismissingKeyboard()).partialSheet(presented: $modalPresented) {
             VStack {
                 UserFeedbackPopup(user: self.selectedUser, action:self.methodClick)
                     .frame(height: 450)

@@ -45,6 +45,7 @@ public struct FlowStack<Content>: View where Content: View {
 		self.columns = columns
 		self.numItems = numItems
 		self.alignment = alignment ?? HorizontalAlignment.leading
+       // print(self.numItems)
 	}
 
 	public var body : some View {

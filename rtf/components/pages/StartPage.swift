@@ -35,10 +35,11 @@ struct StartPage: View {
         case "История":
             historyModal = true
            self.store.dispatch(usersHistoryActions.pendingGetHistoryList)
-            self.store.dispatch(usersHistoryActions.pendingGetUserHistory("ALL","matvey"))
+           self.store.dispatch(usersHistoryActions.pendingGetUserHistory("ALL","matvey"))
         case "Статистика":
             statisticsModal = true
         case "home__feedback":
+            self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
             feedbackModal = true
         default:
             break
@@ -185,6 +186,7 @@ struct StartPage: View {
 							icon: "home__feedback"
 
 						).sheet(isPresented: $feedbackModal) {
+                            
 							FeedBackPage(store: self.store)
                         }
 						ActionCard(
@@ -228,8 +230,8 @@ struct StartPage: View {
 			//.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
 			.onAppear(perform: {
 				self.store.dispatch(usersActions.pendingGetMe)
-				self.store.dispatch(thanksActions.pendingGetThanksCount)
-				self.store.dispatch(usersFavouriteActions.pendingGetFavFeedbackUsers)
+//				self.store.dispatch(thanksActions.pendingGetThanksCount)
+				
 				self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
 			})
 	}
@@ -256,7 +258,7 @@ struct AvaLikeRow: View {
     }
 }
 
-
+//
 //-------------------------------------------------------------------------
 //Меню Входящие-Запросы-Недвание
 //func RecentMenu()-> HorizontalMenu {
