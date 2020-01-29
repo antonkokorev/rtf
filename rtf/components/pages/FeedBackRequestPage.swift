@@ -44,18 +44,22 @@ struct FeedBackRequestPage: View {
 					.fontWeight(.bold)
 					.frame(width: 350, height: 60)
 				
-				List {
+				// TODO list inside list bug
+//				List {
 					ForEach(self.competenciesState.competentions, id: \.self) { item in
 						VStack(alignment: .leading){
-							Text(item.sName)
+							List {
+								Text(item.sName)
 							
-							ForEach(item.aAttributes!, id: \.self) { itemTwo in
-								
-								Competency(showPopup: self.$showPopup, total: self.$totalSelected ,txt: itemTwo.sName)
+								ForEach(item.aAttributes!, id: \.self) { itemTwo in
+										
+										Competency(showPopup: self.$showPopup, total: self.$totalSelected ,txt: itemTwo.sName)
+									}
 							}
+	
 						}
 					}
-				}
+//				}
 				.partialSheet(presented: self.$showPopup, enableCover: false) {
 					CompetencyRequestPopup(total: self.$totalSelected)
 				}
