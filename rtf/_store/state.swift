@@ -27,6 +27,7 @@ struct AppState: StateType {
 	var usersRequestSubState = usersRequestState()
 	var usersTeamSubState = usersTeamState()
 	var searchSubState: SearchState = SearchState()
+	var competenciesSubState: CompetenciesState = CompetenciesState()
 	var errorSubState: ErrorState = ErrorState()
 }
 
@@ -50,6 +51,7 @@ func appReducer(action: Action, state: AppState?) -> AppState {
 		usersRequestSubState: usersRequestReducer(action: action, state: state?.usersRequestSubState),
 		usersTeamSubState: usersTeamReducer(action: action, state: state?.usersTeamSubState),
 		searchSubState: searchReducer(action: action, state: state?.searchSubState),
+		competenciesSubState: competenciesReducer(action: action, state: state?.competenciesSubState),
 		errorSubState: errorReducer(action: action, state: state?.errorSubState)
 	)
 }
@@ -63,5 +65,6 @@ var AppEffects: Array = [
     usersEffect,
 	usersFavouriteEffect,
 	searchEffect,
-    statisticsEffect
+    statisticsEffect,
+	competenciesEffect
 ]
