@@ -13,7 +13,7 @@ import URLImage
 struct HistoryPopup: View {
 
     var historyList: [IUserHistoryList]
-    var action: (_ userId:String) -> Void = {i in print(i)}
+    var action: (_ userId:IUser) -> Void = {i in print(i)}
 //    var store:GlobalStore
     var body: some View {
         
@@ -22,7 +22,7 @@ struct HistoryPopup: View {
                 item, colWidth in
                 VStack(alignment: .leading){
                     Button( action: {
-                        self.action(self.historyList[item].oRequester.sUserId ?? "")
+                        self.action(self.historyList[item].oRequester)
                     }, label: {
                         CarouselUser(
                             firstName: self.historyList[item].oRequester.sFirstName!,

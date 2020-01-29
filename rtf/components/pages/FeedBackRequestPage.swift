@@ -14,14 +14,14 @@ struct FeedBackRequestPage: View {
 	@State var showPopup: Bool = false
 	@State var totalSelected: Int = 0
 	
-	@ObservedObject var competenciesState: CompetenciesState
+	@ObservedObject var competenciesState: FeedbackPropsState
 	
 	let store: GlobalStore
 	
 	
 	init(store: GlobalStore){
 		self.store = store
-		self.competenciesState = store.state.competenciesSubState
+		self.competenciesState = store.state.feedbackPropsSubState
 	}
 	
 	var body: some View {
@@ -45,10 +45,16 @@ struct FeedBackRequestPage: View {
 					.frame(width: 350, height: 60)
 				
 				List {
-					Text("test")
-//					ForEach(self.competenciesState.collection, id: \.self) { item in
-//						Competency(showPopup: self.$showPopup, total: self.$totalSelected ,txt: item.sAttributeName)
-//					}
+					ForEach(self.competenciesState.competentions, id: \.self) { item in
+						VStack(alignment: .leading){
+							Text(item.sName)
+							
+							ForEach(item.aAttributes!, id: \.self) { itemTwo in
+								
+								Competency(showPopup: self.$showPopup, total: self.$totalSelected ,txt: itemTwo.sName)
+							}
+						}
+					}
 				}
 				.partialSheet(presented: self.$showPopup, enableCover: false) {
 					CompetencyRequestPopup(total: self.$totalSelected)
@@ -56,9 +62,9 @@ struct FeedBackRequestPage: View {
 				
 			}.padding()
 			
-	
+			
 		}.onAppear(perform: { 
-			self.store.dispatch(competenciesActions.pendingGetCompetencies)
+			self.store.dispatch(feedbackPropsActions.pendingGetAllCompetences)
 		})
 		
 	}

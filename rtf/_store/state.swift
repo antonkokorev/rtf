@@ -66,5 +66,6 @@ var AppEffects: Array = [
 	usersFavouriteEffect,
 	searchEffect,
     statisticsEffect,
-	competenciesEffect
+	competenciesEffect,
+    feedbackPropsEffect
 ]

@@ -159,6 +159,7 @@ struct FeedBackPage: View {
                 
             }
         } .sheet(isPresented: $estimateUserModal) {
+//			FeedBackRequestPage(store: self.store)
             StatisticsPage(store: self.store)
         }
         .toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))

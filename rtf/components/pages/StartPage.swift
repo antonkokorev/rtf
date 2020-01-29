@@ -26,7 +26,7 @@ struct StartPage: View {
     @State var feedbackModal:Bool = false
     @State var historyModal:Bool = false
     @State var statisticsModal:Bool = false
-    @State var historyUser=""
+    @State var historyUser:IUser = initIUser()
     /** индикатор для выбора пункта меню **/
     @State var activeCarousel: Int = 0
     /** индикатор для выбора пункта меню **/
@@ -49,7 +49,7 @@ struct StartPage: View {
     }
     //=====================================================================================================================================
     /** функция переход на страницу истории  по конкретному юзеру*/
-    private  func getHistoryByUser(userId:String) -> Void {
+    private  func getHistoryByUser(userId:IUser) -> Void {
         self.historyUser = userId
         self.historyPage = true
     }
@@ -82,7 +82,7 @@ struct StartPage: View {
             var filtred: [IUser] = []
             
             for user in self.favUsers.collection {
-                if (!user.bAddButton! ) {
+                if ( user.bAddButton != true) {
                     filtred.append(user)
                 }
             }
@@ -216,7 +216,7 @@ struct StartPage: View {
                         Spacer()
                     }
                     
-                    /**Минимальный отступ от нижнего края экрана*/
+                    /**Минимальный отступ от нижнего кра  я экрана*/
                     Spacer(minLength: 25)
                 }
                 .padding(.horizontal, 30)
@@ -228,6 +228,8 @@ struct StartPage: View {
             //				self.store.dispatch(thanksActions.pendingGetThanksCount)
             self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
             self.store.dispatch(usersHistoryActions.pendingGetHistoryList)
+            print("1")
+            self.store.dispatch(feedbackPropsActions.pendingGetAllCompetences)
         })
             /** список юзеров в истории*/
             .partialSheet(presented: $historyModal) {
@@ -236,7 +238,7 @@ struct StartPage: View {
         }
             /** страница истории*/
             .sheet(isPresented: self.$historyPage) {
-                HistoryPage(store:self.store,userId: self.historyUser)
+                HistoryPage(store:self.store,respondent: self.historyUser)
         }
     }
     

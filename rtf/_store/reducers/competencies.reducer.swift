@@ -19,11 +19,11 @@ struct IFullCompetence: Codable {
     let aAttributes: [IUserCompetence]
 }
 
-struct IUserCompetence: Codable, Hashable {
-    let sAttributeId : String
-	let sCategoryId : String
-	let sAttributeName: String
-}
+//struct IUserCompetence: Codable, Hashable {
+//    let sAttributeId : String
+//	let sCategoryId : String
+//	let sAttributeName: String
+//}
 
 final class CompetenciesState: StateType, ObservableObject {
     @Published var collection: [IFullCompetence] = []
