@@ -29,24 +29,20 @@ struct UserDeleteIcon: View {
 				backgroundColor: .blue
 			)
 			if (self.bDelete){
-
 					CircleImage(
 						imageSize: 20,
 						icon: "xmark",
 						iconSize: 10,
-						shadowOn: true,
-						backgroundColor: Color(red:0.65, green:0.71, blue:0.78)
+                        backgroundColor: Color.RTFPallete.iconGray
 					)
-						.offset(x: 20, y: -20)
+						.offset(x: 25, y: -30)
 						.foregroundColor(.white)
                         .onTapGesture {
                             self.store.dispatch(usersFavouriteActions.pendingDeleteFromFav(self.sUserId))
                             print("DELETE: " + self.sUserId)
                 }
-				
-				
 			}
-		}
+        }
 	}
 }
 
