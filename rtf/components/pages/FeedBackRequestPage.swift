@@ -38,26 +38,34 @@ struct FeedBackRequestPage: View {
 			
 			VStack(alignment: .leading) {
 				
-				Text("Системное мышление и решение проблем")
-					.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
-					.font(.custom("SBSansDisplay-Regular", size: 20))
-					.fontWeight(.bold)
-					.frame(width: 350, height: 60)
+				//				Text("Системное мышление и решение проблем")
+				//					.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
+				//					.font(.custom("SBSansDisplay-Regular", size: 20))
+				//					.fontWeight(.bold)
+				//					.frame(width: 350, height: 60)
 				
-				List {
-					ForEach(self.competenciesState.competentions, id: \.self) { item in
-						VStack(alignment: .leading){
+				// TODO list inside list bug
+				//				List {
+				ForEach(self.competenciesState.competentions, id: \.self) { item in
+					VStack(alignment: .leading){
+						List {
 							Text(item.sName)
+								.foregroundColor(Color(red:0.00, green:0.00, blue:0.00))
+								.font(.custom("SBSansDisplay-Regular", size: 20))
+								.fontWeight(.bold)
+								.frame(width: 350, height: 60)
 							
 							ForEach(item.aAttributes!, id: \.self) { itemTwo in
 								
 								Competency(showPopup: self.$showPopup, total: self.$totalSelected ,txt: itemTwo.sName)
 							}
 						}
+						
 					}
 				}
-				.partialSheet(presented: self.$showPopup, enableCover: false) {
-					CompetencyRequestPopup(total: self.$totalSelected)
+					//				}
+					.partialSheet(presented: self.$showPopup, enableCover: false) {
+						CompetencyRequestPopup(total: self.$totalSelected)
 				}
 				
 			}.padding()
