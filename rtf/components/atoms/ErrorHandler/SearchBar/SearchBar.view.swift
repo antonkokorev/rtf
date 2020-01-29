@@ -9,59 +9,42 @@
 import SwiftUI
 import RxSwift
 struct SearchBar: View {
-	    let store: GlobalStore
-	/** строчка поиска из компонента выше **/
-	@Binding var searchTxt: String
-	var listType: String? = nil
-	
-	/** нужно для диспатча эвента **/
-
-
-	
-	var body: some View {
-		VStack {
-			ZStack {
-				RoundedRectangle(cornerRadius: 29)
-					.frame(height: 45)
-					.foregroundColor(Color(red:0.93, green:0.94, blue:0.97))
-					.padding()
-				
-				HStack {
-					Image("search")
-					
-					TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
-                       
-//						if changed {
-//							self.store.dispatch(searchActions.resetSearch)	
-//						}
-//                        
-//							print("[commited] Searching for... \(self.searchTxt)")
-//							self.store.dispatch(searchActions.pendingSearch(self.searchTxt))
-//						}
+    
+    let store: GlobalStore
+    /** строчка поиска из компонента выше **/
+    @Binding var searchTxt: String
+    var listType: String? = nil
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: 30)
+                    .stroke(Color.RTFPallete.buttonDefault, lineWidth: 3)
+                    .background(Color.RTFPallete.baseColor.blueGray)
+                    .cornerRadius(30)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 45, maxHeight: 45)
+                
+                HStack {
+                    Image("search")
+                    
+                    TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
+                        
                     })
-					
+                    
                     if (self.searchTxt.count > 0) {
-						Button(action: {
-							self.searchTxt = ""
-							self.store.dispatch(searchActions.hideSearch)
-							
-						}, label: {
-							Image(systemName: "xmark").foregroundColor(.red)
-						})
-					}
-					Spacer()
-					Spacer()
-					Spacer()
-					Spacer()
-				}
-				.padding(.leading, CGFloat(30))
-			}
-		}
-	}
+                        Button(action: {
+                            self.searchTxt = ""
+                            self.store.dispatch(searchActions.hideSearch)
+                            
+                        }, label: {
+                            Image(systemName: "xmark").foregroundColor(.red)
+                        })
+                    }
+                }
+                .padding(.horizontal, 15)
+            }
+        }
+    }
 }
 
-//struct SearchBar_Preview: PreviewProvider {
-//	static var previews: some View {
-//			EmployeeSearchBar()
-//	}
-//}
+
