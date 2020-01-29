@@ -10,16 +10,22 @@ import ReSwift
 import Combine
 import SwiftUI
 
-struct ICompetentions:Codable, Hashable{
+struct ICompetentions: Codable, Hashable {
     let sId:String
     let sName:String
     let sCategoryId:String?
-    let aAttributes:[ICompetentions]?
+    let aAttributes: [IUserCompetence]?
+}
+
+struct IUserCompetence: Codable, Hashable {
+    let sId : String
+	let sCategoryId : String
+	let sName: String
 }
 
 
 final class FeedbackPropsState: StateType, ObservableObject {
-    @Published var competentions:[ICompetentions] = []
+    @Published var competentions: [ICompetentions] = []
 
     @Published var status = ""
 }

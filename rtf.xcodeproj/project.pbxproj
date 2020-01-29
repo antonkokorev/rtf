@@ -151,6 +151,12 @@
 		EA92124323C72CA200A0CB5B /* SBSansDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */; };
 		EAB9E83523D0C22500A92EA2 /* FlowStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9E83423D0C22500A92EA2 /* FlowStack.swift */; };
 		EAB9E83A23D0E13700A92EA2 /* FavouriteUsersGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9E83923D0E13700A92EA2 /* FavouriteUsersGrid.swift */; };
+		EAE49AF323E187F600ED904B /* FeedBackRequestPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE49AF223E187F600ED904B /* FeedBackRequestPage.swift */; };
+		EAE49AF623E1905D00ED904B /* Competency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE49AF523E1905D00ED904B /* Competency.swift */; };
+		EAE49AF823E191FE00ED904B /* competencies.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE49AF723E191FE00ED904B /* competencies.effect.swift */; };
+		EAE49AFA23E192A200ED904B /* competencies.actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE49AF923E192A200ED904B /* competencies.actions.swift */; };
+		EAE49AFC23E192DF00ED904B /* competencies.reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE49AFB23E192DF00ED904B /* competencies.reducer.swift */; };
+		EAE49AFF23E19CC900ED904B /* CompetencyRequestPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE49AFE23E19CC900ED904B /* CompetencyRequestPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,6 +298,12 @@
 		EA92122723C72CA200A0CB5B /* SBSansDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SBSansDisplay-Regular.otf"; sourceTree = "<group>"; };
 		EAB9E83423D0C22500A92EA2 /* FlowStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowStack.swift; sourceTree = "<group>"; };
 		EAB9E83923D0E13700A92EA2 /* FavouriteUsersGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteUsersGrid.swift; sourceTree = "<group>"; };
+		EAE49AF223E187F600ED904B /* FeedBackRequestPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackRequestPage.swift; sourceTree = "<group>"; };
+		EAE49AF523E1905D00ED904B /* Competency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competency.swift; sourceTree = "<group>"; };
+		EAE49AF723E191FE00ED904B /* competencies.effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = competencies.effect.swift; sourceTree = "<group>"; };
+		EAE49AF923E192A200ED904B /* competencies.actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = competencies.actions.swift; sourceTree = "<group>"; };
+		EAE49AFB23E192DF00ED904B /* competencies.reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = competencies.reducer.swift; sourceTree = "<group>"; };
+		EAE49AFE23E19CC900ED904B /* CompetencyRequestPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetencyRequestPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,6 +523,7 @@
 				3A506ED223C0D26600A498C8 /* usersRecent.actions.swift */,
 				3A506ECC23C0D26600A498C8 /* usersRequest.actions.swift */,
 				3A506EC823C0D26600A498C8 /* usersTeam.actions.swift */,
+				EAE49AF923E192A200ED904B /* competencies.actions.swift */,
 			);
 			path = actions;
 			sourceTree = "<group>";
@@ -527,6 +540,7 @@
 				EA6D1C8623CE206900D5B34A /* usersFavourite.effect.swift */,
 				EA0689E423D06CB100A545FD /* search.effect.swift */,
 				4623E29223D59A6D00000310 /* statistics.effect.swift */,
+				EAE49AF723E191FE00ED904B /* competencies.effect.swift */,
 				46B9531823E187C4009889EC /* feedbackProps.effect.swift */,
 			);
 			path = effects;
@@ -554,6 +568,7 @@
 				3A506EDC23C0D26600A498C8 /* usersRecent.reducer.swift */,
 				3A506EE123C0D26600A498C8 /* usersRequest.reducer.swift */,
 				3A506EE723C0D26600A498C8 /* usersTeam.reducer.swift */,
+				EAE49AFB23E192DF00ED904B /* competencies.reducer.swift */,
 			);
 			path = reducers;
 			sourceTree = "<group>";
@@ -572,6 +587,8 @@
 		3A506EED23C0D26700A498C8 /* atoms */ = {
 			isa = PBXGroup;
 			children = (
+				EAE49AFD23E19CA600ED904B /* CompetencyRequestPopup */,
+				EAE49AF423E1904400ED904B /* Competency */,
 				EA7FD2D423DE36B200FF1181 /* FeedBackHistoryScoreItem */,
 				EA7FD2CA23DE2C9500FF1181 /* ActionButton */,
 				EA3D364023D9ED43007C25B6 /* PersonNameTransformator */,
@@ -622,6 +639,7 @@
 				25CC6E1523D07403000E1EAD /* Profile.swift */,
 				46F4662023D9A55200352F03 /* StatAttrInfo.swift */,
 				EA7FD2C823DE15F500FF1181 /* FeedBackHistoryPage.swift */,
+				EAE49AF223E187F600ED904B /* FeedBackRequestPage.swift */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -803,6 +821,22 @@
 			path = SearchBar;
 			sourceTree = "<group>";
 		};
+		EAE49AF423E1904400ED904B /* Competency */ = {
+			isa = PBXGroup;
+			children = (
+				EAE49AF523E1905D00ED904B /* Competency.swift */,
+			);
+			path = Competency;
+			sourceTree = "<group>";
+		};
+		EAE49AFD23E19CA600ED904B /* CompetencyRequestPopup */ = {
+			isa = PBXGroup;
+			children = (
+				EAE49AFE23E19CC900ED904B /* CompetencyRequestPopup.swift */,
+			);
+			path = CompetencyRequestPopup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -924,6 +958,7 @@
 			files = (
 				3A506EF123C0D26700A498C8 /* loginModel.swift in Sources */,
 				3A506F1523C0D26700A498C8 /* usersAll.reducer.swift in Sources */,
+				EAE49AF823E191FE00ED904B /* competencies.effect.swift in Sources */,
 				4657BFE623CDBF3500604801 /* StatisticsPage.swift in Sources */,
 				3A506EFA23C0D26700A498C8 /* usersRequest.actions.swift in Sources */,
 				3A506F0F23C0D26700A498C8 /* boss.reducer.swift in Sources */,
@@ -940,6 +975,7 @@
 				3A506F0423C0D26700A498C8 /* store.swift in Sources */,
 				EAB9E83A23D0E13700A92EA2 /* FavouriteUsersGrid.swift in Sources */,
 				3A506F0A23C0D26700A498C8 /* usersHistory.reducer.swift in Sources */,
+				EAE49AFA23E192A200ED904B /* competencies.actions.swift in Sources */,
 				3A506F0D23C0D26700A498C8 /* usersRequest.reducer.swift in Sources */,
 				3A506F1023C0D26700A498C8 /* usersInbox.reducer.swift in Sources */,
 				25CAD78623CD952F0029E202 /* CarouselUser.swift in Sources */,
@@ -948,6 +984,7 @@
 				25CC6E1623D07403000E1EAD /* Profile.swift in Sources */,
 				EA9211CF23C5381E00A0CB5B /* subordinates.effect.swift in Sources */,
 				25657D1723DB13C100F85472 /* HistoryPopup.swift in Sources */,
+				EAE49AFC23E192DF00ED904B /* competencies.reducer.swift in Sources */,
 				3A506F0723C0D26700A498C8 /* requestRating.reducer.swift in Sources */,
 				EA6D1C7223CDB8D500D5B34A /* usersRequest.effect.swift in Sources */,
 				3A506EFC23C0D26700A498C8 /* boss.actions.swift in Sources */,
@@ -965,6 +1002,7 @@
 				EA3D363F23D9CBDB007C25B6 /* SearchListFav.swift in Sources */,
 				2517A9F823D888B80019F435 /* CustomSlider.swift in Sources */,
 				3A506F0E23C0D26700A498C8 /* statistics.reducer.swift in Sources */,
+				EAE49AF623E1905D00ED904B /* Competency.swift in Sources */,
 				4657BFE823CDC2F900604801 /* usersHistory.effect.swift in Sources */,
 				3A506F1623C0D26700A498C8 /* thanks.reducer.swift in Sources */,
 				3A506EF723C0D26700A498C8 /* usersAll.actions.swift in Sources */,
@@ -991,6 +1029,7 @@
 				3A506EFB23C0D26700A498C8 /* teamInfo.actions.swift in Sources */,
 				3A506EF523C0D26700A498C8 /* users.actions.swift in Sources */,
 				EA6D1C7423CDDFFC00D5B34A /* thanks.effect.swift in Sources */,
+				EAE49AFF23E19CC900ED904B /* CompetencyRequestPopup.swift in Sources */,
 				4657BFEB23CDD18200604801 /* users.effect.swift in Sources */,
 				25FEF9B323D82CC20017D440 /* RequestCard.swift in Sources */,
 				469801E923D0A80300C7776F /* HorizontalMenu.swift in Sources */,
@@ -1021,6 +1060,7 @@
 				4625762423CF196F009D85BD /* Chart.swift in Sources */,
 				3A506F0123C0D26700A498C8 /* requestRating.actions.swift in Sources */,
 				EA09758F23D8A63A002B3E8E /* UserDeleteIcon.swift in Sources */,
+				EAE49AF323E187F600ED904B /* FeedBackRequestPage.swift in Sources */,
 				25FEF9B623D8450B0017D440 /* RequestCardCarousel.swift in Sources */,
 				4623E29123D57E8400000310 /* SublineComp.swift in Sources */,
 				3A506EF823C0D26700A498C8 /* subordinates.actions.swift in Sources */,

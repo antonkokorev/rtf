@@ -32,6 +32,7 @@ var feedbackPropsEffect: Middleware<AppState> = { dispatch, getState in
                          
                             next(feedbackPropsActions.successGetAllCompetences(data))
                         } catch {
+							debugPrint(response)
                             print("can't parse data pendingGetAllCompetences")
                             dispatch(errorActions.errorSuccess("Ошибка обработки данных "))
                         }
