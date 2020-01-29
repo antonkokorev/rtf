@@ -32,12 +32,15 @@ struct FavouriteUsersGrid: View {
                                 iconSize: BasicIconSizes.max,
                                 backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
                             )
+                                .padding(.bottom, 10)
                             Text("Добавить \n коллегу")
                                 .font(Font.Typography.sizingFont(font: .semibold, size: .H5))
                                 .frame(alignment: .center)
                                 .fixedSize(horizontal: false, vertical: true)
                            
-                            }.sheet(isPresented: self.$usersModal) {
+                            }
+                            .frame(width: 72, height: 96)
+                            .sheet(isPresented: self.$usersModal) {
                                 SearchFavourite(self.store)
                             }.onTapGesture {
                                 print("click")
@@ -45,7 +48,10 @@ struct FavouriteUsersGrid: View {
                                 self.usersModal = true
                             }
                         } else {
-                            UserDeleteIcon(self.store, self.editMode, self.users[index - 1].sUserId!).onTapGesture {
+                            UserDeleteIcon(self.store, self.editMode, self.users[index - 1].sUserId!)
+                                .frame(width: 72, height: 96)
+                                .padding(.bottom, 10)
+                                .onTapGesture {
                                 self.action(self.users[index - 1])
                             }
                             /** Имя **/
