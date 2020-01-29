@@ -23,30 +23,44 @@ struct ISkill: Codable, Equatable, Hashable{
 }
 
 struct IPersonAssesmentItem: Codable, Equatable, Hashable {
-    let sId:String
-    let sPersonAssessmentId:String
+    let sId:String?
+    let sPersonAssessmentId:String?
     let oAttributeToCategory:IAttributeToCategory?
     let oSkill:ISkill?
-    let iGrade:Double
-    let bActive:Bool
-    let sRespondentComment:String
+    let iGrade:Double?
+    let bActive:Bool?
+    let sRespondentComment:String?
     let sCanNotAnswerType:String?
     let sCanNotAnswerText:String?
 }
 
+struct IOProject: Codable, Equatable, Hashable  {
+    let sId: String?
+    let sRequesterId: String?
+    let lCreationTime: Double?
+    let sDescription: String?
+    let sName: String?
+    let sStatus: String?
+}
 
 struct IUserPayload: Codable, Equatable, Hashable {
     let sId: String?
     let sRequesterId: String?
     let sRespondentId: String?
-    let lCreationTime: CLong?
-    let lResponseTime: CLong?
+    let lCreationTime: Int64?
     let sRequesterComment: String?
+    let lResponseTime: CLong?
     let sStatus:String?
     let aPersonAssessmentItem:[IPersonAssesmentItem]?
     let aPersonAssessmentSkillItem:[IPersonAssesmentItem]?
     let bIsSetThanks:Bool?
-    let bIsAnonimus:Bool?
+    let bIsAnonymous:Bool?
+   
+    let sProjectId: String?
+    let sRole:String?
+    let lLastModifiedTime:Int64?
+    let oProject:IOProject?
+    let sRespondentComment:String?
     
 }
 

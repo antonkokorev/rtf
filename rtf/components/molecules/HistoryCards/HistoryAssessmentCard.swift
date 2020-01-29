@@ -9,29 +9,41 @@
 import SwiftUI
 
 struct HistoryAssessmentCard: View {
+    var item:IUserPayload
+    var me:IUser
+    var respondent:IUser
     
     
-    var imageUrl: String = ""
-    var firstName: String = "Имя"
-    var lastName: String = "Фамилия"
-    var date: String = "20.20.2020 в 20:20"
-    var comment: String? = "Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий Комментарий "
+    init(item:IUserPayload,me:IUser,respondent:IUser){
+        self.item = item
+        self.me = me
+        self.respondent = respondent
+    }
+    
     
     var status: String = "READ"
     var requester: String = "" //Отправитель
-    var respondent: String = "" //Получатель
+    //var respondent: String = "" //Получатель
+    //=====================================================================================================================================
+    func hwoIsOnPhoto() -> IUser{
+     
+        return  (item.sRespondentId == me.sUserId && (self.item.sStatus == "CREATED" || self.item.sStatus == "READ")) ||
+            ( item.sRespondentId != me.sUserId &&  self.item.sStatus == "ANSWERED") ? self.me : self.respondent
+    }
     
+    //=====================================================================================================================================
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0){
             HStack{
                 CircleImage(
-                    imageSize: 40
+                    imageUrl: getPhoto(hwoIsOnPhoto().sUserId ?? ""),
+                    imageSize: BasicIconSizes.max
                 )
-                Text(firstName + " " + lastName.prefix(1)+".")
+                Text(hwoIsOnPhoto().sFirstName! + " " + hwoIsOnPhoto().sLastName!.prefix(1)+".")
                     .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
                 Spacer()
-                Text(date)
+                Text( getData(date: (self.item.lLastModifiedTime == nil) ? self.item.lCreationTime! : self.item.lLastModifiedTime!  ,format: "dd MMM yyyy в HH:mm"))
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .font(Font.Typography.sizingFont(font: .regular, size: .H4))
@@ -39,8 +51,8 @@ struct HistoryAssessmentCard: View {
                     .background(RoundedCorners(color: Color.RTFPallete.baseColor.iconGray , tl: 20, tr: 20, bl: 20, br: 20))
             }.padding(.bottom, 15)
             
-            if (comment != ""){
-                Comment(expand: false, comment: comment)
+            if (item.sRespondentComment != "" && item.sRespondentComment != nil){
+                Comment(expand: false, comment: item.sRespondentComment )
                     .padding(.horizontal, -30)
                     .padding(.bottom, 15)
             }
@@ -139,9 +151,9 @@ struct ExDivider: View {
     }
 }
 
-struct HistoryAssessmentCard_Previews: PreviewProvider {
-    static var previews: some View {
-        HistoryAssessmentCard()
-    }
-}
+//struct HistoryAssessmentCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HistoryAssessmentCard()
+//    }
+//}
 

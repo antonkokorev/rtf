@@ -11,7 +11,7 @@ import ReSwift
 /* создаем все actions в этом объекте */
 enum feedbackPropsActions: Action {
     case pendingGetAllCompetences
-    case successGetAllCompetences
+    case successGetAllCompetences([ICompetentions])
     
     case pendingGetRecommendedAttributes
     case successGetRecommendedAttributes

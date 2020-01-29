@@ -7,11 +7,21 @@
 //
 
 import ReSwift
+import Combine
+import SwiftUI
+
+struct ICompetentions:Codable, Hashable{
+    let sId:String
+    let sName:String
+    let sCategoryId:String?
+    let aAttributes:[ICompetentions]?
+}
 
 
-struct FeedbackPropsState: StateType {
-    var collection = ""
-    var status = ""
+final class FeedbackPropsState: StateType, ObservableObject {
+    @Published var competentions:[ICompetentions] = []
+
+    @Published var status = ""
 }
 
 func feedbackPropsReducer(action: Action, state: FeedbackPropsState?) -> FeedbackPropsState {
@@ -25,8 +35,8 @@ func feedbackPropsReducer(action: Action, state: FeedbackPropsState?) -> Feedbac
     case .pendingGetAllCompetences:
         state.status = "[Pending] pendingGetAllCompetences"
         break;
-    case .successGetAllCompetences:
-        state.collection = "data blob, state change"
+    case .successGetAllCompetences(let data):
+        state.competentions = data
         state.status = "[Success] pendingGetAllCompetences"
         break;
     case .pendingGetRecommendedAttributes:
