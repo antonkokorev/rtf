@@ -94,6 +94,8 @@
 		46B9531123DEDE70009889EC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46B9531023DEDE70009889EC /* RxSwift */; };
 		46B9531323DEDE70009889EC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 46B9531223DEDE70009889EC /* RxCocoa */; };
 		46B9531523E01CAC009889EC /* DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B9531423E01CAC009889EC /* DismissingKeyboard.swift */; };
+		46B9531723E17A06009889EC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B9531623E17A06009889EC /* Date.swift */; };
+		46B9531923E187C4009889EC /* feedbackProps.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B9531823E187C4009889EC /* feedbackProps.effect.swift */; };
 		46BAC99C23CCA80C00037D36 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAC99B23CCA80C00037D36 /* Slider.swift */; };
 		46F4662123D9A55200352F03 /* StatAttrInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F4662023D9A55200352F03 /* StatAttrInfo.swift */; };
 		53D593397AC07E9A2E5C6553 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5909AB9DF98E0693C3C90 /* Grid.swift */; };
@@ -233,6 +235,8 @@
 		46B952FE23D9CFD7009889EC /* AttrComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttrComp.swift; sourceTree = "<group>"; };
 		46B9530D23DECA1D009889EC /* Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debounce.swift; sourceTree = "<group>"; };
 		46B9531423E01CAC009889EC /* DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboard.swift; sourceTree = "<group>"; };
+		46B9531623E17A06009889EC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		46B9531823E187C4009889EC /* feedbackProps.effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedbackProps.effect.swift; sourceTree = "<group>"; };
 		46BAC99B23CCA80C00037D36 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		46F4662023D9A55200352F03 /* StatAttrInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatAttrInfo.swift; sourceTree = "<group>"; };
 		53D5909AB9DF98E0693C3C90 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
@@ -467,6 +471,7 @@
 				25657D1823DEC9D300F85472 /* FlowStackNoScroll.swift */,
 				46B9530D23DECA1D009889EC /* Debounce.swift */,
 				46B9531423E01CAC009889EC /* DismissingKeyboard.swift */,
+				46B9531623E17A06009889EC /* Date.swift */,
 			);
 			path = _api;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				EA6D1C8623CE206900D5B34A /* usersFavourite.effect.swift */,
 				EA0689E423D06CB100A545FD /* search.effect.swift */,
 				4623E29223D59A6D00000310 /* statistics.effect.swift */,
+				46B9531823E187C4009889EC /* feedbackProps.effect.swift */,
 			);
 			path = effects;
 			sourceTree = "<group>";
@@ -945,6 +951,7 @@
 				3A506F0723C0D26700A498C8 /* requestRating.reducer.swift in Sources */,
 				EA6D1C7223CDB8D500D5B34A /* usersRequest.effect.swift in Sources */,
 				3A506EFC23C0D26700A498C8 /* boss.actions.swift in Sources */,
+				46B9531723E17A06009889EC /* Date.swift in Sources */,
 				EA7FD2D623DE36D200FF1181 /* FeedBackHistoryScoreItem.swift in Sources */,
 				3A506F1223C0D26700A498C8 /* subordinates.reducer.swift in Sources */,
 				EA0689E923D06D4300A545FD /* search.reducer.swift in Sources */,
@@ -972,6 +979,7 @@
 				EA22A96B23D6198C008D9D6F /* Toast.swift in Sources */,
 				3A506EF623C0D26700A498C8 /* usersTeam.actions.swift in Sources */,
 				46B9530E23DECA1D009889EC /* Debounce.swift in Sources */,
+				46B9531923E187C4009889EC /* feedbackProps.effect.swift in Sources */,
 				EA7FD2C923DE15F500FF1181 /* FeedBackHistoryPage.swift in Sources */,
 				EA613B4D23D9B645000B3D09 /* SearchFavourite.swift in Sources */,
 				3A506EAA23C0D24E00A498C8 /* AppDelegate.swift in Sources */,
