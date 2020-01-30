@@ -21,20 +21,20 @@ struct  StatisticsPageModel {
 }
 
 struct  StatisticsPage: View {
+	
+	/** подписки из store **/
+	@ObservedObject var store = ObservableState(store: mainStore)
+	@ObservedObject var stat: StatisticsState = ObservableState(store: mainStore).state.statisticsSubState
+ //=====================================================================================================================================
+	
+	/** локальный state, изменяемые переменные **/
     /** номер меню для дат*/
     @State var activeDate: Int = 2
     /** номер меню для типа оценки*/
     @State var activeType: Int = 0
     
-    @ObservedObject  var stat: StatisticsState
-    
-    let store: GlobalStore
-    
-    init(store: GlobalStore) {
-        self.store = store
-        self.stat = store.state.statisticsSubState
-    }
-    
+
+
     //-----------------------------------------------------------------------
     func getChartData(stat:StatisticsState) -> TChart{
         var result:TChart = []
@@ -106,6 +106,6 @@ struct  StatisticsPage: View {
 
 struct  StatisticsPage_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticsPage(store: AppMain().store)
+        StatisticsPage()
     }
 }

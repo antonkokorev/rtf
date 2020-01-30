@@ -14,15 +14,14 @@ struct FeedBackRequestPage: View {
 	@State var showPopup: Bool = false
 	@State var totalSelected: Int = 0
 	
-	@ObservedObject var competenciesState: FeedbackPropsState
+	@ObservedObject var competenciesState: FeedbackPropsState = ObservableState(store: mainStore).state.feedbackPropsSubState
 	
-	let store: GlobalStore
+	@ObservedObject var store = ObservableState(store: mainStore)
 	
 	
-	init(store: GlobalStore){
-		self.store = store
-		self.competenciesState = store.state.feedbackPropsSubState
-	}
+//	init(){
+//		self.competenciesState = self.store.state.feedbackPropsSubState
+//	}
 	
 	var body: some View {
 		VStack(alignment: .leading) {
@@ -34,7 +33,7 @@ struct FeedBackRequestPage: View {
 				.padding()
 			
 			/** SearchBar **/
-			SearchBar(store: self.store, searchTxt: self.$searchTxt)
+			SearchBar(searchTxt: self.$searchTxt)
 			
 			VStack(alignment: .leading) {
 				
@@ -80,6 +79,6 @@ struct FeedBackRequestPage: View {
 
 struct FeedBackRequestPage_Previews: PreviewProvider {
 	static var previews: some View {
-		FeedBackRequestPage(store: AppMain().store)
+		FeedBackRequestPage()
 	}
 }

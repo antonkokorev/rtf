@@ -10,12 +10,13 @@ import SwiftUI
 
 struct UserDeleteIcon: View {
 	
+	@ObservedObject var store = ObservableState(store: mainStore)
+	
 	var bDelete: Bool
 	var sUserId: String
-	let store: GlobalStore
 	
-	init(_ store: GlobalStore,_ bDelete: Bool,_ sUserId: String){
-		self.store = store
+	
+	init(_ bDelete: Bool,_ sUserId: String){
 		self.bDelete = bDelete
 		self.sUserId = sUserId
 	}

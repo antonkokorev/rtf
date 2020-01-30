@@ -10,62 +10,59 @@ import ReSwift
 import Combine
 import SwiftUI
 
-protocol AppStateType {
-    var state: AppState { get }
-}
+/** реактивный store **/
+public class ObservableState<T>: ObservableObject where T: StateType {
 
-typealias ActionCreatorables = RequestActionCreatorable
-typealias RequestActionCreator = (_ state: AppState,_ store: DispatchingStoreType) -> Action?
-protocol RequestActionCreatorable {
-    func dispatch(_ actionCreatorProvider: @escaping RequestActionCreator)
-}
-
-class ReactiveStore: StoreSubscriber, DispatchingStoreType {
-    var state: AppState { return store.state }
-    var statePublisher: AnyPublisher<AppState, Never> {
-        return stateSubject.eraseToAnyPublisher()
-    }
+    // MARK: Public properties
     
-    private let store: Store<AppState>
-    private lazy var stateSubject: CurrentValueSubject<AppState, Never> = .init(state)
+    @Published public var state: T
     
-    init(store: Store<AppState>) {
+    // MARK: Private properties
+    
+    private var store: Store<T>
+    
+    // MARK: Lifecycle
+    
+    public init(store: Store<T>) {
         self.store = store
-        self.store.subscribe(self)
+        self.state = store.state
+        
+        store.subscribe(self)
     }
     
     deinit {
-        self.store.unsubscribe(self)
+        store.unsubscribe(self)
     }
     
-    func newState(state: AppState) {
-        stateSubject.send(state)
+    // MARK: Public methods
+    
+    public func dispatch(_ action: Action) {
+        store.dispatch(action)
     }
     
-    func dispatch(_ action: Action) {
-        if Thread.isMainThread {
-            store.dispatch(action)
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                self?.store.dispatch(action)
-            }
+//    public func dispatch(_ action: Action) -> () -> Void {
+//        {
+//            self.store.dispatch(action)
+//        }
+//    }
+}
+
+extension ObservableState: StoreSubscriber {
+    
+    // MARK: - <StoreSubscriber>
+    
+    public func newState(state: T) {
+        DispatchQueue.main.async {
+            self.state = state
         }
     }
 }
 
-/* глобальный store приложения */
-final class GlobalStore: ReactiveStore, ActionCreatorables {
-    
-    override init(store: Store<AppState>) {
-        super.init(store: store)
-    }
-    
-    private func create( _ actionCreatorProvider: @escaping RequestActionCreator) -> Action? {
-        return actionCreatorProvider(state, self)
-    }
-    
-    func dispatch(_ actionCreatorProvider: @escaping RequestActionCreator) {
-        guard let action = create(actionCreatorProvider) else { return }
-        dispatch(action)
-    }
-}
+
+/** конфигурация стора, все файлы в state.swift **/
+let mainStore = Store<AppState>(
+    reducer: appReducer,
+    state: nil,
+	middleware: AppEffects
+)
+

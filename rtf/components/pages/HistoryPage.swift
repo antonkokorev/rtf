@@ -9,19 +9,23 @@
 import SwiftUI
 
 struct  HistoryPage: View {
-    var store:GlobalStore
-    @State var activeHistoryPage: Int = 0
-    @ObservedObject var history: usersHistoryState
-    @ObservedObject var users: UsersState
+	
+	/** подписки из store **/
+    @ObservedObject var store = ObservableState(store: mainStore)
+    @ObservedObject var history: usersHistoryState  = ObservableState(store: mainStore).state.userHistorySubState
+    @ObservedObject var users: UsersState  = ObservableState(store: mainStore).state.usersSubState
+	 //=====================================================================================================================================
+	/** локальный state, изменяемые переменные **/
+	@State var activeHistoryPage: Int = 0
+	 //=====================================================================================================================================
+	/** не изменяемые переменные **/
     var respondent:IUser
     //=====================================================================================================================================
-    init(store:GlobalStore, respondent:IUser){
-        self.store = store
-        self.history = store.state.userHistorySubState
-        self.users = store.state.usersSubState
+    init(respondent: IUser){
+//        self.history = store.state.userHistorySubState
+//        self.users = store.state.usersSubState
         self.respondent = respondent
-        print( self.history.userHistory.count)
-        //    print( userId)
+//        print( self.history.userHistory.count)
     }
 
     func getData(type:String = "Все"){
@@ -75,7 +79,7 @@ struct  HistoryPage: View {
 
 struct  HistoryPage_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryPage(store:AppMain().store, respondent: initIUser())
+        HistoryPage(respondent: initIUser())
         
     }
 }
