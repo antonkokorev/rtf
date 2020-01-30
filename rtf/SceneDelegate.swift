@@ -10,31 +10,31 @@ import UIKit
 import SwiftUI
 import ReSwift
 
-final class AppMain {
-    
-    var store: GlobalStore
-    
-    init(store: Store<AppState> = makeSrore()) {
-        self.store = GlobalStore(store: store)
-    }
-}
-
-func makeSrore() -> Store<AppState> {
-    let middleware = AppEffects
-    return Store<AppState>(reducer: appReducer, state: nil, middleware: middleware)
-}
+//final class AppMain {
+//
+//    var store: GlobalStore
+//
+//    init(store: Store<AppState> = makeSrore()) {
+//        self.store = GlobalStore(store: store)
+//    }
+//}
+//
+//func makeSrore() -> Store<AppState> {
+//    let middleware = AppEffects
+//    return Store<AppState>(reducer: appReducer, state: nil, middleware: middleware)
+//}
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private lazy var appMain = AppMain()
+//    private lazy var appMain = AppMain()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        let contentView = StartPage(store: AppMain().store).environment(\.font, Font.Typography.regularFont).background(Color.RTFPallete.backgroundDefault.edgesIgnoringSafeArea(.all))
+        let contentView = StartPage().environment(\.font, Font.Typography.regularFont).background(Color.RTFPallete.backgroundDefault.edgesIgnoringSafeArea(.all))
 //		        let contentView =  FeedBackRequestPage(store: AppMain().store)
 
         // Use a UIHostingController as window root view controller

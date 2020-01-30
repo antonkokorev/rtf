@@ -59,16 +59,18 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
         return state
     }
 
-//	print("red", action)
+	print("red", action)
     switch action {
 
 	case .pendingSearch(let searchTxt):
 		state.searchTxt = searchTxt
+		state.bShowSearch = false
 		state.status = "[Pending] pendingSearch"
 		break;
 	case .successSearch(let users):
-		if (users.oSearchResult != nil) {
+		if (users.oSearchResult != nil && users.oSearchResult != []) {
 			state.collection = users.oSearchResult!
+			state.bShowSearch = true
 		}
 		state.status = "[Success] successSearch"
 		break;

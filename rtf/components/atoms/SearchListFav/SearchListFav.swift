@@ -21,10 +21,9 @@ struct SearchListFav: View {
     
     
     
-	let store: GlobalStore
+	@ObservedObject var store = ObservableState(store: mainStore)
 	
-	init(_ store: GlobalStore,_ users: [ISearchResults],_ favUsers: [IUser]){
-		self.store = store
+	init(_ users: [ISearchResults],_ favUsers: [IUser]){
 		self.aSearchUsers = users
 		self.aFavUsers = favUsers
 	}

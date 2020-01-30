@@ -12,7 +12,7 @@ struct StatDynamicList: View {
     @State var expanded:[Int:Bool] = [:]
     @State var openEstimate:Bool = false
     @State var openAttr = ("","")
-    let store: GlobalStore
+    @ObservedObject var store = ObservableState(store: mainStore)
     func isExpanded(_ id:Int) -> Bool {
         expanded[id] ?? false
     }
@@ -38,7 +38,8 @@ struct StatDynamicList: View {
                             data:self.values[section].aAttributes ?? [],
                             clickFunc:self.subAtrrClick)
                             .sheet(isPresented: self.$openEstimate) {
-                                StatAttrInfo(id:self.openAttr.0,title: self.openAttr.1,store: self.store)
+								Text("TEST")
+//                                StatAttrInfo(id:self.openAttr.0,title: self.openAttr.1,store: self.store)
                         }
                     }
                 }

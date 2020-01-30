@@ -12,9 +12,10 @@ import URLImage
 
 struct HistoryPopup: View {
 
+	/** не изменяемые переменные **/
     var historyList: [IUserHistoryList]
     var action: (_ userId:IUser) -> Void = {i in print(i)}
-//    var store:GlobalStore
+	 //=====================================================================================================================================
     var body: some View {
         
         VStack{

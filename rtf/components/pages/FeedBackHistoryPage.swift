@@ -12,7 +12,6 @@ struct FeedBackHistoryPage: View {
 	
 	@State var activeBinaryMenu: Int = 0
 	@State var isSent: Bool = false
-//	@State var isItMe: Bool = false
 	
 	/** Индикатор нового уведомления **/
 	@State var newFeedBack: Bool = true
@@ -20,12 +19,10 @@ struct FeedBackHistoryPage: View {
 	
 	@State var searchTxt: String = ""
 	
-	let store: GlobalStore
+	@ObservedObject var store = ObservableState(store: mainStore)
 	
 	/** инициализатор store + state перед рендером */
-	init(store: GlobalStore) {
-		self.store = store
-	}
+
 	
 	var body: some View {
 		VStack(alignment: .leading) {
@@ -93,6 +90,6 @@ struct FeedBackHistoryPage: View {
 
 struct FeedBackHistoryPage_Previews: PreviewProvider {
 	static var previews: some View {
-		FeedBackHistoryPage(store: AppMain().store)
+		FeedBackHistoryPage()
 	}
 }

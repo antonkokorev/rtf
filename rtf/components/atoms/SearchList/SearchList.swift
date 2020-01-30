@@ -11,7 +11,7 @@ import RxSwift
 /** Функциональный компонент, ререндер при изменение переменной users **/
 struct SearchList: View {
     /** глобальный стор*/
-    let store: GlobalStore
+    @ObservedObject var store = ObservableState(store: mainStore)
     /** Сотрудники из поиска у них другой интерфейс в отличии от IUser **/
     var aSearchUsers: [ISearchResults]
     /** Сотрудники для сравнения **/
