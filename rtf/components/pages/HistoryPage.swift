@@ -35,7 +35,7 @@ struct  HistoryPage: View {
     //=====================================================================================================================================
     var body: some View {
         VStack(alignment:.leading){
-            ScrollView(.vertical, showsIndicators: false){
+
                 //--------------------------------------------------------------------------------------------------------------
                 /** Тест и меню*/
                 VStack(alignment:.leading){
@@ -56,15 +56,13 @@ struct  HistoryPage: View {
                     .padding(.leading, 30)
                 
                 //--------------------------------------------------------------------------------------------------------------
+            ScrollView(.vertical, showsIndicators: false){
                 ForEach(history.userHistory.filter(){
                      $0.sActivityType == "ASSESSMENT"
                 },id:\.self){ item in
                     HistoryAssessmentCard(item:item.oPayload, me:self.users.me ,respondent:self.respondent)
                     
                 }
-                
-
-                
             }
             
         }.onAppear(perform: {

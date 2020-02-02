@@ -26,54 +26,50 @@ struct SearchList: View {
     var body: some View {
         
         List {
-            ForEach(aSearchUsers, id: \.self) { user in
-                
+            ForEach(aSearchUsers, id: \.self) { user in    
                 HStack {
                     CircleImage(
                         imageUrl: getPhoto((user.oUserData?.sPersonSFID)!),
-                        imageSize: 60,
-                        backgroundColor: .black
+                        imageSize: 50
                     )
-                    
-                    VStack{
+                        .padding(.trailing, 15)
+                    VStack(alignment: .leading){
+                        Spacer()
                         /** формат имени **/
-                        HStack {
-                            PersonNameTransformator(
-                                lastName: (user.oUserData?.sPersonLastName)!,
-                                firstName: (user.oUserData?.sPersonFirstName)!,
-                                middleName: (user.oUserData?.sPersonMiddleName)!
-                            ).padding(8).foregroundColor(.black)
-                            Spacer()
-                        }
+                        PersonNameTransformator(
+                            lastName: (user.oUserData?.sPersonLastName)!,
+                            firstName: (user.oUserData?.sPersonFirstName)!,
+                            middleName: (user.oUserData?.sPersonMiddleName)!
+                        )
+                            .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                            .foregroundColor(Color.RTFPallete.textDefault)
                         
-                        HStack {
-                            Text(String((user.oUserData?.sPositionFullName)!))
-                                .bold()
-                                .padding(8)
-                                .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                            
-                            Spacer()
-                        }
-                    }.onTapGesture {
-                        var userTmp:IUser = initIUser()
-                        userTmp.sUserId = user.oUserData?.sPersonSFID
-                        userTmp.sFirstName =  user.oUserData?.sPersonFirstName
-                        userTmp.sMiddleName = user.oUserData?.sPersonMiddleName
-                        userTmp.sLastName = user.oUserData?.sPersonLastName
-                        userTmp.sTitle = user.oUserData?.sPositionName
-                        self.action(userTmp)
+                        Text(String((user.oUserData?.sPositionFullName)!))
+                            .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                            .foregroundColor(Color.RTFPallete.textSecondary)
+                        
+                        Spacer()
                     }
-                    
-                    Spacer()
+                }
+                .padding(.horizontal, 10)
+                .padding(.top, 5)
+                .padding(.bottom, 10)
+                .onTapGesture {
+                    var userTmp:IUser = initIUser()
+                    userTmp.sUserId = user.oUserData?.sPersonSFID
+                    userTmp.sFirstName =  user.oUserData?.sPersonFirstName
+                    userTmp.sMiddleName = user.oUserData?.sPersonMiddleName
+                    userTmp.sLastName = user.oUserData?.sPersonLastName
+                    userTmp.sTitle = user.oUserData?.sPositionName
+                    self.action(userTmp)
                 }
             }
-        }.modifier(DismissingKeyboard()).partialSheet(presented: self.$showUserPopup) {
+        }
+
+        .modifier(DismissingKeyboard()).partialSheet(presented: self.$showUserPopup) {
             VStack{
-                
                 Text("!!!!")
-                
                 Spacer()
-                
             }.frame(height: 450)
         }
     }

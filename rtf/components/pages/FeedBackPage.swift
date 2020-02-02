@@ -102,8 +102,12 @@ struct FeedBackPage: View {
                 .padding(.horizontal, 30)
                 
                 /** Скрывает все, если есть найденые пользователи */
-                if (self.store.state.searchSubState.bShowSearch) {
-                    SearchList(aSearchUsers: self.search.collection ,aFavUsers: self.favUsers.collection, action:self.userClick)
+                if (self.store.state.searchSubState.bShowSearch){
+                    SearchList(
+                        aSearchUsers: self.search.collection ,
+                        aFavUsers: self.favUsers.collection,
+                        action:self.userClick
+                    )
                 } else {
                     VStack(alignment: .leading){
                     Text("Недавние")
