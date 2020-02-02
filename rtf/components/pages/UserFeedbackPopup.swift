@@ -65,7 +65,7 @@ struct UserFeedbackPopup: View {
 									icon: "arrow_down_white",
 									iconSize: 35,
 									backgroundColor: Color.RTFPallete.baseColor.mainPink)
-								Text("Дать \n обратную связь")
+								Text("Запросить \n обратную связь")
 									.font(Font.Typography.sizingFont(font: .semibold, size: .H4))
 									.foregroundColor(Color.RTFPallete.textDefault)
 									.multilineTextAlignment(.center).frame(height: 42.0)
@@ -91,7 +91,7 @@ struct UserFeedbackPopup: View {
 									icon: "arrow_up_white",
 									iconSize: 35,
 									backgroundColor: Color.RTFPallete.baseColor.mainBlue)
-								Text("Оставить \n обратную связь")
+								Text("Дать \n обратную связь")
 									.font(Font.Typography.sizingFont(font: .semibold, size: .H4))
 									.foregroundColor(Color.RTFPallete.textDefault)
 									.multilineTextAlignment(.center).frame(height: 42.0)

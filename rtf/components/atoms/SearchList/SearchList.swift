@@ -25,10 +25,6 @@ struct SearchList: View {
     
     var body: some View {
         
-        //        Button(action: {
-        //            print(self.aSearchUsers)
-        //                        }, label: {Text("!!!!!!!!!!!!!!!!!!!")})
-        
         List {
             ForEach(aSearchUsers, id: \.self) { user in
                 
@@ -38,34 +34,34 @@ struct SearchList: View {
                         imageSize: 60,
                         backgroundColor: .black
                     )
-
-                        VStack{
-                            /** формат имени **/
-                            HStack {
-                                PersonNameTransformator(
-                                    lastName: (user.oUserData?.sPersonLastName)!,
-                                    firstName: (user.oUserData?.sPersonFirstName)!,
-                                    middleName: (user.oUserData?.sPersonMiddleName)!
-                                ).padding(8).foregroundColor(.black)
-                                Spacer()
-                            }
+                    
+                    VStack{
+                        /** формат имени **/
+                        HStack {
+                            PersonNameTransformator(
+                                lastName: (user.oUserData?.sPersonLastName)!,
+                                firstName: (user.oUserData?.sPersonFirstName)!,
+                                middleName: (user.oUserData?.sPersonMiddleName)!
+                            ).padding(8).foregroundColor(.black)
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            Text(String((user.oUserData?.sPositionFullName)!))
+                                .bold()
+                                .padding(8)
+                                .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
                             
-                            HStack {
-                                Text(String((user.oUserData?.sPositionFullName)!))
-                                    .bold()
-                                    .padding(8)
-                                    .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                                
-                                Spacer()
-                            }
-                        }.onTapGesture {
-                            var userTmp:IUser = initIUser()
-                            userTmp.sUserId = user.oUserData?.sPersonSFID
-                            userTmp.sFirstName =  user.oUserData?.sPersonFirstName
-                            userTmp.sMiddleName = user.oUserData?.sPersonMiddleName
-                            userTmp.sLastName = user.oUserData?.sPersonLastName
-                            userTmp.sTitle = user.oUserData?.sPositionName
-                            self.action(userTmp)
+                            Spacer()
+                        }
+                    }.onTapGesture {
+                        var userTmp:IUser = initIUser()
+                        userTmp.sUserId = user.oUserData?.sPersonSFID
+                        userTmp.sFirstName =  user.oUserData?.sPersonFirstName
+                        userTmp.sMiddleName = user.oUserData?.sPersonMiddleName
+                        userTmp.sLastName = user.oUserData?.sPersonLastName
+                        userTmp.sTitle = user.oUserData?.sPositionName
+                        self.action(userTmp)
                     }
                     
                     Spacer()
