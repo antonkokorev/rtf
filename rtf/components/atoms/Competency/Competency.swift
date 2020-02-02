@@ -10,47 +10,46 @@ import SwiftUI
 //import PartialSheet
 
 struct Competency: View {
-	
-	@Binding var showPopup: Bool
-	@Binding var total: Int
-	
-	@State var selected: Bool = false
-	
-	var txt: String = ""
-	
-//	@State var showPopup: Bool = false
-	
-//		.sheet(isPresented: self.$openEstimate) {
-//			StatAttrInfo(id:self.openAttr.0,title: self.openAttr.1,store: self.store)
-//	}
-	
+    
+    @Binding var showPopup: Bool
+    @Binding var total: Int
+    
+    @State var selected: Bool = false
+    
+    var txt: String = ""
+    
+    //	@State var showPopup: Bool = false
+    
+    //		.sheet(isPresented: self.$openEstimate) {
+    //			StatAttrInfo(id:self.openAttr.0,title: self.openAttr.1,store: self.store)
+    //	}
+    
     var body: some View {
-		HStack {
-			
-			Button(action: {
-				self.showPopup = true
-				
-				if (!self.selected) {
-					self.total += 1
-				} else {
-					self.total -= 1
-				}
-				
-				self.selected = !self.selected
-			}, label: {
-				Text(self.txt)
-					.foregroundColor(self.selected ? Color(red:0.54, green:0.57, blue:0.61) : .black)
-					.font(.custom("SBSansDisplay-Regular", size: 16))
-					.padding()
-					.overlay(
-						RoundedRectangle(cornerRadius: 10)
-							.stroke(Color(red:0.54, green:0.57, blue:0.61), lineWidth: 2)
-				)
-				
-			})
-			
-
-		}.padding()
+        HStack {
+            Button(action: {
+                self.showPopup = true
+                
+                if (!self.selected) {
+                    self.total += 1
+                } else {
+                    self.total -= 1
+                }
+                
+                self.selected = !self.selected
+            }, label: {
+                Text(self.txt)
+                    .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                    .foregroundColor(selected ? Color.RTFPallete.buttonDefault : Color.RTFPallete.textSecondary)
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 7)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.RTFPallete.textSecondary, lineWidth: selected ? 0 : 1)
+                )
+                    .background(RoundedRectangle(cornerRadius: 20).fill(selected ? Color.RTFPallete.baseColor.blueGray : Color.RTFPallete.baseColor.white))
+            }).self.buttonStyle(PlainButtonStyle())
+        }.padding(.vertical, 5)
     }
 }
 
