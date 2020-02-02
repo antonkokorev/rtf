@@ -19,7 +19,7 @@ struct SearchBar: View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 30)
-                    .stroke(Color.RTFPallete.buttonDefault, lineWidth: 3)
+                    .stroke(Color.RTFPallete.baseColor.blueGray, lineWidth: 3)
                     .background(Color.RTFPallete.baseColor.blueGray)
                     .cornerRadius(30)
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 45, maxHeight: 45)
@@ -37,7 +37,8 @@ struct SearchBar: View {
                             self.store.dispatch(searchActions.hideSearch)
                             
                         }, label: {
-                            Image(systemName: "xmark").foregroundColor(.red)
+                            Image(systemName: "xmark")
+                                .foregroundColor(Color.RTFPallete.iconGray)
                         })
 //                    }
                 }

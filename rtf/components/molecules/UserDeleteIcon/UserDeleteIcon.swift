@@ -14,21 +14,25 @@ struct UserDeleteIcon: View {
 	
 	var bDelete: Bool
 	var sUserId: String
+    var sFirstName: String
+    var sLastName: String
 	
 	
-	init(_ bDelete: Bool,_ sUserId: String){
+	init(_ bDelete: Bool,_ sUserId: String, _ sFirstName: String, _ sLastName: String ){
 		self.bDelete = bDelete
 		self.sUserId = sUserId
+        self.sFirstName = sFirstName
+        self.sLastName = sLastName
 	}
 	
 	
 	var body: some View {
 		ZStack{
-			CircleImage(
-				imageUrl: getPhoto(self.sUserId),
-				imageSize: 60,
-				backgroundColor: .blue
-			)
+            CarouselUser(
+                firstName: sFirstName,
+                lastName: sLastName,
+                imageUrl: getPhoto(self.sUserId)
+            )
 			if (self.bDelete){
 					CircleImage(
 						imageSize: 20,
