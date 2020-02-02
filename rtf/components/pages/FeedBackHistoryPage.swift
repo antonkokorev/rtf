@@ -51,7 +51,7 @@ struct FeedBackHistoryPage: View {
 			)
 			
 			/** SearchBar **/
-            SearchBar(store:self.store, searchTxt:self.$searchTxt)
+        //    SearchBar(store:self.store, searchTxt:self.$searchTxt)
 
 			/** user **/
 			FeedBackHistoryUser(isItMe: self.$activeBinaryMenu, newFeedBack: self.$newFeedBack, username: "Джефф Безос", date: "24 фев 2020", imageURL: (self.activeBinaryMenu == 0) ? "https://i1.sndcdn.com/avatars-000340792762-3unqyo-t500x500.jpg" : "https://avatarfiles.alphacoders.com/160/160326.png").padding(.horizontal)

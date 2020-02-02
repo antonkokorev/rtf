@@ -28,13 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 //    private lazy var appMain = AppMain()
-
+ let textModel = TextModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
-        let contentView = StartPage().environment(\.font, Font.Typography.regularFont).background(Color.RTFPallete.backgroundDefault.edgesIgnoringSafeArea(.all))
+       
+        let contentView = StartPage().environmentObject(textModel).background(Color.RTFPallete.backgroundDefault.edgesIgnoringSafeArea(.all))
 //		        let contentView =  FeedBackRequestPage(store: AppMain().store)
 
         // Use a UIHostingController as window root view controller

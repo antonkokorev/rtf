@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import RxSwift
+
 struct SearchBar: View {
     
     @ObservedObject var store = ObservableState(store: mainStore)
@@ -26,7 +26,7 @@ struct SearchBar: View {
                 
                 HStack {
                     Image("search")
-                    
+           
                     TextField("Поиск по ФИО", text: $searchTxt, onEditingChanged: { (changed) in
                         
                     })
@@ -43,10 +43,72 @@ struct SearchBar: View {
                 }
                 .padding(.horizontal, 15)
             }
-		}.onAppear(perform: {
-			print("searchRender")
-		})
+        }.onAppear(perform: {
+           // print("searchRender")
+        })
     }
 }
 
 
+struct SearchBarUI: UIViewRepresentable {
+
+    @Binding var text: String
+    @ObservedObject var store = ObservableState(store: mainStore)
+    class Coordinator: NSObject, UISearchBarDelegate {
+
+        @Binding var text: String
+        let debouncedFunction = debounce(interval: 800, queue: DispatchQueue.main, action: { (str: String) in
+            (ObservableState(store: mainStore)).dispatch(searchActions.pendingSearch(str))
+        })
+        init(text: Binding<String>) {
+            _text = text
+        }
+
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            print("!")
+            searchBar.text = ""
+
+            searchBar.resignFirstResponder()
+            searchBar.showsCancelButton = false
+            searchBar.endEditing(true)
+        }
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            text = searchText
+//            print(searchText.count)
+//            DispatchQueue.global(qos: .background).async {
+//                        self.debouncedFunction(searchText)
+//                    }
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(text: $text)
+    }
+
+    func makeUIView(context: UIViewRepresentableContext<SearchBarUI>) -> UISearchBar {
+        let searchBar = UISearchBar(frame: .zero)
+        searchBar.delegate = context.coordinator
+         searchBar.clipsToBounds = true
+        searchBar.layer.cornerRadius = 5
+
+        
+//
+//        searchBar.translatesAutoresizingMaskIntoConstraints = false
+//
+//
+
+        searchBar.backgroundColor = UIColor.clear
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+//        searchBar.tintColor = UIColor.clear
+//        searchBar.isTranslucent = true
+
+
+        return searchBar
+    }
+
+    func updateUIView(_ uiView: UISearchBar,
+                      context: UIViewRepresentableContext<SearchBarUI>) {
+        uiView.text = text
+ 
+    }
+}

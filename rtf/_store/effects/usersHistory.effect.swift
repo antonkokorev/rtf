@@ -23,13 +23,13 @@ var userHistoryEffect: Middleware<AppState> = { dispatch, getState in
 			/* делает реквест только если pending вызвано */
 			switch userRecentInvokedAction {
             case .pendingGetUserHistory(let sload, let user):
-            print(sload,user)
+            //print(sload,user)
                 AF.request(Interceptor.serviceRequest(service: "assessment/history",  body: stringify(json: ["iPage": 0,"iSize":25, "sLoadOption":sload, "sUserId":user ]))).response { response in
                       /* обработка ошибок */
                       switch response.result {
                       case .success:
                           do {
-                          // debugPrint(response)
+                           //debugPrint(response)
                               let data = try JSONDecoder().decode(IUserHistoryRequest.self, from: response.data!)
                              
                             next(usersHistoryActions.successGetUserHistory(data.oData ))

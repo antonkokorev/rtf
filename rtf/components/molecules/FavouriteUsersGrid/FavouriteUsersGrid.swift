@@ -10,8 +10,9 @@ import SwiftUI
 
 /** Функциональный компонент, на вход получает массив пользователей **/
 struct FavouriteUsersGrid: View {
+    @ObservedObject var favUsers: usersFavouriteState = ObservableState(store: mainStore).state.usersFavouriteSubState
     @ObservedObject var store = ObservableState(store: mainStore)
-    var users: [IUser]
+    var users: [IUser]{favUsers.collection}
     var editMode: Bool
     var action: (_ msg:IUser) -> Void = {i in print(i)}
     @State var usersModal: Bool = false	
@@ -38,14 +39,15 @@ struct FavouriteUsersGrid: View {
                                 .frame(alignment: .center)
                                 .fixedSize(horizontal: false, vertical: true)
                            
-                            }
+                            }.onTapGesture {
+                                          self.usersModal = true
+                                   print("click1",self.usersModal)
+                                   //self.store.dispatch(searchActions.resetSearch)
+                            
+                               }
                             .frame(width: 72, height: 96)
                             .sheet(isPresented: self.$usersModal) {
                                 SearchFavourite()
-                            }.onTapGesture {
-                                print("click")
-                                self.store.dispatch(searchActions.resetSearch)
-                                self.usersModal = true
                             }
                         } else {
                             UserDeleteIcon(self.editMode, self.users[index - 1].sUserId!)
@@ -180,7 +182,7 @@ struct FavouriteUsersGrid_Previews: PreviewProvider {
 	]
     
 	static var previews: some View {
-        FavouriteUsersGrid(users: testUsers, editMode: false)
+        FavouriteUsersGrid( editMode: false)
 	}
 }
 }

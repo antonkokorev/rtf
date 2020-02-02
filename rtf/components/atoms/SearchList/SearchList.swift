@@ -12,8 +12,11 @@ import RxSwift
 struct SearchList: View {
     /** глобальный стор*/
     @ObservedObject var store = ObservableState(store: mainStore)
+    @ObservedObject var search: SearchState = ObservableState(store: mainStore).state.searchSubState
+    //@ObservedObject var favUsers: usersFavouriteState = ObservableState(store: mainStore).state.usersFavouriteSubState
+    
     /** Сотрудники из поиска у них другой интерфейс в отличии от IUser **/
-    var aSearchUsers: [ISearchResults]
+
     /** Сотрудники для сравнения **/
     var aFavUsers: [IUser]?
     
@@ -25,12 +28,8 @@ struct SearchList: View {
     
     var body: some View {
         
-        //        Button(action: {
-        //            print(self.aSearchUsers)
-        //                        }, label: {Text("!!!!!!!!!!!!!!!!!!!")})
-        
         List {
-            ForEach(aSearchUsers, id: \.self) { user in
+            ForEach(search.collection, id: \.self) { user in
                 
                 HStack {
                     CircleImage(

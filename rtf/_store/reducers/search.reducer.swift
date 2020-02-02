@@ -59,7 +59,7 @@ func searchReducer(action: Action, state: SearchState?) -> SearchState {
         return state
     }
 
-	print("red", action)
+	
     switch action {
 
 	case .pendingSearch(let searchTxt):

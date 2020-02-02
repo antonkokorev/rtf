@@ -33,3 +33,9 @@ extension Color {
     static let  p15:CGFloat = 15
 
 }
+extension View {
+    func Print(_ vars: Any...) -> some View {
+        for v in vars { print(v) }
+        return EmptyView()
+    }
+}

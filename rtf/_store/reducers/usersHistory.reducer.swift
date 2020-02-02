@@ -27,7 +27,7 @@ struct IPersonAssesmentItem: Codable, Equatable, Hashable {
     let sPersonAssessmentId:String?
     let oAttributeToCategory:IAttributeToCategory?
     let oSkill:ISkill?
-    let iGrade:Double?
+    let iGrade:Int?
     let bActive:Bool?
     let sRespondentComment:String?
     let sCanNotAnswerType:String?
@@ -55,7 +55,7 @@ struct IUserPayload: Codable, Equatable, Hashable {
     let aPersonAssessmentSkillItem:[IPersonAssesmentItem]?
     let bIsSetThanks:Bool?
     let bIsAnonymous:Bool?
-   
+
     let sProjectId: String?
     let sRole:String?
     let lLastModifiedTime:Int64?

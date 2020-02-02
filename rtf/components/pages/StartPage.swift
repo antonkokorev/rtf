@@ -15,7 +15,7 @@ func greetUser(msg:String) {
 struct StartPage: View {
 	//=====================================================================================================================================
 	/** подписки из store **/
-	
+	    @EnvironmentObject var textModel: TextModel
 	/** главный store **/
 	@ObservedObject var store = ObservableState(store: mainStore)
 	
@@ -178,7 +178,7 @@ struct StartPage: View {
 							icon: "home__feedback"
 							
 						).sheet(isPresented: $feedbackModal) {
-							FeedBackPage()
+                            FeedBackPage().environmentObject(self.textModel)
 						}
 						
 						ActionCard(

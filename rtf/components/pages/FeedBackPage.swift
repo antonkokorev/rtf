@@ -7,7 +7,7 @@
 //
 import SwiftUI
 import PartialSheet
-import URLImage
+
 
 // todo: адовое извращение  для поиска с дебоунсом
 class TextModel: ObservableObject {
@@ -25,18 +25,26 @@ class TextModel: ObservableObject {
 		}
 	}
 }
+//struct GlobalVar {
+//     let subjectStr = BehaviorSubject<String>(value:"")
+//    let sub = subjectStr.subscribe(onNext:{ str in
+//    print(str)
+//    })
+//}
+
+
+
 
 /** страничка коллеги **/
 struct FeedBackPage: View {
-	
+	@EnvironmentObject var textModel: TextModel
 	/** подписки из store **/
-	@ObservedObject var textModel: TextModel = TextModel()
-	@ObservedObject var store = ObservableState(store: mainStore)
-	@ObservedObject var favUsers: usersFavouriteState = ObservableState(store: mainStore).state.usersFavouriteSubState
-	@ObservedObject var users: UsersRecentState = ObservableState(store: mainStore).state.usersRecentSubState
-	@ObservedObject var search: SearchState = ObservableState(store: mainStore).state.searchSubState
+//	@ObservedObject var textModel: TextModel = TextModel()
+	//@ObservedObject var store = ObservableState(store: mainStore)
+    @ObservedObject var users: UsersRecentState = ObservableState(store: mainStore).state.usersRecentSubState
+
 	@ObservedObject var error: ErrorState = ObservableState(store: mainStore).state.errorSubState
-	
+
 	//=====================================================================================================================================
 	
 	/** локальный state, изменяемые переменные **/
@@ -68,8 +76,9 @@ struct FeedBackPage: View {
 			}
 		}
 		return
+                
 			VStack(alignment: .leading, spacing: 0) {
-				
+			Print("render")
 				VStack(alignment:.leading){
 					Text("Коллеги")
 						.font(Font.Typography.sizingFont(font: .bold, size: .H1))
@@ -88,14 +97,14 @@ struct FeedBackPage: View {
 				.padding(.top, 40)
 				.padding(.bottom, 20)
 				
-				
 				/** Поиск  **/
 				SearchBar(searchTxt: $textModel.searchText)
 					.padding(.bottom, 20)
-				
+			
+                
 				/** Скрывает все, если есть найденые пользователи */
-				if (self.store.state.searchSubState.bShowSearch) {
-					SearchList(aSearchUsers: self.search.collection ,aFavUsers: self.favUsers.collection, action:self.userClick)
+                if (textModel.searchText.count > 0) {
+             //   SearchList(action:self.userClick)
 				} else {
 					Text("Недавние")
 						.font(Font.Typography.sizingFont(font: .semibold, size: .H2))
@@ -131,14 +140,14 @@ struct FeedBackPage: View {
 									.font(Font.Typography.sizingFont(font: .semibold, size: .H3))
 									.foregroundColor(Color.RTFPallete.textSecondary)
 							})
-						}
+                        }}
 					}
 					.padding(.bottom, 15)
 					/** грид избранных юзеров, на вход [IUser] **/
 					
-					FavouriteUsersGrid(users: self.favUsers.collection, editMode: self.editMode, action:self.userClick)
+					FavouriteUsersGrid( editMode: self.editMode, action:self.userClick)
 					Spacer()
-				}
+				
 				/** двигает все на верх **/
 				Spacer()
 			}
@@ -150,7 +159,7 @@ struct FeedBackPage: View {
 					
 				}
 			} .sheet(isPresented: $estimateUserModal) {
-				FeedBackRequestPage(store: self.store)
+				FeedBackRequestPage()
 			}
 			.toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
 	}

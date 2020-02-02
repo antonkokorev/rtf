@@ -28,7 +28,7 @@ struct HistoryAssessmentCard: View {
     func hwoIsOnPhoto() -> IUser{
      
         return  (item.sRespondentId == me.sUserId && (self.item.sStatus == "CREATED" || self.item.sStatus == "READ")) ||
-            ( item.sRespondentId != me.sUserId &&  self.item.sStatus == "ANSWERED") ? self.me : self.respondent
+            ( item.sRespondentId != me.sUserId &&  self.item.sStatus == "ANSWERED") ?self.respondent: self.me
     }
     
     //=====================================================================================================================================
@@ -42,6 +42,8 @@ struct HistoryAssessmentCard: View {
                 )
                 Text(hwoIsOnPhoto().sFirstName! + " " + hwoIsOnPhoto().sLastName!.prefix(1)+".")
                     .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
+                Text(item.sStatus!)
+                    .font(Font.Typography.sizingFont(font: .regular, size: .H6))
                 Spacer()
                 Text( getData(date: (self.item.lLastModifiedTime == nil) ? self.item.lCreationTime! : self.item.lLastModifiedTime!  ,format: "dd MMM yyyy в HH:mm"))
                     .padding(.horizontal, 8)
@@ -56,7 +58,11 @@ struct HistoryAssessmentCard: View {
                     .padding(.horizontal, -30)
                     .padding(.bottom, 15)
             }
-            
+            if (item.sRequesterComment != "" && item.sRequesterComment != nil){
+                           Comment(expand: false, comment: item.sRequesterComment )
+                               .padding(.horizontal, -30)
+                               .padding(.bottom, 15)
+                       }
             VStack{
                 HStack{
                     Text("Компетенции")
@@ -68,12 +74,20 @@ struct HistoryAssessmentCard: View {
                 }
                 
                 VStack{
+                    
+                    ForEach(0..<self.item.aPersonAssessmentItem!.count){ i in
+                        
+                        Attribute(number: self.item.aPersonAssessmentItem?[i].iGrade,
+                                  attr:self.item.aPersonAssessmentItem?[i].oAttributeToCategory)
+                        if (i<self.item.aPersonAssessmentItem!.count - 1)
+                        {  Divider()}
+                    }
                     //Цикл с отбражением атрибутов
-                    Attribute(number: 10, attribute: "Прорабатывает тему с заинтересованными сторонами")
-                    Divider()
-                    Attribute(attribute: "Глубоко понимает тему")
-                    Divider()
-                    Attribute(attribute: "Глубоко понимает тему")
+//                    Attribute(number: 10, attribute: "Прорабатывает тему с заинтересованными сторонами")
+//
+//                    Attribute(attribute: "Глубоко понимает тему")
+//                    Divider()
+//                    Attribute(attribute: "Глубоко понимает тему")
                     
                     
                 }.padding(.bottom, 15)
@@ -83,7 +97,7 @@ struct HistoryAssessmentCard: View {
                     .stroke(Color.RTFPallete.buttonGrayBackground, lineWidth: 1)
             ).padding(.bottom, 15)
             
-            if (status == "READ"){
+            if (item.sStatus! == "READ"){
                 Button(action: {
                     
                 }) {
@@ -105,12 +119,30 @@ struct HistoryAssessmentCard: View {
 }
 
 struct Attribute: View {
+        @ObservedObject var feedback: FeedbackPropsState  = ObservableState(store: mainStore).state.feedbackPropsSubState
     var number: Int?
-    var attribute: String = ""
+    let attr:IAttributeToCategory?
+
+    
+    func getTextCompetention(comp:[ICompetentions])->String{
+       var result = ""
+        for item in comp {
+            for cAttr in item.aAttributes!{
+                if(cAttr.sCategoryId == attr?.sCategoryId && cAttr.sId == attr?.sAttributeId ){
+                    result = cAttr.sName
+                    break
+                }
+                
+            }
+        }
+       return result
+    }
+    
+    
     var body: some View{
         HStack(){
             ZStack{
-                if (number != nil){
+                if (number != nil &&  number! > 0){
                     CircleImage(
                         imageSize: BasicIconSizes.max,
                         backgroundColor: Color.RTFPallete.baseColor.blueGray)
@@ -127,7 +159,7 @@ struct Attribute: View {
                 
             }.padding(.trailing, 20)
             
-            Text(attribute)
+            Text(getTextCompetention(comp:self.feedback.competentions))
                 .lineLimit(5)
                 .font(Font.Typography.sizingFont(font: .semibold, size: .H3))
                 .foregroundColor(Color.RTFPallete.textDefault)

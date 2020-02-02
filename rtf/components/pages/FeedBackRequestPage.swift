@@ -33,7 +33,7 @@ struct FeedBackRequestPage: View {
 				.padding()
 			
 			/** SearchBar **/
-			SearchBar(searchTxt: self.$searchTxt)
+		//	SearchBar()
 			
 			VStack(alignment: .leading) {
 				

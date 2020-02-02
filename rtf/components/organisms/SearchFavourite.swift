@@ -30,7 +30,7 @@ struct SearchFavourite: View {
                 .font(Font.Typography.sizingFont(font: .bold, size: .H1)).padding()
             Text("Найдите пользователя  по ФИО, блоку, почте  и  добавьте его в избранное .") .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
                 .font(.custom("SBSansDisplay-Regular", size: 18)).padding()
-            SearchBar(searchTxt: $textModel.searchText)
+          //  SearchBar(searchTxt: $textModel.searchText)
             SearchListFav(self.aSearchUsers.collection, self.aFavUsers.collection)
             Spacer()
         }
