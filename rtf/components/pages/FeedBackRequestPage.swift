@@ -61,8 +61,11 @@ struct FeedBackRequestPage: View {
                     UITableView.appearance().separatorStyle = .none
                 }
                 .padding(.horizontal, 10)
-                .partialSheet(presented: self.$showPopup, enableCover: false) {
+                if(totalSelected > 0){
+                    Spacer()
+                    .partialSheet(presented: self.$showPopup, enableCover: false) {
                     CompetencyRequestPopup(total: self.$totalSelected)
+                    }
                 }
             }
         }.onAppear(perform: {
