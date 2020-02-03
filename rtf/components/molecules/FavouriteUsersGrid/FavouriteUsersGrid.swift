@@ -14,7 +14,9 @@ struct FavouriteUsersGrid: View {
     var users: [IUser]
     var editMode: Bool
     var action: (_ msg:IUser) -> Void = {i in print(i)}
-    @State var usersModal: Bool = false	
+    @State var usersModal: Bool = false
+    
+     var searchFav:() -> Void = { print("")}
     
     var body: some View {
         VStack {
@@ -37,13 +39,11 @@ struct FavouriteUsersGrid: View {
                                     .frame(width: 80, height: 13, alignment: .center)
                             }
                             .frame(width: 60, height: 96, alignment: .center)
-                            .sheet(isPresented: self.$usersModal) {
-                                SearchFavourite()
-                            }
+                            
                             .onTapGesture {
-                                print("click")
+                                print("!!")
                                 self.store.dispatch(searchActions.resetSearch)
-                                self.usersModal = true
+                                self.searchFav()
                             }
                         } else {
                             UserDeleteIcon(
@@ -62,117 +62,5 @@ struct FavouriteUsersGrid: View {
         }
     }
     
-    struct FavouriteUsersGrid_Previews: PreviewProvider {
-        static private let testUsers: [IUser] = [
-            IUser(
-                sUserId: "",
-                sFirstName: "Добавить",
-                sMiddleName: "",
-                sLastName: "",
-                sFullName: "Добавить",
-                sTitle: nil,
-                sStructure: nil,
-                iRating: nil,
-                bIsMe: nil,
-                bIsPinned: nil,
-                bIsMyTeam: nil,
-                sPhoto: nil,
-                sIncomeComment: nil,
-                sStatus: nil,
-                iIncomeRates: nil,
-                IncomeRequests: nil,
-                bTypeEstimate: nil,
-                sExtidFblock: nil,
-                bAddButton: true
-            ),
-            IUser(
-                sUserId: "matvey",
-                sFirstName: "Anton",
-                sMiddleName: nil,
-                sLastName: "Pugachev",
-                sFullName: nil,
-                sTitle: nil,
-                sStructure: nil,
-                iRating: nil,
-                bIsMe: nil,
-                bIsPinned: nil,
-                bIsMyTeam: nil,
-                sPhoto: "",
-                sIncomeComment: nil,
-                sStatus: nil,
-                iIncomeRates: nil,
-                IncomeRequests: nil,
-                bTypeEstimate: nil,
-                sExtidFblock: nil,
-                bAddButton: false
-            ),
-            IUser(
-                sUserId: "matvey",
-                sFirstName: "Anton",
-                sMiddleName: nil,
-                sLastName: "Kokorev",
-                sFullName: nil,
-                sTitle: nil,
-                sStructure: nil,
-                iRating: nil,
-                bIsMe: nil,
-                bIsPinned: nil,
-                bIsMyTeam: nil,
-                sPhoto: "",
-                sIncomeComment: nil,
-                sStatus: nil,
-                iIncomeRates: nil,
-                IncomeRequests: nil,
-                bTypeEstimate: nil,
-                sExtidFblock: nil,
-                bAddButton: false
-            ),
-            IUser(
-                sUserId: "matvey",
-                sFirstName: "Anton",
-                sMiddleName: nil,
-                sLastName: "Elistratov",
-                sFullName: nil,
-                sTitle: nil,
-                sStructure: nil,
-                iRating: nil,
-                bIsMe: nil,
-                bIsPinned: nil,
-                bIsMyTeam: nil,
-                sPhoto: "",
-                sIncomeComment: nil,
-                sStatus: nil,
-                iIncomeRates: nil,
-                IncomeRequests: nil,
-                bTypeEstimate: nil,
-                sExtidFblock: nil,
-                bAddButton: false
-            ),
-            IUser(
-                sUserId: "matvey",
-                sFirstName: "Alexandr",
-                sMiddleName: nil,
-                sLastName: "Yudin",
-                sFullName: nil,
-                sTitle: nil,
-                sStructure: nil,
-                iRating: nil,
-                bIsMe: nil,
-                bIsPinned: nil,
-                bIsMyTeam: nil,
-                sPhoto: "",
-                sIncomeComment: nil,
-                sStatus: nil,
-                iIncomeRates: nil,
-                IncomeRequests: nil,
-                bTypeEstimate: nil,
-                sExtidFblock: nil,
-                bAddButton: false
-            )
-        ]
-        
-        static var previews: some View {
-            FavouriteUsersGrid(users: testUsers, editMode: false)
-        }
-    }
+    
 }

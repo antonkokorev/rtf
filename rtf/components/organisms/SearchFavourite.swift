@@ -14,15 +14,12 @@ struct SearchFavourite: View {
 	@ObservedObject var aSearchUsers: SearchState = ObservableState(store: mainStore).state.searchSubState
     @ObservedObject var aFavUsers: usersFavouriteState = ObservableState(store: mainStore).state.usersFavouriteSubState
     @ObservedObject var error: ErrorState = ObservableState(store: mainStore).state.errorSubState
-    @ObservedObject var textModel: TextModel = TextModel()
+    @EnvironmentObject var textModel: TextModel 
    
 //
-//    init() {
-//		self.aSearchUsers = self.store.state.searchSubState
-//        self.aFavUsers = self.store.state.usersFavouriteSubState
-//        self.error = self.store.state.errorSubState
-//		self.textModel =  TextModel()
-//    }
+    init() {
+        print("!!!")
+    }
     
     var body: some View {
         VStack (alignment: .leading){

@@ -15,7 +15,7 @@ func greetUser(msg:String) {
 struct StartPage: View {
 	//=====================================================================================================================================
 	/** подписки из store **/
-	
+	@EnvironmentObject var search: TextModel
 	/** главный store **/
 	@ObservedObject var store = ObservableState(store: mainStore)
 	
@@ -178,7 +178,7 @@ struct StartPage: View {
 							icon: "home__feedback"
 							
 						).sheet(isPresented: $feedbackModal) {
-							FeedBackPage()
+                            FeedBackPage().environmentObject(self.search)
 						}
 						
 						ActionCard(
@@ -224,7 +224,6 @@ struct StartPage: View {
 			//				self.store.dispatch(thanksActions.pendingGetThanksCount)
 			self.store.dispatch(usersRecentActions.pendingGetRecentUsers)
 			self.store.dispatch(usersHistoryActions.pendingGetHistoryList)
-			print("1")
 			self.store.dispatch(feedbackPropsActions.pendingGetAllCompetences)
 		})
 			/** список юзеров в истории*/

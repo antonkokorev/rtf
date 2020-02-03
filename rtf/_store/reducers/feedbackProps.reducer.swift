@@ -26,12 +26,11 @@ struct IUserCompetence: Codable, Hashable {
 
 final class FeedbackPropsState: StateType, ObservableObject {
     @Published var competentions: [ICompetentions] = []
-
     @Published var status = ""
 }
 
 func feedbackPropsReducer(action: Action, state: FeedbackPropsState?) -> FeedbackPropsState {
-    var state = state ?? FeedbackPropsState()
+    let state = state ?? FeedbackPropsState()
 
     guard let action = action as? feedbackPropsActions else {
         return state
