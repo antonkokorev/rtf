@@ -9,30 +9,35 @@
 import SwiftUI
 
 struct SearchFavourite: View {
-	@ObservedObject var store = ObservableState(store: mainStore)
+    @ObservedObject var store = ObservableState(store: mainStore)
     
-	@ObservedObject var aSearchUsers: SearchState = ObservableState(store: mainStore).state.searchSubState
+    @ObservedObject var aSearchUsers: SearchState = ObservableState(store: mainStore).state.searchSubState
     @ObservedObject var aFavUsers: usersFavouriteState = ObservableState(store: mainStore).state.usersFavouriteSubState
     @ObservedObject var error: ErrorState = ObservableState(store: mainStore).state.errorSubState
     @EnvironmentObject var textModel: TextModel 
-   
-//
+    
+    //
     init() {
         print("!!!")
     }
     
     var body: some View {
-        VStack (alignment: .leading){
-            Text("Добавление в избранное")
-                .font(Font.Typography.sizingFont(font: .bold, size: .H1)).padding()
-            Text("Найдите пользователя  по ФИО, блоку, почте  и  добавьте его в избранное .") .foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-                .font(.custom("SBSansDisplay-Regular", size: 18)).padding()
+        VStack(alignment:.leading){
+            Text("Добавить в избранное")
+                .font(Font.Typography.sizingFont(font: .bold, size: .H1))
+                .padding(.bottom, 20)
+                .padding(.horizontal, 30)
+                .padding(.top, 40)
+            //--------------------------
+            /** Поиск  **/
             SearchBar(searchTxt: $textModel.searchText)
+                .padding(.bottom, 10)
+                .padding(.horizontal, 30)
             SearchListFav(self.aSearchUsers.collection, self.aFavUsers.collection)
             Spacer()
         }
         .toast(isShowing: self.error.errorHappened, text: Text(String(self.error.errorText!)))
-      .modifier(DismissingKeyboard())
+        .modifier(DismissingKeyboard())
     }
 }
 

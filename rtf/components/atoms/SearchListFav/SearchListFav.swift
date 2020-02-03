@@ -62,31 +62,27 @@ struct SearchListFav: View {
 		List {
 			ForEach(self.filterUsers(aSearchUsers, aFavUsers), id: \.self) { user in
 				HStack {
-					CircleImage(
-						imageUrl: getPhoto((user.oUserData?.sPersonSFID)!),
-						imageSize: 60,
-						backgroundColor: .black
-					)
-					VStack{
-						/** формат имени **/
-						HStack {
-							PersonNameTransformator(
-								lastName: (user.oUserData?.sPersonLastName)!,
-								firstName: (user.oUserData?.sPersonFirstName)!,
-								middleName: (user.oUserData?.sPersonFirstName)!
-							).padding(8).foregroundColor(.black)
-							Spacer()
+                    CircleImage(
+                        imageUrl: getPhoto((user.oUserData?.sPersonSFID)!),
+                        imageSize: 50
+                    )
+                        .padding(.trailing, 15)
+                    VStack(alignment: .leading){
+                        Spacer()
+                        /** формат имени **/
+                        PersonNameTransformator(
+                            lastName: (user.oUserData?.sPersonLastName)!,
+                            firstName: (user.oUserData?.sPersonFirstName)!,
+                            middleName: (user.oUserData?.sPersonMiddleName)!
+                        )
+                            .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                            .foregroundColor(Color.RTFPallete.textDefault)
+                        
+                        Text(String((user.oUserData?.sPositionFullName)!))
+                            .font(Font.Typography.sizingFont(font: .regular, size: .H3))
+                            .foregroundColor(Color.RTFPallete.textSecondary)
 						}
-						HStack {
-							Text(String((user.oUserData?.sPositionFullName)!))
-								.bold()
-								.padding(8)
-								.foregroundColor(Color(red:0.54, green:0.57, blue:0.61))
-							Spacer()
-						}
-					}
-					
-					
+
 					Spacer()
 					
 					/** текущий статус в избраном **/
@@ -94,11 +90,11 @@ struct SearchListFav: View {
 						/* кнопка перехода */
 		
 							CircleImage(
-								imageSize: 50,
+								imageSize: 40,
 								icon: "checkmark",
-								iconSize: 20,
-								backgroundColor: Color(red:0.93, green:0.94, blue:0.97)
-                            ).foregroundColor(.blue).onTapGesture {
+								iconSize: 18,
+								backgroundColor: Color.RTFPallete.baseColor.blueGray
+                            ).foregroundColor(Color.RTFPallete.buttonDefault).onTapGesture {
                                    self.deleteFromFav(userId: (user.oUserData?.sPersonSFID)!)
                             }
 						
@@ -108,17 +104,20 @@ struct SearchListFav: View {
 						/* кнопка перехода */
 					
 							CircleImage(
-								imageSize: 50,
+								imageSize: 40,
 								icon: "wAdd",
 								iconSize: BasicIconSizes.middle,
-								backgroundColor: Color(red:0.20, green:0.32, blue:1.00)
-                            ).foregroundColor(.white)
+								backgroundColor: Color.RTFPallete.buttonDefault
+                            ).foregroundColor(Color.RTFPallete.baseColor.blueGray)
                             .onTapGesture {
                                     self.addToFav(userId: (user.oUserData?.sPersonSFID)!)
                             }
 						
 					}
 				}
+                .padding(.horizontal, 10)
+                .padding(.top, 5)
+                .padding(.bottom, 10)
 			}
 		}
 	}

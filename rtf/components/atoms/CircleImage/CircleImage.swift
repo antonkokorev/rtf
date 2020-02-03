@@ -54,6 +54,8 @@ struct CircleImage:View {
             if ((icon) != nil){
             Image("\(icon!)")
                 .resizable()
+               .scaledToFill()
+               .clipShape(Circle())
                 .frame(width: iconSize ?? BasicIconSizes.mini, height: iconSize ?? BasicIconSizes.mini)
             }
             /**Текст*/

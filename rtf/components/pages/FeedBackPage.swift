@@ -94,7 +94,7 @@ struct FeedBackPage: View {
                     //--------------------------
                     /** Поиск  **/
                     SearchBar(searchTxt: $textModel.searchText)
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 10)
                         .padding(.horizontal, 30)
                     //--------------------------
                     /** Скрывает все, если есть найденые пользователи */
