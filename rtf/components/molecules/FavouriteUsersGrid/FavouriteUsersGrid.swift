@@ -21,7 +21,7 @@ struct FavouriteUsersGrid: View {
     var body: some View {
         VStack {
             /** Функция, которая парсит массив на ряды, columns = кол-во столбиков в ряду **/
-            FlowStackNoScroll(columns: 4, numItems: 100 , alignment: .leading) { index, colWidth in
+            FlowStack(columns: 4, numItems: 100 , alignment: .leading) { index, colWidth in
                 /** Объединение в одну вертикальную ячейку **/
                 if(index < self.users.count + 1){
                     VStack{

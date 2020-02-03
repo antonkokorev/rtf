@@ -112,7 +112,7 @@ struct FeedBackPage: View {
                             
                             /** Карусель с юзерами **/
                             Carousel(self.users.collection, action: userClick)
-                                .padding(.leading, -30)
+                                .padding(.horizontal, -30)
                                 .padding(.bottom, 30)
                             
                             /** Кнопки для управления юзерами **/
