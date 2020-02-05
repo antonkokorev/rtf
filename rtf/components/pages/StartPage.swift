@@ -7,7 +7,7 @@
 //
 import SwiftUI
 import PartialSheet
-
+import RxSwift
 
 func greetUser(msg:String) {
 	print(msg)
@@ -15,10 +15,11 @@ func greetUser(msg:String) {
 struct StartPage: View {
 	//=====================================================================================================================================
 	/** подписки из store **/
-	@EnvironmentObject var search: TextModel
+	//@EnvironmentObject var search: TextModel
+
 	/** главный store **/
 	@ObservedObject var store = ObservableState(store: mainStore)
-	
+    @ObservedObject var storeNew = MyStore(store: mStore)
 	/** стейты **/
 	@ObservedObject var recentUsers: UsersRecentState = ObservableState(store: mainStore).state.usersRecentSubState
 	@ObservedObject var requestUsers: usersRequestState = ObservableState(store: mainStore).state.usersRequestSubState
@@ -27,7 +28,26 @@ struct StartPage: View {
 	@ObservedObject var thanks: thanksState = ObservableState(store: mainStore).state.thanksSubState
 	@ObservedObject var error: ErrorState = ObservableState(store: mainStore).state.errorSubState
 	@ObservedObject var historyList: usersHistoryState = ObservableState(store: mainStore).state.userHistorySubState
-	
+    init(){
+//        do {
+//          print("!!!", try storeNew.store.states["me"]?.value() ?? "")
+//              } catch {
+//                     //print(error)
+//                 }
+        
+        storeNew.dispatch(action: "pendingGetMe")
+        
+        _  = storeNew.store.states["me"]?.subscribe(onNext: { (data:Any) in
+             print("@@@data@@@   \(data)")
+        })
+        
+        
+//      MyStore.states["me"]?.asObserver().subscribe(onNext: { string in
+//            print("First Subscription: ", string)
+//        })
+       // MyStore.states["me"]?.onNext("HI")
+        
+    }
 	//=====================================================================================================================================
 	/** локальный state, изменяемые переменные **/
 	
@@ -54,6 +74,7 @@ struct StartPage: View {
 	private  func goNextPage(page:String) -> Void {
 		switch page {
 		case "История":
+        
 			historyModal = true
 			self.store.dispatch(usersHistoryActions.pendingGetHistoryList)
 		case "Статистика":
@@ -178,7 +199,8 @@ struct StartPage: View {
 							icon: "home__feedback"
 							
 						).sheet(isPresented: $feedbackModal) {
-                            FeedBackPage().environmentObject(self.search)
+                            Text("")
+                           // FeedBackPage().environmentObject(self.search)
 						}
 						
 						ActionCard(

@@ -91,6 +91,13 @@ final class usersHistoryState: StateType, ObservableObject {
     
 }
 
+final class usersHistoryStateS: StateType {
+     var historyList: [IUserHistoryList] = [initIUserHistoryList()]
+     var userHistory: [IUserHistoryItem] = []
+     var status = ""
+    
+}
+
 func initIUserHistoryList()-> IUserHistoryList{
     return IUserHistoryList(oRequester: initIUser())}
 

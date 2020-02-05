@@ -21,12 +21,18 @@ struct  StatisticsPageModel {
 }
 
 struct  StatisticsPage: View {
-	
+	 @ObservedObject var storeNew = MyStore(store: mStore)
 	/** подписки из store **/
 	@ObservedObject var store = ObservableState(store: mainStore)
 	@ObservedObject var stat: StatisticsState = ObservableState(store: mainStore).state.statisticsSubState
  //=====================================================================================================================================
-	
+    init(){
+        storeNew.dispatch(action: "pendingGetMe")
+        
+        _  = storeNew.store.states["me"]?.subscribe(onNext: { (data:Any) in
+             print("@@@statstic@@@   \(data)")
+        })
+    }
 	/** локальный state, изменяемые переменные **/
     /** номер меню для дат*/
     @State var activeDate: Int = 2

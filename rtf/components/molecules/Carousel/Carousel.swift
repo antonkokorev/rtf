@@ -18,6 +18,8 @@ struct Carousel: View {
     init(_ users: [IUser] , action:@escaping (_ msg:IUser) -> Void ){
           self.users = users
         self.action = action
+
+        
       }
     var body: some View {
         

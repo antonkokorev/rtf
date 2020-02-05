@@ -22,6 +22,7 @@ struct  HistoryPage: View {
     var respondent:IUser
     //=====================================================================================================================================
     init(respondent: IUser){
+        
 //        self.history = store.state.userHistorySubState
 //        self.users = store.state.usersSubState
         self.respondent = respondent
