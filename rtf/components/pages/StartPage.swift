@@ -35,7 +35,7 @@ struct StartPage: View {
 //                     //print(error)
 //                 }
         
-        storeNew.dispatch(action: "pendingGetMe")
+        storeNew.dispatch(action: usersActionsNew.pendingGetMe)
         
         _  = storeNew.store.states["me"]?.subscribe(onNext: { (data:Any) in
              print("@@@data@@@   \(data)")

@@ -24,3 +24,18 @@ enum usersActions: Action {
     
     case filterActiveList
 }
+enum usersActionsNew: MyAction {
+    case pendingGetMe
+    case successGetMe(IUser)
+    
+    case pendingGetUserById
+    
+    case pendingCurrentUser
+    case setCurrentUser
+    
+    case setActiveUser
+    
+    case setAssessmentsCount
+    
+    case filterActiveList
+}

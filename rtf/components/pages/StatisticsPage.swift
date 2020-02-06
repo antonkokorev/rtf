@@ -27,7 +27,7 @@ struct  StatisticsPage: View {
 	@ObservedObject var stat: StatisticsState = ObservableState(store: mainStore).state.statisticsSubState
  //=====================================================================================================================================
     init(){
-        storeNew.dispatch(action: "pendingGetMe")
+       // storeNew.dispatch(action: "pendingGetMe")
         
         _  = storeNew.store.states["me"]?.subscribe(onNext: { (data:Any) in
              print("@@@statstic@@@   \(data)")

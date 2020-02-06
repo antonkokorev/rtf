@@ -15,6 +15,8 @@ enum testActions:MyAction {
     case successGetBoss
 }
 
+
+
 public protocol MyAction { }
 
 struct IAction {
@@ -23,11 +25,19 @@ struct IAction {
 }
 
 struct Effects {
-    func getUserData(action:String, payload:Any? = nil, this:MyStore){
+    func getUserData(action: MyAction,  this:MyStore){
+//        guard let userInvokedAction = payload as? usersActions else {
+//                    
+//                    return
+//                }
+      guard let userInvokedAction = action as? usersActionsNew else {
+   
+          return
+      }
         
-        print("effect : \(action)")
-        switch action {
-        case "pendingGetMe":
+        //print("effect : \(action)")
+        switch userInvokedAction {
+        case .pendingGetMe:
             AF.request(Interceptor.serviceRequest(service: "report/whoAmI",body: nil))
                 .response(completionHandler:  { response  in
                     switch response.result{
@@ -35,7 +45,7 @@ struct Effects {
                         do {
                             let data = try JSONDecoder().decode(IUser.self, from: response.data!)
                             // print(data)
-                            this.dispatch(action: "SuccessGetMe",payload: data)
+                            this.dispatch(action: usersActionsNew.successGetMe(data),payload: data)
                             //  next(usersActions.successGetMe(data))
                         } catch {
                             print("can't parse data pendingGetMe")
@@ -49,9 +59,6 @@ struct Effects {
                         break;
                     }
                 });
-            
-            
-            
             break
             
         default:
@@ -62,13 +69,18 @@ struct Effects {
 }
 
 struct Reduser {
-    func getUserData(action:String, payload:Any?,this:MyStore){
+    func getUserData(action:MyAction, this:MyStore){
         print("reducer : \(action)")
-        switch action {
-        case "SuccessGetMe":
+        
+        guard let userInvokedAction = action as? usersActionsNew else {
+        
+               return
+           }
+        switch userInvokedAction {
+        case .successGetMe(let user):
             
             print("")
-            this.store.states["me"]?.onNext(payload)
+            this.store.states["me"]?.onNext(user)
             break
         default:
             break
@@ -82,10 +94,10 @@ struct Reduser {
 class MyStore:ObservableObject {
     @Published var store:GLStore
     var title:String = ""
-    func dispatch (action:String, payload:Any? = nil){
+    func dispatch (action:MyAction, payload:Any? = nil){
         print("-------------------------pending\(action)--------------------------------")
-        Effects().getUserData(action: action, payload: payload, this: self)
-        Reduser().getUserData(action: action, payload: payload, this: self)
+        Effects().getUserData(action: action ,this: self)
+        Reduser().getUserData(action: action,  this: self)
     }
     init(store:GLStore){
         self.store = store
