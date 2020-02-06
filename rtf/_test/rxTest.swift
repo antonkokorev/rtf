@@ -82,8 +82,10 @@ struct IAction {
 
 
 
-
+let disposeBag = DisposeBag()
 func Effects (action: MyAction,  this:MyStore){
+	
+	
 	// регистрация эффекта и определиение типа передаваемых данных
 	if let invokedAction = action as? usersActionsNew {
 		
@@ -97,7 +99,20 @@ func Effects (action: MyAction,  this:MyStore){
 					onNext: { data in
 						/** прокидывание дальше **/
 						this.dispatch(action: usersActionsNew.successGetMe(data), payload: data)
-				})
+				}).disposed(by: disposeBag)
+			
+			//				.map{ innerValue -> IUser in
+			//
+			//					print("USER")
+			//					print(innerValue)
+			//					return innerValue
+			//			}
+			
+			//				.subscribe(
+			//					onNext: { data in
+			//						/** прокидывание дальше **/
+			//						this.dispatch(action: usersActionsNew.successGetMe(data), payload: data)
+			//				})
 			
 		default:
 			print("ERROR - result")
