@@ -18,6 +18,7 @@ struct FeedBackRequestPage: View {
     
     @ObservedObject var store = ObservableState(store: mainStore)
     
+    @EnvironmentObject var obj: MTFHeight
     
     //	init(){
     //		self.competenciesState = self.store.state.feedbackPropsSubState
@@ -60,13 +61,15 @@ struct FeedBackRequestPage: View {
                 .onAppear {
                     UITableView.appearance().separatorStyle = .none
                 }
-                .padding(.horizontal, 10)
-                if(totalSelected > 0){
-                    Spacer()
-                    .partialSheet(presented: self.$showPopup, enableCover: false) {
-                    CompetencyRequestPopup(total: self.$totalSelected)
-                    }
+                .partialSheet(
+                presented: self.$showPopup,
+                backgroundColor: Color.RTFPallete.backgroundDefault,
+                handlerBarColor: Color.RTFPallete.backgroundDefault,
+                enableCover: false
+                ){
+                CompetencyRequestPopup(total: self.$totalSelected)
                 }
+                .padding(.horizontal, 10)
             }
         }.onAppear(perform: {
             self.store.dispatch(feedbackPropsActions.pendingGetAllCompetences)

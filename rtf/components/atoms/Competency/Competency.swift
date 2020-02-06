@@ -34,6 +34,9 @@ struct Competency: View {
                 } else {
                     self.total -= 1
                 }
+                if (self.total == 0){
+                    self.showPopup = false
+                }
                 
                 self.selected = !self.selected
             }, label: {

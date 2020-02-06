@@ -16,6 +16,7 @@ struct StartPage: View {
 	//=====================================================================================================================================
 	/** подписки из store **/
 	@EnvironmentObject var search: TextModel
+    @EnvironmentObject var obj: MTFHeight
 	/** главный store **/
 	@ObservedObject var store = ObservableState(store: mainStore)
 	
@@ -178,7 +179,9 @@ struct StartPage: View {
 							icon: "home__feedback"
 							
 						).sheet(isPresented: $feedbackModal) {
-                            FeedBackPage().environmentObject(self.search)
+                            FeedBackPage()
+                                .environmentObject(self.search)
+                                .environmentObject(self.obj)
 						}
 						
 						ActionCard(

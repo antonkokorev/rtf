@@ -30,7 +30,8 @@ class TextModel: ObservableObject {
 struct FeedBackPage: View {
     
     /** подписки из store **/
-    @EnvironmentObject var textModel: TextModel 
+    @EnvironmentObject var textModel: TextModel
+    @EnvironmentObject var obj: MTFHeight
     @ObservedObject var store = ObservableState(store: mainStore)
     @ObservedObject var favUsers: usersFavouriteState = ObservableState(store: mainStore).state.usersFavouriteSubState
     @ObservedObject var users: UsersRecentState = ObservableState(store: mainStore).state.usersRecentSubState
@@ -153,7 +154,7 @@ struct FeedBackPage: View {
                     SearchFavourite().environmentObject(self.textModel)
                 }
                 Spacer().sheet(isPresented: $estimateUserModal) {
-                    FeedBackRequestPage(store: self.store)
+                    FeedBackRequestPage(store: self.store).environmentObject(self.obj)
                 }
             }.modifier(DismissingKeyboard()).partialSheet(presented: $modalPresented) {
                 VStack {

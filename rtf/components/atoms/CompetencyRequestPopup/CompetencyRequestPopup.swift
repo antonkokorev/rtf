@@ -9,44 +9,104 @@
 import SwiftUI
 
 struct CompetencyRequestPopup: View {
-	
-	@State var test: String = ""
-	@Binding var total: Int
-//	@Binding var selected: Bool
-	
+    @EnvironmentObject var obj: MTFHeight
+    @State var test: String = ""
+    @Binding var total: Int
+    //	@Binding var selected: Bool
+    
+    
+    
     var body: some View {
-//		Text("test")
-		VStack {
-			HStack{
-				Text("Выбрано: ")
-				
-//				CircleImage(
-//					imageSize: 100,
-//					labelText: "\(self.total)",
-//					labelColor: Color.RTFPallete.baseColor,
-//					backgroundColor: Color.RTFPallete.darkBlue
-//
-//				)
-				
-				
-				
-				Text("\(self.total)")
-			}
-
-			HStack {
-				TextField("Введите коммент", text: $test)
-				Button(action: {
-					
-				}, label: {
-					Text("send ->")
-				})
-			}
-		}
+        VStack {
+            HStack{
+                Text("Выбрано: ")
+                    .font(Font.Typography.sizingFont(font: .semibold, size: .H2))
+                    .foregroundColor(Color.RTFPallete.textDefault)
+                ZStack{
+                    CircleImage(
+                        imageSize: 35,
+                        backgroundColor: Color.RTFPallete.buttonDefault
+                    )
+                    Text("\(self.total)")}
+                    .font(Font.Typography.sizingFont(font: .bold, size: .H2))
+                    .foregroundColor(Color.RTFPallete.baseColor.white)
+                Spacer()
+            }
+            //Spacer()
+            HStack {
+                MultiTextField()//"Добавить комментарий", text: $test)
+                    .environmentObject(obj)
+                    .frame(width: 240, height: obj.size)
+                    .cornerRadius(20)
+                    .background(Color.RTFPallete.baseColor.white)
+                
+                //Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    ZStack{
+                        CircleImage(
+                            imageSize: 60,
+                            backgroundColor: Color.RTFPallete.buttonDefault
+                        )
+                        Image("arrow_down_white")
+                            .rotationEffect(.degrees(-90))
+                            .foregroundColor(Color.RTFPallete.baseColor.white)
+                    }
+                })
+            }
+            //Spacer()
+        }.padding(.horizontal, 30)
     }
 }
 
-//struct CompetencyRequestPopup_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CompetencyRequestPopup()
-//    }
-//}
+struct MultiTextField: UIViewRepresentable {
+    @EnvironmentObject var obj: MTFHeight
+    
+    func makeCoordinator() -> MultiTextField.Coordinator {
+        return MultiTextField.Coordinator(parent1: self)
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<MultiTextField>) -> UITextView {
+        let view = UITextView()
+        view.font = .systemFont(ofSize: 16)
+        view.text = "Добавить комментарий"
+        view.textColor = UIColor.black.withAlphaComponent(0.4)
+        view.backgroundColor = .clear
+        
+        view.delegate = context.coordinator
+        self.obj.size = view.contentSize.height
+        
+        view.isEditable = true
+        view.isUserInteractionEnabled = true
+        view.isScrollEnabled = true
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<MultiTextField>) {
+        
+    }
+    
+    class Coordinator: NSObject, UITextViewDelegate {
+        
+        var parent = MultiTextField()
+        init(parent1: MultiTextField){
+            parent = parent1
+        }
+        
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            textView.text = ""
+            textView.textColor = UIColor.black
+            
+        }
+        
+        func textViewDidChange(_ textView: UITextView) {
+            self.parent.obj.size = textView.contentSize.height
+        }
+    }
+}
+
+class MTFHeight: ObservableObject{
+    @Published var size: CGFloat = 0
+}
