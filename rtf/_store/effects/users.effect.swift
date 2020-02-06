@@ -21,33 +21,33 @@ var usersEffect: Middleware<AppState> = { dispatch, getState in
 			}
 			
 			/* делает реквест только если pending вызвано */
-			switch userInvokedAction {
-			case .pendingGetMe:
-				
-				AF.request(Interceptor.serviceRequest(service: "report/whoAmI",body: nil)).response { response in
-					/* обработка ошибок */
-					
-					switch response.result{
-					case .success:
-						do {
-							let data = try JSONDecoder().decode(IUser.self, from: response.data!)
-							
-							next(usersActions.successGetMe(data))
-						} catch {
-							print("can't parse data pendingGetMe")
-							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
-						}
-						break;
-					case .failure:
-						print("ERROR - result")
-						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
-						break;
-					}
-				}
-				break
-			default:
-				break
-			}
+//			switch userInvokedAction {
+//			case .pendingGetMe:
+//				
+//				AF.request(Interceptor.serviceRequest(service: "report/whoAmI",body: nil)).response { response in
+//					/* обработка ошибок */
+//					
+//					switch response.result{
+//					case .success:
+//						do {
+//							let data = try JSONDecoder().decode(IUser.self, from: response.data!)
+//							
+//							next(usersActions.successGetMe(data))
+//						} catch {
+//							print("can't parse data pendingGetMe")
+//							dispatch(errorActions.errorSuccess("Ошибка обработки данных"))
+//						}
+//						break;
+//					case .failure:
+//						print("ERROR - result")
+//						dispatch(errorActions.errorSuccess("Ошибка соединения с сервером"))
+//						break;
+//					}
+//				}
+//				break
+//			default:
+//				break
+//			}
 		}
 	}
 }
