@@ -12,9 +12,6 @@ struct CompetencyRequestPopup: View {
     @EnvironmentObject var obj: MTFHeight
     @State var test: String = ""
     @Binding var total: Int
-    //	@Binding var selected: Bool
-    
-    
     
     var body: some View {
         VStack {
@@ -33,14 +30,13 @@ struct CompetencyRequestPopup: View {
                 Spacer()
             }
             //Spacer()
-            HStack {
+            HStack(alignment: .bottom) {
                 MultiTextField()//"Добавить комментарий", text: $test)
-                    .environmentObject(obj)
-                    .frame(width: 240, height: obj.size)
-                    .cornerRadius(20)
+                    .frame(width: UIScreen.main.bounds.width * 0.6, height: (obj.size < 150) ? obj.size : 150)
                     .background(Color.RTFPallete.baseColor.white)
+                    .cornerRadius(20)
                 
-                //Spacer()
+                Spacer()
                 Button(action: {
                     
                 }, label: {
@@ -108,5 +104,5 @@ struct MultiTextField: UIViewRepresentable {
 }
 
 class MTFHeight: ObservableObject{
-    @Published var size: CGFloat = 0
+    @Published var size: CGFloat = 45
 }
