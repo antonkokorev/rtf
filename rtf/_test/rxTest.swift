@@ -64,7 +64,7 @@ func userEffect(action:usersActionsNew,this:MyStore){
 func Effects (action: MyAction,  this:MyStore){
     // регистрация эффекта и определиение типа передаваемых данных
         if let _ = action as? usersActionsNew {
-             userEffect(action: (action as? usersActionsNew)!  , this: this)
+             userEffect(action: (action as! usersActionsNew)  , this: this)
         }
     
        }
