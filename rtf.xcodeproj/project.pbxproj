@@ -120,6 +120,7 @@
 		EA7FD2D023DE2E3300FF1181 /* FeedBackHistoryUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7FD2CF23DE2E3300FF1181 /* FeedBackHistoryUser.swift */; };
 		EA7FD2D323DE34D700FF1181 /* FeedBackHistoryScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7FD2D223DE34D700FF1181 /* FeedBackHistoryScore.swift */; };
 		EA7FD2D623DE36D200FF1181 /* FeedBackHistoryScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7FD2D523DE36D200FF1181 /* FeedBackHistoryScoreItem.swift */; };
+		EA90913523EC5D99006D4867 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = EA90913423EC5D99006D4867 /* RxSwiftExt */; };
 		EA9211C423C517EB00A0CB5B /* state.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211C323C517EB00A0CB5B /* state.swift */; };
 		EA9211CF23C5381E00A0CB5B /* subordinates.effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9211CE23C5381E00A0CB5B /* subordinates.effect.swift */; };
 		EA92122823C72CA200A0CB5B /* SBSansUI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA92120C23C72CA100A0CB5B /* SBSansUI-Regular.otf */; };
@@ -316,6 +317,7 @@
 				46B9530C23DAD312009889EC /* QGrid in Frameworks */,
 				46B9530523DACE0C009889EC /* Alamofire in Frameworks */,
 				46B9530723DACE0C009889EC /* URLImage in Frameworks */,
+				EA90913523EC5D99006D4867 /* RxSwiftExt in Frameworks */,
 				46B9530823DACE0C009889EC /* PartialSheet in Frameworks */,
 				46B9530923DACE0C009889EC /* Toast in Frameworks */,
 				46B9530623DACE0C009889EC /* ReSwift in Frameworks */,
@@ -873,6 +875,7 @@
 				46B9530B23DAD312009889EC /* QGrid */,
 				46B9531023DEDE70009889EC /* RxSwift */,
 				46B9531223DEDE70009889EC /* RxCocoa */,
+				EA90913423EC5D99006D4867 /* RxSwiftExt */,
 			);
 			productName = rtf;
 			productReference = 3A506EA623C0D24E00A498C8 /* RTF.app */;
@@ -910,6 +913,7 @@
 				EA22A96723D617F7008D9D6F /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				46B9530A23DAD312009889EC /* XCRemoteSwiftPackageReference "QGrid" */,
 				46B9530F23DEDE70009889EC /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EA90913323EC5D99006D4867 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 			);
 			productRefGroup = 3A506EA723C0D24E00A498C8 /* Products */;
 			projectDirPath = "";
@@ -1329,6 +1333,14 @@
 				kind = branch;
 			};
 		};
+		EA90913323EC5D99006D4867 /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1371,6 +1383,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EA22A96723D617F7008D9D6F /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		EA90913423EC5D99006D4867 /* RxSwiftExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA90913323EC5D99006D4867 /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
+			productName = RxSwiftExt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

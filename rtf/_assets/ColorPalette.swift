@@ -20,7 +20,7 @@ struct BaseColor {
     let iconGray = Color("iconGray")
     let black = Color("mainBlack")
     let white = Color("mainWhite")
-    let buttonGrayBackground = Color("buttonGrayBackground")
+	let buttonGrayBackground = Color(.gray)
     let litePink = Color("litePink")
     let carouselBackground = Color("carouselBackground")
     
